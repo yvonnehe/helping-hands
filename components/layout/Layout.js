@@ -14,7 +14,10 @@ const Layout = ({ children }) => {
       </nav>
       {children}
 
-      <footer></footer>
+      <footer>
+        <img src="fb_white.svg" alt="Facebook icon" />
+        <img src="ig_white.svg" alt="Instagram icon" />
+      </footer>
     </>
   );
 };
