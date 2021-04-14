@@ -1,3 +1,18 @@
-p {
-  color: red;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 5px;
+  &__logo {
+    margin: 100px;
+  }
+  &__links {
+    margin: 20px;
+    margin-top: 50px;
+  }
+}
+
+a {
+  padding: 10px 15px;
 }

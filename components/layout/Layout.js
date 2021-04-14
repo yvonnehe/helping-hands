@@ -6,40 +6,34 @@ const Layout = ({ children }) => {
     <>
       <nav>
         <div class="navbar">
-          <Link class="navbar__link" href="/">
+          <Link class="navbar__logo" href="/">
             <Image
               src="/helping-hands-logo.svg"
               alt="Helping Hands logo"
-              width=""
-              height=""
+              width="370px"
+              height="105px"
             />
           </Link>{" "}
-          |{" "}
-          <Link class="navbar__link" href="/om-oss">
-            Om oss
-          </Link>{" "}
-          |{" "}
-          <Link class="navbar__link" href="/vare-prosjekter">
-            Våre prosjekter
-          </Link>
-          <Link class="navbar__link" href="/fadderordning">
-            Fadderordning
-          </Link>
-          <Link class="navbar__link" href="/hvordan-hjelpe">
-            Hvordan hjelpe
-          </Link>
-          <Link class="navbar__link" href="/kontakt">
-            Kontakt
-          </Link>
+          <div class="navbar__links">
+            <Link href="/om-oss">Om oss</Link>
+            <Link href="/vare-prosjekter">Våre prosjekter</Link>
+            <Link href="/fadderordning">Fadderordning</Link>
+            <Link href="/hvordan-hjelpe">Hvordan hjelpe</Link>
+            <Link href="/kontakt">Kontakt</Link>
+          </div>
         </div>
       </nav>
       {children}
 
       <footer>
-        <img src="fb_white.svg" alt="Facebook icon" />
-        <img src="ig_white.svg" alt="Instagram icon" />
-        <Link href="/kontakt">Kontakt</Link>
-        <p>© Yvonne Helland 2021</p>
+        <div class="footerdiv">
+          <div>
+            <img class="icon" src="fb_white.svg" alt="Facebook icon" />
+            <img class="icon" src="ig_white.svg" alt="Instagram icon" />
+          </div>
+          <Link href="/kontakt">Kontakt</Link>
+          <p>© Yvonne Helland 2021</p>
+        </div>
       </footer>
     </>
   );
