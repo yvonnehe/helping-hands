@@ -5,8 +5,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <nav>
-        <div>
-          <Link href="/">
+        <div class="navbar">
+          <Link class="navbar__link" href="/">
             <Image
               src="/helping-hands-logo.svg"
               alt="Helping Hands logo"
@@ -14,11 +14,23 @@ const Layout = ({ children }) => {
               height=""
             />
           </Link>{" "}
-          | <Link href="/om-oss">Om oss</Link> |{" "}
-          <Link href="/vare-prosjekter">Våre prosjekter</Link>
-          <Link href="/fadderordning">Fadderordning</Link>
-          <Link href="/hvordan-hjelpe">Hvordan hjelpe</Link>
-          <Link href="/kontakt">Kontakt</Link>
+          |{" "}
+          <Link class="navbar__link" href="/om-oss">
+            Om oss
+          </Link>{" "}
+          |{" "}
+          <Link class="navbar__link" href="/vare-prosjekter">
+            Våre prosjekter
+          </Link>
+          <Link class="navbar__link" href="/fadderordning">
+            Fadderordning
+          </Link>
+          <Link class="navbar__link" href="/hvordan-hjelpe">
+            Hvordan hjelpe
+          </Link>
+          <Link class="navbar__link" href="/kontakt">
+            Kontakt
+          </Link>
         </div>
       </nav>
       {children}
