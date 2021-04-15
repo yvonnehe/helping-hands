@@ -11,15 +11,26 @@ const HvordanHjelpe = () => {
           kan hjelpe oss med.{" "}
         </p>
         <h5>Vi ønsker gjerne at du tar kontakt dersom: </h5>
-        <p>
-          - Din arbeidsplass eller bedrift ønsker å samarbeide med eller støtte
-          oss. - Din skole har lyst å bidra til gode formål. Gjennom loddsalg,
-          innsamlinger eller andre aktiviteter. - Du ønsker å booke et
-          arrangement via oss. Vi har tidligere arrangert veldedighetskonserter,
-          veldedighetsyoga, utsalg av hjemmelagde ting, etc. - Privatpersoner
-          som ønsker å bli faddere *link, eller månedsgivere. Du velger selv
-          beløp{" "}
-        </p>
+        <ul>
+          <li>
+            Din arbeidsplass eller bedrift ønsker å samarbeide med eller støtte
+            oss.
+          </li>{" "}
+          <li>
+            Din skole har lyst å bidra til gode formål. Gjennom loddsalg,
+            innsamlinger eller andre aktiviteter.
+          </li>
+          <li>
+            {" "}
+            Du ønsker å booke et arrangement via oss. Vi har tidligere arrangert
+            veldedighetskonserter, veldedighetsyoga, utsalg av hjemmelagde ting,
+            etc.
+          </li>
+          <li>
+            Privatpersoner som ønsker å bli faddere eller månedsgivere. Du
+            velger selv beløp.{" "}
+          </li>
+        </ul>
       </div>
       <div className="hvordanhjelpe2">
         <h3>Vi setter pris på omtanken, men…</h3>

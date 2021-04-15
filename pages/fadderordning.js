@@ -8,12 +8,13 @@ const Fadderordning = () => {
           Helping Hands fadderordning er laget for å støtte barn og ungdom
           gjennom skolen. I noen tilfeller andre familier som trenger hjelp av
           spesielle grunner. Vi ønsker å gi flest mulig barn og unge mulighet
-          til skolegang og høyere utdanning. Dersom du ikke ønsker å være fadder
-          for et spesifikt barn, kan du også kontakte oss for å bli månedlig
-          giver. Da distribuerer vi pengene slik vi mener det er best, for
-          eksempel til barn som ikke har fått fadder, hvis et av barna blir
-          syke, eller andre i vanskelige situasjoner. Ta kontakt med oss på
-          e-post dersom du ønsker å bli fadder!
+          til skolegang og høyere utdanning.<br></br>
+          <br></br> Dersom du ikke ønsker å være fadder for et spesifikt barn,
+          kan du også kontakte oss for å bli månedlig giver. Da distribuerer vi
+          pengene slik vi mener det er best, for eksempel til barn som ikke har
+          fått fadder, hvis et av barna blir syke, eller andre i vanskelige
+          situasjoner. <br></br>
+          <br></br>Ta kontakt med oss på e-post dersom du ønsker å bli fadder!
         </p>
       </div>
       <div className="ledigefadder">
