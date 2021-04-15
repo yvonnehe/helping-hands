@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const OmOss = () => {
   return (
     <>
@@ -24,6 +26,12 @@ const OmOss = () => {
           Yvonne, og dermed grunnla de Helping Hands da de begge var kun 20 år
           gamle studenter.{" "}
         </p>
+        <Image
+          src="/helping-hands-team.JPG"
+          alt="Helping Hands team"
+          height="300"
+          width=""
+        />
       </div>
       <div className="gladness">
         <h3>Gladness - hjertet i organisasjonen</h3>
@@ -44,6 +52,12 @@ const OmOss = () => {
           Gladness — hjertet i Helping Hands, vi hadde ikke vært noe sted uten
           deg.
         </p>
+        <Image
+          src="/Gladness.jpg"
+          alt="Gladness - A Tanzanian woman smiling wearing a yellow dress"
+          height="300"
+          width=""
+        />
       </div>
     </>
   );
