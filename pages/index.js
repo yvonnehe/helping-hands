@@ -33,6 +33,12 @@ export default function Home() {
       </div>
 
       <div className="section2">
+        <Image
+          src="/100-icon.svg"
+          alt="Pie graph showing 100%"
+          height=""
+          width=""
+        />
         <h4>100% av innsamlede midler går til formålet</h4>
         <p>
           Tall basert på regnskap 2020. Vi ønsker at de pengene vi samler inn
