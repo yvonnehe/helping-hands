@@ -30,6 +30,12 @@ export default function Home() {
           <p>Vipps til 13947 - Støtt oss med valgfritt beløp</p>
         </div>
         <div className="section1__3">
+          <Image
+            src="/helping-hands-student.jpg"
+            alt="Tanzanian student smiling in his uniform"
+            height=""
+            width=""
+          />
           <h4>Bli fadder</h4>
           <p>
             Du kan velge om du vil være Fadder for et spesifikt barn, eller

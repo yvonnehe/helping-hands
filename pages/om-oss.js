@@ -29,8 +29,8 @@ const OmOss = () => {
         <Image
           src="/helping-hands-team.JPG"
           alt="Helping Hands team"
-          height="300"
-          width=""
+          height="300px"
+          width="300px"
         />
       </div>
       <div className="gladness">
@@ -55,8 +55,8 @@ const OmOss = () => {
         <Image
           src="/Gladness.jpg"
           alt="Gladness - A Tanzanian woman smiling wearing a yellow dress"
-          height="300"
-          width=""
+          height="300px"
+          width="300px"
         />
       </div>
     </>
