@@ -5,16 +5,16 @@ const Layout = ({ children }) => {
   return (
     <>
       <nav>
-        <div class="navbar">
-          <Link class="navbar__logo" href="/">
+        <div className="navbar">
+          <Link href="/">
             <Image
               src="/helping-hands-logo.svg"
               alt="Helping Hands logo"
-              width="370px"
-              height="105px"
+              width="300px"
+              height="80px"
             />
           </Link>{" "}
-          <div class="navbar__links">
+          <div className="navbar__links">
             <Link href="/om-oss">Om oss</Link>
             <Link href="/vare-prosjekter">Våre prosjekter</Link>
             <Link href="/fadderordning">Fadderordning</Link>

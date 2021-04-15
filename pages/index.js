@@ -9,9 +9,15 @@ export default function Home() {
         <link rel="icon" href="/helping-hands-logo-icon-2.svg" />
       </Head>
 
-      <h1>Gi skolegang i gave</h1>
-      <p>Du kan støtte et barns skolegang gjennom vår fadderordning</p>
-      <button class="btn btn--orange">LES MER</button>
+      <div className="hero">
+        <div class="hero__content">
+          <h1>Gi skolegang i gave</h1>
+          <p className="hero__p">
+            Du kan støtte et barns skolegang gjennom vår fadderordning
+          </p>
+          <button className="btn btn--orange">LES MER</button>
+        </div>
+      </div>
 
       <div>
         <h3>
@@ -40,8 +46,8 @@ export default function Home() {
       <div>
         <h3>Følg oss på sosiale medier</h3>
         <h4>For oppdateringer om hva vi jobber med</h4>
-        <button class="btn btn--gray">Facebook</button>
-        <button class="btn btn--gray">Instagram</button>
+        <button className="btn btn--gray">Facebook</button>
+        <button className="btn btn--gray">Instagram</button>
       </div>
 
       <div>
