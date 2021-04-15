@@ -18,3 +18,29 @@
     top: 400px;
   }
 }
+
+.section1 {
+  background-color: #f7f4f4;
+  padding: 30px;
+}
+
+.section2 {
+  padding: 30px;
+}
+
+.section3 {
+  background-color: #f7f4f4;
+  padding: 50px 30px;
+  text-align: center;
+  &__h3 {
+    margin: 0px;
+  }
+  &__h4 {
+    margin: 10px;
+    margin-bottom: 25px;
+  }
+}
+
+.section4 {
+  padding: 30px;
+}

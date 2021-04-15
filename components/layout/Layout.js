@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
               alt="Helping Hands logo"
               width="300px"
               height="80px"
+              className="navbar__logo"
             />
           </Link>{" "}
           <div className="navbar__links">
