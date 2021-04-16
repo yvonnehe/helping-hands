@@ -72,26 +72,26 @@ export default function Home() {
         <button className="btn btn--gray">Instagram</button>
       </div>
 
-      <div className="section4">
+      <div className="headlinesection">
         <h3>Dette har vi fått til sammen</h3>
       </div>
       <div className="section4">
         <div className="section4__1">
-          <div className="boximage"></div>
+          <div className="boximage boximage--students"></div>
           <div className="boxtext boxtext--suksess">
             <h4>Miriam</h4>
             <p>Kort tekst om Miriam</p>
           </div>
         </div>
         <div className="section4__2">
-          <div className="boximage"></div>
+          <div className="boximage boximage--miriam"></div>
           <div className="boxtext boxtext--suksess">
             <h4>Headline</h4>
             <p>Kort tekst</p>
           </div>
         </div>
         <div className="section4__3">
-          <div className="boximage"></div>
+          <div className="boximage boximage--seminar"></div>
           <div className="boxtext boxtext--suksess">
             <h4>Headline</h4>
             <p>Kort tekst</p>

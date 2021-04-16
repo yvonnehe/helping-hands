@@ -67,7 +67,8 @@
 .section4 {
   padding: 30px;
   display: flex;
-  margin-bottom: 50px;
+  padding-bottom: 110px;
+  padding-top: 10px;
   //justify-content: space-around;
   &__1 {
     flex: 1;
@@ -83,6 +84,10 @@
   }
 }
 
+.headlinesection {
+  padding: 30px 30px 0px 30px;
+}
+
 .boximage {
   height: 230px;
   background-size: cover;
@@ -94,6 +99,21 @@
   &--vipps {
     background-image: url("../../public/tanzania.jpg");
     background-position: 50% 25%;
+  }
+  &--students {
+    background-image: url("../../public/helping-hands-students-small-uniforms.jpg");
+    height: 270px;
+    background-position: 50% 50%;
+  }
+  &--miriam {
+    background-image: url("../../public/helping-hands-miriam.jpg");
+    height: 270px;
+    background-position: 50% 25%;
+  }
+  &--seminar {
+    background-image: url("../../public/helping-hands-seminar-family-plan.jpg");
+    height: 270px;
+    background-position: 50% 50%;
   }
 }
 
