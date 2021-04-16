@@ -26,21 +26,21 @@ export default function Home() {
           </h3>
         </div>
         <div className="section1__2">
-          <h4>Støtt med VIPPS</h4>
-          <p>Vipps til 13947 - Støtt oss med valgfritt beløp</p>
+          <div className="boximage boximage--vipps"></div>
+          <div className="boxtext boxtext--bidra">
+            <h4>Støtt med VIPPS</h4>
+            <p>Vipps til 13947 - Støtt oss med valgfritt beløp</p>
+          </div>
         </div>
         <div className="section1__3">
-          <Image
-            src="/helping-hands-student.jpg"
-            alt="Tanzanian student smiling in his uniform"
-            height=""
-            width=""
-          />
-          <h4>Bli fadder</h4>
-          <p>
-            Du kan velge om du vil være Fadder for et spesifikt barn, eller
-            støtte vårt arbeid med et månedlig beløp.
-          </p>
+          <div className="boximage boximage--fadder"></div>
+          <div className="boxtext boxtext--bidra">
+            <h4>Bli fadder</h4>
+            <p>
+              Du kan velge om du vil være Fadder for et spesifikt barn, eller
+              støtte vårt arbeid med et månedlig beløp.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -74,8 +74,29 @@ export default function Home() {
 
       <div className="section4">
         <h3>Dette har vi fått til sammen</h3>
-        <h4>Miriam</h4>
-        <p>Kort tekst om Miriam</p>
+      </div>
+      <div className="section4">
+        <div className="section4__1">
+          <div className="boximage"></div>
+          <div className="boxtext boxtext--suksess">
+            <h4>Miriam</h4>
+            <p>Kort tekst om Miriam</p>
+          </div>
+        </div>
+        <div className="section4__2">
+          <div className="boximage"></div>
+          <div className="boxtext boxtext--suksess">
+            <h4>Headline</h4>
+            <p>Kort tekst</p>
+          </div>
+        </div>
+        <div className="section4__3">
+          <div className="boximage"></div>
+          <div className="boxtext boxtext--suksess">
+            <h4>Headline</h4>
+            <p>Kort tekst</p>
+          </div>
+        </div>
       </div>
     </>
   );

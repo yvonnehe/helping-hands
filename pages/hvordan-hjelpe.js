@@ -39,9 +39,9 @@ const HvordanHjelpe = () => {
           eiendeler, dette tar vi dessverre ikke imot. Det lønner seg å handle
           lokalt fremfor å bruke store summer på å transportere ned ting fra
           Norge. Det er også viktig for oss at vi støtter opp om de lokale
-          bedriftene i Tanzania dersom vi skulle ha behov for noe. Vi får også
-          spørsmål fra folk som ønsker å reise ned og hjelpe til lokalt i
-          Tanzania. Dette har vi ikke behov for per i dag!{" "}
+          bedriftene i Tanzania dersom vi skulle ha behov for noe.<br></br>
+          <br></br> Vi får også spørsmål fra folk som ønsker å reise ned og
+          hjelpe til lokalt i Tanzania. Dette har vi ikke behov for per i dag!{" "}
         </p>
       </div>
     </>
