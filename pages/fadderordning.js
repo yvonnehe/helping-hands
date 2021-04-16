@@ -18,7 +18,16 @@ const Fadderordning = () => {
         </p>
       </div>
       <div className="ledigefadder">
-        <h3>Ledige fadderbarn</h3>
+        <h3>Venter på fadder</h3>
+        <div className="fadderbarn">
+          <div className="fadderbarn__1"></div>
+          <div className="fadderbarn__2"></div>
+          <div className="fadderbarn__3"></div>
+          <div className="fadderbarn__4"></div>
+          <div className="fadderbarn__5"></div>
+          <div className="fadderbarn__6"></div>
+          <div className="fadderbarn__7"></div>
+        </div>
       </div>
       <div className="andrefadder">
         <h3>Andre med behov for ekstra støtte</h3>

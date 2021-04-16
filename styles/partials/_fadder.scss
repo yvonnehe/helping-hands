@@ -17,3 +17,37 @@
   padding: 30px;
   margin-bottom: 50px;
 }
+
+.fadderbarn {
+  display: flex;
+  align-content: center;
+  grid-gap: 30px;
+  &__1 {
+    flex: 1;
+    background-image: url("../../public/helping-hands-student.jpg");
+    background-position: 50% 25%;
+    background-size: cover;
+    height: 350px;
+  }
+  &__2 {
+    flex: 1;
+    background-image: url("../../public/helping-hands-student.jpg");
+    background-position: 50% 25%;
+    background-size: cover;
+    height: 350px;
+  }
+  &__3 {
+    flex: 1;
+    background-image: url("../../public/helping-hands-student.jpg");
+    background-position: 50% 25%;
+    background-size: cover;
+    height: 350px;
+  }
+  &__4 {
+    flex: 1;
+    background-image: url("../../public/helping-hands-student.jpg");
+    background-position: 50% 25%;
+    background-size: cover;
+    height: 350px;
+  }
+}

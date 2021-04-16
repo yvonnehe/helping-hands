@@ -79,22 +79,35 @@ export default function Home() {
         <div className="section4__1">
           <div className="boximage boximage--students"></div>
           <div className="boxtext boxtext--suksess">
-            <h4>Miriam</h4>
-            <p>Kort tekst om Miriam</p>
+            <h4>Skolegang og høyere utdanning</h4>
+            <p>
+              Mange barn er ikke på skolen på grunn av dårlig økonomi eller
+              manglende utstyr. Ved hjelp av mange faddere, betaler vi for
+              skolegang og utdanning til over 70 barn og unge.
+            </p>
           </div>
         </div>
         <div className="section4__2">
           <div className="boximage boximage--miriam"></div>
           <div className="boxtext boxtext--suksess">
-            <h4>Headline</h4>
-            <p>Kort tekst</p>
+            <h4>Miriam</h4>
+            <p>
+              Miriam ble plutselig lam fra livet og ned da hun var 15 år. Vi har
+              støttet henne med fysioterapi i over 2 år, hun kan nå gå igjen.
+              Les om hennes sterke historie.{" "}
+            </p>
           </div>
         </div>
         <div className="section4__3">
           <div className="boximage boximage--seminar"></div>
           <div className="boxtext boxtext--suksess">
-            <h4>Headline</h4>
-            <p>Kort tekst</p>
+            <h4>Seminar om familieplanlegging</h4>
+            <p>
+              Mange jenter blir tidlig gravide, gjerne helt ned i 14-15 års
+              alder. Det er vanskelig å få tak i god informasjon om
+              prevensjonsmidler og seksuell helse. Vi har holdt kurs med lokalt
+              helsepersonell.
+            </p>
           </div>
         </div>
       </div>
