@@ -29,6 +29,7 @@
     background-position: 50% 25%;
     background-size: cover;
     height: 350px;
+    width: 350px;
   }
   &__2 {
     flex: 1;
@@ -99,5 +100,14 @@
     background-position: 50% 25%;
     background-size: cover;
     height: 350px;
+    width: 350px;
+  }
+  &__2 {
+    flex: 1;
+    background-image: url("../../public/ndelekwa.jpg");
+    background-position: 50% 25%;
+    background-size: cover;
+    height: 350px;
+    width: 350px;
   }
 }
