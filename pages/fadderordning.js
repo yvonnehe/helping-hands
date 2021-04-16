@@ -1,6 +1,13 @@
+import Head from "next/head";
+
 const Fadderordning = () => {
   return (
     <>
+      <Head>
+        <title>Helping Hands - Fadderordning</title>
+        <link rel="icon" href="/helping-hands-logo-icon.svg" />
+      </Head>
+
       <div className="omfadder">
         <h2>Fadderordning</h2>
         <h3>Om fadderordningen</h3>

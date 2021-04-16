@@ -1,8 +1,14 @@
+import Head from "next/head";
 import Image from "next/image";
 
 const OmOss = () => {
   return (
     <>
+      <Head>
+        <title>Helping Hands - Om Oss</title>
+        <link rel="icon" href="/helping-hands-logo-icon.svg" />
+      </Head>
+
       <div className="teamstory">
         <h2>Om oss</h2>
         <h3>Helping Hands teamet</h3>

@@ -1,6 +1,12 @@
+import Head from "next/head";
 const Prosjekter = () => {
   return (
     <>
+      <Head>
+        <title>Helping Hands - Våre prosjekter</title>
+        <link rel="icon" href="/helping-hands-logo-icon.svg" />
+      </Head>
+
       <div className="prosjekter">
         <h2>Våre prosjekter</h2>
         <h3>Hva vi jobber med</h3>

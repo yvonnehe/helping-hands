@@ -17,3 +17,31 @@
 a {
   padding: 10px 15px;
 }
+
+// media queries
+/*
+@media screen and (max-width: 990px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav__list {
+    position: absolute;
+    right: 0px;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    transform: translateX(100%);
+  }
+  .nav__list--show {
+    transform: translateX(0%);
+  }
+  #hamburger {
+    display: block;
+    cursor: pointer;
+    z-index: 10;
+  }
+}
+*/

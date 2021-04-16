@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>Helping Hands</title>
-        <link rel="icon" href="/helping-hands-logo-icon-2.svg" />
+        <link rel="icon" href="/helping-hands-logo-icon.svg" />
       </Head>
 
       <div className="hero">
