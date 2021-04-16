@@ -15,7 +15,9 @@ export default function Home() {
           <p className="hero__p">
             Du kan støtte et barns skolegang gjennom vår fadderordning
           </p>
-          <button className="btn btn--orange">LES MER</button>
+          <a className="buttonlink" href="/fadderordning">
+            <button className="btn btn--orange">LES MER</button>
+          </a>
         </div>
       </div>
 
