@@ -34,10 +34,16 @@ const Fadderordning = () => {
           <div className="fadderbarn__5"></div>
           <div className="fadderbarn__6"></div>
           <div className="fadderbarn__7"></div>
+          <div className="fadderbarn__8"></div>
+          <div className="fadderbarn__9"></div>
         </div>
       </div>
       <div className="andrefadder">
         <h3>Andre med behov for ekstra støtte</h3>
+        <div className="andre">
+          <div className="andre__1"></div>
+          <div className="andre__2"></div>
+        </div>
       </div>
       <div className="faqfadder">
         <h3>Fadderordning FAQ - vanlig stilte spørsmål</h3>
