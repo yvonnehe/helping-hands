@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
           <Link className="kontaktlink" href="/kontakt">
             Kontakt
           </Link>
-          <p>© Yvonne Helland 2021</p>
+          <p className="copyright">© Yvonne Helland 2021</p>
         </div>
       </footer>
     </>
