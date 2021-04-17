@@ -38,6 +38,9 @@ const OmOss = () => {
           height="364"
           width="500"
         />
+        <p className="imagedescription">
+          Fra venstre: Daniélla, Gladness og Yvonne
+        </p>
       </div>
       <div className="gladness">
         <h3>Gladness - hjertet i organisasjonen</h3>
