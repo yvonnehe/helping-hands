@@ -41,7 +41,10 @@ const Prosjekter = () => {
           HIV-testing. Det er viktig for oss at informasjon om reproduktiv helse
           er tilgjengelig for kvinnene vi møter på, så de er bedre rustet til å
           ta egne valg for seg selv og sitt liv. <br></br>
-          <br></br>Noen av våre suksesshistorier *link
+          <br></br>
+          <a className="buttonlink" href="/dette-har-vi-fatt-til-sammen">
+            Noen av våre suksesshistorier
+          </a>
         </p>
       </div>
     </>
