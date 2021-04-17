@@ -16,6 +16,12 @@
 
 a {
   padding: 10px 15px;
+  &:hover {
+    color: #f96d11;
+  }
+  &:focus {
+    color: #f96d11;
+  }
 }
 
 // media queries

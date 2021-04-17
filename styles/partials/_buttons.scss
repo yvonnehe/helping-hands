@@ -4,16 +4,25 @@
   border-radius: 7px;
   font-weight: 700;
   font-size: 16px;
+  cursor: pointer;
   &--orange {
     background-color: #f96d11;
     color: white;
     border: none;
+    &:hover {
+      background-color: #e86712;
+    }
+    box-shadow: 0px 0px 10px #434343;
   }
   &--gray {
     background-color: #f7f4f4;
     border: 1px solid #434343;
     color: #434343;
     margin: 0px 40px;
+    &:hover {
+      background-color: #434343;
+      color: #f7f4f4;
+    }
   }
 }
 

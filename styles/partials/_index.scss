@@ -129,3 +129,13 @@
     background-color: white;
   }
 }
+
+.suksesslink {
+  padding: 0;
+  &:hover {
+    color: inherit;
+  }
+  &:focus {
+    color: inherit;
+  }
+}
