@@ -10,19 +10,18 @@ const Kontakt = () => {
 
       <div className="kontakt">
         <h2>Kontakt oss</h2>
-        <h3>
+        <h3 className="kontakt__h3">
           Dersom det er noe du lurer på, kan du gjerne ta kontakt med oss.
         </h3>
-        <p>Vi er tilgjengelige på e-post:</p>
         <h5>Helping Hands</h5>
         <h6>Generelle henvendelser</h6>
-        <p>info@helpinghands.no</p>
+        <p className="epost">info@helpinghands.no</p>
         <h5>Daniélla Rodrigues</h5>
         <h6>CEO & Co-founder</h6>
-        <p>daniella@helpinghands.no</p>
+        <p className="epost">daniella@helpinghands.no</p>
         <h5>Yvonne Helland</h5>
         <h6>CEO & Co-founder</h6>
-        <p>yvonne@helpinghands.no</p>
+        <p className="epost">yvonne@helpinghands.no</p>
       </div>
     </>
   );

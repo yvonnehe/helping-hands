@@ -1,18 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-/*var menu = () => {
-  var hamburger = document.getElementById("hamburger");
-  var nav__list = document.querySelector(".nav__list");
-
-  hamburger.addEventListener("click", () => {
-    nav__list.classList.toggle("nav__list--show");
-    hamburger.classList.toggle("toggle");
-  });
-};
-
-menu();*/
-
 const Layout = ({ children }) => {
   return (
     <>
