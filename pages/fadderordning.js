@@ -26,23 +26,28 @@ const Fadderordning = () => {
       </div>
       <div className="ledigefadder">
         <h3>Venter på fadder</h3>
-        <div className="fadderbarn">
-          <div className="fadderbarn__1"></div>
-          <div className="fadderbarn__2"></div>
-          <div className="fadderbarn__3"></div>
-          <div className="fadderbarn__4"></div>
-          <div className="fadderbarn__5"></div>
-          <div className="fadderbarn__6"></div>
-          <div className="fadderbarn__7"></div>
-          <div className="fadderbarn__8"></div>
-          <div className="fadderbarn__9"></div>
+        <div className="fadderbarn container-fluid">
+          <div className="row">
+            <div className="fadderbarn__1 col-3"></div>
+            <div className="fadderbarn__2 col-3"></div>
+            <div className="fadderbarn__3 col-3"></div>
+            <div className="fadderbarn__4 col-3"></div>
+            <div className="fadderbarn__5 col-lg-3"></div>
+            <div className="fadderbarn__6 col-lg-3"></div>
+            <div className="fadderbarn__7 col-lg-3"></div>
+            <div className="fadderbarn__8 col-lg-3"></div>
+            <div className="fadderbarn__9 col-lg-3"></div>
+            <div className="fadderbarn__10 col-lg-3"></div>
+          </div>
         </div>
       </div>
       <div className="andrefadder">
         <h3>Andre med behov for ekstra støtte</h3>
-        <div className="andre">
-          <div className="andre__1"></div>
-          <div className="andre__2"></div>
+        <div className="andre container-fluid">
+          <div className="row">
+            <div className="andre__1 col-3"></div>
+            <div className="andre__2 col-3"></div>
+          </div>
         </div>
       </div>
       <div className="faqfadder">

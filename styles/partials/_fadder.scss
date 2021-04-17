@@ -18,102 +18,111 @@
 }
 
 .fadderbarn {
-  display: flex;
-  flex-wrap: wrap;
+  //display: flex;
+  //flex-wrap: wrap;
   align-content: center;
-  grid-gap: 30px;
+  //grid-gap: 30px;
   &__1 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-student.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__2 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-obedi.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__3 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-musa.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__4 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-nathalya.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__5 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-joyce.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__6 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-jonas.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__7 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-amos.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__8 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-kurwa.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__9 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-joseph.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__10 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/helping-hands-ali.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
+    height: 300px;
+    width: 300px;
   }
 }
 
 .andre {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  grid-gap: 30px;
+  //display: flex;
+  //flex-wrap: wrap;
+  //align-content: center;
+  //grid-gap: 30px;
   &__1 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/mama-vanessa.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
   }
   &__2 {
-    flex: 1;
+    //flex: 1;
     background-image: url("../../public/ndelekwa.jpg");
     background-position: 50% 25%;
     background-size: cover;
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
   }
 }
