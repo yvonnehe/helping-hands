@@ -137,3 +137,22 @@
     color: inherit;
   }
 }
+
+// media queries
+@media screen and (max-width: 1144px) {
+  .hero__content {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 955px) {
+  .hero__content {
+    top: 350px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .hero__content {
+    top: 320px;
+  }
+}

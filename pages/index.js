@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <div className="hero">
-        <div class="hero__content">
+        <div className="hero__content">
           <h1>Gi skolegang i gave</h1>
           <p className="hero__p">
             Du kan støtte et barns skolegang gjennom vår fadderordning
@@ -47,7 +47,7 @@ export default function Home() {
       </div>
 
       <div className="section2">
-        <div class="section2__1">
+        <div className="section2__1">
           <Image
             src="/100-icon.svg"
             alt="Pie graph showing 100%"
@@ -55,7 +55,7 @@ export default function Home() {
             width=""
           />
         </div>
-        <div class="section2__2">
+        <div className="section2__2">
           <h4>100% av innsamlede midler går til formålet</h4>
           <p>
             Tall basert på regnskap 2020. Vi ønsker at de pengene vi samler inn
