@@ -49,12 +49,24 @@ const Layout = ({ children }) => {
       {children}
 
       <footer>
-        <div class="footerdiv">
+        <div className="footerdiv">
           <div>
-            <img class="icon" src="fb_white.svg" alt="Facebook icon" />
-            <img class="icon" src="ig_white.svg" alt="Instagram icon" />
+            <a
+              className="iconlink"
+              href="https://www.facebook.com/helpinghandsno"
+            >
+              <img className="icon" src="fb_white.svg" alt="Facebook icon" />
+            </a>
+            <a
+              className="iconlink"
+              href="https://www.instagram.com/helpinghandsno/"
+            >
+              <img className="icon" src="ig_white.svg" alt="Instagram icon" />
+            </a>
           </div>
-          <Link href="/kontakt">Kontakt</Link>
+          <Link className="kontaktlink" href="/kontakt">
+            Kontakt
+          </Link>
           <p>© Yvonne Helland 2021</p>
         </div>
       </footer>

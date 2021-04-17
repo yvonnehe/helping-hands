@@ -70,8 +70,18 @@ export default function Home() {
       <div className="section3">
         <h3 className="section3__h3">Følg oss på sosiale medier</h3>
         <h4 className="section3__h4">For oppdateringer om hva vi jobber med</h4>
-        <button className="btn btn--gray">Facebook</button>
-        <button className="btn btn--gray">Instagram</button>
+        <a
+          className="buttonlink"
+          href="https://www.facebook.com/helpinghandsno"
+        >
+          <button className="btn btn--gray">Facebook</button>
+        </a>
+        <a
+          className="buttonlink"
+          href="https://www.instagram.com/helpinghandsno/"
+        >
+          <button className="btn btn--gray">Instagram</button>
+        </a>
       </div>
 
       <div className="headlinesection">

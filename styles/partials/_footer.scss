@@ -12,3 +12,17 @@
   width: 20px;
   margin-right: 10px;
 }
+
+.iconlink {
+  padding: 0px;
+}
+
+a.kontaktlink {
+  padding: 0px;
+  &:hover {
+    color: #f7f4f4;
+  }
+  &:focus {
+    color: #f7f4f4;
+  }
+}
