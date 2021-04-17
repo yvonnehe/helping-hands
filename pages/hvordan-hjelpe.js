@@ -50,7 +50,7 @@ const HvordanHjelpe = () => {
             />
           </div>
         </div>
-        <div className="hvordanhjelpe2 row  flex-column-reverse flex-md-row">
+        <div className="hvordanhjelpe2 row flex-column-reverse flex-md-row">
           <div className="col-md-6 my-auto">
             <Image
               src="/helping-hands-kids.jpg"
