@@ -41,13 +41,14 @@
 .section2 {
   padding: 30px;
   padding-bottom: 40px;
-  margin: 0 130px;
-  display: flex;
+  //margin: 0 130px;
+  //display: flex;
   &__1 {
-    flex: 1;
+    //flex: 1;
   }
   &__2 {
-    flex: 4;
+    //flex: 4;
+    padding-top: 10px;
   }
 }
 
@@ -202,7 +203,7 @@
 
 @media screen and (max-width: 628px) {
   .hero__content {
-    width: 100%;
+    width: 80%;
     top: 30px;
   }
 }

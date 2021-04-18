@@ -49,24 +49,28 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="section2">
-        <div className="section2__1">
-          <Image
-            src="/100-icon.svg"
-            alt="Pie graph showing 100%"
-            height=""
-            width=""
-          />
-        </div>
-        <div className="section2__2">
-          <h4>100% av innsamlede midler går til formålet</h4>
-          <p>
-            Tall basert på regnskap 2020. Vi ønsker at de pengene vi samler inn
-            skal gå der de trengs mest, derfor gjør vi vårt ytterste for å gjøre
-            dette mulig. Administrasjonskostnadene betaler vi fra egen lomme.
-            Gladness sin lønn er betalt av egne givere som ønsker å støtte henne
-            i arbeidet hun gjør.
-          </p>
+      <div className="section2 container-fluid">
+        <div className="row">
+          <div className="col-lg-1 col-md-0"></div>
+          <div className="section2__1 col-lg-2 col-md-3 col-sm-4 col-xs-2">
+            <Image
+              src="/100-icon.svg"
+              alt="Pie graph showing 100%"
+              height=""
+              width=""
+            />
+          </div>
+          <div className="section2__2 col-lg-8 col-md-9 col-sm-8 col-xs-6">
+            <h4>100% av innsamlede midler går til formålet</h4>
+            <p>
+              Tall basert på regnskap 2020. Vi ønsker at de pengene vi samler
+              inn skal gå der de trengs mest, derfor gjør vi vårt ytterste for å
+              gjøre dette mulig. Administrasjonskostnadene betaler vi fra egen
+              lomme. Gladness sin lønn er betalt av egne givere som ønsker å
+              støtte henne i arbeidet hun gjør.
+            </p>
+          </div>
+          <div className="col-lg-1 col-md-0"></div>
         </div>
       </div>
 
