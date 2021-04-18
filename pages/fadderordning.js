@@ -30,7 +30,8 @@ const Fadderordning = () => {
           pengene slik vi mener det er best, for eksempel til barn som ikke har
           fått fadder, hvis et av barna blir syke, eller andre i vanskelige
           situasjoner. <br></br>
-          <br></br>Ta kontakt med oss på e-post dersom du ønsker å bli fadder!
+          <br></br>Ta kontakt med oss på e-post info@helpinghands.no dersom du
+          ønsker å bli fadder!
         </p>
       </div>
       <div className="ledigefadder">
