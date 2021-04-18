@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Miriam from "../components/Miriam";
 import Skredder from "../components/Skredder";
+import Skole from "../components/Skole";
 
 const Sammen = () => {
   return (
@@ -25,6 +26,7 @@ const Sammen = () => {
           til fadderne våre, som har gjort det mulig for oss å hjelpe så mange
           barn og unge med skolegang.
         </p>
+        <Skole />
       </div>
       <div className="historie2">
         <h3>Miriam</h3>

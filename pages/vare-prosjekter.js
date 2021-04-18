@@ -66,7 +66,7 @@ const Prosjekter = () => {
               <br></br>
               <br></br>
               <a className="buttonlink" href="/dette-har-vi-fatt-til-sammen">
-                Noen av våre suksesshistorier
+                Noen av våre solskinnshistorier
               </a>
             </p>
           </div>
