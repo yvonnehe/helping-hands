@@ -5,10 +5,10 @@ const Miriam = () => {
         <img src="/Miriam1.jpg"></img>
       </div>
       <div className="img-wrap">
-        <img src=""></img>
+        <img src="/Miriam2.jpg"></img>
       </div>
       <div className="img-wrap">
-        <img src=""></img>
+        <img src="/Miriam3.jpg"></img>
       </div>
     </div>
   );
