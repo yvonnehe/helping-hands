@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Miriam from "../components/Miriam";
 
 const Sammen = () => {
   return (
@@ -39,6 +40,7 @@ const Sammen = () => {
           innsats for Miriam. Samt faddere som har vært med å støtte oss gjennom
           hennes behandling.
         </p>
+        <Miriam />
       </div>
       <div className="historie3">
         <h3>Seminar om familieplanlegging</h3>
