@@ -58,12 +58,12 @@ const Prosjekter = () => {
               ikke har råd til nødvendig helsehjelp, ønsker vi også å bistå
               disse menneskene. Igjen er tanken vår å få mennesker friske, slik
               at de kan komme seg tilbake til arbeidslivet. <br></br>
-              <br></br> Vi driver også med familieplanlegging og prevensjon. Vi
-              har hatt kurs i familieplanlegging av lokalt helsepersonell, hvor
-              det blir gitt ut informasjon, gratis prevensjon og det foregår
-              gratis HIV-testing. Det er viktig for oss at informasjon om
-              reproduktiv helse er tilgjengelig for kvinnene vi møter på, så de
-              er bedre rustet til å ta egne valg for seg selv og sitt liv.{" "}
+              <br></br> Vi har også fokus på familieplanlegging og prevensjon.
+              Vi har hatt kurs i familieplanlegging av lokalt helsepersonell,
+              hvor det blir gitt ut informasjon, gratis prevensjon og det
+              foregår gratis HIV-testing. Det er viktig for oss at informasjon
+              om reproduktiv helse er tilgjengelig for kvinnene vi møter på, så
+              de er bedre rustet til å ta egne valg for seg selv og sitt liv.{" "}
               <br></br>
               <br></br>
               <a className="buttonlink" href="/dette-har-vi-fatt-til-sammen">
