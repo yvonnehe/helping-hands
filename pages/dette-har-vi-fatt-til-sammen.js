@@ -83,7 +83,7 @@ const Sammen = () => {
           jobb til å holde seminar for de lokale jentene. Gladness hadde også en
           “pep-talk” om deres egenverdi og muligheter, samt viktigheten av å
           kunne være selvstendig og ikke avhengig av en mann. Når
-          utdanningsseminaret var ferdig, tok med med oss en stor bukett av
+          utdanningsseminaret var ferdig, tok vi med med oss en stor bukett av
           jenter til skredderen - for de skulle begynne på skolen igjen. Alle
           jentene som ikke allerede gikk på skolen, ønsket å begynne på skolen
           etter å ha vært på seminaret. Det var også et ekstra seminar på
