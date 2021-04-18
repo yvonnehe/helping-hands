@@ -1,16 +1,18 @@
-const Fadderbarn = ({ setImg }) => {
+const Fadderbarn = ({ setImg, setName, setDesc }) => {
   return (
     <div className="img-grid">
       <div
         className="img-wrap"
-        onClick={() => setImg("/helping-hands-student-square.jpg")}
+        onClick={() => {
+          setImg("/helping-hands-student-square.jpg");
+          setName("Raymond");
+          setDesc("desc ray");
+        }}
       >
         <img
           src="/helping-hands-student-square.jpg"
           alt="Tanzanian student"
         ></img>
-        <h4>Raymond</h4>
-        <p>desc ray</p>
       </div>
       <div
         className="img-wrap"

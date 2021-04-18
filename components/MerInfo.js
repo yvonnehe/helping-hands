@@ -1,16 +1,18 @@
-const MerInfo = ({ Img, setImg }) => {
+const MerInfo = ({ Img, setImg, Name, setName, Desc, setDesc }) => {
   const exit = (e) => {
     if (e.target.classList.contains("backdrop")) {
       setImg(null);
+      //setName(null);
+      //setDesc(null);
     }
   };
 
   return (
     <div className="backdrop" onClick={exit}>
-      <img src={Img} alt="Bigger image"></img>
       <div className="description">
-        <h4>{Name}</h4>
-        <p>{Desc}</p>
+        <img src={Img} alt="Bigger image"></img>
+        <h4 className="name">{Name}</h4>
+        <p className="desc">{Desc}</p>
       </div>
     </div>
   );
