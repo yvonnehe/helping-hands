@@ -23,7 +23,10 @@ const OmOss = () => {
               <br></br> Vi har også flere dyktige frivillige hos oss i Norge som
               hjelper oss med prosjekter, arrangementer, og innsamlinger. Vi
               hadde ikke klart oss uten dere! Les mer om hvordan du kan bidra
-              her.
+              <a className="her" href="/hvordan-hjelpe">
+                her
+              </a>
+              .
             </p>
             <h3>Vår historie</h3>
             <p>
