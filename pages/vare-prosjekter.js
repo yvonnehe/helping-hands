@@ -21,14 +21,13 @@ const Prosjekter = () => {
               skal klare seg på egenhånd i fremtiden. Vi ønsker ikke at de blir
               avhengige av oss.
               <br></br>
-              <br></br> Mye av dette innebærer for eksempel å få barn som ikke
-              har mulighet til å betale skolepenger, at vi hjelper dem med
-              dette. Barn som ikke har nødvendig skoleutstyr, som for eksempel
-              sekk, skolebøker, blyant, riktig uniform. At dette skal bli
-              tilrettelagt for dem slik at de får mulighet til skolegang på lik
-              linje med andre barn. Hvis de kommer seg gjennom skolen, er
-              sannsynligheten høyere for at de får seg en jobb og blir
-              selvstendige videre i livet.
+              <br></br>Mange familier som ikke har mulighet til å betale
+              skolepenger for barna sine, får hjelp av oss. Vi møter barn som
+              ikke har nødvendig skoleutstyr, som for eksempel sekk, skolebøker,
+              skrivesaker og riktig uniform. Vi tilrettelegger for at disse
+              barna skal få skolegang på lik linje med andre barn. Hvis de
+              kommer seg gjennom skolen, er sannsynligheten høyere for at de får
+              seg en jobb og blir selvstendige videre i livet.
             </p>
           </div>
           <div className="col-md-6 my-auto">
