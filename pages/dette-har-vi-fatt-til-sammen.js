@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Miriam from "../components/Miriam";
+import Skredder from "../components/Skredder";
 
 const Sammen = () => {
   return (
@@ -65,6 +66,7 @@ const Sammen = () => {
           er imponert over motivasjonen deres, og stolte over hva de har fått
           til.
         </p>
+        <Skredder />
       </div>
       <div className="historie5">
         <h3>Seminar om utdanning</h3>
