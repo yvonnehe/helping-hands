@@ -1,4 +1,7 @@
 import Head from "next/head";
+import Image from "next/image";
+import Fadderbarn from "../components/Fadderbarn";
+import Andre from "../components/Andre";
 
 const Fadderordning = () => {
   return (
@@ -26,30 +29,11 @@ const Fadderordning = () => {
       </div>
       <div className="ledigefadder">
         <h3>Venter på fadder</h3>
-        <div className="fadderbarn container-fluid">
-          <div className="row">
-            <div className="fadderbarn__1 col-3"></div>
-            <div className="fadderbarn__2 col-3"></div>
-            <div className="fadderbarn__3 col-3"></div>
-            <div className="fadderbarn__4 col-3"></div>
-            <div className="fadderbarn__5 col-lg-3"></div>
-            <div className="fadderbarn__6 col-lg-3"></div>
-            <div className="fadderbarn__7 col-lg-3"></div>
-            <div className="fadderbarn__8 col-lg-3"></div>
-            <div className="fadderbarn__9 col-lg-3"></div>
-            <div className="fadderbarn__10 col-lg-3"></div>
-            <div className="fadderbarn__11 col-lg-3"></div>
-          </div>
-        </div>
+        <Fadderbarn />
       </div>
       <div className="andrefadder">
         <h3>Andre med behov for ekstra støtte</h3>
-        <div className="andre container-fluid">
-          <div className="row">
-            <div className="andre__1 col-3"></div>
-            <div className="andre__2 col-3"></div>
-          </div>
-        </div>
+        <Andre />
       </div>
       <div className="faqfadder">
         <h3>Fadderordning FAQ - vanlig stilte spørsmål</h3>
