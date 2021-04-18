@@ -2,6 +2,8 @@ import Head from "next/head";
 import Miriam from "../components/Miriam";
 import Skredder from "../components/Skredder";
 import Skole from "../components/Skole";
+import Familieplan from "../components/Familieplan";
+import Utdanning from "../components/Utdanning";
 
 const Sammen = () => {
   return (
@@ -14,7 +16,7 @@ const Sammen = () => {
       <div className="historie1">
         <h2>Dette har vi fått til sammen</h2>
         <h3>Skolegang og høyere utdanning</h3>
-        <p>
+        <p className="sammenp">
           Mange barn er ikke på skolen på grunn av dårlig økonomi eller
           manglende utstyr. Ved hjelp av mange faddere, betaler vi for skolegang
           og utdanning til over 70 barn og unge. Flere barn har ikke sekk, bøker
@@ -30,7 +32,7 @@ const Sammen = () => {
       </div>
       <div className="historie2">
         <h3>Miriam</h3>
-        <p>
+        <p className="sammenp">
           Når vi møtte Miriam for første gang i 2018, var hun nettopp blitt
           plutselig og uforklarlig lam fra livet og ned. Vi ble grepet av hennes
           styrke og stå-på vilje. Hun smilte gjennom lange dager på sykehus.
@@ -47,7 +49,7 @@ const Sammen = () => {
       </div>
       <div className="historie3">
         <h3>Seminar om familieplanlegging</h3>
-        <p>
+        <p className="sammenp">
           Mange jenter blir tidlig gravide, gjerne helt ned i 14-15 års alder.
           Dette fører til frafall på skolen, fordi det ikke er lovlig å være
           gravid når man er på skolen. Vi ansatte lokalt helsepersonell til å ha
@@ -55,10 +57,11 @@ const Sammen = () => {
           prevensjonsmidler. Det var veldig bra oppmøte på seminaret og damene
           var fornøyd.
         </p>
+        <Familieplan />
       </div>
       <div className="historie4">
         <h3>Voksenopplæring</h3>
-        <p>
+        <p className="sammenp">
           Vi har møtt mange damer som ønsker en bedre jobb for kunne forsørge
           familiene sine. De hadde småjobber fra før, og tjente minimalt. Flere
           har ønsket å bli skreddere. De har fått en god utdannelse av en dyktig
@@ -72,7 +75,7 @@ const Sammen = () => {
       </div>
       <div className="historie5">
         <h3>Seminar om utdanning</h3>
-        <p>
+        <p className="sammenp">
           Det er vanlig at jenter dropper ut fra skolen før- eller i løpet av
           videregående. Mange av dem blir tidlig gravide, og det er ikke vanlig
           at jenter tar høyere utdanning. Hvis familien har lite penger, blir
@@ -86,6 +89,7 @@ const Sammen = () => {
           etter å ha vært på seminaret. Det var også et ekstra seminar på
           slutten om prevensjon.
         </p>
+        <Utdanning />
       </div>
     </>
   );
