@@ -21,27 +21,30 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="section1">
-        <div className="section1__1">
-          <h3>
-            Vil du bidra med å støtte barn og ungdom i skolegang i Tanzania?
-          </h3>
-        </div>
-        <div className="section1__2">
-          <div className="boximage boximage--vipps"></div>
-          <div className="boxtext boxtext--bidra">
-            <h4>Støtt med VIPPS</h4>
-            <p>Vipps til 13947 - Støtt oss med valgfritt beløp</p>
+      <div className="section1 container-fluid">
+        <div className="row">
+          <div className="col-lg-1 col-md-0"></div>
+          <div className="section1__1 col-lg-5 col-md-4 col-sm-12 my-auto">
+            <h3>
+              Vil du bidra med å støtte barn og ungdom i skolegang i Tanzania?
+            </h3>
           </div>
-        </div>
-        <div className="section1__3">
-          <div className="boximage boximage--fadder"></div>
-          <div className="boxtext boxtext--bidra">
-            <h4>Bli fadder</h4>
-            <p>
-              Du kan velge om du vil være Fadder for et spesifikt barn, eller
-              støtte vårt arbeid med et månedlig beløp.
-            </p>
+          <div className="section1__2 col-lg-3 col-md-4 col-sm-6">
+            <div className="boximage boximage--vipps"></div>
+            <div className="boxtext boxtext--bidra">
+              <h4>Støtt med VIPPS</h4>
+              <p>Vipps til 13947 - Støtt oss med valgfritt beløp</p>
+            </div>
+          </div>
+          <div className="section1__3 col-lg-3 col-md-4 col-sm-6">
+            <div className="boximage boximage--fadder"></div>
+            <div className="boxtext boxtext--bidra">
+              <h4>Bli fadder</h4>
+              <p>
+                Du kan velge om du vil være Fadder for et spesifikt barn, eller
+                støtte vårt arbeid med et månedlig beløp.
+              </p>
+            </div>
           </div>
         </div>
       </div>
