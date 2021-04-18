@@ -2,8 +2,6 @@ const MerInfo = ({ Img, setImg, Name, setName, Desc, setDesc }) => {
   const exit = (e) => {
     if (e.target.classList.contains("backdrop")) {
       setImg(null);
-      //setName(null);
-      //setDesc(null);
     }
   };
 
