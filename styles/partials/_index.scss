@@ -200,6 +200,13 @@
   }
 }
 
+@media screen and (max-width: 628px) {
+  .hero__content {
+    width: 100%;
+    top: 30px;
+  }
+}
+
 @media screen and (max-width: 575px) {
   .boxtext {
     &--bidra {
