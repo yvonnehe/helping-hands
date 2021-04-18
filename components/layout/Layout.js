@@ -1,9 +1,43 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Navbar, Nav, NavLink } from "react-bootstrap";
 
 const Layout = ({ children }) => {
   return (
     <>
+      <Navbar bg="inherit" expand="lg" className="justify-content-between">
+        <Link href="/">
+          <Image
+            src="/helping-hands-logo.svg"
+            alt="Helping Hands logo"
+            width="300px"
+            height="80px"
+            className="navbar__logo"
+          />
+        </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="mr-auto">
+            <Nav.Link className="navbar__link" href="/om-oss">
+              Om oss
+            </Nav.Link>
+            <Nav.Link className="navbar__link" href="/vare-prosjekter">
+              Våre prosjekter
+            </Nav.Link>
+            <Nav.Link className="navbar__link" href="/fadderordning">
+              Fadderordning
+            </Nav.Link>
+            <Nav.Link className="navbar__link" href="/hvordan-hjelpe">
+              Hvordan hjelpe
+            </Nav.Link>
+            <Nav.Link className="navbar__link" href="/kontakt">
+              Kontakt
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+
+      {/* 
       <nav>
         <div className="navbar">
           <Link href="/">
@@ -33,7 +67,7 @@ const Layout = ({ children }) => {
             </Link>
           </div>
         </div>
-      </nav>
+      </nav>*/}
       {children}
 
       <footer>

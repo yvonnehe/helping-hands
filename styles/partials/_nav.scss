@@ -13,12 +13,40 @@
   }
 }
 
-a {
+a,
+.nav-link {
   padding: 10px 15px;
   &:hover {
     color: #f96d11;
   }
   &:focus {
     color: #f96d11;
+  }
+}
+
+.navbar-nav {
+  color: inherit;
+  margin-right: 20px;
+}
+
+.nav-link {
+  color: inherit;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  &:hover {
+    color: #f96d11 !important;
+  }
+  &:focus {
+    color: #f96d11 !important;
+  }
+}
+
+.navbar-light,
+.navbar-toggler {
+  border: none;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  &:focus {
+    box-shadow: none;
   }
 }
