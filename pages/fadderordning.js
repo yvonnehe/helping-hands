@@ -2,8 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import Fadderbarn from "../components/Fadderbarn";
 import Andre from "../components/Andre";
+import MerInfo from "../components/MerInfo";
+import { useState } from "react";
 
 const Fadderordning = () => {
+  const [Img, setImg] = useState(null);
+
   return (
     <>
       <Head>
@@ -29,11 +33,13 @@ const Fadderordning = () => {
       </div>
       <div className="ledigefadder">
         <h3>Venter på fadder</h3>
-        <Fadderbarn />
+        <Fadderbarn setImg={setImg} />
+        {Img && <MerInfo Img={Img} setImg={setImg} />}
       </div>
       <div className="andrefadder">
         <h3>Andre med behov for ekstra støtte</h3>
-        <Andre />
+        <Andre setImg={setImg} />
+        {Img && <MerInfo Img={Img} setImg={setImg} />}
       </div>
       <div className="faqfadder">
         <h3>Fadderordning FAQ - vanlig stilte spørsmål</h3>
