@@ -17,7 +17,7 @@ const Fadderordning = () => {
         <link rel="icon" href="/helping-hands-logo-icon.svg" />
       </Head>
 
-      <div className="omfadder">
+      <div className="omfadder con">
         <h2>Fadderordning</h2>
         <h3>Om fadderordningen</h3>
         <p>
@@ -34,7 +34,7 @@ const Fadderordning = () => {
           bli fadder!
         </p>
       </div>
-      <div className="ledigefadder">
+      <div className="ledigefadder con">
         <h3>Venter på fadder</h3>
         <Fadderbarn setImg={setImg} setName={setName} setDesc={setDesc} />
         {Img && (
@@ -48,7 +48,7 @@ const Fadderordning = () => {
           />
         )}
       </div>
-      <div className="andrefadder">
+      <div className="andrefadder con">
         <h3>Andre med behov for ekstra støtte</h3>
         <Andre setImg={setImg} setName={setName} setDesc={setDesc} />
         {Img && (
@@ -62,7 +62,7 @@ const Fadderordning = () => {
           />
         )}
       </div>
-      <div className="faqfadder">
+      <div className="faqfadder con">
         <h3>Fadderordning FAQ - vanlig stilte spørsmål</h3>
         <h5>
           Hva er det jeg betaler for når jeg er fadder for et barn/en ungdom?

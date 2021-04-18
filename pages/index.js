@@ -9,7 +9,7 @@ export default function Home() {
         <link rel="icon" href="/helping-hands-logo-icon.svg" />
       </Head>
 
-      <div className="hero">
+      <div className="hero con">
         <div className="hero__content">
           <h1>Gi skolegang i gave</h1>
           <p className="hero__p">
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="section3">
+      <div className="section3 con">
         <h3 className="section3__h3">Følg oss på sosiale medier</h3>
         <h4 className="section3__h4">For oppdateringer om hva vi jobber med</h4>
         <a
@@ -91,7 +91,7 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="headlinesection">
+      <div className="headlinesection con">
         <h3>Dette har vi fått til sammen</h3>
       </div>
       <div className="section4 container-fluid">

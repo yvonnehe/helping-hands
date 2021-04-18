@@ -13,7 +13,7 @@ const Sammen = () => {
         <link rel="icon" href="/helping-hands-logo-icon.svg" />
       </Head>
 
-      <div className="historie1">
+      <div className="historie1 con">
         <h2>Dette har vi fått til sammen</h2>
         <h3>Skolegang og høyere utdanning</h3>
         <p className="sammenp">
@@ -30,7 +30,7 @@ const Sammen = () => {
         </p>
         <Skole />
       </div>
-      <div className="historie2">
+      <div className="historie2 con">
         <h3>Miriam</h3>
         <p className="sammenp">
           Når vi møtte Miriam for første gang i 2018, var hun nettopp blitt
@@ -47,7 +47,7 @@ const Sammen = () => {
         </p>
         <Miriam />
       </div>
-      <div className="historie3">
+      <div className="historie3 con">
         <h3>Seminar om familieplanlegging</h3>
         <p className="sammenp">
           Mange jenter blir tidlig gravide, gjerne helt ned i 14-15 års alder.
@@ -59,7 +59,7 @@ const Sammen = () => {
         </p>
         <Familieplan />
       </div>
-      <div className="historie4">
+      <div className="historie4 con">
         <h3>Voksenopplæring</h3>
         <p className="sammenp">
           Vi har møtt mange damer som ønsker en bedre jobb for kunne forsørge
@@ -73,7 +73,7 @@ const Sammen = () => {
         </p>
         <Skredder />
       </div>
-      <div className="historie5">
+      <div className="historie5 con">
         <h3>Seminar om utdanning</h3>
         <p className="sammenp">
           Det er vanlig at jenter dropper ut fra skolen før- eller i løpet av

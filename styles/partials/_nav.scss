@@ -22,6 +22,9 @@ a,
   &:focus {
     color: #f96d11;
   }
+  &:active {
+    color: #f96d11;
+  }
 }
 
 .navbar-nav {
@@ -37,6 +40,9 @@ a,
     color: #f96d11 !important;
   }
   &:focus {
+    color: #f96d11 !important;
+  }
+  &:active {
     color: #f96d11 !important;
   }
 }
