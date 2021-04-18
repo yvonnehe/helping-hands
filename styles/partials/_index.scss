@@ -227,3 +227,32 @@
     margin-bottom: 10px;
   }
 }
+
+@media screen and (max-width: 510px) {
+  .boxtext {
+    &--bidra {
+      height: 35%;
+    }
+    &--suksess {
+      height: 40%;
+    }
+  }
+  .section1__1,
+  .section1__2,
+  .section1__3 {
+    margin-bottom: 35px;
+  }
+}
+@media screen and (max-width: 386px) {
+  .boxtext {
+    &--bidra {
+      height: 40%;
+    }
+    &--suksess {
+      height: 45%;
+    }
+  }
+  .section4 {
+    margin-bottom: -50px;
+  }
+}
