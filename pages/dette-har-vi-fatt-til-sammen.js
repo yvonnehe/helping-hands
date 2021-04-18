@@ -55,7 +55,7 @@ const Sammen = () => {
           gravid når man er på skolen. Vi ansatte lokalt helsepersonell til å ha
           kurs om familieplanlegging, samt gratis HIV testing og
           prevensjonsmidler. Det var veldig bra oppmøte på seminaret og damene
-          var fornøyd.
+          var fornøyde.
         </p>
         <Familieplan />
       </div>
