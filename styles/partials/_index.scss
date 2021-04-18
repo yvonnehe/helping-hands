@@ -208,6 +208,13 @@
   }
 }
 
+@media screen and (max-width: 583px) {
+  .btn--gray {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}
+
 @media screen and (max-width: 575px) {
   .boxtext {
     &--bidra {
@@ -219,12 +226,11 @@
   .section1__3 {
     margin-bottom: 30px;
   }
-}
-
-@media screen and (max-width: 583px) {
-  .btn--gray {
-    width: 80%;
-    margin-bottom: 10px;
+  .section2 {
+    text-align: center;
+  }
+  .rotate {
+    transform: rotate(160deg);
   }
 }
 

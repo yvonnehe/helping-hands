@@ -38,6 +38,7 @@ const Fadderordning = () => {
             <div className="fadderbarn__8 col-lg-3"></div>
             <div className="fadderbarn__9 col-lg-3"></div>
             <div className="fadderbarn__10 col-lg-3"></div>
+            <div className="fadderbarn__11 col-lg-3"></div>
           </div>
         </div>
       </div>

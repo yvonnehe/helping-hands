@@ -52,7 +52,7 @@ export default function Home() {
       <div className="section2 container-fluid">
         <div className="row">
           <div className="col-lg-1 col-md-0"></div>
-          <div className="section2__1 col-lg-2 col-md-3 col-sm-4 col-xs-2">
+          <div className="section2__1 col-lg-2 col-md-3 col-sm-4 my-auto rotate">
             <Image
               src="/100-icon.svg"
               alt="Pie graph showing 100%"
@@ -60,7 +60,7 @@ export default function Home() {
               width=""
             />
           </div>
-          <div className="section2__2 col-lg-8 col-md-9 col-sm-8 col-xs-6">
+          <div className="section2__2 col-lg-8 col-md-9 col-sm-8">
             <h4>100% av innsamlede midler går til formålet</h4>
             <p>
               Tall basert på regnskap 2020. Vi ønsker at de pengene vi samler
