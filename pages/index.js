@@ -7,6 +7,10 @@ export default function Home() {
       <Head>
         <title>Helping Hands</title>
         <link rel="icon" href="/helping-hands-logo-icon.svg" />
+        <description>
+          Helping Hands er en veldedig organisasjon som jobber med å få barn og
+          ungdom i skolegang i Tanzania.
+        </description>
       </Head>
 
       <div className="hero con">
