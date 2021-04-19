@@ -11,6 +11,7 @@ export default function Home() {
           name="description"
           content="Helping Hands er en veldedig organisasjon som jobber med å få barn og ungdom i skolegang i Tanzania."
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:image"
           content="/helping-hands-two-boys.jpg"
