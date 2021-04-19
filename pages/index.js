@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Helping Hands</title>
+        <title>Helping Hands Norway</title>
         <link rel="icon" href="/helping-hands-logo-icon.svg" />
         <meta
           name="description"

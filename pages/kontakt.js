@@ -26,7 +26,7 @@ const Kontakt = () => {
             <h6>CEO & Co-founder</h6>
             <p className="epost">yvonne@helpinghands.no</p>
           </div>
-          <div className="col-md-6 my-auto">
+          <div className="col-md-6">
             <Image
               src="/gladness-carrying-uniforms.jpg"
               alt="Gladness carrying uniforms on her head"
