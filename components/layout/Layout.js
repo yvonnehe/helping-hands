@@ -6,15 +6,17 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar bg="inherit" expand="lg" className="justify-content-between">
-        <Link href="/">
-          <Image
-            src="/helping-hands-logo.svg"
-            alt="Helping Hands logo"
-            width="300px"
-            height="80px"
-            className="navbar__logo"
-          />
-        </Link>
+        <div className="navbar__logodiv">
+          <Link href="/">
+            <Image
+              src="/helping-hands-logo.svg"
+              alt="Helping Hands logo"
+              width="300px"
+              height="80px"
+              className="navbar__logo"
+            />
+          </Link>
+        </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">

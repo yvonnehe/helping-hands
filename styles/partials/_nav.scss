@@ -56,3 +56,11 @@ a,
     box-shadow: none;
   }
 }
+
+@media screen and (max-width: 485px) {
+  .navbar__logodiv {
+    max-width: 280px;
+    max-height: 75px;
+    width: 80%;
+  }
+}

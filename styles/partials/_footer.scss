@@ -30,3 +30,10 @@ a.kontaktlink {
 .copyright {
   margin: 0;
 }
+
+@media screen and (max-width: 400px) {
+  .footerdiv {
+    font-size: 12px;
+    text-align: center;
+  }
+}
