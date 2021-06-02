@@ -35,6 +35,7 @@ const Kontakt = () => {
             <h5>Yvonne Helland</h5>
             <h6>CEO & Co-founder</h6>
             <p className="epost">yvonne@helpinghands.no</p>
+            <p className="orgnr">Org.nr: 915922058</p>
           </div>
           <div className="col-md-6">
             <Image
