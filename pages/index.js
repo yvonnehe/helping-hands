@@ -52,7 +52,7 @@ export default function Home() {
               <h4>Bli fadder</h4>
               <p>
                 Du kan velge om du vil være Fadder for et spesifikt barn, eller
-                støtte vårt arbeid med et månedlig beløp.
+                støtte vårt arbeid med et valgfritt månedlig beløp.
               </p>
             </div>
           </div>
