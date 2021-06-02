@@ -91,6 +91,7 @@ const Layout = ({ children }) => {
           <Link className="kontaktlink" href="/kontakt">
             Kontakt
           </Link>
+          <p className="copyright">Org.nr: 915922058</p>
           <p className="copyright">© Yvonne Helland 2021</p>
         </div>
       </footer>
