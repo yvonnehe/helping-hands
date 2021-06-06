@@ -98,4 +98,6 @@ const Layout = ({ children }) => {
   );
 };
 
+//  <p className="copyright">Org.nr: 915922058</p>
+
 export default Layout;
