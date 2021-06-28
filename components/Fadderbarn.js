@@ -106,7 +106,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
           setImg("/helping-hands-ali.jpg");
           setName("Ali");
           setDesc(
-            "Ali går på barneskolen. Han har mange søsken og moren har ikke fast jobb eller inntekt. Du kan støtte Ali for 100kr i mnd."
+            "Ali går på barneskolen. Han har mange søsken og moren har ikke fast jobb eller inntekt. Du kan støtte Ali for 50kr i mnd."
           );
         }}
       >
