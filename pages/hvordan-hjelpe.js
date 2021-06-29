@@ -52,21 +52,19 @@ const HvordanHjelpe = () => {
             </ul>
           </div>
           <div className="col-md-6 my-auto">
-            <Image
+            <img
               src="/helping-hands-woman-and-child.jpg"
               alt="Tanzanian woman holding her child"
-              height="493"
-              width="590"
+              width="100%"
             />
           </div>
         </div>
         <div className="hvordanhjelpe2 row flex-column-reverse flex-md-row">
           <div className="col-md-6 my-auto">
-            <Image
+            <img
               src="/helping-hands-kids.jpg"
               alt="Tanzanian children walking to school holding hands"
-              height="493"
-              width="590"
+              width="100%"
             />
           </div>
           <div className="col-md-6">
