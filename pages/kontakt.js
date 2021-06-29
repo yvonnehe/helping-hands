@@ -38,11 +38,10 @@ const Kontakt = () => {
             <p className="orgnr">Org.nr: 915922058</p>
           </div>
           <div className="col-md-6">
-            <Image
+            <img
               src="/gladness-carrying-uniforms.jpg"
               alt="Gladness carrying uniforms on her head"
-              height="520"
-              width="400"
+              width="100%"
             />
           </div>
         </div>
