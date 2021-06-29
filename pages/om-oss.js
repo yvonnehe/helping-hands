@@ -50,11 +50,10 @@ const OmOss = () => {
             </p>
           </div>
           <div className="col-lg-6 my-auto">
-            <Image
+            <img
               src="/helping-hands-team.JPG"
               alt="Helping Hands team"
-              height="364"
-              width="500"
+              width="100%"
             />
             <p className="imagedescription">
               Fra venstre: Daniélla, Gladness og Yvonne
@@ -63,11 +62,10 @@ const OmOss = () => {
         </div>
         <div className="gladness row flex-column-reverse flex-lg-row">
           <div className="col-lg-6 my-auto">
-            <Image
+            <img
               src="/Gladness.jpg"
               alt="Gladness - A Tanzanian woman smiling wearing a yellow dress"
-              height={506}
-              width={400}
+              width="100%"
             />
           </div>
           <div className="col-lg-6">
