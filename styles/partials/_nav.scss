@@ -4,6 +4,7 @@
   font-weight: 300;
   font-size: 18px;
   margin-top: 0px;
+  margin-bottom: 0px;
   &__links {
     margin: 20px;
     margin-top: 30px;
@@ -50,7 +51,7 @@ a,
 .navbar-light,
 .navbar-toggler {
   border: none;
-  margin-bottom: 5px;
+  //margin-bottom: 5px;
   margin-right: 5px;
   &:focus {
     box-shadow: none;
