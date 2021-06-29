@@ -41,21 +41,19 @@ const Prosjekter = () => {
             </p>
           </div>
           <div className="col-md-6 my-auto">
-            <Image
+            <img
               src="/helping-hands-kids-in-uniforms.jpg"
               alt="Tanzanian children standing in their new uniforms"
-              height="493"
-              width="590"
+              width="100%"
             />
           </div>
         </div>
         <div className="prosjekter2 row flex-column-reverse flex-md-row">
           <div className="col-md-6 my-auto">
-            <Image
+            <img
               src="/helping-hands-woman.jpg"
               alt="Tanzanian woman smiling big in her new wheelchair"
-              height="493"
-              width="590"
+              width="100%"
             />
           </div>
           <div className="col-md-6">
