@@ -100,6 +100,30 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/helping-hands-jonas.jpg" alt="Tanzanian student"></img>
       </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/helping-hands-naomi.jpg");
+          setName("Naomi");
+          setDesc(
+            "Naomi! Hun har nettopp begynt på “beauty school”, og blir ferdig med denne utdannelsen på under et år. Etter denne utdannelsen kan hun blant annet jobbe som frisør. Hun er et av Gladness sine bonusbarn, og er en fantastisk jente. For 500kr i måneden (fordelt på 12 mnd), kan du støtte henne gjennom innspurten av utdannelsen. Da dekker du skolepenger, uniform, kost og losji på internatskole og nødvendig utstyr til utdannelsen. Denne summen kan også deles mellom flere faddere."
+          );
+        }}
+      >
+        <img src="/helping-hands-naomi.jpg" alt="Tanzanian student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/helping-hands-dorcas.jpg");
+          setName("Dorcas");
+          setDesc(
+            "Dorcas! Moren til Dorcas fikk store økonomiske problemer da mannen døde. Dorcas trenger hjelp til skolegangen. Hun har allerede en fadder, men trenger flere for å dekke alle utgiftene. Du kan støtte henne med skolegang, uniform, sekk og skoleutstyr for de resterende 390 kr i mnd."
+          );
+        }}
+      >
+        <img src="/helping-hands-dorcas.jpg" alt="Tanzanian student"></img>
+      </div>
     </div>
   );
 };
