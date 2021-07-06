@@ -106,7 +106,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
           setImg("/helping-hands-naomi.jpg");
           setName("Naomi");
           setDesc(
-            "Naomi! Hun har nettopp begynt på “beauty school”, og blir ferdig med denne utdannelsen på under ett år. Etter denne utdannelsen kan hun blant annet jobbe som frisør. Hun er et av Gladness sine bonusbarn, og er en fantastisk jente. For 500kr i måneden, kan du støtte henne gjennom innspurten av utdannelsen. Da dekker du skolepenger, uniform, kost og losji på internatskole og nødvendig utstyr til utdannelsen. Denne summen kan også deles mellom flere faddere."
+            "Hun har nettopp begynt på “beauty school”, og blir ferdig med denne utdannelsen på under ett år. Etter denne utdannelsen kan hun blant annet jobbe som frisør. Hun er et av Gladness sine bonusbarn, og er en fantastisk jente. For 500kr i måneden, kan du støtte henne gjennom innspurten av utdannelsen. Da dekker du skolepenger, uniform, kost og losji på internatskole og nødvendig utstyr til utdannelsen. Denne summen kan også deles mellom flere faddere."
           );
         }}
       >
@@ -118,7 +118,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
           setImg("/helping-hands-dorcas.jpg");
           setName("Dorcas");
           setDesc(
-            "Dorcas! Moren til Dorcas fikk store økonomiske problemer da mannen døde. Dorcas trenger hjelp til skolegangen. Hun har allerede en fadder, men trenger flere for å dekke alle utgiftene. Du kan støtte henne med skolegang, uniform, sekk og skoleutstyr for de resterende 390 kr i mnd."
+            "Moren til Dorcas fikk store økonomiske problemer da mannen døde. Dorcas trenger hjelp til skolegangen. Hun har allerede en fadder, men trenger flere for å dekke alle utgiftene. Du kan støtte henne med skolegang, uniform, sekk og skoleutstyr for de resterende 390 kr i mnd."
           );
         }}
       >
