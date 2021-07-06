@@ -106,7 +106,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
           setImg("/helping-hands-naomi.jpg");
           setName("Naomi");
           setDesc(
-            "Naomi! Hun har nettopp begynt på “beauty school”, og blir ferdig med denne utdannelsen på under et år. Etter denne utdannelsen kan hun blant annet jobbe som frisør. Hun er et av Gladness sine bonusbarn, og er en fantastisk jente. For 500kr i måneden (fordelt på 12 mnd), kan du støtte henne gjennom innspurten av utdannelsen. Da dekker du skolepenger, uniform, kost og losji på internatskole og nødvendig utstyr til utdannelsen. Denne summen kan også deles mellom flere faddere."
+            "Naomi! Hun har nettopp begynt på “beauty school”, og blir ferdig med denne utdannelsen på under ett år. Etter denne utdannelsen kan hun blant annet jobbe som frisør. Hun er et av Gladness sine bonusbarn, og er en fantastisk jente. For 500kr i måneden, kan du støtte henne gjennom innspurten av utdannelsen. Da dekker du skolepenger, uniform, kost og losji på internatskole og nødvendig utstyr til utdannelsen. Denne summen kan også deles mellom flere faddere."
           );
         }}
       >
