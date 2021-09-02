@@ -1,5 +1,4 @@
-import Head from "next/head";
-import Image from "next/image";
+import NextHead from "../components/NextHead";
 import Fadderbarn from "../components/Fadderbarn";
 import Andre from "../components/Andre";
 import MerInfo from "../components/MerInfo";
@@ -12,20 +11,7 @@ const Fadderordning = () => {
 
   return (
     <>
-      <Head>
-        <title>Helping Hands - Fadderordning</title>
-        <link rel="icon" href="/helping-hands-logo-icon.svg" />
-        <meta
-          name="description"
-          content="Helping Hands er en veldedig organisasjon som jobber med å få barn og ungdom i skolegang i Tanzania."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          property="og:image"
-          content="/helping-hands-two-boys.jpg"
-          key="ogimage"
-        />
-      </Head>
+      <NextHead />
 
       <div className="omfadder con">
         <h2>Fadderordning</h2>
