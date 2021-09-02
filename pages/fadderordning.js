@@ -16,17 +16,19 @@ const Fadderordning = () => {
       <div className="omfadder con">
         <h2>Fadderordning</h2>
         <h3>Om fadderordningen</h3>
-        <p>
+        <p className="fadderp">
           Helping Hands fadderordning er laget for å støtte barn og ungdom
           gjennom skolen. I noen tilfeller andre familier som trenger hjelp av
           spesielle grunner. Vi ønsker å gi flest mulig barn og unge mulighet
-          til skolegang og høyere utdanning.<br></br>
-          <br></br> Dersom du ikke ønsker å være fadder for et spesifikt barn,
+          til skolegang og høyere utdanning.
+        </p>
+        <p className="fadderp">Dersom du ikke ønsker å være fadder for et spesifikt barn,
           kan du også kontakte oss for å bli månedlig giver. Da distribuerer vi
           pengene slik vi mener det er best, for eksempel til barn som ikke har
           fått fadder, hvis et av barna blir syke, eller andre i vanskelige
-          situasjoner. <br></br>
-          <br></br>Ta kontakt med oss på info@helpinghands.no dersom du ønsker å
+          situasjoner.</p>
+        <p className="fadderp">
+          Ta kontakt med oss på info@helpinghands.no dersom du ønsker å
           bli fadder!
         </p>
       </div>
@@ -63,13 +65,13 @@ const Fadderordning = () => {
         <h5>
           Hva er det jeg betaler for når jeg er fadder for et barn/en ungdom?
         </h5>
-        <p>
+        <p className="fadderp">
           Når du blir fadder for et barn, skal det være oppført hva som er
           inkludert i beløpet du betaler. Vanligvis er det skolekostnader,
           skoleutstyr og uniform. Skolekostnadene varierer fra skole til skole.{" "}
         </p>
         <h5>Hvorfor er man bare fadder 1 år om gangen?</h5>
-        <p>
+        <p className="fadderp">
           Fadderordningen baserer seg på skolegangen og skoleutstyret vi betaler
           for, som er på ett års basis. Det hender at barna flytter, bytter
           skole, eller uteksamineres. Vi sender derfor en oppdatering årlig om
@@ -79,7 +81,7 @@ const Fadderordning = () => {
         <h5>
           Hva skjer dersom jeg ikke lenger har mulighet til å være fadder?
         </h5>
-        <p>
+        <p className="fadderp">
           Dette betyr ikke at ditt barn plutselig står uten skolegang. Vi
           forplikter oss til de barna vi hjelper, og fortsetter å hjelpe dem.
           Det det derimot har konsekvenser for, er hvor mange barn vi har
@@ -91,7 +93,7 @@ const Fadderordning = () => {
           vi ønsker selvfølgelig å hjelpe så mange som mulig.
         </p>
         <h5>Hvor mange oppdateringer får jeg/vi?</h5>
-        <p>
+        <p className="fadderp">
           Hvor mange oppdateringer du får om fadderbarnet ditt varierer. Noen
           barn/ungdom bor i nærheten av kollegaen vår i Tanzania og/eller
           trenger ekstra oppfølging. Andre ungdommer studerer et stykke unna.
