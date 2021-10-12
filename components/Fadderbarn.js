@@ -91,18 +91,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       <div
         className="img-wrap"
         onClick={() => {
-          setImg("/helping-hands-naomi.jpg");
-          setName("Naomi");
-          setDesc(
-            "Hun har nettopp begynt på “beauty school”, og blir ferdig med denne utdannelsen på under ett år. Etter denne utdannelsen kan hun blant annet jobbe som frisør. Hun er et av Gladness sine bonusbarn, og er en fantastisk jente. For 500kr i måneden, kan du støtte henne gjennom innspurten av utdannelsen. Da dekker du skolepenger, uniform, kost og losji på internatskole og nødvendig utstyr til utdannelsen. Denne summen kan også deles mellom flere faddere."
-          );
-        }}
-      >
-        <img src="/helping-hands-naomi.jpg" alt="Tanzanian student"></img>
-      </div>
-      <div
-        className="img-wrap"
-        onClick={() => {
           setImg("/helping-hands-dorcas.jpg");
           setName("Dorcas");
           setDesc(
