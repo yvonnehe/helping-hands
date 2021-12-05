@@ -55,18 +55,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       <div
         className="img-wrap"
         onClick={() => {
-          setImg("/helping-hands-joyce.jpg");
-          setName("Joyce");
-          setDesc(
-            "Hun er fra en av familiene våre der moren er alenemamma med 3 barn. Joyce er den eldste. De har ikke så mye, og hun har ikke fått mulighet til å fullføre skolen. Hun ønsker å gå på videregående så hun kan få en utdannelse! Du kan bli fadder for Joyce for 570kr i mnd, eller dele beløpet med en eller flere andre. Alt hjelper for henne så hun kan få gått på skolen."
-          );
-        }}
-      >
-        <img src="/helping-hands-joyce.jpg" alt="Tanzanian student"></img>
-      </div>
-      <div
-        className="img-wrap"
-        onClick={() => {
           setImg("/helping-hands-dorcas.jpg");
           setName("Dorcas");
           setDesc(
