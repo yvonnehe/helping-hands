@@ -42,18 +42,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       <div
         className="img-wrap"
         onClick={() => {
-          setImg("/helping-hands-musa.jpg");
-          setName("Musa");
-          setDesc(
-            "Han er 14 år gammel, og bor med lillesøster, storesøster og foreldrene. Familien er i en vanskelig situasjon og hadde satt stor pris hjelp. For 400kr i mnd får han skolegang, mat på skolen, sekk, uniform og skrivesaker. Vi har allerede en fadder til Musa, men trenger noen som kan dekke de resterende 350kr i mnd."
-          );
-        }}
-      >
-        <img src="/helping-hands-musa.jpg" alt="Tanzanian student"></img>
-      </div>
-      <div
-        className="img-wrap"
-        onClick={() => {
           setImg("/helping-hands-dorcas.jpg");
           setName("Dorcas");
           setDesc(
