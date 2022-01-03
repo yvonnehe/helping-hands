@@ -21,7 +21,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         onClick={() => {
           setImg("/helping-hands-obedi.jpg");
           setName("Obedi");
-          setDesc("Han er 20 år gammel. Han har klart å fullføre videregående med hjelp fra faddere og Helping Hands. Han har akkurat startet utdannelse innenfor IT. Snill og beskjeden, ønsker seg en utdannelse så han kan ta vare på moren og familien sin. Han får skolegang, uniform, skoleutstyr, kost og losji, sekk og det han trenger for 8050 kr i mnd. Han har allerede to faddere, men trenger en til som kan støtte han med de resterende 260 kr i mnd."
+          setDesc("Han er 20 år gammel. Han har klart å fullføre videregående med hjelp fra faddere og Helping Hands. Han har akkurat startet utdannelse innenfor IT. Snill og beskjeden, ønsker seg en utdannelse så han kan ta vare på moren og familien sin. Han får skolegang, uniform, skoleutstyr, kost og losji, sekk og det han trenger for 670 kr i mnd. Han har allerede to faddere, men trenger en til som kan støtte han med de resterende 260 kr i mnd."
           );
         }}
       >
