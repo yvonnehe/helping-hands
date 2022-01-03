@@ -7,7 +7,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
           setImg("/helping-hands-student-square.jpg");
           setName("Raymond");
           setDesc(
-            "Han har tidligere fått hjelp av oss til å fullføre videregående. Nå tar han bachelor i «forsikring og risikoanalyse». Han er er fantastisk ung mann, som jobber beinhardt. For skolegang, kost, losji og alt av skoleutstyr koster det 1200kr i mnd. Han har allerede noen faddere, men trenger flere for å dekke hele summen. Han mangler støtte på 550kr i mnd. Denne summen kan deles på flere faddere."
+            "Han har tidligere fått hjelp av oss til å fullføre videregående. Nå tar han bachelor i «forsikring og risikoanalyse». Han er er fantastisk ung mann, som jobber beinhardt. For skolegang, kost, losji og alt av skoleutstyr koster det 1200kr i mnd. Han har allerede noen faddere, men trenger flere for å dekke hele summen. Han mangler støtte på 250 kr i mnd. Denne summen kan deles på flere faddere."
           );
         }}
       >
