@@ -45,7 +45,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
           setImg("/helping-hands-dorcas.jpg");
           setName("Dorcas");
           setDesc(
-            "Moren til Dorcas fikk store økonomiske problemer da mannen døde. Dorcas trenger hjelp til skolegangen. Hun har allerede en fadder, men trenger flere for å dekke alle utgiftene. Du kan støtte henne med skolegang, uniform, sekk og skoleutstyr for de resterende 390 kr i mnd."
+            "Moren til Dorcas fikk store økonomiske problemer da mannen døde. Dorcas trenger hjelp til skolegangen. Hun har allerede to faddere, men trenger flere for å dekke alle utgiftene. Du kan støtte henne med skolegang, uniform, sekk og skoleutstyr for de resterende 240 kr i mnd."
           );
         }}
       >
