@@ -95,6 +95,17 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/helping-hands-mohammed.png" alt="Tanzanian student"></img>
       </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/helping-hands-bahati.png");
+          setName("Bahati");
+          setDesc("Hun bor i en stor familie, som har lite. Denne familien setter veldig stor pris på all hjelpen vi gir til deres mange barn. For 50 kr i mnd støtter du henne med mat på skolen, uniform, sekk, bøker og andre ting hun trenger på skolen."
+          );
+        }}
+      >
+        <img src="/helping-hands-bahati.png" alt="Tanzanian student"></img>
+      </div>
     </div>
   );
 };
