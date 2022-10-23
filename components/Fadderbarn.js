@@ -76,17 +76,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       <div
         className="img-wrap"
         onClick={() => {
-          setImg("/helping-hands-shedrack.png");
-          setName("Shedrack");
-          setDesc("Han er 17 år gammel og har akkurat begynt på boarding skole. Han har lenge slitt med hørselen sin, men har endelig fått et høreapparat som hjelper han veldig. Det har vært en tidkrevende og lang prosess for han. Han ble plassert på en skole langt unna, noe som gjorde det veldig vanskelig for han å bli boende med søsteren. Derfor har han begynt på boarding skole. Han er er skikkelig fighter. Han har allerede en fadder. For de resterende 290 kr i mnd kan du hjelpe han med skolegang, kost og losji, uniform, hygieneprodukter og alt annet han trenger til oppholdet på boarding skole."
-          );
-        }}
-      >
-        <img src="/helping-hands-shedrack.png" alt="Tanzanian student"></img>
-      </div>
-      <div
-        className="img-wrap"
-        onClick={() => {
           setImg("/helping-hands-mohammed.png");
           setName("Mohammed");
           setDesc("Han er 19 år gammel. Han er ikke så glad i skolebenken og synes det er utfordrende. Han må gjenta et klassetrinn, og i Tanzania må det da gjøres privat. Han vil ikke gi seg, og skal jobbe hardere enn noen gang. Vi synes alle fortjener en ny sjanse. Det er godt nok så lenge man gjør sitt beste. Han har allerede en fadder. For de resterende 480 kr i mnd kan du hjelpe han med skolegang, kost og losji, uniform, hygieneprodukter og alt annet han trenger til oppholdet på boarding skole."
