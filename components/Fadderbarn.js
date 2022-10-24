@@ -84,7 +84,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/helping-hands-mohammed.png" alt="Tanzanian student"></img>
       </div>
-      {/* <div
+      <div
         className="img-wrap"
         onClick={() => {
           setImg("/helping-hands-bahati.png");
@@ -94,7 +94,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/helping-hands-bahati.png" alt="Tanzanian student"></img>
-      </div> */}
+      </div>
     </div>
   );
 };
