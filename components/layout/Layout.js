@@ -1,4 +1,4 @@
-import { AnalyticsWrapper } from '../analytics';
+// import { AnalyticsWrapper } from '../Analytics';
 import Link from "next/link";
 import Image from "next/image";
 import { Navbar, Nav, NavLink } from "react-bootstrap";
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
         </div>
       </nav>*/}
       {children}
-      <AnalyticsWrapper />
+      {/* <AnalyticsWrapper /> */}
 
       <footer>
         <div className="footerdiv">
