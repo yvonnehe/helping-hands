@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics';
 
 import Layout from "../components/layout/Layout";
 import "bootstrap/dist/css/bootstrap.css";
