@@ -1,4 +1,4 @@
-import { AnalyticsWrapper } from '../Analytics';
+import { AnalyticsWrapper } from '../analytics';
 import Link from "next/link";
 import Image from "next/image";
 import { Navbar, Nav, NavLink } from "react-bootstrap";
