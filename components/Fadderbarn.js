@@ -83,6 +83,28 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/helping-hands-bahati.png" alt="Tanzanian student"></img>
       </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/helping-hands-rahma.jpg");
+          setName("Rahma");
+          setDesc("Hun er 4 år gammel og bor med bestemoren. Hun trenger hjelp med skolegang. For 100kr i mnd dekker du skolegang, mat på skolen, uniform og alt utstyret barnet trenger til skolen."
+          );
+        }}
+      >
+        <img src="/helping-hands-rahma.png" alt="Tanzanian student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/helping-hands-sayuna.jpg");
+          setName("Sayuna");
+          setDesc("Hun er 3 år gammel og bor sammen med foreldrene sine. Hun har en storebror. De sliter økonomisk og trenger hjelp til å få henne på skolen. For 100kr i mnd dekker du skolegang, mat på skolen, uniform og alt utstyret barnet trenger til skolen."
+          );
+        }}
+      >
+        <img src="/helping-hands-sayuna.jpg" alt="Tanzanian student"></img>
+      </div>
     </div>
   );
 };
