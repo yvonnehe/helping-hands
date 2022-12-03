@@ -92,7 +92,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
           );
         }}
       >
-        <img src="/helping-hands-rahma.png" alt="Tanzanian student"></img>
+        <img src="/helping-hands-rahma.jpg" alt="Tanzanian student"></img>
       </div>
       <div
         className="img-wrap"
