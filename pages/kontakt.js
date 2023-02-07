@@ -27,7 +27,7 @@ const Kontakt = () => {
           <div className="col-md-6">
             <img
               src="/gladness-carrying-uniforms.jpg"
-              alt="Gladness carrying uniforms on her head"
+              alt="Gladness som bærer uniformer på hodet"
               width="100%"
             />
           </div>
