@@ -1,7 +1,7 @@
 const Andre = ({ setImg, setName, setDesc }) => {
   return (
     <div className="img-grid">
-      <div
+      {/* <div
         className="img-wrap"
         onClick={() => {
           setImg("/mama-vanessa.jpg");
@@ -12,7 +12,7 @@ const Andre = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/mama-vanessa.jpg"></img>
-      </div>
+      </div> */}
       <div
         className="img-wrap"
         onClick={() => {
