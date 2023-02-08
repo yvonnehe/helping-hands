@@ -101,7 +101,7 @@ export default function Home() {
                 <p>
                   Mange barn er ikke på skolen på grunn av dårlig økonomi eller
                   manglende utstyr. Ved hjelp av mange faddere, betaler vi for
-                  skolegang og utdanning til over 70 barn og unge.
+                  skolegang og utdanning til over 100 barn og unge.
                 </p>
               </div>
             </a>
