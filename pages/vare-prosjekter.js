@@ -30,7 +30,7 @@ const Prosjekter = () => {
           <div className="col-md-6 my-auto">
             <img
               src="/helping-hands-kids-in-uniforms.jpg"
-              alt="Tanzanian children standing in their new uniforms"
+              alt="Tanzanianske barn står i sine nye uniformer"
               width="100%"
             />
           </div>
@@ -39,7 +39,7 @@ const Prosjekter = () => {
           <div className="col-md-6 my-auto">
             <img
               src="/helping-hands-woman.jpg"
-              alt="Tanzanian woman smiling big in her new wheelchair"
+              alt="Tanzaniansk kvinne smiler i sin nye rullestol"
               width="100%"
             />
           </div>
