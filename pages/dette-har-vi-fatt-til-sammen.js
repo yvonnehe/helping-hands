@@ -22,7 +22,7 @@ const Sammen = () => {
           Når et barn får lunsj på skolen, er det større
           sannsynlighet for at familien sender barnet på skolen.  
           Ved hjelp av mange faddere, betaler vi for skolegang
-          og utdanning til over 70 barn og unge. Vi vil rette en spesiell takk
+          og utdanning til over 100 barn og unge. Vi vil rette en spesiell takk
           til fadderne våre, som har gjort det mulig for oss å hjelpe så mange
           barn og unge med skolegang.
         </p>
