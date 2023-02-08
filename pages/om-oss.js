@@ -39,7 +39,7 @@ const OmOss = () => {
           <div className="col-lg-6 my-auto">
             <img
               src="/helping-hands-team.JPG"
-              alt="Helping Hands team"
+              alt="Helping Hands teamet"
               width="100%"
             />
             <p className="imagedescription">
@@ -51,7 +51,7 @@ const OmOss = () => {
           <div className="col-lg-6 my-auto">
             <img
               src="/Gladness.jpg"
-              alt="Gladness - A Tanzanian woman smiling wearing a yellow dress"
+              alt="Gladness - En Tanzaniansk kvinne smiler i gul kjole med afrikansk mønster"
               width="100%"
             />
           </div>

@@ -41,7 +41,7 @@ const HvordanHjelpe = () => {
           <div className="col-md-6 my-auto">
             <img
               src="/helping-hands-woman-and-child.jpg"
-              alt="Tanzanian woman holding her child"
+              alt="Tanzaniansk kvinne holder barnet sitt"
               width="100%"
             />
           </div>
@@ -50,7 +50,7 @@ const HvordanHjelpe = () => {
           <div className="col-md-6 my-auto">
             <img
               src="/helping-hands-kids.jpg"
-              alt="Tanzanian children walking to school holding hands"
+              alt="Tanzanianske barn går til skolen mens de holder hender"
               width="100%"
             />
           </div>

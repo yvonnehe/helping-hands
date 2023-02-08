@@ -52,7 +52,7 @@ export default function Home() {
           <div className="section2__1 col-lg-2 col-md-3 col-sm-4 my-auto rotate">
             <Image
               src="/100-icon.svg"
-              alt="Pie graph showing 100%"
+              alt="Kakediagram som viser 100%"
               height=""
               width=""
             />
