@@ -8,15 +8,22 @@ const Layout = ({ children }) => {
     <>
       <Navbar bg="inherit" expand="lg" className="justify-content-between">
         <div className="navbar__logodiv">
-          <Link href="/">
+          <Nav.Link href="/" class="nav-link next-img-fix">
             <Image
+              src="/helping-hands-logo.svg"
+              alt="Helping Hands logo"
+              width="300"
+              height="80"
+              className="navbar__logo"
+            />
+            {/* <img
               src="/helping-hands-logo.svg"
               alt="Helping Hands logo"
               width="300px"
               height="80px"
               className="navbar__logo"
-            />
-          </Link>
+            /> */}
+          </Nav.Link>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
