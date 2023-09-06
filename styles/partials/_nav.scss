@@ -58,6 +58,12 @@ a,
   }
 }
 
+.next-img-fix {
+  padding: 0;
+  margin-left: -15px;
+  padding-bottom: 7px;
+}
+
 @media screen and (max-width: 485px) {
   .navbar__logodiv {
     max-width: 280px;
