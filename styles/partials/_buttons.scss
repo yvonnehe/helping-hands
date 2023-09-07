@@ -9,17 +9,21 @@
     background-color: #f96d11;
     color: white;
     border: none;
+    box-shadow: 0px 0px 10px #434343;
     &:hover {
       background-color: #db6212;
       color: white;
-    }
-    box-shadow: 0px 0px 10px #434343;
+    }  
+    &:focus {
+      background-color: #015ecc;
+      color: white;
+    }  
   }
   &--gray {
     background-color: #f7f4f4;
     border: 1px solid #434343;
     color: #434343;
-    margin: 0px 40px;
+    // margin: 0px 40px;
     &:hover {
       background-color: #434343;
       color: #f7f4f4;
@@ -29,4 +33,16 @@
 
 .buttonlink {
   padding: 0px;
+  &--margin {
+    margin: 0px 40px;
+  }
+}
+
+/* accessibility fix */
+.btn:disabled {
+  color: inherit; 
+  pointer-events: auto; 
+  background-color: inherit; 
+  border-color: inherit; 
+  opacity: 1; 
 }
