@@ -89,6 +89,94 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/helping-hands-irene.jpg" alt="Tanzaniansk student"></img>
       </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-yasir.jpg");
+          setName("Yasir");
+          setDesc("Han er 8 år gammel og går i 2.klasse. Han bor med far og 2 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-yasir.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-mahad.jpg");
+          setName("Mahad");
+          setDesc("Han er 12 år og går i 5.klasse. Han bor med besteforeldrene, moren og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-mahad.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-karen.jpg");
+          setName("Karen");
+          setDesc("Hun er 11 år og går i 4.klasse. Hun bor med foreldrene og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-karen.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-ana.jpg");
+          setName("Ana");
+          setDesc("Hun er 13 år gammel og går i 7.klasse. Hun bor sammen med mor, stefar og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-ana.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-ali.jpg");
+          setName("Ali");
+          setDesc("Han er 8 år og går i 1.klasse. Han bor med mor og fire søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-ali.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-esther.jpg");
+          setName("Esther");
+          setDesc("Hun er 9 år og går i 2. klasse. Hun bor med mor og 2 søstre. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-esther.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-nusrat.jpg");
+          setName("Nusrat");
+          setDesc("Hun er 7 år og skal begynne i 1. klasse i januar. Hun bor med besteforeldre og flere søsken/søskenbarn. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-nusrat.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-wilfred.jpg");
+          setName("Wilfred");
+          setDesc("Han er 7 år og går i 1.klasse. Han bor med besteforeldre og flere søsken/søskenbarn. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-wilfred.jpg" alt="Tanzaniansk student"></img>
+      </div>
     </div>
   );
 };
