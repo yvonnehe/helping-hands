@@ -12,9 +12,13 @@ export default function Home() {
           <p className="hero__p">
             Du kan støtte et barns skolegang gjennom vår fadderordning
           </p>
-          <a className="buttonlink" href="/fadderordning">
-            <button className="btn btn--orange">LES MER</button>
+          <a className="btn btn--orange" href="/fadderordning">
+            LES MER
           </a>
+          {/* old button  */}
+          {/* <a className="buttonlink" href="/fadderordning">
+            <button className="btn btn--orange">LES MER</button>
+          </a> */}
         </div>
       </div>
 
@@ -85,16 +89,16 @@ export default function Home() {
         <h3 className="section3__h3">Følg oss på sosiale medier</h3>
         <h4 className="section3__h4">For oppdateringer om hva vi jobber med</h4>
         <a
-          className="buttonlink"
+          className="buttonlink buttonlink--margin"
           href="https://www.facebook.com/helpinghandsno"
         >
-          <button className="btn btn--gray">Facebook</button>
+          <button disabled className="btn btn--gray">Facebook</button>
         </a>
         <a
-          className="buttonlink"
+          className="buttonlink buttonlink--margin"
           href="https://www.instagram.com/helpinghandsno/"
         >
-          <button className="btn btn--gray">Instagram</button>
+          <button disabled className="btn btn--gray">Instagram</button>
         </a>
       </div>
 
