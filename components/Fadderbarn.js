@@ -177,6 +177,50 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/fadderbarn/helping-hands-wilfred.jpg" alt="Tanzaniansk student"></img>
       </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-lillian.jpg");
+          setName("Lillian");
+          setDesc("Hun er 9 år og går i 2.klasse. Hun bor sammen med mor, stefar og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-lillian.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-yahaya.jpg");
+          setName("Yahaya");
+          setDesc("Han er 9 år gammel og går i 4.klasse. Han bor med foreldrene og har 4 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-yahaya.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-kelvin.jpg");
+          setName("Kelvin");
+          setDesc("Han er 13 år og går i 7.klasse. Han bor med foreldrene og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-kelvin.jpg" alt="Tanzaniansk student"></img>
+      </div>
+      <div
+        className="img-wrap"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-iddi.jpg");
+          setName("Iddi");
+          setDesc("Han er 11 år og går i 4.klasse. Han bor med begge foreldrene og 2 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-iddi.jpg" alt="Tanzaniansk student"></img>
+      </div>
     </div>
   );
 };
