@@ -270,7 +270,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         onClick={() => {
           setImg("/fadderbarn/helping-hands-nijad.jpg");
           setName("Nijad");
-          setDesc("Han er 16 år og går i 9. klasse. Hun bor med mor og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
+          setDesc("Han er 16 år og går i 9. klasse. Han bor med mor og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
           );
         }}
       >
