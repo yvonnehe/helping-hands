@@ -169,17 +169,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       <div
         className="img-wrap"
         onClick={() => {
-          setImg("/fadderbarn/helping-hands-wilfred.jpg");
-          setName("Wilfred");
-          setDesc("Han er 7 år og går i 1.klasse. Han bor med besteforeldre og flere søsken/søskenbarn. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
-          );
-        }}
-      >
-        <img src="/fadderbarn/helping-hands-wilfred.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
-        className="img-wrap"
-        onClick={() => {
           setImg("/fadderbarn/helping-hands-lillian.jpg");
           setName("Lillian");
           setDesc("Hun er 9 år og går i 2.klasse. Hun bor sammen med mor, stefar og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
