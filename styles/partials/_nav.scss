@@ -69,6 +69,17 @@ a,
   color: rgba(0,0,0,.55);
 }
 
+@media screen and (max-width: 991px) {
+  .navbar__logo {
+    max-height: 70px;
+    margin-left: -10px; 
+  }
+
+  .navbar-toggler {
+    margin-top: -10px; 
+  }
+}
+
 @media screen and (max-width: 485px) {
   .navbar__logodiv {
     max-width: 280px;
