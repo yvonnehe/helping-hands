@@ -60,7 +60,7 @@ const Prosjekter = () => {
               de er bedre rustet til å ta egne valg for seg selv og sitt liv.{" "}
               <br></br>
               <br></br>
-              <a className="buttonlink" href="/dette-har-vi-fatt-til-sammen">
+              <a className="buttonlink sunshinelink" href="/dette-har-vi-fatt-til-sammen">
                 Noen av våre solskinnshistorier
               </a>
             </p>
