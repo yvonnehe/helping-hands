@@ -12,7 +12,7 @@ export default function Home() {
           <p className="hero__p">
             Du kan støtte et barns skolegang gjennom vår fadderordning
           </p>
-          <a className="btn btn--orange" href="/fadderordning">
+          <a className="btn btn--orange" href="/fadderordning" aria-label="Les mer om vår fadderordning">
             LES MER
           </a>
           {/* old button  */}
