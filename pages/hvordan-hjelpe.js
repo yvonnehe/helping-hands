@@ -5,7 +5,7 @@ const HvordanHjelpe = () => {
     <>
       <NextHead />
 
-      <div className="container-fluid">
+      <main className="container-fluid">
         <div className="hvordanhjelpe row">
           <div className="col-md-6">
             <h2>Hvordan hjelpe</h2>
@@ -69,7 +69,7 @@ const HvordanHjelpe = () => {
             </p>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 };

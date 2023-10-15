@@ -78,9 +78,11 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </nav>*/}
+      <main>
       {children}
       {/* <AnalyticsWrapper /> */}
-
+      </main>
+      
       <footer>
         <div className="footerdiv">
           <div>
