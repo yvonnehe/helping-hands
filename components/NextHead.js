@@ -16,6 +16,7 @@ const NextHead = () => {
         content="/helping-hands-two-boys.jpg"
         key="ogimage"
       />
+      <meta property="og:locale" content="nb_NO" />
     </Head>
   );
 };
