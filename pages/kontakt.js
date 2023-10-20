@@ -13,14 +13,14 @@ const Kontakt = () => {
             <h3 className="kontakt__h3">
               Dersom det er noe du lurer på, kan du gjerne ta kontakt med oss.
             </h3>
-            <h5>Helping Hands</h5>
-            <h6>Generelle henvendelser</h6>
+            <h4 className="contact-names">Helping Hands</h4>
+            <h5 className="titles">Generelle henvendelser</h5>
             <p className="epost">info@helpinghands.no</p>
-            <h5>Daniélla Rodrigues</h5>
-            <h6>CEO & Co-founder</h6>
+            <h4 className="contact-names">Daniélla Rodrigues</h4>
+            <h5 className="titles">CEO & Co-founder</h5>
             <p className="epost">daniella@helpinghands.no</p>
-            <h5>Yvonne Helland</h5>
-            <h6>CEO & Co-founder</h6>
+            <h4 className="contact-names">Yvonne Helland</h4>
+            <h5 className="titles">CEO & Co-founder</h5>
             <p className="epost">yvonne@helpinghands.no</p>
             <p className="orgnr">Org.nr: 915922058</p>
           </div>
