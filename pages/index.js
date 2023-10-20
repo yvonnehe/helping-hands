@@ -9,9 +9,9 @@ export default function Home() {
       <div className="hero con">
         <div className="hero__content">
           <h1>Gi skolegang i gave</h1>
-          <h2 className="hero__p">
+          <p className="hero__p">
             Du kan støtte et barns skolegang gjennom vår fadderordning
-          </h2>
+          </p>
           <a className="btn btn--orange" href="/fadderordning" aria-label="Les mer om vår fadderordning">
             LES MER
           </a>
