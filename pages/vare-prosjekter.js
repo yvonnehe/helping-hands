@@ -5,8 +5,9 @@ const Prosjekter = () => {
     <>
       <NextHead />
 
+    <div className="prosjekter">
       <div className="container-fluid">
-        <div className="prosjekter row">
+        <div className="row prosjekter--padding">
           <div className="col-md-6">
             <h2>Våre prosjekter</h2>
             <h3>Hva vi jobber med</h3>
@@ -35,6 +36,9 @@ const Prosjekter = () => {
             />
           </div>
         </div>
+        </div>
+        </div>
+        <div className="container-fluid">
         <div className="prosjekter2 row flex-column-reverse flex-md-row">
           <div className="col-md-6 my-auto">
             <img

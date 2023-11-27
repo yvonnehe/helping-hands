@@ -1,6 +1,8 @@
 .prosjekter {
   background-color: #f7f4f4;
-  padding: 30px;
+  &--padding {
+    padding: 30px;
+  }
 }
 
 .prosjekter2 {

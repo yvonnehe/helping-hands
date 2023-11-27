@@ -13,8 +13,8 @@ const Fadderordning = () => {
     <>
       <NextHead />
 
-      <div className="omfadder con">
-        <h2>Fadderordning</h2>
+      <div className="omfadder">
+        <div className="con omfadder--padding"> 
         <h3>Om fadderordningen</h3>
         <p className="fadderp">
           Helping Hands fadderordning er laget for å støtte barn og ungdom
@@ -32,6 +32,7 @@ const Fadderordning = () => {
           bli fadder!
         </p>
       </div>
+      </div>
       <div className="ledigefadder con">
         <h3>Venter på fadder</h3>
         <Fadderbarn setImg={setImg} setName={setName} setDesc={setDesc} />
@@ -46,7 +47,8 @@ const Fadderordning = () => {
           />
         )}
       </div>
-      <div className="andrefadder con">
+      <div className="andrefadder">
+        <div className="con andrefadder--padding">
         <h3>Andre med behov for ekstra støtte</h3>
         <Andre setImg={setImg} setName={setName} setDesc={setDesc} />
         {Img && (
@@ -59,6 +61,7 @@ const Fadderordning = () => {
             setDesc={setDesc}
           />
         )}
+        </div>
       </div>
       <div className="faqfadder con">
         <h3>Fadderordning FAQ - vanlig stilte spørsmål</h3>

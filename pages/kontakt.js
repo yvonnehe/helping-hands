@@ -6,8 +6,9 @@ const Kontakt = () => {
     <>
       <NextHead />
 
+    <div className="kontakt">
       <div className="container-fluid">
-        <div className="kontakt row">
+        <div className="row kontakt--padding">
           <div className="col-md-6">
             <h2>Kontakt oss</h2>
             <h3 className="kontakt__h3">
@@ -32,6 +33,7 @@ const Kontakt = () => {
             />
           </div>
         </div>
+      </div>
       </div>
     </>
   );

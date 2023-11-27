@@ -5,8 +5,9 @@ const HvordanHjelpe = () => {
     <>
       <NextHead />
 
-      <main className="container-fluid">
-        <div className="hvordanhjelpe row">
+    <div className="hvordanhjelpe">
+      <div className="container-fluid">
+        <div className="row hvordanhjelpe--padding">
           <div className="col-md-6">
             <h2>Hvordan hjelpe</h2>
             <h3>Ulike måter å bidra</h3>
@@ -46,6 +47,9 @@ const HvordanHjelpe = () => {
             />
           </div>
         </div>
+        </div>
+        </div>
+        <div className="container-fluid">
         <div className="hvordanhjelpe2 row flex-column-reverse flex-md-row">
           <div className="col-md-6 my-auto">
             <img
@@ -69,7 +73,7 @@ const HvordanHjelpe = () => {
             </p>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 };

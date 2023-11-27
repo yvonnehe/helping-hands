@@ -6,7 +6,8 @@ export default function Home() {
     <>
       <NextHead />
 
-      <div className="hero con">
+      <div className="hero">
+        <div className="con">
         <div className="hero__content">
           <h1>Gi skolegang i gave</h1>
           <h2 className="hero__p">
@@ -20,9 +21,11 @@ export default function Home() {
             <button className="btn btn--orange">LES MER</button>
           </a> */}
         </div>
+        </div>
       </div>
 
-      <div className="section1 container-fluid">
+      <div className="section1">
+        <div className="container-fluid">
         <div className="row">
           <div className="col-lg-1 col-md-0"></div>
           <div className="section1__1 col-lg-5 col-md-4 col-sm-12 my-auto">
@@ -47,6 +50,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
         </div>
       </div>
 
@@ -85,7 +89,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="section3 con">
+      <div className="section3">
+        <div className="con">
         <h3 className="section3__h3">Følg oss på sosiale medier</h3>
         <h4 className="section3__h4">For oppdateringer om hva vi jobber med</h4>
         <a
@@ -100,6 +105,7 @@ export default function Home() {
         >
           <button disabled className="btn btn--gray">Instagram</button>
         </a>
+      </div>
       </div>
 
       <div className="headlinesection con">
