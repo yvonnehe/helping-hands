@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar bg="inherit" expand="lg" className="justify-content-between">
+        <div className="container-fluid">
         <div className="navbar__logodiv">
           <Nav.Link href="/" class="nav-link next-img-fix">
             <Image
@@ -45,6 +46,7 @@ const Layout = ({ children }) => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        </div>
       </Navbar>
 
       {/* 
@@ -84,6 +86,8 @@ const Layout = ({ children }) => {
       </main>
       
       <footer>
+        <div className="footerdiv--color">
+        <div className="container-fluid">
         <div className="footerdiv">
           <div>
             <a
@@ -103,6 +107,8 @@ const Layout = ({ children }) => {
             Kontakt
           </Link>
           <p className="copyright">© Yvonne Helland 2021</p>
+        </div>
+        </div>
         </div>
       </footer>
     </>

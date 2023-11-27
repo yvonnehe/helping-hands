@@ -6,8 +6,9 @@ const OmOss = () => {
     <>
       <NextHead />
 
+    <div className="teamstory">
       <div className="container-fluid">
-        <div className="teamstory row">
+        <div className="row teamstory--padding">
           <div className="col-lg-6">
             <h2>Om oss</h2>
             <h3>Helping Hands teamet</h3>
@@ -47,6 +48,9 @@ const OmOss = () => {
             </p>
           </div>
         </div>
+        </div>
+        </div>
+        <div className="container-fluid">
         <div className="gladness row flex-column-reverse flex-lg-row">
           <div className="col-lg-6 my-auto">
             <img

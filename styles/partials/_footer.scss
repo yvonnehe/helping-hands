@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #363636;
   color: white;
   padding: 10px 30px;
   font-size: 14px;
+  &--color {
+    background-color: #363636;
+  }
 }
 
 .icon {
