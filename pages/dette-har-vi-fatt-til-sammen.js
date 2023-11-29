@@ -10,7 +10,8 @@ const Sammen = () => {
     <>
       <NextHead />
 
-      <div className="historie1 con">
+    <div className="historie1">
+      <div className="con historie1--padding">
         <h2>Dette har vi fått til sammen</h2>
         <h3>Skolegang og høyere utdanning</h3>
         <p className="sammenp">
@@ -22,11 +23,12 @@ const Sammen = () => {
           Når et barn får lunsj på skolen, er det større
           sannsynlighet for at familien sender barnet på skolen.  
           Ved hjelp av mange faddere, betaler vi for skolegang
-          og utdanning til over 100 barn og unge. Vi vil rette en spesiell takk
+          og utdanning til over 120 barn og unge. Vi vil rette en spesiell takk
           til fadderne våre, som har gjort det mulig for oss å hjelpe så mange
           barn og unge med skolegang.
         </p>
         <Skole />
+      </div>
       </div>
       <div className="historie2 con">
         <h3>Miriam</h3>
@@ -46,7 +48,8 @@ const Sammen = () => {
         </p>
         <Miriam />
       </div>
-      <div className="historie3 con">
+      <div className="historie3">
+      <div className="con historie3--padding">
         <h3>Seminar om familieplanlegging</h3>
         <p className="sammenp">
           Mange jenter blir tidlig gravide, gjerne helt ned i 14-15 års alder.
@@ -56,6 +59,7 @@ const Sammen = () => {
           prevensjonsmidler. 
         </p>
         <Familieplan />
+      </div>
       </div>
       <div className="historie4 con">
         <h3>Voksenopplæring</h3>
@@ -69,7 +73,8 @@ const Sammen = () => {
         </p>
         <Skredder />
       </div>
-      <div className="historie5 con">
+      <div className="historie5">
+      <div className="con historie5--padding">
         <h3>Seminar om utdanning</h3>
         <p className="sammenp">
           Det er vanlig at jenter dropper ut fra skolen før- eller i løpet av
@@ -85,6 +90,7 @@ const Sammen = () => {
           etter å ha vært på seminaret. 
         </p>
         <Utdanning />
+      </div>
       </div>
     </>
   );
