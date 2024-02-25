@@ -29,7 +29,7 @@ const BliFadder = () => {
   });
 
   const onSubmit = (data) => {
-    sendEmail(data);
+      sendEmail(data);
   }
 
 //   const onSubmit = (data) => {
@@ -69,23 +69,23 @@ const BliFadder = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="name">Navn</label>
-                    <input type="name" className="form-control" id="name" placeholder="Navn Navnesen" 
+                    <input type="name" className={`form-control ${errors.name ? 'errorInput' : ''}`} id="name" placeholder="Navn Navnesen" 
                     {...register('name')}/>
-                    {errors.name && <p>{errors.name.message}</p>}
+                    {errors.name && <p className="errorMessage">{errors.name.message}</p>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">E-post adresse</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dittnavn@epost.no" 
+                    <input type="email" className={`form-control ${errors.name ? 'errorInput' : ''}`} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dittnavn@epost.no" 
                     {...register('email')}/>
                     <small id="emailHelp" className="form-text text-muted">
                         Brukes kun til å sende oppdateringer om ditt fadderbarn eller annen relevant fadder informasjon.
                     </small>
-                    {errors.email && <p>{errors.email.message}</p>}
+                    {errors.email && <p className="errorMessage">{errors.email.message}</p>}
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="fadderbarn">Fadderbarn</label>
-                    <select className="form-control" id="fadderbarn" 
+                    <select className={`form-control ${errors.name ? 'errorInput' : ''}`} id="fadderbarn" 
                     {...register('fadderbarn')}>
                         <option>Velg fadderbarn</option>
                         <option value="vårt-forslag">La oss komme med et forslag</option>
@@ -117,14 +117,14 @@ const BliFadder = () => {
                         <option value="Sofia">Sofia</option>
                         <option value="Abdul">Abdul</option>
                     </select>
-                    {errors.fadderbarn && <p>{errors.fadderbarn.message}</p>}
+                    {errors.fadderbarn && <p className="errorMessage">{errors.fadderbarn.message}</p>}
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="amount">Beløp</label>
-                    <input type="number" className="form-control" id="amount" placeholder="200" 
+                    <input type="number" className={`form-control ${errors.name ? 'errorInput' : ''}`} id="amount" placeholder="200" 
                     {...register('amount')}/>
-                    {errors.amount && <p>{errors.amount.message}</p>}
+                    {errors.amount && <p className="errorMessage">{errors.amount.message}</p>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="comment">Kommentar</label>
