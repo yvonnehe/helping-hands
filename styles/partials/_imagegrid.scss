@@ -21,6 +21,11 @@
   left: 0;
 }
 
+.img-wrap:hover img {
+  opacity: 0.75; 
+  transition: opacity 0.3s ease-in-out;
+}
+
 @media screen and (max-width: 767px) {
   .img-grid {
     grid-template-columns: 1fr 1fr;

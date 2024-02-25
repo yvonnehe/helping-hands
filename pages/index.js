@@ -70,7 +70,7 @@ export default function Home() {
               <div style={{boxSizing: 'border-box', display: 'block', maxWidth: 100 +'%'}}>
                 <img style={{maxWidth:100 + '%', display: 'block', margin:0, border: 'none', padding:0}} alt aria-hidden="true" role="presentation" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iTmFOIiBoZWlnaHQ9Ik5hTiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=" />
               </div>
-              <img alt="Kakediagram som viser 100%" src="/100-icon.svg" decoding="async" style={{position: 'absolute', top:0, left:0, bottom:0, right:0, boxSizing: 'border-box', padding:0, border: 'none', margin: 'auto', display: 'block', width:0, height:0, minWidth: 100 + '%', maxWidth: 100 + '%', minHeight: 100 +'%', maxHeight:100 + '%'}} srcset="/100-icon.svg 1x" />
+              <img alt="Kakediagram som viser 100%" src="/100-icon.svg" decoding="async" style={{position: 'absolute', top:0, left:0, bottom:0, right:0, boxSizing: 'border-box', padding:0, border: 'none', margin: 'auto', display: 'block', width:0, height:0, minWidth: 100 + '%', maxWidth: 100 + '%', minHeight: 100 +'%', maxHeight:100 + '%'}} srcSet="/100-icon.svg 1x" />
             </div>
             {/* normal img tag - not in use, wonky styling */}
             {/* <img src="/100-icon.svg" alt="Kakediagram som viser 100%" height="" width="" /> */}

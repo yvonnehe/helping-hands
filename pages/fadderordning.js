@@ -28,8 +28,9 @@ const Fadderordning = () => {
           fått fadder, hvis et av barna blir syke, eller andre i vanskelige
           situasjoner.</p>
         <p className="fadderp">
-          Ta kontakt med oss på info@helpinghands.no dersom du ønsker å
-          bli fadder!
+          <a href="/bli-fadder" className="sponsor-link">
+            Fyll ut dette skjemaet dersom du ønsker å bli fadder</a>, 
+            så tar vi kontakt med deg!
         </p>
       </div>
       </div>
