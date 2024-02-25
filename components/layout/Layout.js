@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       <Navbar bg="inherit" expand="lg" className="justify-content-between">
         <div className="container-fluid">
         <div className="navbar__logodiv">
-          <Nav.Link href="/" class="nav-link next-img-fix">
+          <Nav.Link href="/" className="nav-link next-img-fix">
             <Image
               src="/helping-hands-logo.svg"
               alt="Helping Hands logo"
