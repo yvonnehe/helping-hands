@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import NextHead from "../components/NextHead";
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
@@ -27,14 +27,18 @@ const BliFadder = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
+  const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
+  const successMessageRef = useRef(null);
+
+  useEffect(() => {
+    if (isSubmittedSuccessfully && successMessageRef.current) {
+      successMessageRef.current.focus();
+    }
+  }, [isSubmittedSuccessfully]);
 
   const onSubmit = (data) => {
       sendEmail(data);
   }
-
-//   const onSubmit = (data) => {
-//     console.log(data);
-//   };
 
   const sendEmail = (data) => {
     console.log("Sending email with data:", data);
@@ -47,10 +51,12 @@ const BliFadder = () => {
       },
     })
     .then((response) => {
-      alert(response.data.message);
+      //alert(response.data.message);
+      setIsSubmittedSuccessfully(true);
     })
     .catch((error) => {
       alert(error.message);
+      setIsSubmittedSuccessfully(false);
     });
   }
 
@@ -66,6 +72,11 @@ const BliFadder = () => {
             <h3 className="kontakt__h3">
               Dersom det er noe du lurer på, kan du gjerne ta kontakt med oss.
             </h3>
+            {isSubmittedSuccessfully && (
+              <div role="alert" className="successMessage" tabIndex="-1" ref={successMessageRef}>
+                Skjemaet ble sendt inn vellykket! Vi vil kontakte deg snart.
+              </div>
+            )}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="name">Navn</label>

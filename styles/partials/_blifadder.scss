@@ -30,3 +30,15 @@
     font-size: 0.875em;
     margin-top: 0.5rem;
 }
+
+.successMessage {
+    color: #4BB543; /* A visually friendly green color */
+    background-color: #EBF9EB; /* A light green background for contrast */
+    border: 1px solid #4BB543;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px; 
+  }
