@@ -1,8 +1,9 @@
 const Fadderbarn = ({ setImg, setName, setDesc }) => {
   return (
     <div className="img-grid">
-      <div
+      <button
         className="img-wrap"
+        aria-label="Les mer om Zakayo"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-zakayo.jpg");
           setName("Zakayo");
@@ -11,9 +12,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-zakayo.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Mohammed"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-mohammed.png");
           setName("Mohammed");
@@ -22,9 +24,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-mohammed.png" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Rashid"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-rashid.jpg");
           setName("Rashid");
@@ -33,9 +36,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-rashid.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Mary"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-mary.jpg");
           setName("Mary");
@@ -44,9 +48,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-mary.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Abdala"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-abdala.jpg");
           setName("Abdala");
@@ -55,9 +60,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-abdala.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Christopher"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-christopher.jpg");
           setName("Christopher");
@@ -66,9 +72,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-christopher.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Salimu"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-salimu.jpg");
           setName("Salimu");
@@ -77,9 +84,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-salimu.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Irene"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-irene.jpg");
           setName("Irene");
@@ -88,9 +96,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-irene.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Yasir"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-yasir.jpg");
           setName("Yasir");
@@ -99,9 +108,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-yasir.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Mahad"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-mahad.jpg");
           setName("Mahad");
@@ -110,9 +120,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-mahad.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Karen"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-karen.jpg");
           setName("Karen");
@@ -121,9 +132,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-karen.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Ana"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-ana.jpg");
           setName("Ana");
@@ -132,9 +144,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-ana.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Ali"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-ali.jpg");
           setName("Ali");
@@ -143,9 +156,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-ali.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Esther"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-esther.jpg");
           setName("Esther");
@@ -154,9 +168,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-esther.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Nusrat"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-nusrat.jpg");
           setName("Nusrat");
@@ -165,9 +180,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-nusrat.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Lillian"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-lillian.jpg");
           setName("Lillian");
@@ -176,9 +192,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-lillian.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Yahaya"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-yahaya.jpg");
           setName("Yahaya");
@@ -187,9 +204,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-yahaya.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Kelvin"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-kelvin.jpg");
           setName("Kelvin");
@@ -198,9 +216,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-kelvin.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Iddi"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-iddi.jpg");
           setName("Iddi");
@@ -209,9 +228,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-iddi.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Nordin"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-nordin.jpg");
           setName("Nordin");
@@ -220,9 +240,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-nordin.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Elmaria"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-elmaria.jpg");
           setName("Elmaria");
@@ -231,9 +252,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-elmaria.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Fatina"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-fatina.jpg");
           setName("Fatina");
@@ -242,9 +264,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-fatina.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Maurin"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-maurin.jpg");
           setName("Maurin");
@@ -253,9 +276,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-maurin.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Nijad"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-nijad.jpg");
           setName("Nijad");
@@ -264,9 +288,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-nijad.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Ramadhan"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-ramadhan.jpg");
           setName("Ramadhan");
@@ -275,9 +300,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-ramadhan.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Sofia"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-sofia.jpg");
           setName("Sofia");
@@ -286,9 +312,10 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-sofia.jpg" alt="Tanzaniansk student"></img>
-      </div>
-      <div
+      </button>
+      <button
         className="img-wrap"
+        aria-label="Les mer om Abdul"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-abdul.jpg");
           setName("Abdul");
@@ -297,7 +324,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-abdul.jpg" alt="Tanzaniansk student"></img>
-      </div>
+      </button>
     </div>
   );
 };
