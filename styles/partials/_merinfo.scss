@@ -37,9 +37,10 @@
 
 .close-btn {
   position: absolute;
-  top: 10px;
+  top: 5px;
   right: 15px;
-  font-size: 24px;
+  //font-size: 24px;
+  font-size: 32px; 
   background: none;
   border: none;
   color: #434343;
@@ -52,5 +53,8 @@
     height: 100%; 
     margin: 0 auto;  
     max-height: 100%;
+  }
+  .close-btn {
+    top: 0px;
   }
 }
