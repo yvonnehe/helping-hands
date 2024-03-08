@@ -21,6 +21,7 @@
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   max-height: 95vh;
   overflow-y: auto; 
+  position: relative;
 }
 
 .name {
@@ -32,6 +33,17 @@
   padding: 0px 20px 20px 20px;
   color: #434343;
   font-size: 14px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #434343;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
