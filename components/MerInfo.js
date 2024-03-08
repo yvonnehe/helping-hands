@@ -16,12 +16,18 @@ const MerInfo = ({ Img, setImg, Name, setName, Desc, setDesc }) => {
       }
     };
 
+    if (Img) {
+      document.body.style.overflow = 'hidden'; // Disable scrolling on the body
+      closeBtnRef.current.focus(); // Auto-focus on the close button
+    } else {
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+
     window.addEventListener('keyup', handleKeyUp);
-    // Auto-focus on the close button when the popup is opened
-    closeBtnRef.current.focus();
 
     return () => {
-      window.removeEventListener('keyup', handleKeyUp);
+      document.body.style.overflow = ''; // Ensure scrolling is re-enabled
+      window.removeEventListener('keyup', handleKeyUp); // remove focus from close button
     };
   }, []);
 
