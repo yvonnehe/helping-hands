@@ -100,14 +100,10 @@ const BliFadder = () => {
                     {...register('fadderbarn')}>
                         <option>Velg fadderbarn</option>
                         <option value="vårt-forslag">La oss komme med et forslag</option>
-                        <option value="Zakayo">Zakayo</option>
-                        <option value="Mohammed">Mohammed</option>
-                        <option value="Rashid">Rashid</option>
                         <option value="Mary">Mary</option>
                         <option value="Abdala">Abdala</option>
                         <option value="Christopher">Christopher</option>
                         <option value="Salimu">Salimu</option>
-                        <option value="Irene">Irene</option>
                         <option value="Yasir">Yasir</option>
                         <option value="Mahad">Mahad</option>
                         <option value="Karen">Karen</option>
@@ -118,10 +114,8 @@ const BliFadder = () => {
                         <option value="Lillian">Lillian</option>
                         <option value="Yahaya">Yahaya</option>
                         <option value="Kelvin">Kelvin</option>
-                        <option value="Iddi">Iddi</option>
                         <option value="Nordin">Nordin</option>
                         <option value="Elmaria">Elmaria</option>
-                        <option value="Fatina">Fatina</option>
                         <option value="Maurin">Maurin</option>
                         <option value="Nijad">Nijad</option>
                         <option value="Ramadhan">Ramadhan</option>
