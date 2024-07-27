@@ -17,7 +17,7 @@ const HvordanHjelpe = () => {
               enklere, ønsker vi å samle litt informasjon her for hva du
               eventuelt kan hjelpe oss med.{" "}
             </p>
-            <h5>Vi ønsker gjerne at du tar kontakt dersom: </h5>
+            <h4 className="h4-questions">Vi ønsker gjerne at du tar kontakt dersom: </h4>
             <ul>
               <li>
                 Din arbeidsplass eller bedrift ønsker å samarbeide med eller

@@ -28,7 +28,7 @@ const Fadderordning = () => {
           fått fadder, hvis et av barna blir syke, eller andre i vanskelige
           situasjoner.</p>
         <p className="fadderp">
-          <a href="/bli-fadder" className="sponsor-link">
+          <a href="/bli-fadder" className="sponsor-link sunshinelink">
             Fyll ut dette skjemaet dersom du ønsker å bli fadder</a>, 
             så tar vi kontakt med deg!
         </p>
@@ -66,15 +66,15 @@ const Fadderordning = () => {
       </div>
       <div className="faqfadder con">
         <h3>Fadderordning FAQ - vanlig stilte spørsmål</h3>
-        <h5>
+        <h4 className="h4-questions">
           Hva er det jeg betaler for når jeg er fadder for et barn/en ungdom?
-        </h5>
+        </h4>
         <p className="fadderp">
           Når du blir fadder for et barn, skal det være oppført hva som er
           inkludert i beløpet du betaler. Vanligvis er det skolekostnader,
           skoleutstyr og uniform. Skolekostnadene varierer fra skole til skole.{" "}
         </p>
-        <h5>Hvorfor er man bare fadder 1 år om gangen?</h5>
+        <h4 className="h4-questions">Hvorfor er man bare fadder 1 år om gangen?</h4>
         <p className="fadderp">
           Fadderordningen baserer seg på skolegangen og skoleutstyret vi betaler
           for, som er på ett års basis. Det hender at barna flytter, bytter
@@ -82,9 +82,9 @@ const Fadderordning = () => {
           barnet skal fortsette på den samme skolen, eller om det er endringer.
           Da kan man velge om man ønsker å fortsette som fadder eller ikke.
         </p>
-        <h5>
+        <h4 className="h4-questions">
           Hva skjer dersom jeg ikke lenger har mulighet til å være fadder?
-        </h5>
+        </h4>
         <p className="fadderp">
           Dette betyr ikke at ditt barn plutselig står uten skolegang. Vi
           forplikter oss til de barna vi hjelper, og fortsetter å hjelpe dem.
@@ -96,7 +96,7 @@ const Fadderordning = () => {
           perioder der man ikke kan bidra. Dette skal ikke gå utover barna, men
           vi ønsker selvfølgelig å hjelpe så mange som mulig.
         </p>
-        <h5>Hvor mange oppdateringer får jeg/vi?</h5>
+        <h4 className="h4-questions">Hvor mange oppdateringer får jeg/vi?</h4>
         <p className="fadderp">
           Hvor mange oppdateringer du får om fadderbarnet ditt varierer. Noen
           barn/ungdom bor i nærheten av kollegaen vår i Tanzania og/eller
