@@ -59,6 +59,7 @@ const BliFadder = () => {
       setIsSubmittedSuccessfully(true);
       setIsError(false);
       setIsSubmitting(false);
+      reset();
     })
     .catch((error) => {
       console.error("Error sending email:", error);
