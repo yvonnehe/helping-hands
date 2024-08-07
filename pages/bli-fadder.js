@@ -98,13 +98,13 @@ const BliFadder = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="name">Navn</label>
-                    <input type="name" className={`form-control ${errors.name ? 'errorInput' : ''}`} id="name" placeholder="Navn Navnesen" 
+                    <input type="name" className={`form-control ${errors.name ? 'errorInput' : ''}`} id="name" autoComplete="name" placeholder="Navn Navnesen" 
                     {...register('name')}/>
                     {errors.name && <p className="errorMessage">{errors.name.message}</p>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">E-post adresse</label>
-                    <input type="email" className={`form-control ${errors.email ? 'errorInput' : ''}`} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dittnavn@epost.no" 
+                    <input type="email" className={`form-control ${errors.email ? 'errorInput' : ''}`} id="exampleInputEmail1" aria-describedby="emailHelp" autoComplete="email" placeholder="dittnavn@epost.no" 
                     {...register('email')}/>
                     <small id="emailHelp" className="form-text text-muted">
                         Brukes kun til å sende oppdateringer om ditt fadderbarn eller annen relevant fadder informasjon.
