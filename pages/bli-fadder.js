@@ -24,7 +24,7 @@ const schema = yup.object({
 }).required();
 
 const BliFadder = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });
   const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
