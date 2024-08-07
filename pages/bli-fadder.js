@@ -28,7 +28,9 @@ const BliFadder = () => {
     resolver: yupResolver(schema),
   });
   const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
+  const [isError, setIsError] = useState(false);
   const successMessageRef = useRef(null);
+  const errorMessageRef = useRef(null);
 
   useEffect(() => {
     if (isSubmittedSuccessfully && successMessageRef.current) {
@@ -36,8 +38,15 @@ const BliFadder = () => {
     }
   }, [isSubmittedSuccessfully]);
 
+  useEffect(() => {
+    if (isError && errorMessageRef.current) {
+      errorMessageRef.current.focus();
+    }
+  }, [isError]);
+
   const onSubmit = (data) => {
-      sendEmail(data);
+    console.log("Form submitted with data:", data);
+    sendEmail(data);
   }
 
   const sendEmail = (data) => {
@@ -52,11 +61,15 @@ const BliFadder = () => {
     })
     .then((response) => {
       //alert(response.data.message);
+      console.log("Email sent successfully:", response.data);
       setIsSubmittedSuccessfully(true);
+      setIsError(false);
     })
     .catch((error) => {
-      alert(error.message);
+      //alert(error.message);
+      console.error("Error sending email:", error);
       setIsSubmittedSuccessfully(false);
+      setIsError(true);
     });
   }
 
@@ -77,6 +90,11 @@ const BliFadder = () => {
                 Skjemaet ble sendt inn vellykket! Vi vil kontakte deg snart.
               </div>
             )}
+            {isError && (
+              <div role="alert" className="errorMessageAlert" tabIndex="-1" ref={errorMessageRef}>
+                Kunne ikke sende e-post. Kontakt oss på info@helpinghands.no.
+              </div>
+            )}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="name">Navn</label>
@@ -86,7 +104,7 @@ const BliFadder = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">E-post adresse</label>
-                    <input type="email" className={`form-control ${errors.name ? 'errorInput' : ''}`} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dittnavn@epost.no" 
+                    <input type="email" className={`form-control ${errors.email ? 'errorInput' : ''}`} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dittnavn@epost.no" 
                     {...register('email')}/>
                     <small id="emailHelp" className="form-text text-muted">
                         Brukes kun til å sende oppdateringer om ditt fadderbarn eller annen relevant fadder informasjon.
@@ -96,7 +114,7 @@ const BliFadder = () => {
 
                 <div className="form-group">
                     <label htmlFor="fadderbarn">Fadderbarn</label>
-                    <select className={`form-control ${errors.name ? 'errorInput' : ''}`} id="fadderbarn" 
+                    <select className={`form-control ${errors.fadderbarn ? 'errorInput' : ''}`} id="fadderbarn" 
                     {...register('fadderbarn')}>
                         <option>Velg fadderbarn</option>
                         <option value="vårt-forslag">La oss komme med et forslag</option>
@@ -132,7 +150,7 @@ const BliFadder = () => {
 
                 <div className="form-group">
                     <label htmlFor="amount">Beløp</label>
-                    <input type="number" className={`form-control ${errors.name ? 'errorInput' : ''}`} id="amount" placeholder="200" 
+                    <input type="number" className={`form-control ${errors.amount ? 'errorInput' : ''}`} id="amount" placeholder="200" 
                     {...register('amount')}/>
                     {errors.amount && <p className="errorMessage">{errors.amount.message}</p>}
                 </div>
@@ -175,4 +193,3 @@ const BliFadder = () => {
 };
 
 export default BliFadder;
-
