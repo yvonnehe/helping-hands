@@ -41,4 +41,16 @@
     font-size: 1rem;
     text-align: center;
     margin-bottom: 20px; 
-  }
+}
+
+.errorMessageAlert {
+    color: red;
+    background-color: #F8D7DA; /* A light red background for contrast */
+    border: 1px solid #FFC0CB;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
