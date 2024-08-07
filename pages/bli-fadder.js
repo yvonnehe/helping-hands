@@ -29,6 +29,7 @@ const BliFadder = () => {
   });
   const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const successMessageRef = useRef(null);
   const errorMessageRef = useRef(null);
 
@@ -57,16 +58,19 @@ const BliFadder = () => {
       console.log("Email sent successfully:", response.data);
       setIsSubmittedSuccessfully(true);
       setIsError(false);
+      setIsSubmitting(false);
     })
     .catch((error) => {
       console.error("Error sending email:", error);
       setIsSubmittedSuccessfully(false);
       setIsError(true);
+      setIsSubmitting(false);
     });
   };
 
   const onSubmit = (data) => {
     console.log("Form submitted with data:", data);
+    setIsSubmitting(true);
     sendEmail(data);
   };
 
@@ -167,7 +171,7 @@ const BliFadder = () => {
                   </small> 
                 </div>
                 <button type="submit" className="btn btn--form">
-                  Send
+                  {isSubmitting ? 'Sender...' : 'Send'}
                 </button>
               </form>
             </div>
