@@ -183,18 +183,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       </button>
       <button
         className="img-wrap"
-        aria-label="Les mer om Maurin"
-        onClick={() => {
-          setImg("/fadderbarn/helping-hands-maurin.jpg");
-          setName("Maurin");
-          setDesc("Hun er 17 år gammel og går på ungdomsskolen. Hun bor med besteforeldrene, moren og 1 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
-          );
-        }}
-      >
-        <img src="/fadderbarn/helping-hands-maurin.jpg" alt="Tanzaniansk student"></img>
-      </button>
-      <button
-        className="img-wrap"
         aria-label="Les mer om Nijad"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-nijad.jpg");
@@ -204,18 +192,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         }}
       >
         <img src="/fadderbarn/helping-hands-nijad.jpg" alt="Tanzaniansk student"></img>
-      </button>
-      <button
-        className="img-wrap"
-        aria-label="Les mer om Ramadhan"
-        onClick={() => {
-          setImg("/fadderbarn/helping-hands-ramadhan.jpg");
-          setName("Ramadhan");
-          setDesc("Han er 20 år gammel og går i 10. klasse. Han bor med far og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
-          );
-        }}
-      >
-        <img src="/fadderbarn/helping-hands-ramadhan.jpg" alt="Tanzaniansk student"></img>
       </button>
       <button
         className="img-wrap"
