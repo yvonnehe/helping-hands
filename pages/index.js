@@ -78,7 +78,7 @@ export default function Home() {
           <div className="section2__2 col-lg-8 col-md-9 col-sm-8">
             <h4>100% av innsamlede midler går til formålet</h4>
             <p>
-              Tall basert på regnskap 2022. Vi ønsker at de pengene vi samler
+              Tall basert på regnskap 2023. Vi ønsker at de pengene vi samler
               inn skal gå der de trengs mest, derfor gjør vi vårt ytterste for å
               gjøre dette mulig. Administrasjonskostnadene betaler vi fra egen
               lomme. Gladness sin lønn er betalt av egne givere som ønsker å
@@ -121,7 +121,7 @@ export default function Home() {
                 <p>
                   Mange barn er ikke på skolen på grunn av dårlig økonomi eller
                   manglende utstyr. Ved hjelp av mange faddere, betaler vi for
-                  skolegang og utdanning til over 100 barn og unge.
+                  skolegang og utdanning til over 130 barn og unge.
                 </p>
               </div>
             </a>
