@@ -3,11 +3,17 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  padding: 10px 30px;
+  //padding: 10px 30px;
+  padding: 20px 30px;
   font-size: 14px;
+
   &--color {
     background-color: #363636;
   }
+}
+
+.footerdiv2 {
+  align-items: flex-start;
 }
 
 .icon {
@@ -21,21 +27,95 @@
 
 a.kontaktlink {
   padding: 0px;
+
   &:hover {
     color: #f96d11;
   }
+
   &:focus {
-    color:  #f96d11;
+    color: #f96d11;
   }
 }
 
 .copyright {
   margin: 0;
+  margin-top: -15px;
+}
+
+.footer-p {
+  margin: 5px 0px;
+}
+
+.footer-heading {
+  font-weight: bold;
+}
+
+.line {
+  height: 1px;
+  background: #818181;
+  margin: 5px 30px 15px 30px;
+}
+
+.innsamlingskontrollen-div {
+  display: flex;
+}
+
+.innsamlingskontrollen-img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+.juks-margin {
+  margin-top: 5px;
+}
+
+
+@media screen and (max-width: 570px) {
+  .footerdiv2 {
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Optionally center the items horizontally */
+    text-align: center;
+  }
+
+  .footerdiv2>div {
+    margin-bottom: 20px;
+    /* Add spacing between the stacked items */
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .footerdiv {
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Optionally center the items horizontally */
+    text-align: center;
+  }
+
+  .footerdiv>div {
+    margin-bottom: 20px;
+    /* Add spacing between the stacked items */
+  }
 }
 
 @media screen and (max-width: 380px) {
   .footerdiv {
     font-size: 12px;
     text-align: center;
+  }
+
+  .innsamlingskontrollen-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 305px) {
+  .footerdiv {
+    padding: 20px 20px;
   }
 }
