@@ -85,7 +85,7 @@ const Layout = ({ children }) => {
       {/* <AnalyticsWrapper /> */}
       </main>
       
-      <footer>
+      {/* <footer>
         <div className="footerdiv--color">
         <div className="container-fluid">
         <div className="footerdiv">
@@ -106,6 +106,57 @@ const Layout = ({ children }) => {
           <Link className="kontaktlink" href="/kontakt">
             Kontakt
           </Link>
+          <p className="copyright">© Yvonne Helland 2021</p>
+        </div>
+        </div>
+        </div>
+      </footer> */}
+      <footer>
+        <div className="footerdiv--color">
+        <div className="container-fluid">
+        <div className="footerdiv footerdiv2">
+          <div>
+            <div className="juks-margin">
+              <Link className="kontaktlink footer-heading" href="/kontakt">
+                Kontakt oss
+              </Link>
+            </div>
+            <p className="footer-p">info@helpinghands.no</p>
+            <p className="footer-p">Org.nr: 915922058</p>
+          </div>
+          <div>
+            <p className="footer-p footer-heading">Gi nå</p>
+            <p className="footer-p">Kontonummer: 1503 75 77968</p>
+            <p className="footer-p">Vipps: 13947</p>
+          </div>
+          <div>
+            <p className="footer-p footer-heading">Følg oss</p>
+            <div>
+              <a
+                className="iconlink"
+                href="https://www.facebook.com/helpinghandsno"
+              >
+                <img className="icon" src="fb_white.svg" alt="Facebook icon" />
+                Facebook
+              </a>
+            </div>
+            <div>
+              <a
+                className="iconlink"
+                href="https://www.instagram.com/helpinghandsno/"
+              >
+                <img className="icon" src="ig_white.svg" alt="Instagram icon" />
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div className="footerdiv">
+          <div className="innsamlingskontrollen-div">
+            <img className="innsamlingskontrollen-img" src="ik-stempel-hvit-alpha.png" alt="Innsamlingskontrollen" />
+            <p>Medlem av Innsamlingskontrollen</p>
+          </div>
           <p className="copyright">© Yvonne Helland 2021</p>
         </div>
         </div>
