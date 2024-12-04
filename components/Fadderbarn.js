@@ -169,6 +169,66 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/fadderbarn/helping-hands-joseph.jpg" alt="Tanzaniansk student"></img>
       </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Jonelle"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-jonelle.jpg");
+          setName("Jonelle");
+          setDesc("Hun er 4 år og går på “pre school”. Hun bor med 3 andre barn/unge voksne fra slekten hennes. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-jonelle.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Jasin"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-jasin.jpg");
+          setName("Jasin");
+          setDesc("Hun er 15 år og går i 9. klasse. Hun bor med storesøster og to yngre barn fra slekten deres. Hun trenger hjelp til videre skolegang. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-jasin.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Norin"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-norin.jpg");
+          setName("Norin");
+          setDesc("Hun er 12 år og går i 5. klasse. Hun bor med 3 andre barn og unge voksne fra slekten hennes. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-norin.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Rashid"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-rashid.jpg");
+          setName("Rashid");
+          setDesc("Han er 13 år gammel og går i 8. klasse. Han har 5 søsken. Han trenger hjelp til videre skolegang. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-rashid.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Ramla"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-ramla.jpg");
+          setName("Ramla");
+          setDesc("Hun er 21 år gammel og drømmer om å studere “hotel management”. Hun bor sammen med bestemoren og 4 andre barn/ungdom. For skolepenger, uniform, kost, losji, hygieneprodukter og skolesaker vil det koste 680 kr i mnd. Denne summen kan fint deles på flere faddere."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-ramla.jpg" alt="Tanzaniansk student"></img>
+      </button>
     </div>
   );
 };
