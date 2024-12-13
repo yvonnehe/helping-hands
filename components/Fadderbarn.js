@@ -139,7 +139,7 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
         onClick={() => {
           setImg("/fadderbarn/helping-hands-bahati.jpg");
           setName("Bahati");
-          setDesc("Hun er 20 år gammel. Hun har akkurat begynt på studiet “Social development studies”, og drømmen hennes er å jobbe med barn som har spesielle behov. Hun bor i en stor familie med mange søsken og «søsken». Skoleutgifter, uniform og alle andre ting hun trenger i forbindelse med skolen, koster 800 kr i mnd. Denne utgiften kan helt fint deles med én eller flere faddere som du enten kjenner eller ikke kjenner."
+          setDesc("Hun er 20 år gammel. Hun har akkurat begynt på studiet “Social development studies”, og drømmen hennes er å jobbe med barn som har spesielle behov. Hun bor i en stor familie med mange søsken og «søsken». Gjenstående skoleutgifter, uniform og alle andre ting hun trenger i forbindelse med skolen, er 500 kr i mnd. Denne utgiften kan helt fint deles med én eller flere faddere som du enten kjenner eller ikke kjenner."
           );
         }}
       >
