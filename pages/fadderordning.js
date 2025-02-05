@@ -15,6 +15,7 @@ const Fadderordning = () => {
 
       <div className="omfadder">
         <div className="con omfadder--padding"> 
+        <h2>Fadderordning</h2>
         <h3>Om fadderordningen</h3>
         <p className="fadderp">
           Helping Hands fadderordning er laget for å støtte barn og ungdom
