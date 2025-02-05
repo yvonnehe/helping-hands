@@ -159,18 +159,6 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       </button>
       <button
         className="img-wrap"
-        aria-label="Les mer om Joseph"
-        onClick={() => {
-          setImg("/fadderbarn/helping-hands-joseph.jpg");
-          setName("Joseph");
-          setDesc("Han er 19 år og har akkurat begynt på studiet “hotel management”. Han trenger din hjelp til å fullføre studieløpet sitt. Han har allerede én fadder, men trenger én eller flere til, for å dekke de resterende 570 kr i mnd. Dette dekker skoleutgifter, uniform og alle andre ting han trenger i forbindelse med skolen."
-          );
-        }}
-      >
-        <img src="/fadderbarn/helping-hands-joseph.jpg" alt="Tanzaniansk student"></img>
-      </button>
-      <button
-        className="img-wrap"
         aria-label="Les mer om Jonelle"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-jonelle.jpg");
