@@ -11,7 +11,10 @@ const Fadderordning = () => {
 
   return (
     <>
-      <NextHead title="Fadderordning - Helping Hands" />
+      <NextHead 
+        title="Fadderordning - Helping Hands" 
+        description="Bli fadder og gi barn og unge i Tanzania muligheten til skolegang gjennom Helping Hands fadderordning."
+      />
 
       <div className="omfadder">
         <div className="con omfadder--padding"> 

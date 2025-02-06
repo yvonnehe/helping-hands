@@ -4,7 +4,10 @@ import Image from "next/image";
 const Kontakt = () => {
   return (
     <>
-      <NextHead title="Kontakt - Helping Hands" />
+      <NextHead 
+        title="Kontakt - Helping Hands" 
+        description="Ta kontakt med Helping Hands for generelle henvendelser eller samarbeid. Finn kontaktinformasjon til våre grunnleggere og organisasjonen her."
+      />
 
     <div className="kontakt">
       <div className="container-fluid">

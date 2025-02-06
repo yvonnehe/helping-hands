@@ -77,7 +77,10 @@ const BliFadder = () => {
 
   return (
     <>
-      <NextHead title="Bli fadder - Helping Hands" />
+      <NextHead 
+        title="Bli fadder - Helping Hands" 
+        description="Bli fadder og gi et barn i Tanzania muligheten til skolegang og en bedre fremtid gjennom Helping Hands fadderprogram."
+      />
       <div className="kontakt">
         <div className="container-fluid">
           <div className="row kontakt--padding">
