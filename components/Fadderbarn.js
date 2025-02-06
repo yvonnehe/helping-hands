@@ -217,6 +217,174 @@ const Fadderbarn = ({ setImg, setName, setDesc }) => {
       >
         <img src="/fadderbarn/helping-hands-ramla.jpg" alt="Tanzaniansk student"></img>
       </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Hadija"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-hadija.jpg");
+          setName("Hadija");
+          setDesc("Hun er 11 år og går i 5.klasse. Hun bor med mor og 2 søsken. Hun har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du henne med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-hadija.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Jackson"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-jackson.jpg");
+          setName("Jackson");
+          setDesc("Han er 11 år og går i 5.klasse. Han bor med fetter, kusine og besteforeldre. Han har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-jackson.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Ali"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-ali2.jpg");
+          setName("Ali");
+          setDesc("Han er 12 år gammel og går i 5. klasse. Han bor med mor og mange søsken. Han har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-ali2.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Augusti"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-augusti.jpg");
+          setName("Augusti");
+          setDesc("Han er 15 år og skal snart begynne på ungdomsskolen. Han bor med bestemor og søsken/søskenbarn. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-augusti.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Alexi"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-alexi.jpg");
+          setName("Alexi");
+          setDesc("Han er 11 år gammel og går i 4. klasse. Han bor med mor og 3 brødre. Han har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du han med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-alexi.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Omar"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-omar.jpg");
+          setName("Omar");
+          setDesc("Han er 14 år og skal snart begynne på ungdomsskolen. Han bor med foreldrene og storebror. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-omar.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Jamal"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-jamal.jpg");
+          setName("Jamal");
+          setDesc("Han er 16 år og går i 9.klasse. Han bor med foreldrene og lillebror. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du han med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-jamal.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Ramadhan"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-ramadhan.jpg");
+          setName("Ramadhan");
+          setDesc("Han er 16 år gammel og går i 8. klasse. Han bor med mor og flere søsken. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-ramadhan.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Halima"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-halima2.jpg");
+          setName("Halima");
+          setDesc("Hun er 15 år og går i 10.klasse. Hun bor i en stor familie, med mange søsken, søskenbarn, og flere mødre. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-halima2.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Marthina"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-marthina.jpg");
+          setName("Marthina");
+          setDesc("Hun er 17 år gammel og går i 10. klasse. Hun bor med mor og 3 søsken. Hun har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du henne med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-marthina.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Vivian"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-vivian.jpg");
+          setName("Vivian");
+          setDesc("Hun er 6 år gammel og bor med mor, storesøster og storebror. Hun venter på å få begynne på skolen. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 130 kr i mnd."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-vivian.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Amina"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-amina.jpg");
+          setName("Amina");
+          setDesc("Hun er 16 år gammel og vil gjerne bli skredder. Hun bor med bestemor og 4 søskenbarn/søsken. For utdannelsen og alt annet hun trenger i forbindelse med skolegangen, vil det koste 650 kr i mnd. Denne summen kan fint deles mellom flere faddere."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-amina.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Ramadhan"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-ramadhan2.jpg");
+          setName("Ramadhan");
+          setDesc("Han er 20 år gammel. Han har stort behov for hjelpen din. Han vil gjerne begynne på fagskole og bli mekaniker. For skolepenger, kost og losji og alt annet han trenger i forbindelse med skolegangen, vil det koste 700 kr i mnd. Denne summen kan fint deles mellom flere faddere."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-ramadhan2.jpg" alt="Tanzaniansk student"></img>
+      </button>
+      <button
+        className="img-wrap"
+        aria-label="Les mer om Hawa"
+        onClick={() => {
+          setImg("/fadderbarn/helping-hands-hawa.jpg");
+          setName("Hawa");
+          setDesc("Hun er 15 år gammel og trenger hjelp til videre skolegang. Hun venter på å få begynne på ungdomsskolen. For 150 kr i mnd støtter du henne med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
+          );
+        }}
+      >
+        <img src="/fadderbarn/helping-hands-hawa.jpg" alt="Tanzaniansk student"></img>
+      </button>
     </div>
   );
 };
