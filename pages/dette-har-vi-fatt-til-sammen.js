@@ -8,7 +8,10 @@ import Utdanning from "../components/Utdanning";
 const Sammen = () => {
   return (
     <>
-      <NextHead title="Dette har vi fått til sammen - Helping Hands" />
+      <NextHead 
+        title="Dette har vi fått til sammen - Helping Hands" 
+        description="Se hvordan Helping Hands har forandret liv i Tanzania gjennom skolegang, utdanning, familieplanlegging og yrkesopplæring."
+      />
 
       <div className="historie1">
         <div className="con historie1--padding">

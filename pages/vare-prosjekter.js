@@ -3,7 +3,10 @@ import Image from "next/image";
 const Prosjekter = () => {
   return (
     <>
-      <NextHead title="Våre prosjekter - Helping Hands" />
+      <NextHead 
+        title="Våre prosjekter - Helping Hands" 
+        description="Lær mer om Helping Hands sine prosjekter for utdanning, yrkesopplæring og helsehjelp i Tanzania. Vi jobber for å gi mennesker en bedre fremtid."
+      />
 
     <div className="prosjekter">
       <div className="container-fluid">

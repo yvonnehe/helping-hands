@@ -4,7 +4,10 @@ import Image from "next/image";
 const OmOss = () => {
   return (
     <>
-      <NextHead title="Om oss - Helping Hands" />
+      <NextHead 
+        title="Om oss - Helping Hands" 
+        description="Lær mer om Helping Hands, vår historie, våre grunnleggere og hvordan vi jobber for å gi barn og unge i Tanzania en bedre fremtid."
+      />
 
     <div className="teamstory">
       <div className="container-fluid">

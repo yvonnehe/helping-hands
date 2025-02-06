@@ -3,7 +3,10 @@ import Image from "next/image";
 const HvordanHjelpe = () => {
   return (
     <>
-      <NextHead title="Hvordan hjelpe - Helping Hands" />
+      <NextHead 
+        title="Hvordan hjelpe - Helping Hands" 
+        description="Finn ut hvordan du kan bidra til Helping Hands, enten som fadder, månedsgiver, samarbeidspartner eller ved å arrangere veldedige aktiviteter."
+      />
 
     <div className="hvordanhjelpe">
       <div className="container-fluid">

@@ -4,7 +4,10 @@ import Image from "next/legacy/image";
 export default function Home() {
   return (
     <>
-      <NextHead title="Helping Hands Norway" />
+      <NextHead 
+        title="Helping Hands Norway" 
+        description="Helping Hands er en veldedig organisasjon som jobber med å få barn og ungdom i skolegang i Tanzania."
+      />
 
       <div className="hero">
         <div className="con">

@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const NextHead = ({ title }) => {
+const NextHead = ({ title, description }) => {
   return (
     <Head>
       <title>{title}</title>
@@ -8,7 +8,7 @@ const NextHead = ({ title }) => {
       <link rel="stylesheet" href="https://use.typekit.net/krv6awl.css"></link> 
       <meta
         name="description"
-        content="Helping Hands er en veldedig organisasjon som jobber med å få barn og ungdom i skolegang i Tanzania."
+        content={description}
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
@@ -17,6 +17,7 @@ const NextHead = ({ title }) => {
         key="ogimage"
       />
       <meta property="og:locale" content="nb_NO" />
+      <meta name="keywords" content="fadderordning, hjelpe barn, veldedighet, Tanzania, skolegang" />
     </Head>
   );
 };
