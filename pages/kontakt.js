@@ -4,7 +4,7 @@ import Image from "next/image";
 const Kontakt = () => {
   return (
     <>
-      <NextHead />
+      <NextHead title="Kontakt - Helping Hands" />
 
     <div className="kontakt">
       <div className="container-fluid">

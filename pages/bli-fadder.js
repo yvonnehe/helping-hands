@@ -77,7 +77,7 @@ const BliFadder = () => {
 
   return (
     <>
-      <NextHead />
+      <NextHead title="Bli fadder - Helping Hands" />
       <div className="kontakt">
         <div className="container-fluid">
           <div className="row kontakt--padding">

@@ -4,7 +4,7 @@ import Image from "next/image";
 const OmOss = () => {
   return (
     <>
-      <NextHead />
+      <NextHead title="Om oss - Helping Hands" />
 
     <div className="teamstory">
       <div className="container-fluid">

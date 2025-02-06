@@ -4,7 +4,7 @@ import Image from "next/legacy/image";
 export default function Home() {
   return (
     <>
-      <NextHead />
+      <NextHead title="Helping Hands Norway" />
 
       <div className="hero">
         <div className="con">

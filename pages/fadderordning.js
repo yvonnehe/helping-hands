@@ -11,7 +11,7 @@ const Fadderordning = () => {
 
   return (
     <>
-      <NextHead />
+      <NextHead title="Fadderordning - Helping Hands" />
 
       <div className="omfadder">
         <div className="con omfadder--padding"> 
