@@ -8,6 +8,12 @@ const Layout = ({ children }) => {
     <>
       <Navbar bg="inherit" expand="lg" className="justify-content-between">
         <div className="container-fluid">
+        <a 
+            href="#main-content" 
+            className="skip-to-main"
+          >
+            Hopp til hovedinnhold
+        </a>
         <div className="navbar__logodiv">
           <Nav.Link href="/" className="nav-link next-img-fix">
             <Image
@@ -48,69 +54,10 @@ const Layout = ({ children }) => {
         </Navbar.Collapse>
         </div>
       </Navbar>
-
-      {/* 
-      <nav>
-        <div className="navbar">
-          <Link href="/">
-            <Image
-              src="/helping-hands-logo.svg"
-              alt="Helping Hands logo"
-              width="300px"
-              height="80px"
-              className="navbar__logo"
-            />
-          </Link>{" "}
-          <div className="navbar__links">
-            <Link className="navbar__link" href="/om-oss">
-              Om oss
-            </Link>
-            <Link className="navbar__link" href="/vare-prosjekter">
-              Våre prosjekter
-            </Link>
-            <Link className="navbar__link" href="/fadderordning">
-              Fadderordning
-            </Link>
-            <Link className="navbar__link" href="/hvordan-hjelpe">
-              Hvordan hjelpe
-            </Link>
-            <Link className="navbar__link" href="/kontakt">
-              Kontakt
-            </Link>
-          </div>
-        </div>
-      </nav>*/}
-      <main>
-      {children}
-      {/* <AnalyticsWrapper /> */}
+      <main id="main-content" tabIndex="-1">
+        {children}
+        {/* <AnalyticsWrapper /> */}
       </main>
-      
-      {/* <footer>
-        <div className="footerdiv--color">
-        <div className="container-fluid">
-        <div className="footerdiv">
-          <div>
-            <a
-              className="iconlink"
-              href="https://www.facebook.com/helpinghandsno"
-            >
-              <img className="icon" src="fb_white.svg" alt="Facebook icon" />
-            </a>
-            <a
-              className="iconlink"
-              href="https://www.instagram.com/helpinghandsno/"
-            >
-              <img className="icon" src="ig_white.svg" alt="Instagram icon" />
-            </a>
-          </div>
-          <Link className="kontaktlink" href="/kontakt">
-            Kontakt
-          </Link>
-          <p className="copyright">© Yvonne Helland 2021</p>
-        </div>
-        </div>
-        </div>
-      </footer> */}
       <footer>
         <div className="footerdiv--color">
         <div className="container-fluid">
@@ -165,7 +112,5 @@ const Layout = ({ children }) => {
     </>
   );
 };
-
-//  <p className="copyright">Org.nr: 915922058</p>
 
 export default Layout;
