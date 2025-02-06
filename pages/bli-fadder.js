@@ -135,6 +135,20 @@ const BliFadder = () => {
                     <option value="Norin">Norin</option>
                     <option value="Rashid">Rashid</option>
                     <option value="Ramla">Ramla</option>
+                    <option value="Hadija">Hadija</option>
+                    <option value="Jackson">Jackson</option>
+                    <option value="Ali">Ali</option>
+                    <option value="Augusti">Augusti</option>
+                    <option value="Alexi">Alexi</option>
+                    <option value="Omar">Omar</option>
+                    <option value="Jamal">Jamal</option>
+                    <option value="Ramadhan">Ramadhan</option>
+                    <option value="Halima">Halima</option>
+                    <option value="Marthina">Marthina</option>
+                    <option value="Vivian">Vivian</option>
+                    <option value="Amina">Amina</option>
+                    <option value="Ramadhan">Ramadhan</option>
+                    <option value="Hawa">Hawa</option>
                   </select>
                   {errors.fadderbarn && <p className="errorMessage">{errors.fadderbarn.message}</p>}
                 </div>
