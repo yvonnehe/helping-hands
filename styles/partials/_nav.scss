@@ -5,10 +5,12 @@
   font-size: 18px;
   margin-top: 0px;
   margin-bottom: -5px;
+
   &__links {
     margin: 20px;
     margin-top: 30px;
   }
+
   &__logo {
     cursor: pointer;
   }
@@ -17,12 +19,15 @@
 a,
 .nav-link {
   padding: 10px 15px;
+
   &:hover {
     color: #f96d11;
   }
+
   &:focus {
     color: #f96d11;
   }
+
   &:active {
     color: #f96d11;
   }
@@ -37,12 +42,15 @@ a,
   color: inherit;
   padding-right: 15px !important;
   padding-left: 15px !important;
+
   &:hover {
     color: #f96d11 !important;
   }
+
   &:focus {
     color: #f96d11 !important;
   }
+
   &:active {
     color: #f96d11 !important;
   }
@@ -53,6 +61,7 @@ a,
   border: none;
   //margin-bottom: 5px;
   margin-right: 5px;
+
   &:focus {
     box-shadow: none;
   }
@@ -66,17 +75,38 @@ a,
 
 // old nav text color
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0,0,0,.55);
+  color: rgba(0, 0, 0, .55);
+}
+
+.skip-to-main {
+  position: absolute;
+  left: 10px;
+  top: -60px;
+  background: #f96d11;
+  color: white !important;
+  font-family: "open-sans-condensed", sans-serif;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.skip-to-main:focus {
+  transform: translateY(70px);
+  background: #d95c0a;
 }
 
 @media screen and (max-width: 991px) {
   .navbar__logo {
     max-height: 70px;
-    margin-left: -15px; 
+    margin-left: -15px;
   }
 
   .navbar-toggler {
-    margin-top: -11px; 
+    margin-top: -11px;
   }
 }
 
