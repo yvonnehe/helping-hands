@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <NextHead 
-        title="Helping Hands Norway" 
+        title="Helping Hands" 
         description="Helping Hands er en veldedig organisasjon som jobber med å få barn og ungdom i skolegang i Tanzania."
       />
 
