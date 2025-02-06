@@ -3,7 +3,7 @@ import Image from "next/image";
 const HvordanHjelpe = () => {
   return (
     <>
-      <NextHead />
+      <NextHead title="Hvordan hjelpe - Helping Hands" />
 
     <div className="hvordanhjelpe">
       <div className="container-fluid">

@@ -1,9 +1,9 @@
 import Head from "next/head";
 
-const NextHead = () => {
+const NextHead = ({ title }) => {
   return (
     <Head>
-      <title>Helping Hands Norway</title>
+      <title>{title}</title>
       <link rel="icon" href="/helping-hands-logo-icon.svg" />
       <link rel="stylesheet" href="https://use.typekit.net/krv6awl.css"></link> 
       <meta
