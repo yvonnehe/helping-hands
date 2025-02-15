@@ -31,7 +31,10 @@ const RecurringPaymentForm = () => {
     const [errorMessage, setErrorMessage] = useState("");
 
     const step1Form = useForm({ resolver: yupResolver(step1Schema) });
-    const step2Form = useForm({ resolver: yupResolver(step2Schema) });
+    const step2Form = useForm({
+        resolver: yupResolver(step2Schema),
+        defaultValues: { name: "", email: "", phoneNumber: "", address: "", zipCode: "" } // Ensure correct default values
+    });
 
     const handleStep1Submit = (data) => {
         console.log("Step 1 Data:", data);
@@ -101,76 +104,90 @@ const RecurringPaymentForm = () => {
     return (
         <>
             <NextHead title="Bli fadder - Helping Hands" description="Bli fadder og støtt et barn månedlig gjennom Helping Hands." />
-            <div className="container">
-                {step === 1 ? (
-                    <form onSubmit={step1Form.handleSubmit(handleStep1Submit)}>
-                        <h2>Velg fadderbarn og beløp</h2>
-                        <div className="form-group">
-                            <label>Fadderbarn</label>
-                            <select className="form-control" {...step1Form.register("child")}>
-                                <option value="">Velg et fadderbarn</option>
-                                <option value="Mary">Mary</option>
-                                <option value="Ali">Ali</option>
-                            </select>
-                            {step1Form.formState.errors.child && <p className="errorMessage">{step1Form.formState.errors.child.message}</p>}
+            <div className="kontakt">
+                <div className="container-fluid">
+                    <div className="row kontakt--padding">
+                        <div className="col-md-6">
+                            {step === 1 ? (
+                                <form onSubmit={step1Form.handleSubmit(handleStep1Submit)}>
+                                    <h2>Velg fadderbarn og beløp</h2>
+                                    <div className="form-group">
+                                        <label>Fadderbarn</label>
+                                        <select className="form-control" {...step1Form.register("child")}>
+                                            <option value="">Velg et fadderbarn</option>
+                                            <option value="Mary">Mary</option>
+                                            <option value="Ali">Ali</option>
+                                        </select>
+                                        {step1Form.formState.errors.child && <p className="errorMessage">{step1Form.formState.errors.child.message}</p>}
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Beløp (NOK)</label>
+                                        <input type="number" className="form-control" placeholder="200" {...step1Form.register("amount")} />
+                                        {step1Form.formState.errors.amount && <p className="errorMessage">{step1Form.formState.errors.amount.message}</p>}
+                                    </div>
+
+                                    <button type="submit" className="btn btn--sponsor">
+                                        Bli fadder med Vipps
+                                    </button>
+                                    <p>
+                                        <a href="/bli-fadder" className="sponsor-link sunshinelink">
+                                            Bli fadder med AvtaleGiro / Fast trekk / Annet
+                                        </a>
+                                    </p>
+                                </form>
+                            ) : (
+                                <form onSubmit={step2Form.handleSubmit(handleStep2Submit)}>
+                                    <h2>Fyll inn dine opplysninger</h2>
+
+                                    {/* ✅ Display selected child & amount in step 2 (for user reference) */}
+                                    <div className="selected-info">
+                                        <p><strong>Fadderbarn:</strong> {step1Form.getValues("child")}</p>
+                                        <p><strong>Beløp:</strong> {step1Form.getValues("amount")} NOK</p>
+                                        <p><strong>Månedlig giver</strong></p>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Navn</label>
+                                        <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} />
+                                        {step2Form.formState.errors.name && <p className="errorMessage">{step2Form.formState.errors.name.message}</p>}
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>E-post</label>
+                                        <input type="email" className="form-control" placeholder="dittnavn@epost.no" {...step2Form.register("email")} />
+                                        {step2Form.formState.errors.email && <p className="errorMessage">{step2Form.formState.errors.email.message}</p>}
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Telefonnummer</label>
+                                        <input type="text" className="form-control" placeholder="4712345678" {...step2Form.register("phoneNumber")} />
+                                        {step2Form.formState.errors.phoneNumber && <p className="errorMessage">{step2Form.formState.errors.phoneNumber.message}</p>}
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Adresse</label>
+                                        <input type="text" className="form-control" placeholder="Gateadresse" {...step2Form.register("address")} />
+                                        {step2Form.formState.errors.address && <p className="errorMessage">{step2Form.formState.errors.address.message}</p>}
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Postnummer</label>
+                                        <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} />
+                                        {step2Form.formState.errors.zipCode && <p className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>}
+                                    </div>
+
+                                    {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+
+                                    <button type="submit" className="btn btn--form" disabled={isSubmitting}>
+                                        {isSubmitting ? "Behandler..." : "Bekreft"}
+                                    </button>
+                                </form>
+                            )}
                         </div>
-
-                        <div className="form-group">
-                            <label>Beløp (NOK)</label>
-                            <input type="number" className="form-control" placeholder="200" {...step1Form.register("amount")} />
-                            {step1Form.formState.errors.amount && <p className="errorMessage">{step1Form.formState.errors.amount.message}</p>}
-                        </div>
-
-                        <button type="submit" className="btn btn--form">Neste</button>
-                    </form>
-                ) : (
-                    <form onSubmit={step2Form.handleSubmit(handleStep2Submit)}>
-                        <h2>Fyll inn dine opplysninger</h2>
-
-                        {/* ✅ Display selected child & amount in step 2 (for user reference) */}
-                        <div className="selected-info">
-                            <p><strong>Fadderbarn:</strong> {step1Form.getValues("child")}</p>
-                            <p><strong>Beløp:</strong> {step1Form.getValues("amount")} NOK</p>
-                            <p><strong>Månedlig giver</strong></p>
-                        </div>
-
-                        <div className="form-group">
-                            <label>Navn</label>
-                            <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} />
-                            {step2Form.formState.errors.name && <p className="errorMessage">{step2Form.formState.errors.name.message}</p>}
-                        </div>
-
-                        <div className="form-group">
-                            <label>E-post</label>
-                            <input type="email" className="form-control" placeholder="din.email@eksempel.no" {...step2Form.register("email")} />
-                            {step2Form.formState.errors.email && <p className="errorMessage">{step2Form.formState.errors.email.message}</p>}
-                        </div>
-
-                        <div className="form-group">
-                            <label>Telefonnummer</label>
-                            <input type="text" className="form-control" placeholder="4712345678" {...step2Form.register("phoneNumber")} />
-                            {step2Form.formState.errors.phoneNumber && <p className="errorMessage">{step2Form.formState.errors.phoneNumber.message}</p>}
-                        </div>
-
-                        <div className="form-group">
-                            <label>Adresse</label>
-                            <input type="text" className="form-control" placeholder="Gateadresse" {...step2Form.register("address")} />
-                            {step2Form.formState.errors.address && <p className="errorMessage">{step2Form.formState.errors.address.message}</p>}
-                        </div>
-
-                        <div className="form-group">
-                            <label>Postnummer</label>
-                            <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} />
-                            {step2Form.formState.errors.zipCode && <p className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>}
-                        </div>
-
-                        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
-
-                        <button type="submit" className="btn btn--form" disabled={isSubmitting}>
-                            {isSubmitting ? "Behandler..." : "Bekreft"}
-                        </button>
-                    </form>
-                )}
+                        <div className="col-md-6"></div>
+                    </div>
+                </div>
             </div>
         </>
     );
