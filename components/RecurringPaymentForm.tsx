@@ -74,8 +74,7 @@ const RecurringPaymentForm = () => {
             if (response.data.agreementUrl) {
                 console.log("Vipps agreement created successfully:", response.data.agreementUrl);
 
-                // ✅ Temporarily commenting out internal email sending logic
-                /*
+                // 🔹 Send internal sponsorship email
                 await axios.post("/api/sendSponsorshipEmail", {
                     name: data.name,
                     email: data.email,
@@ -85,7 +84,6 @@ const RecurringPaymentForm = () => {
                     child: step1Form.getValues("child"), // Only included in email
                     amount: step1Form.getValues("amount"),
                 });
-                */
 
                 // 🔹 Redirect user to Vipps to confirm the agreement
                 window.location.href = response.data.agreementUrl;
@@ -100,6 +98,7 @@ const RecurringPaymentForm = () => {
             setIsSubmitting(false);
         }
     };
+
 
     return (
         <>
