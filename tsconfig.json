@@ -20,7 +20,9 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "pages/vipps-fadder.js",
+    "pages/vipps.js"
   ],
   "exclude": [
     "node_modules"
