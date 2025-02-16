@@ -199,7 +199,7 @@ const RecurringPaymentForm = () => {
                             )}
                         </div>
                         <div className="col-md-6">
-                            {image && <img src={image} alt="Valgt fadderbarn" />}
+                            {image && <img src={image} className="selected-child-img" alt="Valgt fadderbarn" />}
                         </div>
                     </div>
                 </div>
