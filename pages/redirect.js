@@ -17,18 +17,22 @@ const RedirectPage = () => {
     useEffect(() => {
         if (router.isReady) {
             const { reference, status, type } = router.query;
+    
             setQueryParams({
-                reference: reference,
-                status: status,
-                type: type,
+                reference: reference || "",
+                status: status || "",
+                type: type || "",
             });
-
+    
             if (status === "AUTHORIZED") {
                 setSuccess(true);
+            } else if (["CANCELLED", "REJECTED", "FAILED"].includes(status)) {
+                setSuccess(false);
             }
+    
             setLoading(false);
         }
-    }, [router.isReady, router.query]);
+    }, [router.isReady, router.query]);    
 
     return (
         <>
