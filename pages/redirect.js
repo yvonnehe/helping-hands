@@ -7,7 +7,6 @@ import NextHead from "../components/NextHead";
 const RedirectPage = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
-    const [success, setSuccess] = useState(false);
     const [queryParams, setQueryParams] = useState({
         reference: "",
         status: "",
@@ -17,22 +16,20 @@ const RedirectPage = () => {
     useEffect(() => {
         if (router.isReady) {
             const { reference, status, type } = router.query;
-    
+
             setQueryParams({
                 reference: reference || "",
                 status: status || "",
                 type: type || "",
             });
-    
-            if (status === "AUTHORIZED") {
-                setSuccess(true);
-            } else if (["CANCELLED", "REJECTED", "FAILED"].includes(status)) {
-                setSuccess(false);
-            }
-    
+
             setLoading(false);
         }
-    }, [router.isReady, router.query]);    
+    }, [router.isReady, router.query]);
+
+    // ✅ Determine if payment was successful
+    const isSuccess = queryParams.status === "AUTHORIZED";
+    const isFailure = ["CANCELLED", "REJECTED", "FAILED"].includes(queryParams.status);
 
     return (
         <>
@@ -41,7 +38,7 @@ const RedirectPage = () => {
                 <div className="confirmation kontakt--padding">
                     {loading ? (
                         <p>Laster...</p>
-                    ) : success ? (
+                    ) : isSuccess ? (
                         <>
                             <h2>Tusen takk for ditt bidrag! 🧡</h2>
                             {queryParams.type === "recurring" ? (
@@ -54,11 +51,17 @@ const RedirectPage = () => {
                             <p>Hvis du har spørsmål, ta kontakt med oss.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
-                    ) : (
+                    ) : isFailure ? (
                         <>
                             <h2>Noe gikk galt 😟</h2>
                             <p>Vi kunne ikke bekrefte betalingen din.</p>
                             <p>Hvis beløpet er trukket, vennligst kontakt oss.</p>
+                            <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
+                        </>
+                    ) : (
+                        <>
+                            <h2>Ukjent status 😕</h2>
+                            <p>Noe uventet skjedde. Hvis du er usikker, ta kontakt med oss.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
                     )}
