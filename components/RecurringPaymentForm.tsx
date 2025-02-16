@@ -220,6 +220,7 @@ const RecurringPaymentForm = () => {
                                             <option value="">Velg fadderbarn</option>
                                             <option value="vårt-forslag">La oss komme med et forslag</option>
                                             <option value="Mary">Mary</option>
+                                            <option value="Abdala">Abdala</option>
                                             <option value="Ali (9)">Ali (9)</option>
                                             <option value="Salimu">Salimu</option>
                                             <option value="Mahad">Mahad</option>
