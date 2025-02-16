@@ -10,9 +10,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         // 🔹 Ensure base URL is always HTTPS
-        const isLocal = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "development";
         const localUrl = "https://your-ngrok-url.com"; // Replace with your actual ngrok URL
-        const baseUrl = isLocal ? localUrl : "https://helpinghands.no";
+        const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+            : "https://helpinghands.no"; // Ensure fallback
+
+        const baseUrl = process.env.NODE_ENV === "development" ? localUrl : vercelUrl;
 
         // 🔹 Get access token from Vipps
         console.log("🔹 Fetching access token from Vipps...");
