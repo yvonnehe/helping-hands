@@ -21,6 +21,7 @@ const Andre = ({ setImg, setName, setDesc }) => {
           setDesc(
             "Han er lam etter en ulykke. Han har ingen familie til å ta vare på seg. Litt tilbake i tid ble han alvorlig syk, og måtte bli innlagt. Nå blir han tatt vare på av en sykepleier. Du kan være fadder for Ndelekwa, med et valgfritt beløp i mnd."
           );
+          setAmount(200);
         }}
       >
         <img src="/ndelekwa.jpg"></img>

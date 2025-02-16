@@ -8,6 +8,7 @@ const Fadderordning = () => {
   const [Img, setImg] = useState(null);
   const [Name, setName] = useState(null);
   const [Desc, setDesc] = useState(null);
+  const [Amount, setAmount] = useState(null);
 
   return (
     <>
@@ -40,7 +41,7 @@ const Fadderordning = () => {
       </div>
       <div className="ledigefadder con">
         <h3>Venter på fadder</h3>
-        <Fadderbarn setImg={setImg} setName={setName} setDesc={setDesc} />
+        <Fadderbarn setImg={setImg} setName={setName} setDesc={setDesc} setAmount={setAmount} />
         {Img && (
           <MerInfo
             Img={Img}
@@ -49,13 +50,15 @@ const Fadderordning = () => {
             setName={setName}
             Desc={Desc}
             setDesc={setDesc}
+            Amount={Amount}
+            setAmount={setAmount}
           />
         )}
       </div>
       <div className="andrefadder">
         <div className="con andrefadder--padding">
         <h3>Andre med behov for ekstra støtte</h3>
-        <Andre setImg={setImg} setName={setName} setDesc={setDesc} />
+        <Andre setImg={setImg} setName={setName} setDesc={setDesc} setAmount={setAmount} />
         {Img && (
           <MerInfo
             Img={Img}
@@ -64,6 +67,8 @@ const Fadderordning = () => {
             setName={setName}
             Desc={Desc}
             setDesc={setDesc}
+            Amount={Amount}
+            setAmount={setAmount}
           />
         )}
         </div>
