@@ -269,7 +269,7 @@ const RecurringPaymentForm = () => {
                                     </button>
                                     <p>
                                         <a href="/bli-fadder" className="sponsor-link sunshinelink">
-                                            Bli fadder med AvtaleGiro / Fast trekk / Annet
+                                            Bli fadder med AvtaleGiro / Fast trekk
                                         </a>
                                     </p>
                                 </form>
