@@ -15,6 +15,8 @@ const RedirectPage = () => {
 
     useEffect(() => {
         if (router.isReady) {
+            console.log("🔹 Router Query Params:", router.query); // Debugging
+
             const { reference, status, type } = router.query;
 
             setQueryParams({
@@ -27,9 +29,15 @@ const RedirectPage = () => {
         }
     }, [router.isReady, router.query]);
 
-    // ✅ Determine if payment was successful
-    const isSuccess = queryParams.status === "AUTHORIZED";
-    const isFailure = ["CANCELLED", "REJECTED", "FAILED"].includes(queryParams.status);
+    // ✅ Ensure status is lowercase and remove any undefined values
+    const status = queryParams.status?.toLowerCase() || "";
+
+    // ✅ Determine success and failure states
+    const isSuccess = status === "authorized";
+    const isFailure = ["cancelled", "rejected", "failed"].includes(status);
+
+    // ✅ Remove "agreement-" prefix from reference
+    const displayReference = queryParams.reference.replace(/^agreement-/, "");
 
     return (
         <>
@@ -47,7 +55,7 @@ const RedirectPage = () => {
                             ) : (
                                 <p>Din betaling er mottatt. Tusen takk for din støtte! 🧡</p>
                             )}
-                            <p>Referanse: <strong>{queryParams.reference}</strong></p>
+                            <p>Referanse: <strong>{displayReference}</strong></p>
                             <p>Hvis du har spørsmål, ta kontakt med oss.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
