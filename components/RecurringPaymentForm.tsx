@@ -30,6 +30,7 @@ const step2Schema = yup.object({
         .required("Telefonnummer er påkrevd"),
     address: yup.string().required("Adresse er påkrevd"),
     zipCode: yup.string().matches(/^\d{4,6}$/, "Postnummeret må være gyldig").required("Postnummer er påkrevd"),
+    city: yup.string().required("Poststed er påkrevd"),
 }).required();
 
 /**
@@ -74,13 +75,41 @@ const RecurringPaymentForm = () => {
 
     const step2Form = useForm({
         resolver: yupResolver(step2Schema),
-        defaultValues: { name: "", email: "", phoneNumber: "", address: "", zipCode: "" } // Ensure correct default values
+        defaultValues: { name: "", email: "", phoneNumber: "", address: "", zipCode: "", city: "" } // Ensure correct default values
     });
 
     const childImageMap: Record<string, string> = {
         "Mary": "/fadderbarn/helping-hands-mary.jpg",
-        "Ali": "/fadderbarn/helping-hands-ali.jpg",
-        // Add more children as needed
+        "Abdala": "/fadderbarn/helping-hands-abdala.jpg",
+        "Salimu": "/fadderbarn/helping-hands-salimu.jpg",
+        "Mahad": "/fadderbarn/helping-hands-mahad.jpg",
+        "Ali (9)": "/fadderbarn/helping-hands-ali.jpg",  // Duplicate Ali
+        "Esther": "/fadderbarn/helping-hands-esther.jpg",
+        "Yahaya": "/fadderbarn/helping-hands-yahaya.jpg",
+        "Kelvin": "/fadderbarn/helping-hands-kelvin.jpg",
+        "Nordin": "/fadderbarn/helping-hands-nordin.jpg",
+        "Sofia": "/fadderbarn/helping-hands-sofia.jpg",
+        "Abdul": "/fadderbarn/helping-hands-abdul.jpg",
+        "Bahati": "/fadderbarn/helping-hands-bahati.jpg",
+        "Halima": "/fadderbarn/helping-hands-halima.jpg",
+        "Jonelle": "/fadderbarn/helping-hands-jonelle.jpg",
+        "Jasin": "/fadderbarn/helping-hands-jasin.jpg",
+        "Norin": "/fadderbarn/helping-hands-norin.jpg",
+        "Rashid": "/fadderbarn/helping-hands-rashid.jpg",
+        "Ramla": "/fadderbarn/helping-hands-ramla.jpg",
+        "Hadija": "/fadderbarn/helping-hands-hadija.jpg",
+        "Jackson": "/fadderbarn/helping-hands-jackson.jpg",
+        "Ali (12)": "/fadderbarn/helping-hands-ali2.jpg",  // Another duplicate Ali
+        "Augusti": "/fadderbarn/helping-hands-augusti.jpg",
+        "Alexi": "/fadderbarn/helping-hands-alexi.jpg",
+        "Omar": "/fadderbarn/helping-hands-omar.jpg",
+        "Jamal": "/fadderbarn/helping-hands-jamal.jpg",
+        "Ramadhan (16)": "/fadderbarn/helping-hands-ramadhan.jpg",
+        "Marthina": "/fadderbarn/helping-hands-marthina.jpg",
+        "Amina": "/fadderbarn/helping-hands-amina.jpg",
+        "Ramadhan (20)": "/fadderbarn/helping-hands-ramadhan2.jpg",  // Duplicate Ramadhan
+        "Hawa": "/fadderbarn/helping-hands-hawa.jpg",
+        "Ndelekwa": "/fadderbarn/helping-hands-ndelekwa.jpg"
     };
 
     useEffect(() => {
@@ -191,7 +220,36 @@ const RecurringPaymentForm = () => {
                                             <option value="">Velg fadderbarn</option>
                                             <option value="vårt-forslag">La oss komme med et forslag</option>
                                             <option value="Mary">Mary</option>
+                                            <option value="Ali (9)">Ali (9)</option>
+                                            <option value="Salimu">Salimu</option>
+                                            <option value="Mahad">Mahad</option>
+                                            <option value="Ali (12)">Ali (12)</option>
+                                            <option value="Esther">Esther</option>
+                                            <option value="Yahaya">Yahaya</option>
+                                            <option value="Kelvin">Kelvin</option>
+                                            <option value="Nordin">Nordin</option>
+                                            <option value="Sofia">Sofia</option>
+                                            <option value="Abdul">Abdul</option>
+                                            <option value="Bahati">Bahati</option>
+                                            <option value="Halima">Halima</option>
+                                            <option value="Jonelle">Jonelle</option>
+                                            <option value="Jasin">Jasin</option>
+                                            <option value="Norin">Norin</option>
+                                            <option value="Rashid">Rashid</option>
+                                            <option value="Ramla">Ramla</option>
+                                            <option value="Hadija">Hadija</option>
+                                            <option value="Jackson">Jackson</option>
                                             <option value="Ali">Ali</option>
+                                            <option value="Augusti">Augusti</option>
+                                            <option value="Alexi">Alexi</option>
+                                            <option value="Omar">Omar</option>
+                                            <option value="Jamal">Jamal</option>
+                                            <option value="Ramadhan (16)">Ramadhan (16)</option>
+                                            <option value="Marthina">Marthina</option>
+                                            <option value="Amina">Amina</option>
+                                            <option value="Ramadhan (20)">Ramadhan (20)</option>
+                                            <option value="Hawa">Hawa</option>
+                                            <option value="Ndelekwa">Ndelekwa</option>
                                         </select>
                                         {step1Form.formState.errors.child && <p className="errorMessage">{step1Form.formState.errors.child.message}</p>}
                                     </div>
@@ -256,10 +314,18 @@ const RecurringPaymentForm = () => {
                                         {step2Form.formState.errors.address && <p className="errorMessage">{step2Form.formState.errors.address.message}</p>}
                                     </div>
 
-                                    <div className="form-group">
-                                        <label>Postnummer</label>
-                                        <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} defaultValue="" autoComplete="postal-code" />
-                                        {step2Form.formState.errors.zipCode && <p className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>}
+                                    <div className="form-group row form-postal">
+                                        <div className="col-md-3 form-col-mobile">
+                                            <label>Postnummer</label>
+                                            <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} autoComplete="postal-code" />
+                                            {step2Form.formState.errors.zipCode && <p className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>}
+                                        </div>
+
+                                        <div className="col-md-9 form-col-mobile">
+                                            <label>Poststed</label>
+                                            <input type="text" className="form-control" placeholder="Bergen" {...step2Form.register("city")} autoComplete="address-level2" />
+                                            {step2Form.formState.errors.city && <p className="errorMessage">{step2Form.formState.errors.city.message}</p>}
+                                        </div>
                                     </div>
 
                                     {errorMessage && <p className="errorMessage">{errorMessage}</p>}
