@@ -68,6 +68,24 @@
       color: white;
     }
   }
+
+  &--child {
+    background-color: #f96d11;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+    &:hover {
+      background-color: #db6212;
+      color: white;
+    }
+
+    &:focus {
+      background-color: #015ecc;
+      color: white;
+    }
+  }
 }
 
 .buttonlink {

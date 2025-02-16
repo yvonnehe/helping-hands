@@ -36,6 +36,8 @@ const RecurringPaymentForm = () => {
     const amount = searchParams.get("amount") ? parseInt(searchParams.get("amount") || "0", 10) : 200;
     const image = searchParams.get("image") ? decodeURIComponent(searchParams.get("image") || "") : "";
 
+    const [selectedImage, setSelectedImage] = useState(image);
+
     const step1Form = useForm({
         resolver: yupResolver(step1Schema),
         defaultValues: { child, amount }
@@ -46,10 +48,24 @@ const RecurringPaymentForm = () => {
         defaultValues: { name: "", email: "", phoneNumber: "", address: "", zipCode: "" } // Ensure correct default values
     });
 
+    const childImageMap: Record<string, string> = {
+        "Mary": "/fadderbarn/helping-hands-mary.jpg",
+        "Ali": "/fadderbarn/helping-hands-ali.jpg",
+        // Add more children as needed
+    };
+
     useEffect(() => {
         if (child) step1Form.setValue("child", child);
         if (amount) step1Form.setValue("amount", amount);
     }, [child, amount, step1Form]);
+
+    const selectedChild = step1Form.watch("child");
+
+    useEffect(() => {
+        if (selectedChild && childImageMap[selectedChild]) {
+            setSelectedImage(childImageMap[selectedChild]);
+        }
+    }, [selectedChild]);
 
     const handleStep1Submit = (data) => {
         console.log("Step 1 Data:", data);
@@ -199,7 +215,7 @@ const RecurringPaymentForm = () => {
                             )}
                         </div>
                         <div className="col-md-6">
-                            {image && <img src={image} className="selected-child-img" alt="Valgt fadderbarn" />}
+                            {selectedImage && <img src={selectedImage} className="selected-child-img" alt="Valgt fadderbarn" />}
                         </div>
                     </div>
                 </div>
