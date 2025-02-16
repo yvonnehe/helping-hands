@@ -112,6 +112,40 @@ const RecurringPaymentForm = () => {
         "Ndelekwa": "/ndelekwa.jpg"
     };
 
+    const childAmountMap: Record<string, number> = {
+        "Mary": 150,
+        "Abdala": 100,
+        "Salimu": 100,
+        "Mahad": 100,
+        "Ali (9)": 100,
+        "Esther": 100,
+        "Yahaya": 100,
+        "Kelvin": 100,
+        "Nordin": 100,
+        "Sofia": 150,
+        "Abdul": 150,
+        "Bahati": 500,
+        "Halima": 480,
+        "Jonelle": 100,
+        "Jasin": 150,
+        "Norin": 100,
+        "Rashid": 150,
+        "Ramla": 680,
+        "Hadija": 50,
+        "Jackson": 50,
+        "Ali (12)": 50,
+        "Augusti": 150,
+        "Alexi": 50,
+        "Omar": 100,
+        "Jamal": 100,
+        "Ramadhan (16)": 100,
+        "Marthina": 100,
+        "Amina": 650,
+        "Ramadhan (20)": 700,
+        "Hawa": 150,
+        "Ndelekwa": 200
+    };
+
     useEffect(() => {
         if (child) step1Form.setValue("child", child);
         if (amount) step1Form.setValue("amount", amount);
@@ -122,10 +156,17 @@ const RecurringPaymentForm = () => {
     useEffect(() => {
         if (selectedChild === "vårt-forslag") {
             setSelectedImage(""); // Reset image if "vårt-forslag" is selected
+            step1Form.setValue("amount", 200); // Default amount
         } else if (selectedChild && childImageMap[selectedChild]) {
             setSelectedImage(childImageMap[selectedChild]);
         }
+
+        // Set the default amount based on the selected child
+        if (selectedChild && childAmountMap[selectedChild]) {
+            step1Form.setValue("amount", childAmountMap[selectedChild]);
+        }
     }, [selectedChild]);
+
 
     // Handle live formatting of phone number input
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
