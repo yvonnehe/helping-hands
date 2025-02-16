@@ -98,7 +98,7 @@ const Layout = ({ children }) => {
             </div>
           </div>
         </div>
-        <div class="line"></div>
+        <div className="line"></div>
         <div className="footerdiv">
           <div className="innsamlingskontrollen-div">
             <img className="innsamlingskontrollen-img" src="ik-stempel-hvit-alpha.png" alt="Innsamlingskontrollen" />

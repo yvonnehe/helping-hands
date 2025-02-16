@@ -21,15 +21,44 @@ const step1Schema = yup.object({
 const step2Schema = yup.object({
     name: yup.string().required("Navn er påkrevd"),
     email: yup.string().email("Ugyldig e-post").required("E-post er påkrevd"),
-    phoneNumber: yup.string().matches(/^\d{8,15}$/, "Telefonnummeret må være gyldig").required("Telefonnummer er påkrevd"),
+    phoneNumber: yup.string()
+        .test("isValidPhone", "Telefonnummeret må være gyldig", (value) => {
+            if (!value) return false;
+            const cleaned = value.replace(/\D/g, ""); // Remove non-numeric characters
+            return cleaned.length === 8 || (cleaned.startsWith("47") && cleaned.length === 10);
+        })
+        .required("Telefonnummer er påkrevd"),
     address: yup.string().required("Adresse er påkrevd"),
     zipCode: yup.string().matches(/^\d{4,6}$/, "Postnummeret må være gyldig").required("Postnummer er påkrevd"),
 }).required();
+
+/**
+ * Formats phone number to +47 XXX XX XXX for better readability.
+ * Ensures numbers are sent to Vipps in the correct format (4799134073).
+ */
+const formatPhoneNumber = (phone: string) => {
+    let cleaned = phone.replace(/\D/g, ""); // Remove all non-numeric characters
+
+    if (cleaned.length === 8) {
+        cleaned = `47${cleaned}`; // Prepend country code if missing
+    } else if (cleaned.startsWith("47") && cleaned.length > 10) {
+        cleaned = cleaned.substring(0, 10); // Trim excess characters
+    }
+
+    if (cleaned.length !== 10) return { cleaned, formatted: phone }; // Return as-is if incorrect length
+
+    return {
+        cleaned,
+        formatted: `+47 ${cleaned.substring(2, 5)} ${cleaned.substring(5, 7)} ${cleaned.substring(7)}`
+    };
+};
+
 
 const RecurringPaymentForm = () => {
     const [step, setStep] = useState(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [formattedPhone, setFormattedPhone] = useState("");
 
     const searchParams = useSearchParams();
     const child = searchParams.get("child") || "";
@@ -62,10 +91,26 @@ const RecurringPaymentForm = () => {
     const selectedChild = step1Form.watch("child");
 
     useEffect(() => {
-        if (selectedChild && childImageMap[selectedChild]) {
+        if (selectedChild === "vårt-forslag") {
+            setSelectedImage(""); // Reset image if "vårt-forslag" is selected
+        } else if (selectedChild && childImageMap[selectedChild]) {
             setSelectedImage(childImageMap[selectedChild]);
         }
     }, [selectedChild]);
+
+    // Handle live formatting of phone number input
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+        setFormattedPhone(value);
+        step2Form.setValue("phoneNumber", value);
+    };
+
+    const handlePhoneBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+        const { cleaned, formatted } = formatPhoneNumber(e.target.value);
+        setFormattedPhone(formatted);
+        step2Form.setValue("phoneNumber", cleaned); // Store cleaned version for submission
+        step2Form.trigger("phoneNumber"); // Ensure validation updates correctly
+    };
 
     const handleStep1Submit = (data) => {
         console.log("Step 1 Data:", data);
@@ -89,13 +134,13 @@ const RecurringPaymentForm = () => {
                 reference,
                 returnUrl,
                 amount: step1Form.getValues("amount") * 100,
-                phoneNumber: data.phoneNumber,
+                phoneNumber: step2Form.getValues("phoneNumber").replace(/\D/g, ""),
             });
 
             // 🔹 Initiate Vipps recurring agreement (DO NOT SEND CHILD INFO TO VIPPS)
             const response = await axios.post("/api/initiatePayment", {
                 amount: step1Form.getValues("amount") * 100, // Convert to øre
-                phoneNumber: data.phoneNumber,
+                phoneNumber: step2Form.getValues("phoneNumber").replace(/\D/g, ""),
                 reference: reference,
                 returnUrl: returnUrl,
                 paymentType: paymentType,
@@ -109,7 +154,7 @@ const RecurringPaymentForm = () => {
                 await axios.post("/api/sendSponsorshipEmail", {
                     name: data.name,
                     email: data.email,
-                    phoneNumber: data.phoneNumber,
+                    phoneNumber: step2Form.getValues("phoneNumber").replace(/\D/g, ""),
                     address: data.address,
                     zipCode: data.zipCode,
                     child: step1Form.getValues("child"), // Only included in email
@@ -143,7 +188,8 @@ const RecurringPaymentForm = () => {
                                     <div className="form-group">
                                         <label>Fadderbarn</label>
                                         <select className="form-control" {...step1Form.register("child")}>
-                                            <option value="">Velg et fadderbarn</option>
+                                            <option value="">Velg fadderbarn</option>
+                                            <option value="vårt-forslag">La oss komme med et forslag</option>
                                             <option value="Mary">Mary</option>
                                             <option value="Ali">Ali</option>
                                         </select>
@@ -152,8 +198,11 @@ const RecurringPaymentForm = () => {
 
                                     <div className="form-group">
                                         <label>Beløp (NOK)</label>
-                                        <input type="number" className="form-control" placeholder="200" {...step1Form.register("amount")} />
+                                        <input type="number" className="form-control" placeholder="200" {...step1Form.register("amount")} aria-describedby='amountHelp' />
                                         {step1Form.formState.errors.amount && <p className="errorMessage">{step1Form.formState.errors.amount.message}</p>}
+                                        <small id="amountHelp" className="form-text text-muted help-text-avtale">
+                                            Eller skriv inn valgfritt beløp.
+                                        </small>
                                     </div>
 
                                     <button type="submit" className="btn btn--sponsor">
@@ -170,39 +219,46 @@ const RecurringPaymentForm = () => {
                                     <h2>Fyll inn dine opplysninger</h2>
 
                                     {/* ✅ Display selected child & amount in step 2 (for user reference) */}
-                                    <div className="selected-info">
-                                        <p><strong>Fadderbarn:</strong> {step1Form.getValues("child")}</p>
-                                        <p><strong>Beløp:</strong> {step1Form.getValues("amount")} NOK</p>
-                                        <p><strong>Månedlig giver</strong></p>
+                                    <div className="selected-info-card">
+                                        <p><strong>Ditt valg:</strong> {step1Form.getValues("child")}, {step1Form.getValues("amount")} NOK/mnd</p>
                                     </div>
 
                                     <div className="form-group">
                                         <label>Navn</label>
-                                        <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} defaultValue="" />
+                                        <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} defaultValue="" autoComplete="name" />
                                         {step2Form.formState.errors.name && <p className="errorMessage">{step2Form.formState.errors.name.message}</p>}
                                     </div>
 
                                     <div className="form-group">
                                         <label>E-post</label>
-                                        <input type="email" className="form-control" placeholder="dittnavn@epost.no" {...step2Form.register("email")} />
+                                        <input type="email" className="form-control" placeholder="dittnavn@epost.no" {...step2Form.register("email")} defaultValue="" autoComplete="email" />
                                         {step2Form.formState.errors.email && <p className="errorMessage">{step2Form.formState.errors.email.message}</p>}
                                     </div>
 
                                     <div className="form-group">
                                         <label>Telefonnummer</label>
-                                        <input type="text" className="form-control" placeholder="4712345678" {...step2Form.register("phoneNumber")} />
+                                        <input
+                                            type="tel"
+                                            className="form-control"
+                                            placeholder="+47 XXX XX XXX"
+                                            {...step2Form.register("phoneNumber")}
+                                            value={formattedPhone}
+                                            onChange={handlePhoneChange}
+                                            onBlur={handlePhoneBlur}
+                                            autoComplete="tel"
+                                        />
                                         {step2Form.formState.errors.phoneNumber && <p className="errorMessage">{step2Form.formState.errors.phoneNumber.message}</p>}
                                     </div>
 
                                     <div className="form-group">
                                         <label>Adresse</label>
-                                        <input type="text" className="form-control" placeholder="Gateadresse" {...step2Form.register("address")} />
+                                        <input type="text" className="form-control" placeholder="Gateadresse" {...step2Form.register("address")} defaultValue="" autoComplete="address" />
                                         {step2Form.formState.errors.address && <p className="errorMessage">{step2Form.formState.errors.address.message}</p>}
                                     </div>
 
                                     <div className="form-group">
                                         <label>Postnummer</label>
-                                        <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} />
+                                        <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} defaultValue="" autoComplete="postal-code" />
                                         {step2Form.formState.errors.zipCode && <p className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>}
                                     </div>
 

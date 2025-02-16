@@ -33,7 +33,7 @@ const Fadderordning = () => {
           fått fadder, hvis et av barna blir syke, eller andre i vanskelige
           situasjoner.</p>
         <p className="fadderp">
-          <a href="/bli-fadder" className="sponsor-link sunshinelink">
+          <a href="/vipps-fadder" className="sponsor-link sunshinelink">
             Fyll ut dette skjemaet dersom du ønsker å bli fadder</a>, 
             så tar vi kontakt med deg!
         </p>
