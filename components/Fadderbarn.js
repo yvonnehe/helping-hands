@@ -58,7 +58,7 @@ const Fadderbarn = ({ setImg, setName, setDesc, setAmount }) => {
         aria-label="Les mer om Ali"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-ali.jpg");
-          setName("Ali");
+          setName("Ali (9)");
           setDesc("Han er 9 år og går i 2. klasse. Han bor med mor og fire søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd."
           );
           setAmount(100);
@@ -266,7 +266,7 @@ const Fadderbarn = ({ setImg, setName, setDesc, setAmount }) => {
         aria-label="Les mer om Ali"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-ali2.jpg");
-          setName("Ali");
+          setName("Ali (12)");
           setDesc("Han er 12 år gammel og går i 5. klasse. Han bor med mor og mange søsken. Han har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
           );
           setAmount(50);
@@ -331,7 +331,7 @@ const Fadderbarn = ({ setImg, setName, setDesc, setAmount }) => {
         aria-label="Les mer om Ramadhan"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-ramadhan.jpg");
-          setName("Ramadhan");
+          setName("Ramadhan (16)");
           setDesc("Han er 16 år gammel og går i 8. klasse. Han bor med mor og flere søsken. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter."
           );
           setAmount(100);
@@ -370,7 +370,7 @@ const Fadderbarn = ({ setImg, setName, setDesc, setAmount }) => {
         aria-label="Les mer om Ramadhan"
         onClick={() => {
           setImg("/fadderbarn/helping-hands-ramadhan2.jpg");
-          setName("Ramadhan");
+          setName("Ramadhan (20)");
           setDesc("Han er 20 år gammel. Han har stort behov for hjelpen din. Han vil gjerne begynne på fagskole og bli mekaniker. For skolepenger, kost og losji og alt annet han trenger i forbindelse med skolegangen, vil det koste 700 kr i mnd. Denne summen kan fint deles mellom flere faddere."
           );
           setAmount(700);

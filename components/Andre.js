@@ -1,4 +1,4 @@
-const Andre = ({ setImg, setName, setDesc }) => {
+const Andre = ({ setImg, setName, setDesc, setAmount }) => {
   return (
     <div className="img-grid">
       {/* <div
