@@ -146,7 +146,6 @@ const BliFadder = () => {
                     <option value="Omar">Omar</option>
                     <option value="Jamal">Jamal</option>
                     <option value="Ramadhan">Ramadhan</option>
-                    <option value="Halima">Halima</option>
                     <option value="Marthina">Marthina</option>
                     <option value="Amina">Amina</option>
                     <option value="Ramadhan">Ramadhan</option>
