@@ -109,7 +109,7 @@ const RecurringPaymentForm = () => {
         "Amina": "/fadderbarn/helping-hands-amina.jpg",
         "Ramadhan (20)": "/fadderbarn/helping-hands-ramadhan2.jpg",  // Duplicate Ramadhan
         "Hawa": "/fadderbarn/helping-hands-hawa.jpg",
-        "Ndelekwa": "/fadderbarn/helping-hands-ndelekwa.jpg"
+        "Ndelekwa": "/ndelekwa.jpg"
     };
 
     useEffect(() => {
