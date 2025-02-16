@@ -45,7 +45,7 @@ const MerInfo = ({ Img, setImg, Name, setName, Desc, setDesc, Amount }) => {
 
         <a
           href={`/vipps-fadder?child=${encodeURIComponent(Name)}&amount=${encodeURIComponent(Amount)}&image=${encodeURIComponent(Img)}`}
-          className="btn btn--sponsor"
+          className="btn btn--child"
         >
           Bli fadder for {Name}
         </a>
