@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import NextHead from "../components/NextHead";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,11 +31,25 @@ const RecurringPaymentForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
-    const step1Form = useForm({ resolver: yupResolver(step1Schema) });
+    const searchParams = useSearchParams();
+    const child = searchParams.get("child") || "";
+    const amount = searchParams.get("amount") ? parseInt(searchParams.get("amount") || "0", 10) : 200;
+    const image = searchParams.get("image") ? decodeURIComponent(searchParams.get("image") || "") : "";
+
+    const step1Form = useForm({
+        resolver: yupResolver(step1Schema),
+        defaultValues: { child, amount }
+    });
+
     const step2Form = useForm({
         resolver: yupResolver(step2Schema),
         defaultValues: { name: "", email: "", phoneNumber: "", address: "", zipCode: "" } // Ensure correct default values
     });
+
+    useEffect(() => {
+        if (child) step1Form.setValue("child", child);
+        if (amount) step1Form.setValue("amount", amount);
+    }, [child, amount, step1Form]);
 
     const handleStep1Submit = (data) => {
         console.log("Step 1 Data:", data);
@@ -99,7 +114,6 @@ const RecurringPaymentForm = () => {
         }
     };
 
-
     return (
         <>
             <NextHead title="Bli fadder - Helping Hands" description="Bli fadder og støtt et barn månedlig gjennom Helping Hands." />
@@ -148,7 +162,7 @@ const RecurringPaymentForm = () => {
 
                                     <div className="form-group">
                                         <label>Navn</label>
-                                        <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} />
+                                        <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} defaultValue="" />
                                         {step2Form.formState.errors.name && <p className="errorMessage">{step2Form.formState.errors.name.message}</p>}
                                     </div>
 
@@ -184,7 +198,9 @@ const RecurringPaymentForm = () => {
                                 </form>
                             )}
                         </div>
-                        <div className="col-md-6"></div>
+                        <div className="col-md-6">
+                            {image && <img src={image} alt="Valgt fadderbarn" />}
+                        </div>
                     </div>
                 </div>
             </div>
