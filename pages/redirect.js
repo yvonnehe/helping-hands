@@ -3,10 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NextHead from "../components/NextHead";
+import axios from "axios";
 
 const RedirectPage = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
+    const [success, setSuccess] = useState(false);
     const [queryParams, setQueryParams] = useState({
         reference: "",
         status: "",
@@ -15,29 +17,65 @@ const RedirectPage = () => {
 
     useEffect(() => {
         if (router.isReady) {
-            console.log("🔹 Router Query Params:", router.query); // Debugging
-
             const { reference, status, type } = router.query;
 
+            // Store initial params
             setQueryParams({
                 reference: reference || "",
                 status: status || "",
                 type: type || "",
             });
 
-            setLoading(false);
+            // Fetch actual agreement status from Vipps
+            if (reference) {
+                checkVippsAgreementStatus(reference);
+            } else {
+                setLoading(false);
+            }
         }
     }, [router.isReady, router.query]);
 
-    // ✅ Ensure status is lowercase and remove any undefined values
-    const status = queryParams.status?.toLowerCase() || "";
-
-    // ✅ Determine success and failure states
-    const isSuccess = status === "authorized";
-    const isFailure = ["cancelled", "rejected", "failed"].includes(status);
-
     // ✅ Remove "agreement-" prefix from reference
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
+
+    // ✅ Check the actual agreement status in Vipps
+    const checkVippsAgreementStatus = async (agreementId) => {
+        try {
+            const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
+            const agreementStatus = response.data.status;
+
+            console.log("🔹 Vipps Agreement Status:", agreementStatus);
+
+            if (agreementStatus === "ACTIVE") {
+                setSuccess(true);
+            } else {
+                setSuccess(false);
+            }
+        } catch (error) {
+            console.error("🚨 Error checking agreement status:", error);
+            setSuccess(false);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        if (success && queryParams.reference) {
+            sendConfirmationEmail(queryParams.reference);
+        }
+    }, [success, queryParams.reference]);
+    
+    const sendConfirmationEmail = async (agreementId) => {
+        try {
+            await axios.post("/api/sendSponsorshipEmail", {
+                reference: agreementId,
+            });
+            console.log("✅ Sponsorship email sent successfully");
+        } catch (error) {
+            console.error("🚨 Error sending sponsorship email:", error);
+        }
+    };
+    
 
     return (
         <>
@@ -46,7 +84,7 @@ const RedirectPage = () => {
                 <div className="confirmation kontakt--padding">
                     {loading ? (
                         <p>Laster...</p>
-                    ) : isSuccess ? (
+                    ) : success ? (
                         <>
                             <h2>Tusen takk for ditt bidrag! 🧡</h2>
                             {queryParams.type === "recurring" ? (
@@ -59,17 +97,11 @@ const RedirectPage = () => {
                             <p>Hvis du har spørsmål, ta kontakt med oss.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
-                    ) : isFailure ? (
+                    ) : (
                         <>
                             <h2>Noe gikk galt 😟</h2>
                             <p>Vi kunne ikke bekrefte betalingen din.</p>
                             <p>Hvis beløpet er trukket, vennligst kontakt oss.</p>
-                            <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
-                        </>
-                    ) : (
-                        <>
-                            <h2>Ukjent status 😕</h2>
-                            <p>Noe uventet skjedde. Hvis du er usikker, ta kontakt med oss.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
                     )}
