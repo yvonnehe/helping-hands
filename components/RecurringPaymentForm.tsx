@@ -154,7 +154,7 @@ const RecurringPaymentForm = () => {
     const selectedChild = step1Form.watch("child");
 
     useEffect(() => {
-        if (selectedChild === "vårt-forslag") {
+        if (selectedChild === "vårt-forslag" || selectedChild === "månedlig-giver") {
             setSelectedImage(""); // Reset image if "vårt-forslag" is selected
             step1Form.setValue("amount", 200); // Default amount
         } else if (selectedChild && childImageMap[selectedChild]) {
@@ -260,6 +260,7 @@ const RecurringPaymentForm = () => {
                                         <select className="form-control" {...step1Form.register("child")}>
                                             <option value="">Velg fadderbarn</option>
                                             <option value="vårt-forslag">La oss komme med et forslag</option>
+                                            <option value="månedlig-giver">Månedlig giver</option>
                                             <option value="Mary">Mary</option>
                                             <option value="Abdala">Abdala</option>
                                             <option value="Ali (9)">Ali (9)</option>
