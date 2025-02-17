@@ -82,45 +82,128 @@ const StottMedlem = () => {
                 <div className="container-fluid">
                     <div className="row kontakt--padding">
                         <div className="col-md-6">
-                            <form onSubmit={step2Form.handleSubmit(handleStep2Submit)}>
-                                <h2>Bli støttemedlem</h2>
+                            <form onSubmit={step2Form.handleSubmit(handleStep2Submit)} aria-labelledby="support-member-heading">
+                                <h2 id="support-member-heading" tabIndex={0}>Bli støttemedlem</h2>
+
                                 <div className="selected-info-card">
                                     <p>Årlig medlemskap: <strong>50 NOK</strong></p>
                                 </div>
+
+                                {/* Name Field */}
                                 <div className="form-group">
-                                    <label>Navn</label>
-                                    <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} autoComplete="name" />
-                                    {step2Form.formState.errors.name && <p className="errorMessage">{step2Form.formState.errors.name.message}</p>}
+                                    <label htmlFor="name">Navn</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="name"
+                                        placeholder="Navn Navnesen"
+                                        {...step2Form.register("name")}
+                                        autoComplete="name"
+                                        aria-describedby={step2Form.formState.errors.name ? "name-error" : undefined}
+                                    />
+                                    {step2Form.formState.errors.name && (
+                                        <p id="name-error" className="errorMessage">{step2Form.formState.errors.name.message}</p>
+                                    )}
                                 </div>
+
+                                {/* Email Field */}
                                 <div className="form-group">
-                                    <label>E-post</label>
-                                    <input type="email" className="form-control" placeholder="dittnavn@epost.no" {...step2Form.register("email")} autoComplete="email" />
-                                    {step2Form.formState.errors.email && <p className="errorMessage">{step2Form.formState.errors.email.message}</p>}
+                                    <label htmlFor="email">E-post</label>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        placeholder="dittnavn@epost.no"
+                                        {...step2Form.register("email")}
+                                        autoComplete="email"
+                                        aria-describedby={step2Form.formState.errors.email ? "email-error" : undefined}
+                                    />
+                                    {step2Form.formState.errors.email && (
+                                        <p id="email-error" className="errorMessage">{step2Form.formState.errors.email.message}</p>
+                                    )}
                                 </div>
+
+                                {/* Phone Number Field */}
                                 <div className="form-group">
-                                    <label>Telefonnummer</label>
-                                    <input type="tel" className="form-control" placeholder="+47 XXX XX XXX" {...step2Form.register("phoneNumber")} value={formattedPhone} onChange={handlePhoneChange} autoComplete="tel" />
-                                    {step2Form.formState.errors.phoneNumber && <p className="errorMessage">{step2Form.formState.errors.phoneNumber.message}</p>}
+                                    <label htmlFor="phoneNumber">Telefonnummer</label>
+                                    <input
+                                        type="tel"
+                                        className="form-control"
+                                        id="phoneNumber"
+                                        placeholder="+47 XXX XX XXX"
+                                        {...step2Form.register("phoneNumber")}
+                                        value={formattedPhone}
+                                        onChange={handlePhoneChange}
+                                        autoComplete="tel"
+                                        aria-describedby={step2Form.formState.errors.phoneNumber ? "phone-error" : undefined}
+                                    />
+                                    {step2Form.formState.errors.phoneNumber && (
+                                        <p id="phone-error" className="errorMessage">{step2Form.formState.errors.phoneNumber.message}</p>
+                                    )}
                                 </div>
+
+                                {/* Address Field */}
                                 <div className="form-group">
-                                    <label>Adresse</label>
-                                    <input type="text" className="form-control" placeholder="Gateadresse" {...step2Form.register("address")} autoComplete="address" />
-                                    {step2Form.formState.errors.address && <p className="errorMessage">{step2Form.formState.errors.address.message}</p>}
+                                    <label htmlFor="address">Adresse</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="address"
+                                        placeholder="Gateadresse"
+                                        {...step2Form.register("address")}
+                                        autoComplete="address"
+                                        aria-describedby={step2Form.formState.errors.address ? "address-error" : undefined}
+                                    />
+                                    {step2Form.formState.errors.address && (
+                                        <p id="address-error" className="errorMessage">{step2Form.formState.errors.address.message}</p>
+                                    )}
                                 </div>
+
+                                {/* Zip Code and City */}
                                 <div className="form-group row form-postal">
                                     <div className="col-md-3 form-col-mobile">
-                                        <label>Postnummer</label>
-                                        <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} autoComplete="postal-code" />
-                                        {step2Form.formState.errors.zipCode && <p className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>}
+                                        <label htmlFor="zipCode">Postnummer</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="zipCode"
+                                            placeholder="1234"
+                                            {...step2Form.register("zipCode")}
+                                            autoComplete="postal-code"
+                                            aria-describedby={step2Form.formState.errors.zipCode ? "zipCode-error" : undefined}
+                                        />
+                                        {step2Form.formState.errors.zipCode && (
+                                            <p id="zipCode-error" className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>
+                                        )}
                                     </div>
                                     <div className="col-md-9 form-col-mobile">
-                                        <label>Poststed</label>
-                                        <input type="text" className="form-control" placeholder="Bergen" {...step2Form.register("city")} autoComplete="address-level2" />
-                                        {step2Form.formState.errors.city && <p className="errorMessage">{step2Form.formState.errors.city.message}</p>}
+                                        <label htmlFor="city">Poststed</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="city"
+                                            placeholder="Bergen"
+                                            {...step2Form.register("city")}
+                                            autoComplete="address-level2"
+                                            aria-describedby={step2Form.formState.errors.city ? "city-error" : undefined}
+                                        />
+                                        {step2Form.formState.errors.city && (
+                                            <p id="city-error" className="errorMessage">{step2Form.formState.errors.city.message}</p>
+                                        )}
                                     </div>
                                 </div>
-                                {errorMessage && <p className="errorMessage">{errorMessage}</p>}
-                                <button type="submit" className="btn btn--form" disabled={isSubmitting}>{isSubmitting ? "Behandler..." : "Bli støttemedlem med Vipps"}</button>
+
+                                {/* Error Message Alert */}
+                                {errorMessage && (
+                                    <p role="alert" className="errorMessage">{errorMessage}</p>
+                                )}
+
+                                {/* Submit Button */}
+                                <button type="submit" className="btn btn--form" disabled={isSubmitting}>
+                                    {isSubmitting ? "Behandler..." : "Bli støttemedlem med Vipps"}
+                                </button>
+
+                                {/* Membership Info */}
                                 <div className="info-box">
                                     <p>Medlemskapet fornyes automatisk hvert år, og du kan når som helst avslutte medlemskapet.</p>
                                 </div>

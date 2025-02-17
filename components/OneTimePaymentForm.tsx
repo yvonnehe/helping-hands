@@ -51,8 +51,10 @@ const OneTimePaymentForm = () => {
     const [isError, setIsError] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formattedPhone, setFormattedPhone] = useState("");
+
     const successMessageRef = useRef<HTMLDivElement>(null);
     const errorMessageRef = useRef<HTMLDivElement>(null);
+    const formRef = useRef<HTMLFormElement>(null);
 
     useEffect(() => {
         if (isSubmittedSuccessfully && successMessageRef.current) {
@@ -125,23 +127,35 @@ const OneTimePaymentForm = () => {
                 <div className="container-fluid">
                     <div className="row kontakt--padding">
                         <div className="col-md-6">
-                            <h2>Engangsbetaling</h2>
+                            <h2 tabIndex={0}>Engangsbetaling</h2>
                             <h3 className="kontakt__h3">
                                 Fyll inn beløp og telefonnummer for å betale via Vipps.
                             </h3>
 
                             {isSubmittedSuccessfully && (
-                                <div role="alert" className="successMessage" tabIndex={-1} ref={successMessageRef}>
+                                <div
+                                    role="alert"
+                                    className="successMessage"
+                                    tabIndex={-1}
+                                    ref={successMessageRef}
+                                    aria-live="polite"
+                                >
                                     Betalingsforespørselen ble sendt! Fullfør betalingen i Vipps.
                                 </div>
                             )}
                             {isError && (
-                                <div role="alert" className="errorMessageAlert" tabIndex={-1} ref={errorMessageRef}>
+                                <div
+                                    role="alert"
+                                    className="errorMessageAlert"
+                                    tabIndex={-1}
+                                    ref={errorMessageRef}
+                                    aria-live="assertive"
+                                >
                                     Noe gikk galt. Vennligst prøv igjen.
                                 </div>
                             )}
 
-                            <form onSubmit={handleSubmit(initiatePayment)}>
+                            <form onSubmit={handleSubmit(initiatePayment)} ref={formRef}>
                                 {/* Amount Input */}
                                 <div className="form-group">
                                     <label htmlFor="amount">Beløp (NOK)</label>
@@ -149,10 +163,16 @@ const OneTimePaymentForm = () => {
                                         type="number"
                                         className={`form-control ${errors.amount ? "errorInput" : ""}`}
                                         id="amount"
+                                        name="amount"
                                         placeholder="200"
                                         {...register("amount")}
+                                        aria-describedby={errors.amount ? "amount-error" : undefined}
                                     />
-                                    {errors.amount && <p className="errorMessage">{errors.amount.message}</p>}
+                                    {errors.amount && (
+                                        <p id="amount-error" className="errorMessage" role="alert">
+                                            {errors.amount.message}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Phone Number Input */}
@@ -162,17 +182,28 @@ const OneTimePaymentForm = () => {
                                         type="tel"
                                         className={`form-control ${errors.phoneNumber ? "errorInput" : ""}`}
                                         id="phoneNumber"
+                                        name="phoneNumber"
                                         placeholder="+47 XXX XX XXX"
                                         {...register("phoneNumber")}
                                         value={formattedPhone}
                                         onChange={handlePhoneChange}
                                         onBlur={handlePhoneBlur}
+                                        aria-describedby={errors.phoneNumber ? "phone-error" : undefined}
                                     />
-                                    {errors.phoneNumber && <p className="errorMessage">{errors.phoneNumber.message}</p>}
+                                    {errors.phoneNumber && (
+                                        <p id="phone-error" className="errorMessage" role="alert">
+                                            {errors.phoneNumber.message}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Submit Button */}
-                                <button type="submit" className="btn btn--form">
+                                <button
+                                    type="submit"
+                                    className="btn btn--form"
+                                    disabled={isSubmitting}
+                                    aria-disabled={isSubmitting}
+                                >
                                     {isSubmitting ? "Behandler..." : "Betal med Vipps"}
                                 </button>
                             </form>
