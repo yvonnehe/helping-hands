@@ -7,6 +7,24 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+// Funksjon for å formatere telefonnumre
+const formatPhoneNumber = (phone: string) => {
+    let cleaned = phone.replace(/\D/g, ""); // Fjern ikke-numeriske tegn
+
+    if (cleaned.length === 8) {
+        cleaned = `47${cleaned}`; // Legg til landskode hvis mangler
+    } else if (cleaned.startsWith("47") && cleaned.length > 10) {
+        cleaned = cleaned.substring(0, 10); // Trim overflødige tegn
+    }
+
+    if (cleaned.length !== 10) return { cleaned, formatted: phone }; // Returner uendret hvis feil lengde
+
+    return {
+        cleaned,
+        formatted: `+47 ${cleaned.substring(2, 5)} ${cleaned.substring(5, 7)} ${cleaned.substring(7)}`
+    };
+};
+
 // Validation Schema
 const schema = yup.object({
     amount: yup.number()
@@ -16,20 +34,25 @@ const schema = yup.object({
         .integer("Beløpet må være et heltall")
         .required("Beløp er påkrevd"),
     phoneNumber: yup.string()
-        .matches(/^\d{8,15}$/, "Telefonnummeret må være gyldig")
+        .test("isValidPhone", "Telefonnummeret må være gyldig", (value) => {
+            if (!value) return false;
+            const cleaned = value.replace(/\D/g, "");
+            return cleaned.length === 8 || (cleaned.startsWith("47") && cleaned.length === 10);
+        })
         .required("Telefonnummer er påkrevd"),
 }).required();
 
 const OneTimePaymentForm = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    const { register, handleSubmit, formState: { errors }, setValue, trigger } = useForm({
         resolver: yupResolver(schema),
     });
 
     const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
     const [isError, setIsError] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const successMessageRef = useRef(null);
-    const errorMessageRef = useRef(null);
+    const [formattedPhone, setFormattedPhone] = useState("");
+    const successMessageRef = useRef<HTMLDivElement>(null);
+    const errorMessageRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (isSubmittedSuccessfully && successMessageRef.current) {
@@ -43,12 +66,29 @@ const OneTimePaymentForm = () => {
         }
     }, [isError]);
 
+    // Håndter telefonnummer-input
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+        setFormattedPhone(value);
+        setValue("phoneNumber", value);
+    };
+
+    // Formater telefonnummer ved tap av fokus
+    const handlePhoneBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+        const { cleaned, formatted } = formatPhoneNumber(e.target.value);
+        setFormattedPhone(formatted);
+        setValue("phoneNumber", cleaned);
+        trigger("phoneNumber");
+    };
+
     const initiatePayment = async (data: { amount: number; phoneNumber: string }) => {
         setIsSubmitting(true);
+        setIsSubmittedSuccessfully(false);
+        setIsError(false);
 
         try {
-            const reference = `order-${Date.now()}`; // Generate unique reference
-            const paymentType = "one-time"; // This is a one-time payment
+            const reference = `order-${Date.now()}`; // Generer unik referanse
+            const paymentType = "one-time"; // Engangsbetaling
 
             const isLocal = process.env.NODE_ENV === "development";
             const baseUrl = isLocal ? "http://localhost:3000" : "https://helpinghands.no";
@@ -56,19 +96,19 @@ const OneTimePaymentForm = () => {
             const returnUrl = `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=${paymentType}`;
 
             const response = await axios.post("/api/initiatePayment", {
-                amount: data.amount * 100, // Convert to cents/øre
-                phoneNumber: data.phoneNumber,
-                reference: reference, // Pass reference
+                amount: data.amount * 100, // Konverter til øre
+                phoneNumber: data.phoneNumber.replace(/\D/g, ""), // Send renset nummer
+                reference: reference,
                 returnUrl: returnUrl,
             });
 
             if (response.data.redirectUrl) {
-                window.location.href = response.data.redirectUrl; // Redirect to Vipps payment page
+                window.location.href = response.data.redirectUrl; // Omdiriger til Vipps-betalingssiden
             } else {
                 setIsError(true);
             }
         } catch (error) {
-            console.error("Error processing payment:", error);
+            console.error("Feil ved betaling:", error);
             setIsError(true);
         } finally {
             setIsSubmitting(false);
@@ -117,13 +157,16 @@ const OneTimePaymentForm = () => {
 
                                 {/* Phone Number Input */}
                                 <div className="form-group">
-                                    <label htmlFor="phoneNumber">Telefonnummer (MSISDN)</label>
+                                    <label htmlFor="phoneNumber">Telefonnummer</label>
                                     <input
-                                        type="text"
+                                        type="tel"
                                         className={`form-control ${errors.phoneNumber ? "errorInput" : ""}`}
                                         id="phoneNumber"
-                                        placeholder="4712345678"
+                                        placeholder="+47 XXX XX XXX"
                                         {...register("phoneNumber")}
+                                        value={formattedPhone}
+                                        onChange={handlePhoneChange}
+                                        onBlur={handlePhoneBlur}
                                     />
                                     {errors.phoneNumber && <p className="errorMessage">{errors.phoneNumber.message}</p>}
                                 </div>
