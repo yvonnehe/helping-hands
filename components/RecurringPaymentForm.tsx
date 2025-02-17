@@ -253,11 +253,26 @@ const RecurringPaymentForm = () => {
                     <div className="row kontakt--padding">
                         <div className="col-md-6">
                             {step === 1 ? (
-                                <form onSubmit={step1Form.handleSubmit(handleStep1Submit)}>
-                                    <h2>Velg fadderbarn og beløp</h2>
+                                <form
+                                    onSubmit={step1Form.handleSubmit(handleStep1Submit)}
+                                    aria-labelledby="sponsorship-heading"
+                                >
+                                    {/* Hidden Live Region for Screen Readers */}
+                                    <p aria-live="polite" className="sr-only">
+                                        You are on the sponsorship selection form.
+                                    </p>
+
+                                    <h2 id="sponsorship-heading" tabIndex={0}>Velg fadderbarn og beløp</h2>
+
+                                    {/* Sponsored Child Selection */}
                                     <div className="form-group">
-                                        <label>Fadderbarn</label>
-                                        <select className="form-control" {...step1Form.register("child")}>
+                                        <label htmlFor="child">Fadderbarn</label>
+                                        <select
+                                            className="form-control"
+                                            id="child"
+                                            {...step1Form.register("child")}
+                                            aria-describedby={step1Form.formState.errors.child ? "child-error" : undefined}
+                                        >
                                             <option value="">Velg fadderbarn</option>
                                             <option value="vårt-forslag">La oss komme med et forslag</option>
                                             <option value="månedlig-giver">Månedlig giver</option>
@@ -294,21 +309,40 @@ const RecurringPaymentForm = () => {
                                             <option value="Hawa">Hawa</option>
                                             <option value="Ndelekwa">Ndelekwa</option>
                                         </select>
-                                        {step1Form.formState.errors.child && <p className="errorMessage">{step1Form.formState.errors.child.message}</p>}
+                                        {step1Form.formState.errors.child && (
+                                            <p id="child-error" className="errorMessage">
+                                                {step1Form.formState.errors.child.message}
+                                            </p>
+                                        )}
                                     </div>
 
+                                    {/* Amount Input */}
                                     <div className="form-group">
-                                        <label>Beløp (NOK)</label>
-                                        <input type="number" className="form-control" placeholder="200" {...step1Form.register("amount")} aria-describedby='amountHelp' />
-                                        {step1Form.formState.errors.amount && <p className="errorMessage">{step1Form.formState.errors.amount.message}</p>}
+                                        <label htmlFor="amount">Beløp (NOK)</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            id="amount"
+                                            placeholder="200"
+                                            {...step1Form.register("amount")}
+                                            aria-describedby="amountHelp"
+                                        />
+                                        {step1Form.formState.errors.amount && (
+                                            <p id="amount-error" className="errorMessage">
+                                                {step1Form.formState.errors.amount.message}
+                                            </p>
+                                        )}
                                         <small id="amountHelp" className="form-text text-muted help-text-avtale">
                                             Eller skriv inn valgfritt beløp.
                                         </small>
                                     </div>
 
+                                    {/* Submit Button */}
                                     <button type="submit" className="btn btn--sponsor">
                                         Bli fadder med Vipps
                                     </button>
+
+                                    {/* Alternative Payment Option */}
                                     <p>
                                         <a href="/bli-fadder" className="sponsor-link sunshinelink">
                                             Bli fadder med AvtaleGiro / Fast trekk
@@ -316,63 +350,150 @@ const RecurringPaymentForm = () => {
                                     </p>
                                 </form>
                             ) : (
-                                <form onSubmit={step2Form.handleSubmit(handleStep2Submit)}>
-                                    <h2>Fyll inn dine opplysninger</h2>
+                                <form
+                                    onSubmit={step2Form.handleSubmit(handleStep2Submit)}
+                                    aria-labelledby="details-heading"
+                                >
+                                    {/* Hidden Live Region for Screen Readers */}
+                                    <p aria-live="polite" className="sr-only">
+                                        You are on the details form.
+                                    </p>
+
+                                    <h2 id="details-heading" tabIndex={0}>Fyll inn dine opplysninger</h2>
 
                                     {/* ✅ Display selected child & amount in step 2 (for user reference) */}
                                     <div className="selected-info-card">
-                                        <p><strong>Ditt valg:</strong> {step1Form.getValues("child")}, {step1Form.getValues("amount")} NOK/mnd</p>
+                                        <p>
+                                            <strong>Ditt valg:</strong> {step1Form.getValues("child")}, {step1Form.getValues("amount")} NOK/mnd
+                                        </p>
                                     </div>
 
+                                    {/* Name Input */}
                                     <div className="form-group">
-                                        <label>Navn</label>
-                                        <input type="text" className="form-control" placeholder="Navn Navnesen" {...step2Form.register("name")} defaultValue="" autoComplete="name" />
-                                        {step2Form.formState.errors.name && <p className="errorMessage">{step2Form.formState.errors.name.message}</p>}
+                                        <label htmlFor="name">Navn</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="name"
+                                            placeholder="Navn Navnesen"
+                                            {...step2Form.register("name")}
+                                            autoComplete="name"
+                                            aria-describedby={step2Form.formState.errors.name ? "name-error" : undefined}
+                                        />
+                                        {step2Form.formState.errors.name && (
+                                            <p id="name-error" className="errorMessage">
+                                                {step2Form.formState.errors.name.message}
+                                            </p>
+                                        )}
                                     </div>
 
+                                    {/* Email Input */}
                                     <div className="form-group">
-                                        <label>E-post</label>
-                                        <input type="email" className="form-control" placeholder="dittnavn@epost.no" {...step2Form.register("email")} defaultValue="" autoComplete="email" />
-                                        {step2Form.formState.errors.email && <p className="errorMessage">{step2Form.formState.errors.email.message}</p>}
+                                        <label htmlFor="email">E-post</label>
+                                        <input
+                                            type="email"
+                                            className="form-control"
+                                            id="email"
+                                            placeholder="dittnavn@epost.no"
+                                            {...step2Form.register("email")}
+                                            autoComplete="email"
+                                            aria-describedby={step2Form.formState.errors.email ? "email-error" : undefined}
+                                        />
+                                        {step2Form.formState.errors.email && (
+                                            <p id="email-error" className="errorMessage">
+                                                {step2Form.formState.errors.email.message}
+                                            </p>
+                                        )}
                                     </div>
 
+                                    {/* Phone Number Input */}
                                     <div className="form-group">
-                                        <label>Telefonnummer</label>
+                                        <label htmlFor="phoneNumber">Telefonnummer</label>
                                         <input
                                             type="tel"
                                             className="form-control"
+                                            id="phoneNumber"
                                             placeholder="+47 XXX XX XXX"
                                             {...step2Form.register("phoneNumber")}
                                             value={formattedPhone}
                                             onChange={handlePhoneChange}
                                             onBlur={handlePhoneBlur}
                                             autoComplete="tel"
+                                            aria-describedby={step2Form.formState.errors.phoneNumber ? "phoneNumber-error" : undefined}
                                         />
-                                        {step2Form.formState.errors.phoneNumber && <p className="errorMessage">{step2Form.formState.errors.phoneNumber.message}</p>}
+                                        {step2Form.formState.errors.phoneNumber && (
+                                            <p id="phoneNumber-error" className="errorMessage">
+                                                {step2Form.formState.errors.phoneNumber.message}
+                                            </p>
+                                        )}
                                     </div>
 
+                                    {/* Address Input */}
                                     <div className="form-group">
-                                        <label>Adresse</label>
-                                        <input type="text" className="form-control" placeholder="Gateadresse" {...step2Form.register("address")} defaultValue="" autoComplete="address" />
-                                        {step2Form.formState.errors.address && <p className="errorMessage">{step2Form.formState.errors.address.message}</p>}
+                                        <label htmlFor="address">Adresse</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="address"
+                                            placeholder="Gateadresse"
+                                            {...step2Form.register("address")}
+                                            autoComplete="address"
+                                            aria-describedby={step2Form.formState.errors.address ? "address-error" : undefined}
+                                        />
+                                        {step2Form.formState.errors.address && (
+                                            <p id="address-error" className="errorMessage">
+                                                {step2Form.formState.errors.address.message}
+                                            </p>
+                                        )}
                                     </div>
 
+                                    {/* Zip Code and City Inputs */}
                                     <div className="form-group row form-postal">
                                         <div className="col-md-3 form-col-mobile">
-                                            <label>Postnummer</label>
-                                            <input type="text" className="form-control" placeholder="1234" {...step2Form.register("zipCode")} autoComplete="postal-code" />
-                                            {step2Form.formState.errors.zipCode && <p className="errorMessage">{step2Form.formState.errors.zipCode.message}</p>}
+                                            <label htmlFor="zipCode">Postnummer</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="zipCode"
+                                                placeholder="1234"
+                                                {...step2Form.register("zipCode")}
+                                                autoComplete="postal-code"
+                                                aria-describedby={step2Form.formState.errors.zipCode ? "zipCode-error" : undefined}
+                                            />
+                                            {step2Form.formState.errors.zipCode && (
+                                                <p id="zipCode-error" className="errorMessage">
+                                                    {step2Form.formState.errors.zipCode.message}
+                                                </p>
+                                            )}
                                         </div>
 
                                         <div className="col-md-9 form-col-mobile">
-                                            <label>Poststed</label>
-                                            <input type="text" className="form-control" placeholder="Bergen" {...step2Form.register("city")} autoComplete="address-level2" />
-                                            {step2Form.formState.errors.city && <p className="errorMessage">{step2Form.formState.errors.city.message}</p>}
+                                            <label htmlFor="city">Poststed</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="city"
+                                                placeholder="Bergen"
+                                                {...step2Form.register("city")}
+                                                autoComplete="address-level2"
+                                                aria-describedby={step2Form.formState.errors.city ? "city-error" : undefined}
+                                            />
+                                            {step2Form.formState.errors.city && (
+                                                <p id="city-error" className="errorMessage">
+                                                    {step2Form.formState.errors.city.message}
+                                                </p>
+                                            )}
                                         </div>
                                     </div>
 
-                                    {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+                                    {/* Error Message for Submission Issues */}
+                                    {errorMessage && (
+                                        <p className="errorMessage" aria-live="assertive">
+                                            {errorMessage}
+                                        </p>
+                                    )}
 
+                                    {/* Submit Button */}
                                     <button type="submit" className="btn btn--form" disabled={isSubmitting}>
                                         {isSubmitting ? "Behandler..." : "Bekreft"}
                                     </button>
