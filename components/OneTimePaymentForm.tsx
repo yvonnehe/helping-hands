@@ -119,7 +119,7 @@ const OneTimePaymentForm = () => {
         <>
             <NextHead
                 title="Engangsbetaling - Helping Hands"
-                description="Betal enkelt og trygt med Vipps gjennom Helping Hands."
+                description="Støtt barn og ungdom med Vipps gjennom Helping Hands."
             />
             <div className="kontakt">
                 <div className="container-fluid">
