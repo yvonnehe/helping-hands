@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
             /> */}
           </Nav.Link>
         </div>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Toggle navigation menu" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">
             <Nav.Link className="navbar__link" href="/om-oss">
@@ -82,6 +82,7 @@ const Layout = ({ children }) => {
               <a
                 className="iconlink"
                 href="https://www.facebook.com/helpinghandsno"
+                aria-label="Follow us on Facebook"
               >
                 <img className="icon" src="fb_white.svg" alt="Facebook icon" />
                 Facebook
@@ -91,6 +92,7 @@ const Layout = ({ children }) => {
               <a
                 className="iconlink"
                 href="https://www.instagram.com/helpinghandsno/"
+                aria-label="Follow us on Instagram"
               >
                 <img className="icon" src="ig_white.svg" alt="Instagram icon" />
                 Instagram
@@ -98,7 +100,7 @@ const Layout = ({ children }) => {
             </div>
           </div>
         </div>
-        <div className="line"></div>
+        <div className="line" role="separator"></div>
         <div className="footerdiv">
           <div className="innsamlingskontrollen-div">
             <img className="innsamlingskontrollen-img" src="ik-stempel-hvit-alpha.png" alt="Innsamlingskontrollen" />
