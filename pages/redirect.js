@@ -87,9 +87,20 @@ const RedirectPage = () => {
                     ) : success ? (
                         <>
                             <h2>Tusen takk for ditt bidrag! 🧡</h2>
-                            {queryParams.type === "recurring" ? (
+                            {/* {queryParams.type === "recurring" ? (
                                 <p>Velkommen som fadder! 🧡  
                                 Vi har registrert fadderavtalen din.</p>
+                            ) : (
+                                <p>Din betaling er mottatt. Tusen takk for din støtte! 🧡</p>
+                            )} */}
+                            {queryParams.type === "recurring" ? (
+                                displayReference.startsWith("yearly-support-") ? (
+                                    <p>Tusen takk for at du har blitt støttemedlem! 🧡  
+                                    Din årlige støtte er registrert.</p>
+                                ) : (
+                                    <p>Velkommen som fadder! 🧡  
+                                    Vi har registrert fadderavtalen din.</p>
+                                )
                             ) : (
                                 <p>Din betaling er mottatt. Tusen takk for din støtte! 🧡</p>
                             )}
