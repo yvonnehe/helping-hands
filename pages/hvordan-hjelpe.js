@@ -37,8 +37,12 @@ const HvordanHjelpe = () => {
                 hjemmelagde ting, etc.
               </li>
               <li>
-                Privatpersoner som ønsker å bli faddere eller månedsgivere. Du
+                Privatpersoner som ønsker å <a href="/vipps-fadder">bli faddere eller månedsgivere.</a> Du
                 velger selv beløp.{" "}
+              </li>
+              <li>
+                Du kan <a href="/stottemedlem">bli støttemedlem</a> for 50kr i året for å vise støtte 
+                til arbeidet vårt, dersom du ikke har anledning til å være fadder.{" "}
               </li>
             </ul>
           </div>
