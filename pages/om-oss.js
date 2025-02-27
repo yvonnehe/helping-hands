@@ -23,8 +23,7 @@ const OmOss = () => {
               på en daglig basis i Tanzania. <br></br>
               <br></br> Vi har også flere dyktige frivillige hos oss i Norge som
               hjelper oss med prosjekter, arrangementer, og innsamlinger. Vi
-              hadde ikke klart oss uten dere! 
-              <a className="her" href="/hvordan-hjelpe">
+              hadde ikke klart oss uten dere! <a className="buttonlink sunshinelink" href="/hvordan-hjelpe">
                 Les mer om hvordan du kan bidra her.{" "}
               </a>
             </p>
