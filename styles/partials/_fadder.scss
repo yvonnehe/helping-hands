@@ -1,5 +1,6 @@
 .omfadder {
   background-color: #f7f4f4;
+
   &--padding {
     padding: 30px;
   }
@@ -11,6 +12,7 @@
 
 .andrefadder {
   background-color: #f7f4f4;
+
   &--padding {
     padding: 30px;
   }
@@ -31,6 +33,6 @@
 
 @media screen and (min-width: 768px) {
   .fadderp {
-    width: 85%; 
+    width: 85%;
   }
 }
