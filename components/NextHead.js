@@ -10,8 +10,8 @@ const NextHead = ({ title, description, image = "/helping-hands-two-boys.jpg", u
       <meta name="author" content="Helping Hands Norway" />
 
       {/* Favicon */}
-      <link rel="icon" href="/helping-hands-logo-icon.svg" />
-      <link rel="stylesheet" href="https://use.typekit.net/krv6awl.css"></link> 
+      {/* <link rel="icon" href="/helping-hands-logo-icon.svg" />
+      <link rel="stylesheet" href="https://use.typekit.net/krv6awl.css"></link>  */}
 
       {/* Open Graph Meta Tags (Facebook, LinkedIn, etc.) */}
       <meta property="og:title" content={title} />
