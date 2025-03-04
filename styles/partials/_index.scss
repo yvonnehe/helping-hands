@@ -5,17 +5,19 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   margin-top: -35px;
+
   &__p {
     color: white;
     text-shadow: 0px 0px 30px #000000;
     font-size: 18px;
     margin-top: 0;
-    /* h2 */ 
+    /* h2 */
     font-family: "open-sans", sans-serif;
     margin-bottom: 1rem;
-    font-weight: 400; 
-    line-height: 27px;  
+    font-weight: 400;
+    line-height: 27px;
   }
+
   &__content {
     width: 25%;
     margin: 30px;
@@ -27,16 +29,19 @@
 .section1 {
   background-color: #f7f4f4;
   padding: 30px;
+
   //display: flex;
   &__1 {
     //flex: 4;
     //margin-left: 70px;
     //width: 60%;
   }
+
   &__2 {
     //flex: 2;
     //margin: 15px;
   }
+
   &__3 {
     //flex: 2;
     //margin: 15px;
@@ -46,11 +51,13 @@
 .section2 {
   padding: 30px;
   padding-bottom: 40px;
+
   //margin: 0 130px;
   //display: flex;
   &__1 {
     //flex: 1;
   }
+
   &__2 {
     //flex: 4;
     padding-top: 10px;
@@ -62,9 +69,11 @@
   padding: 50px 30px;
   padding-bottom: 70px;
   text-align: center;
+
   &__h3 {
     margin: 0px;
   }
+
   &__h4 {
     margin: 10px;
     margin-bottom: 25px;
@@ -76,14 +85,17 @@
   //display: flex;
   padding-bottom: 110px;
   padding-top: 10px;
+
   &__1 {
     //flex: 1;
     //margin-right: 30px;
   }
+
   &__2 {
     //flex: 1;
     //margin-right: 30px;
   }
+
   &__3 {
     //flex: 1;
     //margin-left: 0px;
@@ -98,24 +110,29 @@
   height: 230px;
   background-size: cover;
   background-repeat: no-repeat;
+
   &--fadder {
     background-image: url("../../public/helping-hands-student.jpg");
     background-position: 50% 25%;
   }
+
   &--vipps {
     background-image: url("../../public/tanzania.jpg");
     background-position: 50% 25%;
   }
+
   &--students {
     background-image: url("../../public/helping-hands-students-small-uniforms.jpg");
     height: 270px;
     background-position: 50% 50%;
   }
+
   &--miriam {
     background-image: url("../../public/helping-hands-miriam.jpg");
     height: 270px;
     background-position: 50% 25%;
   }
+
   &--seminar {
     background-image: url("../../public/helping-hands-seminar-family-plan.jpg");
     height: 270px;
@@ -128,9 +145,11 @@
   padding-top: 5px;
   height: 40%;
   margin-bottom: 10px;
+
   &--suksess {
     background-color: #f7f4f4;
   }
+
   &--bidra {
     background-color: white;
   }
@@ -138,12 +157,23 @@
 
 .suksesslink {
   padding: 0;
+
   &:hover {
     color: inherit;
   }
+
   &:focus {
     color: inherit;
   }
+}
+
+.chart-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  border: none;
+  padding: 0;
 }
 
 // media queries
@@ -163,10 +193,12 @@
   .hero__content {
     top: 350px;
   }
+
   .boxtext {
     &--suksess {
       height: 50%;
     }
+
     &--bidra {
       height: 45%;
     }
@@ -192,15 +224,18 @@
     &--bidra {
       height: 40%;
     }
+
     &--suksess {
       height: 35%;
     }
   }
+
   .section4__1,
   .section4__2,
   .section4__3 {
     margin-bottom: 30px;
   }
+
   .section4 {
     margin-bottom: -30px;
   }
@@ -226,14 +261,17 @@
       height: 30%;
     }
   }
+
   .section1__1,
   .section1__2,
   .section1__3 {
     margin-bottom: 30px;
   }
+
   .section2 {
     text-align: center;
   }
+
   .rotate {
     transform: rotate(160deg);
   }
@@ -244,25 +282,30 @@
     &--bidra {
       height: 35%;
     }
+
     &--suksess {
       height: 40%;
     }
   }
+
   .section1__1,
   .section1__2,
   .section1__3 {
     margin-bottom: 35px;
   }
 }
+
 @media screen and (max-width: 386px) {
   .boxtext {
     &--bidra {
       height: 40%;
     }
+
     &--suksess {
       height: 45%;
     }
   }
+
   .section4 {
     margin-bottom: -50px;
   }
