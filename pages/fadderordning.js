@@ -83,14 +83,6 @@ const Fadderordning = () => {
           inkludert i beløpet du betaler. Vanligvis er det skolekostnader,
           skoleutstyr og uniform. Skolekostnadene varierer fra skole til skole.{" "}
         </p>
-        <h4 className="h4-questions">Hvorfor er man bare fadder 1 år om gangen?</h4>
-        <p className="fadderp">
-          Fadderordningen baserer seg på skolegangen og skoleutstyret vi betaler
-          for, som er på ett års basis. Det hender at barna flytter, bytter
-          skole, eller uteksamineres. Vi sender derfor en oppdatering årlig om
-          barnet skal fortsette på den samme skolen, eller om det er endringer.
-          Da kan man velge om man ønsker å fortsette som fadder eller ikke.
-        </p>
         <h4 className="h4-questions">
           Hva skjer dersom jeg ikke lenger har mulighet til å være fadder?
         </h4>
@@ -108,7 +100,7 @@ const Fadderordning = () => {
         <h4 className="h4-questions">Hvor mange oppdateringer får jeg/vi?</h4>
         <p className="fadderp">
           Hvor mange oppdateringer du får om fadderbarnet ditt varierer. Noen
-          barn/ungdom bor i nærheten av kollegaen vår i Tanzania og/eller
+          barn/ungdom bor i nærheten av prosjektlederen vår Gladness i Tanzania og/eller
           trenger ekstra oppfølging. Andre ungdommer studerer et stykke unna.
           Dermed vil det variere hvor mange oppdateringer en får om fadderbarnet
           sitt. Å oppdatere faddere er noe vi gjør på fritiden vår og uten lønn.
