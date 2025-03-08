@@ -64,6 +64,7 @@ a,
 
   &:focus {
     box-shadow: none;
+    border: 2px solid #015ecc;
   }
 }
 
@@ -82,7 +83,7 @@ a,
   position: absolute;
   left: 10px;
   top: -60px;
-  background: #f96d11;
+  background: #BF4600;
   color: white !important;
   font-family: "open-sans-condensed", sans-serif;
   font-weight: 700;

@@ -35,6 +35,12 @@
       background-color: #434343;
       color: #f7f4f4;
     }
+
+    &:focus,
+    &:active {
+      background-color: #015ecc !important;
+      color: white !important;
+    }
   }
 
   &--form {
