@@ -42,13 +42,17 @@ a,
   color: inherit;
   padding-right: 15px !important;
   padding-left: 15px !important;
+  border-radius: 5px;
 
   &:hover {
     color: #f96d11 !important;
   }
 
-  &:focus {
+  &:focus-visible {
     color: #f96d11 !important;
+    outline: 2px solid #015ecc !important;
+    border: none;
+    box-shadow: none;
   }
 
   &:active {
