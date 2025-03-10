@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import NextHead from "../components/NextHead";
 import { useForm } from "react-hook-form";
@@ -60,6 +60,7 @@ const RecurringPaymentForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [formattedPhone, setFormattedPhone] = useState("");
+    const detailsHeadingRef = useRef<HTMLHeadingElement>(null);
 
     const searchParams = useSearchParams();
     const child = searchParams.get("child") || "";
@@ -186,6 +187,13 @@ const RecurringPaymentForm = () => {
         console.log("Step 1 Data:", data);
         setStep(2);
     };
+
+    // fix focus when changing to step 2 
+    useEffect(() => {
+        if (step === 2 && detailsHeadingRef.current) {
+            detailsHeadingRef.current.focus();
+        }
+    }, [step]);
 
     const handleStep2Submit = async (data) => {
         setIsSubmitting(true);
@@ -359,7 +367,7 @@ const RecurringPaymentForm = () => {
                                         You are on the details form.
                                     </p>
 
-                                    <h2 id="details-heading" tabIndex={0}>Fyll inn dine opplysninger</h2>
+                                    <h2 id="details-heading" tabIndex={0} ref={detailsHeadingRef}>Fyll inn dine opplysninger</h2>
 
                                     {/* ✅ Display selected child & amount in step 2 (for user reference) */}
                                     <div className="selected-info-card">
