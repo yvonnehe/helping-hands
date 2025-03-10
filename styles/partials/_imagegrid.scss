@@ -10,7 +10,11 @@
   height: 0px;
   padding: 50% 0;
   position: relative;
-  border: none; 
+  border: none;
+}
+
+.img-wrap:focus-visible {
+  outline: 2px solid #015ecc;
 }
 
 .img-wrap img {
@@ -23,7 +27,7 @@
 }
 
 .img-wrap:hover img {
-  opacity: 0.75; 
+  opacity: 0.75;
   transition: opacity 0.3s ease-in-out;
 }
 
