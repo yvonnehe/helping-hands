@@ -176,6 +176,11 @@
   padding: 0;
 }
 
+.index-links {
+  padding: 0;
+  transition: ease 0.3s all;
+}
+
 // media queries
 @media screen and (max-width: 1144px) {
   .hero__content {

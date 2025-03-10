@@ -37,21 +37,25 @@ export default function Home() {
             </h3>
           </div>
           <div className="section1__2 col-lg-3 col-md-4 col-sm-6">
-            <div className="boximage boximage--vipps"></div>
-            <div className="boxtext boxtext--bidra">
-              <h4>Støtt med VIPPS</h4>
-              <p>Vipps til 13947 - Støtt oss med valgfritt beløp</p>
-            </div>
+            <a href="/vipps" aria-label="Gi engangsbeløp med Vipps" className="index-links">
+              <div className="boximage boximage--vipps"></div>
+              <div className="boxtext boxtext--bidra">
+                <h4>Støtt med VIPPS</h4>
+                <p>Vipps til 13947 - Støtt oss med valgfritt beløp</p>
+              </div>
+            </a>
           </div>
           <div className="section1__3 col-lg-3 col-md-4 col-sm-6">
-            <div className="boximage boximage--fadder"></div>
-            <div className="boxtext boxtext--bidra">
-              <h4>Bli fadder</h4>
-              <p>
-                Du kan velge om du vil være Fadder for et spesifikt barn, eller
-                støtte vårt arbeid med et valgfritt månedlig beløp.
-              </p>
-            </div>
+            <a href="/vipps-fadder" aria-label="Bli fadder med Vipps" className="index-links">
+              <div className="boximage boximage--fadder"></div>
+              <div className="boxtext boxtext--bidra">
+                <h4>Bli fadder</h4>
+                <p>
+                  Du kan velge om du vil være Fadder for et spesifikt barn, eller
+                  støtte vårt arbeid med et valgfritt månedlig beløp.
+                </p>
+              </div>
+            </a>
           </div>
         </div>
         </div>
