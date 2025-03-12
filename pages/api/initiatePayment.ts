@@ -45,7 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             const agreementPayload = {
                 interval: { unit: "MONTH", count: 1 },
-                pricing: { amount: amount * 100, currency: "NOK" },
+                pricing: { amount: amount, currency: "NOK" },
                 merchantRedirectUrl: `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=recurring`,
                 merchantAgreementUrl: `${baseUrl}/avtale`,
                 phoneNumber: phoneNumber.replace(/\D/g, ""), // Remove non-numeric characters

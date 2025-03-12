@@ -44,7 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const agreementPayload = {
             interval: { unit: "YEAR", count: 1 }, // 🔹 Yearly payment
-            pricing: { amount: amount * 100, currency: "NOK" }, // Convert amount to øre
+            pricing: { amount: amount, currency: "NOK" }, // Convert amount to øre
             merchantRedirectUrl: `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=yearly-recurring`,
             merchantAgreementUrl: `${baseUrl}/avtale`,
             phoneNumber: phoneNumber.replace(/\D/g, ""), // Remove non-numeric characters
