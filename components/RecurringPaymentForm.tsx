@@ -99,7 +99,6 @@ const RecurringPaymentForm = () => {
         "Rashid": "/fadderbarn/helping-hands-rashid.jpg",
         "Ramla": "/fadderbarn/helping-hands-ramla.jpg",
         "Hadija": "/fadderbarn/helping-hands-hadija.jpg",
-        "Jackson": "/fadderbarn/helping-hands-jackson.jpg",
         "Ali (12)": "/fadderbarn/helping-hands-ali2.jpg",  // Another duplicate Ali
         "Augusti": "/fadderbarn/helping-hands-augusti.jpg",
         "Alexi": "/fadderbarn/helping-hands-alexi.jpg",
@@ -133,7 +132,6 @@ const RecurringPaymentForm = () => {
         "Rashid": 150,
         "Ramla": 680,
         "Hadija": 50,
-        "Jackson": 50,
         "Ali (12)": 50,
         "Augusti": 150,
         "Alexi": 50,
@@ -304,7 +302,6 @@ const RecurringPaymentForm = () => {
                                             <option value="Rashid">Rashid</option>
                                             <option value="Ramla">Ramla</option>
                                             <option value="Hadija">Hadija</option>
-                                            <option value="Jackson">Jackson</option>
                                             <option value="Ali">Ali</option>
                                             <option value="Augusti">Augusti</option>
                                             <option value="Alexi">Alexi</option>
