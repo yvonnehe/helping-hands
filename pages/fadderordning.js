@@ -22,16 +22,15 @@ const Fadderordning = () => {
         <h2>Fadderordning</h2>
         <h3>Om fadderordningen</h3>
         <p className="fadderp">
-          Helping Hands fadderordning er laget for å støtte barn og ungdom
-          gjennom skolen. I noen tilfeller andre familier som trenger hjelp av
-          spesielle grunner. Vi ønsker å gi flest mulig barn og unge mulighet
-          til skolegang og høyere utdanning.
+          Helping Hands' fadderordning er laget for å støtte barn og ungdom gjennom skolegangen – og i noen tilfeller også familier som trenger hjelp av spesielle grunner.
+          Vi ønsker å gi flest mulig barn og unge mulighet til skolegang og høyere utdanning.
         </p>
-        <p className="fadderp">Dersom du ikke ønsker å være fadder for et spesifikt barn,
-          kan du også kontakte oss for å bli månedlig giver. Da distribuerer vi
-          pengene slik vi mener det er best, for eksempel til barn som ikke har
-          fått fadder, hvis et av barna blir syke, eller andre i vanskelige
-          situasjoner.</p>
+        <p className="fadderp">
+          Dersom du ikke ønsker å være fadder for et spesifikt barn, kan du også kontakte oss 
+          for å bli månedlig giver. Da fordeler vi midlene der behovet er størst – 
+          for eksempel til barn uten fadder, ved sykdom, 
+          eller i andre krevende situasjoner.
+        </p>
         {/* <p className="fadderp">
           <a href="/vipps-fadder" className="sponsor-link sunshinelink">
             Fyll ut dette skjemaet dersom du ønsker å bli fadder</a>, 
