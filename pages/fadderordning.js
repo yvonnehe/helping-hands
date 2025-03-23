@@ -32,11 +32,20 @@ const Fadderordning = () => {
           pengene slik vi mener det er best, for eksempel til barn som ikke har
           fått fadder, hvis et av barna blir syke, eller andre i vanskelige
           situasjoner.</p>
-        <p className="fadderp">
+        {/* <p className="fadderp">
           <a href="/vipps-fadder" className="sponsor-link sunshinelink">
             Fyll ut dette skjemaet dersom du ønsker å bli fadder</a>, 
             så tar vi kontakt med deg!
+        </p> */}
+        <p className="fadderp">
+          Fyll ut fadderskjemaet for å bli fadder – og gi et barn en bedre fremtid.
         </p>
+        <a
+          href={`/vipps-fadder`}
+          className="btn btn--sponsor"
+        >
+          Bli fadder 
+        </a>
       </div>
       </div>
       <div className="ledigefadder con">
