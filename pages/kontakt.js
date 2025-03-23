@@ -15,7 +15,7 @@ const Kontakt = () => {
           <div className="col-md-6">
             <h2>Kontakt oss</h2>
             <h3 className="kontakt__h3">
-              Dersom det er noe du lurer på, kan du gjerne ta kontakt med oss.
+              Lurer du på noe, eller vil du komme i kontakt med oss? Vi svarer gjerne – send oss en e-post!
             </h3>
             <h4 className="contact-names">Helping Hands</h4>
             <h5 className="titles">Generelle henvendelser</h5>
