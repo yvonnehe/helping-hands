@@ -15,33 +15,32 @@ const HvordanHjelpe = () => {
             <h2>Hvordan hjelpe</h2>
             <h3>Ulike måter å bidra</h3>
             <p>
-              Vi får mange henvendelser fra mennesker som ønsker å bidra med noe
-              for oss, det setter vi ekstremt stor pris på! For å gjøre det litt
-              enklere, ønsker vi å samle litt informasjon her for hva du
-              eventuelt kan hjelpe oss med.{" "}
+              Vi får mange henvendelser fra mennesker som ønsker å bidra til 
+              arbeidet vårt – og det setter vi enormt stor pris på! 
+              For å gjøre det litt enklere, har vi samlet noen forslag 
+              til hvordan du kan engasjere deg:
             </p>
-            <h4 className="h4-questions">Vi ønsker gjerne at du tar kontakt dersom: </h4>
+            <h4 className="h4-questions">Ta gjerne kontakt med oss dersom:</h4>
             <ul>
               <li>
-                Din arbeidsplass eller bedrift ønsker å samarbeide med eller
-                støtte oss.
+                Din arbeidsplass eller bedrift ønsker å samarbeide med oss eller 
+                støtte arbeidet vårt.
               </li>{" "}
               <li>
-                Din skole har lyst å bidra til gode formål. Gjennom loddsalg,
-                innsamlinger eller andre aktiviteter.
+                Skolen din har lyst til å bidra til en god sak – for eksempel gjennom 
+                loddsalg, innsamlinger eller andre aktiviteter.
               </li>
               <li>
-                {" "}
-                Du ønsker å booke et arrangement via oss. Vi har tidligere
-                arrangert veldedighetskonserter, veldedighetsyoga, utsalg av
-                hjemmelagde ting, etc.
+                Du ønsker å arrangere et event via oss. Tidligere har vi arrangert 
+                veldedighetskonserter, yogatimer, utsalg av hjemmelagde produkter, og mer.
               </li>
               <li>
-                Privatpersoner som ønsker å <a className="buttonlink sunshinelink" href="/vipps-fadder">bli faddere eller månedsgivere.</a> Du velger selv beløp.{" "}
+                Du som privatperson ønsker å <a className="buttonlink sunshinelink" href="/vipps-fadder">bli fadder eller fast giver.</a> Du velger selv beløpet.{" "}
               </li>
               <li>
-                Du kan <a className="buttonlink sunshinelink" href="/stottemedlem">bli støttemedlem</a> for 50kr i året for å vise støtte 
-                til arbeidet vårt, dersom du ikke har anledning til å være fadder.{" "}
+                Du vil <a className="buttonlink sunshinelink" href="/stottemedlem">bli støttemedlem</a> 
+                og vise at du heier på arbeidet vårt. Det koster kun 50 kr i året, 
+                og er et fint alternativ hvis du ikke har mulighet til å være fadder akkurat nå.
               </li>
             </ul>
           </div>
@@ -67,15 +66,17 @@ const HvordanHjelpe = () => {
           <div className="col-md-6">
             <h3>Vi setter pris på omtanken, men…</h3>
             <p>
-              Det er mange som ønsker å donere brukte klær eller andre
-              personlige eiendeler, dette tar vi dessverre ikke imot. Det lønner
-              seg å handle lokalt fremfor å bruke store summer på å transportere
-              ned ting fra Norge. Det er også viktig for oss at vi støtter opp
-              om de lokale bedriftene i Tanzania dersom vi skulle ha behov for
-              noe.<br></br>
-              <br></br> Vi får også spørsmål fra folk som ønsker å reise ned og
-              hjelpe til lokalt i Tanzania. Dette har vi ikke behov for per i
-              dag!{" "}
+              Mange ønsker å donere brukte klær eller andre personlige eiendeler – noe vi setter stor pris på.
+              Dessverre har vi ikke mulighet til å ta imot slike gaver. 
+              Det er langt mer lønnsomt å handle lokalt enn å bruke store summer på frakt fra Norge. 
+              I tillegg er det viktig for oss å støtte lokale bedrifter i Tanzania når vi har behov for varer og utstyr.
+            </p>
+            <p>
+              Vi får også henvendelser fra personer som ønsker å reise ned og bidra lokalt i Tanzania.
+              Dette er et flott engasjement, men per i dag har vi ikke behov for hjelp på stedet.{" "}
+            </p>
+            <p>
+              Tusen takk for at du ønsker å bidra – det betyr mye!
             </p>
           </div>
         </div>
