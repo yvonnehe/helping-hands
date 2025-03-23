@@ -107,7 +107,7 @@ const Fadderordning = () => {
           man mulighet til å bidra, andre ganger ikke. Dette skal ikke gå 
           utover barna, men vår kapasitet til å hjelpe flere avhenger av støtten vi får.
         </p>
-        <h4 className="h4-questions">Hvor mange oppdateringer får jeg/vi?</h4>
+        <h4 className="h4-questions">Hvor ofte får jeg oppdateringer om fadderbarnet mitt?</h4>
         <p className="fadderp">
           Hvor mange oppdateringer du får, kan variere. Noen barn og ungdommer 
           bor i nærheten av prosjektlederen vår, Gladness, i Tanzania og/eller 
