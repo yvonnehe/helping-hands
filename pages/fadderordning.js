@@ -87,34 +87,37 @@ const Fadderordning = () => {
           Hva er det jeg betaler for når jeg er fadder for et barn/en ungdom?
         </h4>
         <p className="fadderp">
-          Når du blir fadder for et barn, skal det være oppført hva som er
-          inkludert i beløpet du betaler. Vanligvis er det skolekostnader,
-          skoleutstyr og uniform. Skolekostnadene varierer fra skole til skole.{" "}
+          Når du blir fadder for et barn, vil det stå oppført hva som er inkludert 
+          i beløpet du betaler. Vanligvis dekker dette skolekostnader, skoleutstyr 
+          og skoleuniform. Skolekostnadene varierer fra skole til skole.{" "}
         </p>
         <h4 className="h4-questions">
           Hva skjer dersom jeg ikke lenger har mulighet til å være fadder?
         </h4>
         <p className="fadderp">
-          Dette betyr ikke at ditt barn plutselig står uten skolegang. Vi
-          forplikter oss til de barna vi hjelper, og fortsetter å hjelpe dem.
-          Det det derimot har konsekvenser for, er hvor mange barn vi har
-          mulighet til å hjelpe. Uten faste inntekter og faddere til å støtte
-          oss, kan vi dessverre ikke love hjelp til flere barn, og det er mange
-          barn som har behov for hjelp. Vi har selvfølgelig forståelse for at
-          folk av og til har perioder i livet der de kan bidra, og andre
-          perioder der man ikke kan bidra. Dette skal ikke gå utover barna, men
-          vi ønsker selvfølgelig å hjelpe så mange som mulig.
+          Dersom du må avslutte fadderskapet, betyr ikke det at barnet ditt 
+          plutselig står uten skolegang. Vi forplikter oss til barna vi støtter, 
+          og vil fortsette å følge dem opp.
+
+          Men det får konsekvenser for hvor mange barn vi har kapasitet til 
+          å hjelpe. Uten faste inntekter og faddere til å støtte arbeidet vårt, 
+          kan vi dessverre ikke love støtte til flere barn – selv om behovet er stort.
+
+          Vi har full forståelse for at livet går i faser – noen ganger har 
+          man mulighet til å bidra, andre ganger ikke. Dette skal ikke gå 
+          utover barna, men vår kapasitet til å hjelpe flere avhenger av støtten vi får.
         </p>
         <h4 className="h4-questions">Hvor mange oppdateringer får jeg/vi?</h4>
         <p className="fadderp">
-          Hvor mange oppdateringer du får om fadderbarnet ditt varierer. Noen
-          barn/ungdom bor i nærheten av prosjektlederen vår Gladness i Tanzania og/eller
-          trenger ekstra oppfølging. Andre ungdommer studerer et stykke unna.
-          Dermed vil det variere hvor mange oppdateringer en får om fadderbarnet
-          sitt. Å oppdatere faddere er noe vi gjør på fritiden vår og uten lønn.
-          Vi gjør vårt beste med den kapasiteten vi har. At vi jobber frivillig
-          betyr at alle pengene faktisk kommer frem til ditt fadderbarn og det
-          formålet vi har fortalt at pengene går til.
+          Hvor mange oppdateringer du får, kan variere. Noen barn og ungdommer 
+          bor i nærheten av prosjektlederen vår, Gladness, i Tanzania og/eller 
+          trenger ekstra oppfølging. Andre studerer langt unna, og det kan 
+          gjøre oppfølgingen mer sporadisk.
+
+          Vi gjør vårt beste for å holde fadderne oppdatert – men det er 
+          viktig å vite at dette arbeidet skjer på frivillig basis og uten lønn. 
+          Det betyr samtidig at alle pengene går direkte til barnet ditt og 
+          til formålet vi har beskrevet.
         </p>
       </div>
     </>
