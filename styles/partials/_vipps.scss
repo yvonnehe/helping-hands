@@ -43,6 +43,11 @@
     outline: 2px solid #015ecc;
 }
 
+.selected-child-description {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
 @media (max-width: 768px) {
     .form-col-mobile {
         margin-bottom: 1rem;

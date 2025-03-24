@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
+import { fadderbarnList } from "../data/fadderbarn";
 
 // Step 1 Schema (Child Selection)
 const step1Schema = yup.object({
@@ -79,72 +80,6 @@ const RecurringPaymentForm = () => {
         defaultValues: { name: "", email: "", phoneNumber: "", address: "", zipCode: "", city: "" } // Ensure correct default values
     });
 
-    const childImageMap: Record<string, string> = {
-        "Mary": "/fadderbarn/helping-hands-mary.jpg",
-        "Abdala": "/fadderbarn/helping-hands-abdala.jpg",
-        "Salimu": "/fadderbarn/helping-hands-salimu.jpg",
-        "Mahad": "/fadderbarn/helping-hands-mahad.jpg",
-        "Ali (9)": "/fadderbarn/helping-hands-ali.jpg",  // Duplicate Ali
-        "Esther": "/fadderbarn/helping-hands-esther.jpg",
-        "Yahaya": "/fadderbarn/helping-hands-yahaya.jpg",
-        "Kelvin": "/fadderbarn/helping-hands-kelvin.jpg",
-        "Nordin": "/fadderbarn/helping-hands-nordin.jpg",
-        "Sofia": "/fadderbarn/helping-hands-sofia.jpg",
-        "Abdul": "/fadderbarn/helping-hands-abdul.jpg",
-        "Bahati": "/fadderbarn/helping-hands-bahati.jpg",
-        "Halima": "/fadderbarn/helping-hands-halima.jpg",
-        "Jonelle": "/fadderbarn/helping-hands-jonelle.jpg",
-        "Jasin": "/fadderbarn/helping-hands-jasin.jpg",
-        "Norin": "/fadderbarn/helping-hands-norin.jpg",
-        "Rashid": "/fadderbarn/helping-hands-rashid.jpg",
-        "Ramla": "/fadderbarn/helping-hands-ramla.jpg",
-        "Hadija": "/fadderbarn/helping-hands-hadija.jpg",
-        "Ali (12)": "/fadderbarn/helping-hands-ali2.jpg",  // Another duplicate Ali
-        "Augusti": "/fadderbarn/helping-hands-augusti.jpg",
-        "Alexi": "/fadderbarn/helping-hands-alexi.jpg",
-        "Omar": "/fadderbarn/helping-hands-omar.jpg",
-        "Jamal": "/fadderbarn/helping-hands-jamal.jpg",
-        "Ramadhan (16)": "/fadderbarn/helping-hands-ramadhan.jpg",
-        "Marthina": "/fadderbarn/helping-hands-marthina.jpg",
-        "Amina": "/fadderbarn/helping-hands-amina.jpg",
-        "Ramadhan (20)": "/fadderbarn/helping-hands-ramadhan2.jpg",  // Duplicate Ramadhan
-        "Hawa": "/fadderbarn/helping-hands-hawa.jpg",
-        "Ndelekwa": "/ndelekwa.jpg"
-    };
-
-    const childAmountMap: Record<string, number> = {
-        "Mary": 150,
-        "Abdala": 100,
-        "Salimu": 100,
-        "Mahad": 100,
-        "Ali (9)": 100,
-        "Esther": 100,
-        "Yahaya": 100,
-        "Kelvin": 100,
-        "Nordin": 100,
-        "Sofia": 150,
-        "Abdul": 150,
-        "Bahati": 500,
-        "Halima": 480,
-        "Jonelle": 100,
-        "Jasin": 150,
-        "Norin": 100,
-        "Rashid": 150,
-        "Ramla": 680,
-        "Hadija": 50,
-        "Ali (12)": 50,
-        "Augusti": 150,
-        "Alexi": 50,
-        "Omar": 100,
-        "Jamal": 100,
-        "Ramadhan (16)": 100,
-        "Marthina": 100,
-        "Amina": 650,
-        "Ramadhan (20)": 700,
-        "Hawa": 150,
-        "Ndelekwa": 200
-    };
-
     useEffect(() => {
         if (child) step1Form.setValue("child", child);
         if (amount) step1Form.setValue("amount", amount);
@@ -153,19 +88,15 @@ const RecurringPaymentForm = () => {
     const selectedChild = step1Form.watch("child");
 
     useEffect(() => {
+        const selected = fadderbarnList.find(barn => barn.name === selectedChild);
         if (selectedChild === "vårt-forslag" || selectedChild === "månedlig-giver") {
-            setSelectedImage(""); // Reset image if "vårt-forslag" is selected
-            step1Form.setValue("amount", 200); // Default amount
-        } else if (selectedChild && childImageMap[selectedChild]) {
-            setSelectedImage(childImageMap[selectedChild]);
+            setSelectedImage("");
+            step1Form.setValue("amount", 200);
+        } else if (selected) {
+            setSelectedImage(selected.image);
+            step1Form.setValue("amount", selected.amount);
         }
-
-        // Set the default amount based on the selected child
-        if (selectedChild && childAmountMap[selectedChild]) {
-            step1Form.setValue("amount", childAmountMap[selectedChild]);
-        }
-    }, [selectedChild]);
-
+    }, [selectedChild, step1Form]);
 
     // Handle live formatting of phone number input
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -282,37 +213,9 @@ const RecurringPaymentForm = () => {
                                             <option value="">Velg fadderbarn</option>
                                             <option value="vårt-forslag">La oss komme med et forslag</option>
                                             <option value="månedlig-giver">Månedlig giver</option>
-                                            <option value="Mary">Mary</option>
-                                            <option value="Abdala">Abdala</option>
-                                            <option value="Ali (9)">Ali (9)</option>
-                                            <option value="Salimu">Salimu</option>
-                                            <option value="Mahad">Mahad</option>
-                                            <option value="Ali (12)">Ali (12)</option>
-                                            <option value="Esther">Esther</option>
-                                            <option value="Yahaya">Yahaya</option>
-                                            <option value="Kelvin">Kelvin</option>
-                                            <option value="Nordin">Nordin</option>
-                                            <option value="Sofia">Sofia</option>
-                                            <option value="Abdul">Abdul</option>
-                                            <option value="Bahati">Bahati</option>
-                                            <option value="Halima">Halima</option>
-                                            <option value="Jonelle">Jonelle</option>
-                                            <option value="Jasin">Jasin</option>
-                                            <option value="Norin">Norin</option>
-                                            <option value="Rashid">Rashid</option>
-                                            <option value="Ramla">Ramla</option>
-                                            <option value="Hadija">Hadija</option>
-                                            <option value="Ali">Ali</option>
-                                            <option value="Augusti">Augusti</option>
-                                            <option value="Alexi">Alexi</option>
-                                            <option value="Omar">Omar</option>
-                                            <option value="Jamal">Jamal</option>
-                                            <option value="Ramadhan (16)">Ramadhan (16)</option>
-                                            <option value="Marthina">Marthina</option>
-                                            <option value="Amina">Amina</option>
-                                            <option value="Ramadhan (20)">Ramadhan (20)</option>
-                                            <option value="Hawa">Hawa</option>
-                                            <option value="Ndelekwa">Ndelekwa</option>
+                                            {fadderbarnList.map(barn => (
+                                                <option key={barn.name} value={barn.name}>{barn.name}</option>
+                                            ))}
                                         </select>
                                         {step1Form.formState.errors.child && (
                                             <p id="child-error" className="errorMessage">
@@ -506,7 +409,17 @@ const RecurringPaymentForm = () => {
                             )}
                         </div>
                         <div className="col-md-6">
-                            {selectedImage && <img src={selectedImage} className="selected-child-img" alt="Valgt fadderbarn" />}
+                            {selectedImage &&
+                                <>
+                                    <img src={selectedImage} className="selected-child-img" alt="Valgt fadderbarn" />
+                                    {(() => {
+                                        const selected = fadderbarnList.find(barn => barn.name === step1Form.getValues("child"));
+                                        return selected?.description ? (
+                                            <p className="selected-child-description">{selected.description}</p>
+                                        ) : null;
+                                    })()}
+                                </>
+                            }
                         </div>
                     </div>
                 </div>
