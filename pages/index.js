@@ -118,8 +118,8 @@ export default function Home() {
                 <h4>Skolegang og høyere utdanning</h4>
                 <p>
                   Mange barn er ikke på skolen på grunn av dårlig økonomi eller
-                  manglende utstyr. Ved hjelp av mange faddere, betaler vi for
-                  skolegang og utdanning til over 130 barn og unge.
+                  manglende utstyr. Ved hjelp av mange faddere, har vi betalt for
+                  skolegang og utdanning til over 160 barn og unge.
                 </p>
               </div>
             </a>
