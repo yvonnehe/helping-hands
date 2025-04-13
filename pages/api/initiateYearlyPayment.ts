@@ -49,7 +49,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             merchantAgreementUrl: `${baseUrl}/avtale`,
             phoneNumber: phoneNumber.replace(/\D/g, ""), // Remove non-numeric characters
             productName: productName,
-            orderId: reference
+            orderId: reference,
+            initialCharge: {
+                amount: amount, // Same as monthly amount
+                description: `Første betaling for ${productName}`,
+                transactionType: "DIRECT_CAPTURE"
+            }
         };
 
         console.log("📤 Sending request to Vipps for yearly agreement creation...");
