@@ -28,7 +28,8 @@ const RedirectPage = () => {
 
             // Fetch actual agreement status from Vipps
             if (reference) {
-                checkVippsAgreementStatus(reference);
+                const cleanId = String(reference).replace(/^agreement-/, "");
+                checkVippsAgreementStatus(cleanId);
             } else {
                 setLoading(false);
             }
