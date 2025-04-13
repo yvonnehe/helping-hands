@@ -38,8 +38,7 @@ const HvordanHjelpe = () => {
                 Du som privatperson ønsker å <a className="buttonlink sunshinelink" href="/vipps-fadder">bli fadder eller fast giver.</a> Du velger selv beløpet.{" "}
               </li>
               <li>
-                Du vil <a className="buttonlink sunshinelink" href="/stottemedlem">bli støttemedlem</a> 
-                og vise at du heier på arbeidet vårt. Det koster kun 50 kr i året, 
+                Du vil <a className="buttonlink sunshinelink" href="/stottemedlem">bli støttemedlem</a> og vise at du heier på arbeidet vårt. Det koster kun 50 kr i året, 
                 og er et fint alternativ hvis du ikke har mulighet til å være fadder akkurat nå.
               </li>
             </ul>
