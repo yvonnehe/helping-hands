@@ -17,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         const accessToken = await getVippsAccessToken();
+        console.log("✅ Got access token for agreement status check:", accessToken?.substring(0, 10));
 
         const response = await axios.get(
             `${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/recurring/v3/agreements/${cleanAgreementId}`,
@@ -32,8 +33,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         console.log("✅ Vipps Agreement Status Response:", response.data);
         res.status(200).json({ status: response.data.status });
     } catch (error: any) {
-        console.error("🚨 Error retrieving Vipps agreement status:", error.response?.data || error.message);
-        res.status(500).json({ error: error.response?.data || "Failed to retrieve agreement status" });
+        console.error("🚨 Error retrieving Vipps agreement status:", {
+            message: error.message,
+            status: error.response?.status,
+            data: error.response?.data,
+            headers: error.config?.headers,
+        });
+        res.status(500).json({
+            error: error.response?.data || error.message,
+        });
     }
 }
 
