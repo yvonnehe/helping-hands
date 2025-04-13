@@ -80,7 +80,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             );
 
             console.log("✅ Vipps Yearly Agreement Response:", agreementResponse.data);
-            return res.status(200).json({ agreementUrl: agreementResponse.data.vippsConfirmationUrl });
+            return res.status(200).json({
+                agreementUrl: agreementResponse.data.vippsConfirmationUrl,
+                agreementId: agreementResponse.data.agreementId,
+            });
         } catch (vippsError: any) {
             console.error("🚨 Vipps Yearly Agreement Error:", vippsError.response?.data || vippsError.message);
             return res.status(500).json({ error: vippsError.response?.data || "Error creating Vipps yearly agreement" });

@@ -23,7 +23,7 @@ const step2Schema = yup.object({
     city: yup.string().required("Poststed er påkrevd"),
 }).required();
 
-const StottMedlem = () => {
+const StotteMedlem = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [formattedPhone, setFormattedPhone] = useState("");
@@ -219,4 +219,4 @@ const StottMedlem = () => {
     );
 };
 
-export default StottMedlem;
+export default StotteMedlem;
