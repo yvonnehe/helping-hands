@@ -34,6 +34,7 @@ async function sendSponsorshipEmailHandler(req: NextApiRequest, res: NextApiResp
         📧 E-post: ${email}
         📱 Telefonnummer: ${phoneNumber}
         🏠 Adresse: ${address}
+        📍 Poststed: ${address.postalCode}, ${address.city}
 
         👶 Fadderbarn: ${child}
         💰 Månedlig beløp: ${amount} NOK
