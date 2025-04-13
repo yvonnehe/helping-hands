@@ -18,23 +18,23 @@ const RedirectPage = () => {
     useEffect(() => {
         if (router.isReady) {
             const { reference, status, type } = router.query;
-
-            // Store initial params
+    
             setQueryParams({
                 reference: reference || "",
                 status: status || "",
                 type: type || "",
             });
-
-            // Fetch actual agreement status from Vipps
-            if (reference) {
-                const cleanId = String(reference).replace(/^agreement-/, "");
-                checkVippsAgreementStatus(cleanId);
+    
+            // ✅ Use Vipps agreementId from localStorage instead of internal reference
+            const vippsAgreementId = localStorage.getItem("vippsAgreementId");
+    
+            if (type === "recurring" && vippsAgreementId) {
+                checkVippsAgreementStatus(vippsAgreementId);
             } else {
                 setLoading(false);
             }
         }
-    }, [router.isReady, router.query]);
+    }, [router.isReady, router.query]);    
 
     // ✅ Remove "agreement-" prefix from reference
     const displayReference = queryParams.reference.replace(/^agreement-/, "");

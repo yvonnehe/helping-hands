@@ -154,8 +154,13 @@ const RecurringPaymentForm = () => {
                 child: step1Form.getValues("child")
             });
 
-            if (response.data.agreementUrl) {
-                console.log("Vipps agreement created successfully:", response.data.agreementUrl);
+            const { agreementUrl, agreementId } = response.data;
+
+            if (agreementUrl && agreementId) {
+                console.log("✅ Vipps agreement created:", agreementId);
+
+                // Store Vipps agreementId for use on redirect page
+                localStorage.setItem("vippsAgreementId", agreementId);
 
                 // 🔹 Send internal sponsorship email
                 await axios.post("/api/sendSponsorshipEmail", {
@@ -164,14 +169,16 @@ const RecurringPaymentForm = () => {
                     phoneNumber: step2Form.getValues("phoneNumber").replace(/\D/g, ""),
                     address: data.address,
                     zipCode: data.zipCode,
+                    city: data.city,
+                    reference: reference,
                     child: step1Form.getValues("child"), // Only included in email
                     amount: step1Form.getValues("amount"),
                 });
 
                 // 🔹 Redirect user to Vipps to confirm the agreement
-                window.location.href = response.data.agreementUrl;
+                window.location.href = agreementUrl;
             } else {
-                console.error("Error: No agreement URL received");
+                console.error("Error: Missing agreement URL or ID");
                 setErrorMessage("Kunne ikke opprette avtale. Vennligst prøv igjen.");
             }
         } catch (error) {
