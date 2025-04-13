@@ -60,9 +60,29 @@ const StotteMedlem = () => {
                 returnUrl,
             });
 
-            if (response.data.agreementUrl) {
-                console.log("Vipps agreement created successfully:", response.data.agreementUrl);
-                window.location.href = response.data.agreementUrl;
+            const { agreementUrl, agreementId } = response.data;
+
+            if (agreementUrl && agreementId) {
+                console.log("✅ Vipps agreement created:", agreementId);
+
+                // Store Vipps agreementId for use on redirect page
+                localStorage.setItem("vippsAgreementId", agreementId);
+
+                // 🔹 Send internal sponsorship email
+                await axios.post("/api/sendSponsorshipEmail", {
+                    name: data.name,
+                    email: data.email,
+                    phoneNumber: step2Form.getValues("phoneNumber").replace(/\D/g, ""),
+                    address: data.address,
+                    zipCode: data.zipCode,
+                    city: data.city,
+                    reference: reference,
+                    child: "Støttemedlem",
+                    amount: 50,
+                });
+
+                // 🔹 Redirect user to Vipps to confirm the agreement
+                window.location.href = agreementUrl;
             } else {
                 console.error("Error: No agreement URL received");
                 setErrorMessage("Kunne ikke opprette avtale. Vennligst prøv igjen.");
