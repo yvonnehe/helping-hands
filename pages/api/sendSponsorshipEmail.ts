@@ -7,7 +7,7 @@ async function sendSponsorshipEmailHandler(req: NextApiRequest, res: NextApiResp
     }
 
     try {
-        const { name, email, phoneNumber, address, child, amount } = req.body;
+        const { name, email, phoneNumber, address, zipCode, city, child, amount } = req.body;
 
         // Configure Nodemailer transporter for Office 365
         const transporter = nodemailer.createTransport({
@@ -34,7 +34,7 @@ async function sendSponsorshipEmailHandler(req: NextApiRequest, res: NextApiResp
         📧 E-post: ${email}
         📱 Telefonnummer: ${phoneNumber}
         🏠 Adresse: ${address}
-        📍 Poststed: ${address.postalCode}, ${address.city}
+        📍 Poststed: ${zipCode}, ${city}
 
         👶 Fadderbarn: ${child}
         💰 Månedlig beløp: ${amount} NOK
