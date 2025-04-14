@@ -29,6 +29,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     "client_secret": process.env.VIPPS_CLIENT_SECRET!,
                     "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
                     "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
+                    "Vipps-System-Name": process.env.VIPPS_SYSTEM_NAME!,
+                    "Vipps-System-Version": process.env.VIPPS_SYSTEM_VERSION!,
+                    "Vipps-System-Plugin-Name": process.env.VIPPS_PLUGIN_NAME!,
+                    "Vipps-System-Plugin-Version": process.env.VIPPS_PLUGIN_VERSION!,
                 },
             }
         );
