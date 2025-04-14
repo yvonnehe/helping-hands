@@ -48,7 +48,7 @@ const StotteMedlem = () => {
 
         try {
             const reference = `agreement-${Date.now()}`;
-            const paymentType = "yearly";
+            const paymentType = "yearly-recurring";
             const isLocal = process.env.NODE_ENV === "development";
             const baseUrl = isLocal ? "http://localhost:3000" : "https://helpinghands.no";
             const returnUrl = `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=${paymentType}`;
