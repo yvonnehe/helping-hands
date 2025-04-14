@@ -28,12 +28,12 @@ const RedirectPage = () => {
             // ✅ Use Vipps agreementId from localStorage instead of internal reference
             const vippsAgreementId = localStorage.getItem("vippsAgreementId");
     
-            if (type === "recurring" && vippsAgreementId) {
+            if ((type === "recurring" || type === "yearly") && vippsAgreementId) {
                 checkVippsAgreementStatus(vippsAgreementId);
                 localStorage.removeItem("vippsAgreementId");
             } else {
                 setLoading(false);
-            }
+            }            
         }
     }, [router.isReady, router.query]);    
 
