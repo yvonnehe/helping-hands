@@ -170,7 +170,7 @@ const RecurringPaymentForm = () => {
                     address: data.address,
                     zipCode: data.zipCode,
                     city: data.city,
-                    reference: reference,
+                    reference: agreementId,
                     child: step1Form.getValues("child"), // Only included in email
                     amount: step1Form.getValues("amount"),
                 });
@@ -182,7 +182,7 @@ const RecurringPaymentForm = () => {
                     address: data.address,
                     zipCode: data.zipCode,
                     city: data.city,
-                    reference: reference,
+                    reference: agreementId,
                     child: step1Form.getValues("child"),
                     amount: step1Form.getValues("amount"),
                 };
