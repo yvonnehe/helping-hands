@@ -69,9 +69,14 @@ const RedirectPage = () => {
     
     const sendConfirmationEmail = async (agreementId) => {
         try {
-            await axios.post("/api/sendSponsorshipEmail", {
-                reference: agreementId,
-            });
+            const storedInfo = localStorage.getItem("sponsorshipInfo");
+            if (!storedInfo) {
+                console.warn("No sponsorship info found in localStorage");
+                return;
+            }
+
+            const data = JSON.parse(storedInfo);
+            await axios.post("/api/sendSponsorshipEmail", data);
             console.log("✅ Sponsorship email sent successfully");
         } catch (error) {
             console.error("🚨 Error sending sponsorship email:", error);
