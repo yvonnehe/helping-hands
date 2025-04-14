@@ -17,30 +17,26 @@ const RedirectPage = () => {
 
     useEffect(() => {
         if (router.isReady) {
-            const { reference, status, type } = router.query;
-    
-            setQueryParams({
-                reference: reference || "",
-                status: status || "",
-                type: type || "",
-            });
-    
-            // ✅ Use Vipps agreementId from localStorage instead of internal reference
+            const reference = typeof router.query.reference === "string" ? router.query.reference : "";
+            const status = typeof router.query.status === "string" ? router.query.status : "";
+            const type = typeof router.query.type === "string" ? router.query.type : "";
+
+            setQueryParams({ reference, status, type });
+
+            // ✅ Use Vipps agreementId from localStorage
             const vippsAgreementId = localStorage.getItem("vippsAgreementId");
-    
+
             if ((type === "recurring" || type === "yearly") && vippsAgreementId) {
                 checkVippsAgreementStatus(vippsAgreementId);
-                localStorage.removeItem("vippsAgreementId");
+                // ⛔ DO NOT remove yet — we’ll remove it inside the check once successful
             } else {
                 setLoading(false);
-            }            
+            }
         }
-    }, [router.isReady, router.query]);    
+    }, [router.isReady, router.query]);
 
-    // ✅ Remove "agreement-" prefix from reference
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
 
-    // ✅ Check the actual agreement status in Vipps
     const checkVippsAgreementStatus = async (agreementId) => {
         try {
             const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
@@ -50,6 +46,7 @@ const RedirectPage = () => {
 
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
+                localStorage.removeItem("vippsAgreementId"); // ✅ remove *after* success
             } else {
                 setSuccess(false);
             }
@@ -62,12 +59,12 @@ const RedirectPage = () => {
     };
 
     useEffect(() => {
-        if (success && queryParams.reference) {
-            sendConfirmationEmail(queryParams.reference);
+        if (success) {
+            sendConfirmationEmail();
         }
-    }, [success, queryParams.reference]);
-    
-    const sendConfirmationEmail = async (agreementId) => {
+    }, [success]);
+
+    const sendConfirmationEmail = async () => {
         try {
             const storedInfo = localStorage.getItem("sponsorshipInfo");
             if (!storedInfo) {
@@ -76,13 +73,15 @@ const RedirectPage = () => {
             }
 
             const data = JSON.parse(storedInfo);
+
             await axios.post("/api/sendSponsorshipEmail", data);
             console.log("✅ Sponsorship email sent successfully");
+
+            localStorage.removeItem("sponsorshipInfo"); // ✅ Clean up after sending
         } catch (error) {
             console.error("🚨 Error sending sponsorship email:", error);
         }
     };
-    
 
     return (
         <>
