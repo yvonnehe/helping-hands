@@ -30,6 +30,7 @@ const RedirectPage = () => {
     
             if (type === "recurring" && vippsAgreementId) {
                 checkVippsAgreementStatus(vippsAgreementId);
+                localStorage.removeItem("vippsAgreementId");
             } else {
                 setLoading(false);
             }
