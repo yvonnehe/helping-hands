@@ -58,6 +58,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 amount: amount, // Same as yearly amount
                 description: `Første betaling for ${productName}`,
                 transactionType: "DIRECT_CAPTURE"
+            },
+            userInfo: {
+                scope: "name phoneNumber" // 👈 This requests customer data
             }
         };
 
