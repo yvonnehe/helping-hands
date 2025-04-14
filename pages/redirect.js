@@ -26,7 +26,7 @@ const RedirectPage = () => {
             // ✅ Use Vipps agreementId from localStorage
             const vippsAgreementId = localStorage.getItem("vippsAgreementId");
 
-            if ((type === "recurring" || type === "yearly") && vippsAgreementId) {
+            if ((type === "recurring" || type === "yearly-recurring") && vippsAgreementId) {
                 checkVippsAgreementStatus(vippsAgreementId);
                 // ⛔ DO NOT remove yet — we’ll remove it inside the check once successful
             } else {
@@ -93,7 +93,7 @@ const RedirectPage = () => {
                     ) : success ? (
                         <>
                             <h2>Tusen takk for ditt bidrag! 🧡</h2>
-                            {queryParams.type === "yearly" ? (
+                            {queryParams.type === "yearly-recurring" ? (
                                 <p>Tusen takk for at du har blitt støttemedlem! 🧡  
                                 Din årlige støtte er registrert.</p>
                             ) : queryParams.type === "recurring" ? (
