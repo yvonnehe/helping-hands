@@ -51,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             productName: productName,
             orderId: reference,
             initialCharge: {
-                amount: amount, // Same as monthly amount
+                amount: amount, // Same as yearly amount
                 description: `Første betaling for ${productName}`,
                 transactionType: "DIRECT_CAPTURE"
             }
