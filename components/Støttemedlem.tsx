@@ -80,6 +80,19 @@ const StotteMedlem = () => {
                     child: "Støttemedlem",
                     amount: 50,
                 });
+                // save to localstorage to send later
+                const sponsorshipInfo = {
+                    name: data.name,
+                    email: data.email,
+                    phoneNumber: step2Form.getValues("phoneNumber").replace(/\D/g, ""),
+                    address: data.address,
+                    zipCode: data.zipCode,
+                    city: data.city,
+                    reference: reference,
+                    child: "Støttemedlem",
+                    amount: 50,
+                };
+                localStorage.setItem("sponsorshipInfo", JSON.stringify(sponsorshipInfo));
 
                 // 🔹 Redirect user to Vipps to confirm the agreement
                 window.location.href = agreementUrl;

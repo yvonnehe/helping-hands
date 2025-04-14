@@ -174,6 +174,19 @@ const RecurringPaymentForm = () => {
                     child: step1Form.getValues("child"), // Only included in email
                     amount: step1Form.getValues("amount"),
                 });
+                // save to localstorage to send later
+                const sponsorshipInfo = {
+                    name: data.name,
+                    email: data.email,
+                    phoneNumber: step2Form.getValues("phoneNumber").replace(/\D/g, ""),
+                    address: data.address,
+                    zipCode: data.zipCode,
+                    city: data.city,
+                    reference: reference,
+                    child: step1Form.getValues("child"),
+                    amount: step1Form.getValues("amount"),
+                };
+                localStorage.setItem("sponsorshipInfo", JSON.stringify(sponsorshipInfo));
 
                 // 🔹 Redirect user to Vipps to confirm the agreement
                 window.location.href = agreementUrl;
