@@ -22,7 +22,7 @@ const Sammen = () => {
             Flere mangler en enkel sekk, skolebøker – eller helt grunnleggende ting som sko å gå med. 
             Noen har ikke uniform, eller så er den hullete og utslitt.
           </p>
-          <p>
+          <p className="sammenp">
             Når et barn får lunsj på skolen, øker sannsynligheten for at familien sender barnet dit. 
             Takket være mange engasjerte faddere har vi gjennom årene kunnet dekke skolegang og utdanning 
             for over 160 barn og unge. Vi retter en spesiell takk til fadderne våre, som har gjort det mulig 
@@ -38,7 +38,7 @@ const Sammen = () => {
             Vi ble dypt berørt av styrken og viljestyrken hennes – hun møtte lange dager på sykehuset med et smil, 
             selv om vi selv måtte snu oss bort for å tørke noen tårer. Denne ukuelige viljen har vært en viktig drivkraft i hennes utvikling.
           </p>
-          <p>
+          <p className="sammenp">
             Gjennom målrettet fysioterapi flere ganger i uken i over to år, har hun sakte, men sikkert fått følelsen tilbake i beina. 
             Vi vil rette en stor takk til fysioterapeuten Peter, som har gjort en enestående innsats for Miriam, 
             og til fadderne som har støttet oss gjennom hele hennes behandlingsforløp.
@@ -78,7 +78,7 @@ const Sammen = () => {
             Mange blir gravide i ung alder, og det er fortsatt uvanlig at jenter tar høyere utdanning. 
             I familier med dårlig økonomi blir guttene ofte prioritert fremfor jentene når det gjelder skolegang.
           </p>
-          <p>
+          <p className="sammenp">
             For å inspirere og motivere, inviterte vi suksessrike yrkeskvinner til å holde seminar for de lokale jentene. 
             Gladness holdt også en engasjerende og motiverende prat om selvverd, muligheter og viktigheten av å være selvstendig, 
             uten å måtte være avhengig av en mann. Alle jentene som ikke allerede gikk på skolen, uttrykte et ønske om å begynne etter seminaret.
