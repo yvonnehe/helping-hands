@@ -49,20 +49,15 @@ const Prosjekter = () => {
           <div className="col-md-6">
             <h3>Vi ønsker ikke at noen skal bli forbigått</h3>
             <p>
-              Vi møter også av og til mennesker i nødsituasjoner, og vi ønsker
-              ikke å forbigå dem selv om hovedformålet vårt handler om
-              skolegang. Dersom vi treffer mennesker som sliter med sykdom og
-              ikke har råd til nødvendig helsehjelp, ønsker vi også å bistå
-              disse menneskene. Igjen er tanken vår å få mennesker friske, slik
-              at de kan komme seg tilbake til arbeidslivet. 
+              Selv om vårt hovedfokus er utdanning, møter vi også mennesker i akutte og vanskelige livssituasjoner. 
+              Vi ønsker ikke å snu ryggen til dem. Dersom vi treffer personer som sliter med sykdom og mangler midler til nødvendig helsehjelp, 
+              ønsker vi å bistå også dem. Målet er å hjelpe dem tilbake til god helse, slik at de igjen kan delta i arbeidslivet.
             </p>
             <p>
-              Vi har også fokus på familieplanlegging og prevensjon.
-              Vi har hatt kurs i familieplanlegging av lokalt helsepersonell,
-              hvor det blir gitt ut informasjon, gratis prevensjon og det
-              foregår gratis HIV-testing. Det er viktig for oss at informasjon
-              om reproduktiv helse er tilgjengelig for kvinnene vi møter på, så
-              de er bedre rustet til å ta egne valg for seg selv og sitt liv.{" "}
+              Vi har også et sterkt fokus på familieplanlegging og reproduktiv helse. 
+              I samarbeid med lokalt helsepersonell har vi arrangert kurs der det deles ut informasjon, 
+              gratis prevensjon og tilbys gratis HIV-testing. Det er viktig for oss at kvinnene vi møter får tilgang til kunnskap 
+              og ressurser, slik at de står bedre rustet til å ta egne, trygge valg for sin kropp og sin fremtid.
             </p>
             <p>
               <a className="buttonlink sunshinelink" href="/dette-har-vi-fatt-til-sammen">
