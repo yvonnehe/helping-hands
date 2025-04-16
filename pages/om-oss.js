@@ -20,8 +20,10 @@ const OmOss = () => {
               Yvonne Helland. Hovedformålet med denne organisasjonen er å få
               barn og ungdom i skolegang, og prosjektet befinner seg i Tanzania.
               Vår prosjektleder Gladness Andrew Massawe driver våre prosjekter
-              på en daglig basis i Tanzania. <br></br>
-              <br></br> Vi har også flere dyktige frivillige hos oss i Norge som
+              på en daglig basis i Tanzania. 
+            </p>
+            <p>
+              Vi har også flere dyktige frivillige hos oss i Norge som
               hjelper oss med prosjekter, arrangementer, og innsamlinger. Vi
               hadde ikke klart oss uten dere! <a className="buttonlink sunshinelink" href="/hvordan-hjelpe">
                 Les mer om hvordan du kan bidra her.{" "}
@@ -70,8 +72,8 @@ const OmOss = () => {
               for Gladness å finne de familiene i nærområdet sitt med behov for
               en ekstra hånd på veien. Hun er ansvarlig for alle de ansatte som
               jobber for oss i Tanzania.
-              <br></br>
-              <br></br>
+            </p>
+            <p>
               Gladness er en ekstremt dyktig dame, som brenner for mennesker og
               sitt eget lokalsamfunn. Hun følger opp alle skolebarn og deres
               familier. Hun sjekker at alle har det bra, og følger opp dersom
@@ -80,8 +82,9 @@ const OmOss = () => {
               sitt hjem i tillegg til sine egne tre barn som hun tar vare på.
               Der det finnes hjerterom finnes det husrom, mener hun. Men
               Gladness har vel helst det første.
-              <br></br>
-              <br></br> Gladness — hjertet i Helping Hands, vi hadde ikke vært
+            </p>
+            <p>
+              Gladness — hjertet i Helping Hands, vi hadde ikke vært
               noe sted uten deg.
             </p>
           </div>

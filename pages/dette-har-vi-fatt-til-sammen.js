@@ -22,7 +22,8 @@ const Sammen = () => {
             manglende utstyr. Flere barn har ikke sekk, bøker
             eller de mangler helt enkle ting som sko å gå med. De mangler
             gjerne uniform eller at den er hullete og utslitt.
-            <br /><br />
+          </p>
+          <p>
             Når et barn får lunsj på skolen, er det større
             sannsynlighet for at familien sender barnet på skolen.  
             Ved hjelp av mange faddere, betaler vi for skolegang
@@ -41,7 +42,8 @@ const Sammen = () => {
             styrke og stå-på vilje. Hun smilte gjennom lange dager på sykehus.
             Selv måtte vi snu oss for å felle noen tårer. Denne stå-på viljen har
             vært en viktig faktor for hennes utvikling. 
-            <br /><br />
+          </p>
+          <p>
             Ved hjelp av fysioterapi
             flere ganger i uken i over 2 år, har hun sakte men sikkert fått
             følelsen tilbake igjen i bena. Vi retter
@@ -84,7 +86,8 @@ const Sammen = () => {
             videregående. Mange av dem blir tidlig gravide, og det er ikke vanlig
             at jenter tar høyere utdanning. Hvis familien har lite penger, blir
             guttene prioritert foran jentene. 
-            <br /><br />
+          </p>
+          <p>
             Vi inviterte suksessfulle kvinner i
             jobb til å holde seminar for de lokale jentene. Gladness hadde også en
             “pep-talk” om deres egenverdi og muligheter, samt viktigheten av å

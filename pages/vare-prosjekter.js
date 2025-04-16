@@ -15,20 +15,16 @@ const Prosjekter = () => {
             <h2>Våre prosjekter</h2>
             <h3>Hva vi jobber med</h3>
             <p>
-              Helping Hands driver hovedsakelig med arbeid for å få barn og
-              ungdom i skolegang. Vi ønsker også å få voksne som ikke er i
-              arbeid, ut i arbeid. Tanken bak prosjektene har alltid vært hjelp
-              til selvhjelp – vi ønsker at de menneskene vi gir muligheter til,
-              skal klare seg på egenhånd i fremtiden. Vi ønsker ikke at de blir
-              avhengige av oss.
-              <br></br>
-              <br></br>Mange familier som ikke har mulighet til å betale
-              skolepenger for barna sine, får hjelp av oss. Vi møter barn som
-              ikke har nødvendig skoleutstyr, som for eksempel sekk, skolebøker,
-              skrivesaker og riktig uniform. Vi tilrettelegger for at disse
-              barna skal få skolegang på lik linje med andre barn. Hvis de
-              kommer seg gjennom skolen, er sannsynligheten høyere for at de får
-              seg en jobb og blir selvstendige videre i livet.
+              Helping Hands jobber først og fremst med å gi barn og ungdom tilgang til utdanning. 
+              Vi ønsker også å støtte voksne som står utenfor arbeidslivet, slik at de kan komme seg i jobb. 
+              Grunntanken bak alle våre prosjekter er hjelp til selvhjelp – vi ønsker at menneskene vi gir muligheter til, 
+              skal kunne klare seg på egen hånd i fremtiden. Målet er ikke at de skal bli avhengige av oss.
+            </p>
+            <p>
+              Mange familier har ikke råd til å betale skolepenger for barna sine, og får derfor hjelp gjennom oss. 
+              Vi møter ofte barn som mangler nødvendig skoleutstyr, som for eksempel sekk, skolebøker, skrivesaker og riktig skoleuniform. 
+              Vi sørger for at disse barna får samme muligheter til skolegang som andre barn. 
+              Fullfører de skolegangen, øker sjansen for at de kan få jobb og bygge et selvstendig liv.
             </p>
           </div>
           <div className="col-md-6 my-auto">
@@ -58,15 +54,17 @@ const Prosjekter = () => {
               skolegang. Dersom vi treffer mennesker som sliter med sykdom og
               ikke har råd til nødvendig helsehjelp, ønsker vi også å bistå
               disse menneskene. Igjen er tanken vår å få mennesker friske, slik
-              at de kan komme seg tilbake til arbeidslivet. <br></br>
-              <br></br> Vi har også fokus på familieplanlegging og prevensjon.
+              at de kan komme seg tilbake til arbeidslivet. 
+            </p>
+            <p>
+              Vi har også fokus på familieplanlegging og prevensjon.
               Vi har hatt kurs i familieplanlegging av lokalt helsepersonell,
               hvor det blir gitt ut informasjon, gratis prevensjon og det
               foregår gratis HIV-testing. Det er viktig for oss at informasjon
               om reproduktiv helse er tilgjengelig for kvinnene vi møter på, så
               de er bedre rustet til å ta egne valg for seg selv og sitt liv.{" "}
-              <br></br>
-              <br></br>
+            </p>
+            <p>
               <a className="buttonlink sunshinelink" href="/dette-har-vi-fatt-til-sammen">
                 Noen av våre solskinnshistorier
               </a>
