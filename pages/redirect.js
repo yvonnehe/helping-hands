@@ -37,26 +37,29 @@ const RedirectPage = () => {
 
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
 
-    const checkVippsAgreementStatus = async (agreementId) => {
+    const checkVippsAgreementStatus = async (agreementId, attempt = 1) => {
         try {
             const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
             const agreementStatus = response.data.status;
-
-            console.log("🔹 Vipps Agreement Status:", agreementStatus);
-
+    
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
-                localStorage.removeItem("vippsAgreementId"); // ✅ remove *after* success
+                localStorage.removeItem("vippsAgreementId");
+            } else if (agreementStatus === "PENDING" && attempt < 5) {
+                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // retry in 1s
             } else {
                 setSuccess(false);
             }
         } catch (error) {
-            console.error("🚨 Error checking agreement status:", error);
-            setSuccess(false);
+            if (attempt < 5) {
+                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // retry on failure
+            } else {
+                setSuccess(false);
+            }
         } finally {
             setLoading(false);
         }
-    };
+    };    
 
     useEffect(() => {
         if (success) {
@@ -111,6 +114,10 @@ const RedirectPage = () => {
                             <h2>Noe gikk galt 😟</h2>
                             <p>Vi kunne ikke bekrefte betalingen din.</p>
                             <p>Hvis beløpet er trukket, vennligst kontakt oss.</p>
+                            <p className="mt-3">
+                                Bruker du privat nettleservindu, annonseblokker eller VPN? Det kan føre til problemer med å bekrefte betalingen. 
+                                Prøv gjerne igjen i et vanlig nettleservindu – eller ta kontakt med oss.
+                            </p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
                     )}
