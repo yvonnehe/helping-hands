@@ -27,7 +27,9 @@ const StotteMedlem = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [formattedPhone, setFormattedPhone] = useState("");
-    const amount = 50; // Fixed yearly membership fee
+    //const amount = 50; // Fixed yearly membership fee
+    // TESTING AMOUNT
+    const amount = 5; // Test amount for development
 
     const step2Form = useForm({
         resolver: yupResolver(step2Schema),
