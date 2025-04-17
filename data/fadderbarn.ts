@@ -29,13 +29,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Mahad",
-        image: "/fadderbarn/helping-hands-mahad.jpg",
-        description: "Han er 13 år og går i 6. klasse. Han bor med besteforeldrene, moren og 3 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
         name: "Ali (9)",
         image: "/fadderbarn/helping-hands-ali.jpg",
         description: "Han er 9 år og går i 2. klasse. Han bor med mor og fire søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
