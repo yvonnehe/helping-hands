@@ -23,10 +23,8 @@ const RedirectPage = () => {
 
             setQueryParams({ reference, status, type });
 
-            // ✅ Use Vipps agreementId from localStorage
-            const vippsAgreementId = localStorage.getItem("vippsAgreementId");
-
-            if ((type === "recurring" || type === "yearly-recurring") && vippsAgreementId) {
+            if (type === "recurring" || type === "yearly-recurring") {
+                const vippsAgreementId = localStorage.getItem("vippsAgreementId");
                 checkVippsAgreementStatus(vippsAgreementId);
                 // ⛔ DO NOT remove yet — we’ll remove it inside the check once successful
             } else {
@@ -37,16 +35,39 @@ const RedirectPage = () => {
 
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
 
-    const checkVippsAgreementStatus = async (agreementId, attempt = 1) => {
+    const checkVippsAgreementStatus = async (initialAgreementId, attempt = 1) => {
+        let agreementId = initialAgreementId;
+    
+        // 🛡️ If agreementId is missing (e.g. due to adblock or private browser), try fallback from KV
+        if (!agreementId && queryParams.reference) {
+            try {
+                const lookupResponse = await axios.get(`/api/lookupAgreementId?reference=${queryParams.reference}`);
+                agreementId = lookupResponse.data.agreementId;
+                console.log("✅ Retrieved agreementId from server KV:", agreementId);
+            } catch (kvError) {
+                console.warn("⚠️ Could not retrieve agreementId from KV store:", kvError);
+                setLoading(false);
+                setSuccess(false);
+                return;
+            }
+        }
+    
+        if (!agreementId) {
+            console.warn("⚠️ No agreementId found from either localStorage or KV.");
+            setLoading(false);
+            setSuccess(false);
+            return;
+        }
+    
         try {
             const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
             const agreementStatus = response.data.status;
     
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
-                localStorage.removeItem("vippsAgreementId");
+                localStorage.removeItem("vippsAgreementId"); // ✅ clean up only if from localStorage
             } else if (agreementStatus === "PENDING" && attempt < 5) {
-                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // retry in 1s
+                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // ⏳ retry
             } else {
                 setSuccess(false);
             }
@@ -81,6 +102,12 @@ const RedirectPage = () => {
             console.log("✅ Sponsorship email sent successfully");
 
             localStorage.removeItem("sponsorshipInfo"); // ✅ Clean up after sending
+
+            // 🧹 Clean up reference from KV
+            await axios.post("/api/cleanupAgreementReference", {
+                reference: queryParams.reference
+            });
+            console.log("🧼 Cleaned up reference from KV store");
         } catch (error) {
             console.error("🚨 Error sending sponsorship email:", error);
         }
