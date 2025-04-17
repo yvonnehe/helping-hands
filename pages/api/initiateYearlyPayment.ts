@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-import { kv } from "@vercel/kv"; // ✅ KV import for storing reference → agreementId
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
@@ -84,16 +83,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
             );
 
-            const { vippsConfirmationUrl, agreementId } = agreementResponse.data;
             console.log("✅ Vipps Yearly Agreement Response:", agreementResponse.data);
-
-            // ✅ Store agreementId in KV with expiration (1 hour)
-            await kv.set(reference, agreementId, { ex: 3600 });
-            console.log(`🧠 Saved agreementId to KV for reference: ${reference}`);
-
             return res.status(200).json({
-                agreementUrl: vippsConfirmationUrl,
-                agreementId: agreementId,
+                agreementUrl: agreementResponse.data.vippsConfirmationUrl,
+                agreementId: agreementResponse.data.agreementId,
             });
         } catch (vippsError: any) {
             console.error("🚨 Vipps Yearly Agreement Error:", vippsError.response?.data || vippsError.message);
