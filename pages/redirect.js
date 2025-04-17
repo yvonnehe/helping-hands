@@ -114,9 +114,9 @@ const RedirectPage = () => {
                             <h2>Noe gikk galt 😟</h2>
                             <p>Vi kunne ikke bekrefte betalingen din.</p>
                             <p>Hvis beløpet er trukket, vennligst kontakt oss.</p>
-                            <p className="mt-3">
-                                Bruker du privat nettleservindu, annonseblokker eller VPN? Det kan føre til problemer med å bekrefte betalingen. 
-                                Prøv gjerne igjen i et vanlig nettleservindu – eller ta kontakt med oss.
+                            <p className="vipps-error-info">
+                                Bruker du privat nettleservindu, annonseblokker eller VPN? Dette kan noen ganger skape problemer med å bekrefte betalingen.   
+                                Sjekk gjerne Vipps-appen for å se om betalingen gikk gjennom. Hvis den gjorde det, trenger du ikke gjøre noe mer – men ta gjerne kontakt med oss hvis du er usikker.
                             </p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
