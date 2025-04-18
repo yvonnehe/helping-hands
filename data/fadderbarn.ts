@@ -92,13 +92,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Jonelle",
-        image: "/fadderbarn/helping-hands-jonelle.jpg",
-        description: "Hun er 4 år og går på “pre school”. Hun bor med 3 andre barn/unge voksne fra slekten hennes. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
         name: "Jasin",
         image: "/fadderbarn/helping-hands-jasin.jpg",
         description: "Hun er 15 år og går i 9. klasse. Hun bor med storesøster og to yngre barn fra slekten deres. Hun trenger hjelp til videre skolegang. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd.",
