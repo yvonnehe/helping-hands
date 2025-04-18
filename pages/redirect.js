@@ -9,6 +9,7 @@ const RedirectPage = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [success, setSuccess] = useState(false);
+    const [cancelled, setCancelled] = useState(false);
     const [queryParams, setQueryParams] = useState({
         reference: "",
         status: "",
@@ -22,6 +23,12 @@ const RedirectPage = () => {
             const type = typeof router.query.type === "string" ? router.query.type : "";
 
             setQueryParams({ reference, status, type });
+
+            if (status === "CANCELLED") {
+                setCancelled(true);
+                setLoading(false);
+                return;
+            }
 
             if (type === "recurring" || type === "yearly-recurring") {
                 const vippsAgreementId = localStorage.getItem("vippsAgreementId");
@@ -98,6 +105,13 @@ const RedirectPage = () => {
                 <div className="confirmation kontakt--padding">
                     {loading ? (
                         <p>Laster...</p>
+                    ) : cancelled ? (
+                        <>
+                            <h2>Betalingen ble avbrutt</h2>
+                            <p>Du har avbrutt Vipps-betalingen.</p>
+                            <p>Ingen betaling er trukket. Du kan prøve igjen når som helst.</p>
+                            <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
+                        </>
                     ) : success ? (
                         <>
                             <h2>Tusen takk for ditt bidrag! 🧡</h2>
