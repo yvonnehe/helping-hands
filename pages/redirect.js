@@ -117,7 +117,7 @@ const RedirectPage = () => {
                     ) : (
                         <>
                             <h2>Tusen takk for ditt bidrag! 🧡</h2>
-                            <p>Vi setter stor pris på at du støtter arbeidet vårt.  
+                            <p>Vi setter stor pris på at du støtter arbeidet vårt.<br />  
                             Sammen skaper vi en forskjell! 🧡</p>
                             <p>Hvis du har spørsmål, ta kontakt med oss.</p>
                             {/* FEILMELDING FUNKER IKKE */}
