@@ -9,7 +9,7 @@ const RedirectPage = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [success, setSuccess] = useState(false);
-    const [cancelled, setCancelled] = useState(false);
+    const [statusMessage, setStatusMessage] = useState("");
     const [queryParams, setQueryParams] = useState({
         reference: "",
         status: "",
@@ -25,7 +25,19 @@ const RedirectPage = () => {
             setQueryParams({ reference, status, type });
 
             if (status === "CANCELLED") {
-                setCancelled(true);
+                setStatusMessage("CANCELLED");
+                setLoading(false);
+                return;
+            }
+    
+            if (status === "FAILED") {
+                setStatusMessage("FAILED");
+                setLoading(false);
+                return;
+            }
+    
+            if (status === "REJECTED") {
+                setStatusMessage("REJECTED");
                 setLoading(false);
                 return;
             }
@@ -105,11 +117,25 @@ const RedirectPage = () => {
                 <div className="confirmation kontakt--padding">
                     {loading ? (
                         <p>Laster...</p>
-                    ) : cancelled ? (
+                    ) : statusMessage === "CANCELLED" ? (
                         <>
                             <h2>Betalingen ble avbrutt</h2>
                             <p>Du har avbrutt Vipps-betalingen.</p>
                             <p>Ingen betaling er trukket. Du kan prøve igjen når som helst.</p>
+                            <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
+                        </>
+                    ) : statusMessage === "FAILED" ? (
+                        <>
+                            <h2>Noe gikk galt 😟</h2>
+                            <p>Betalingen mislyktes. Vennligst prøv igjen eller kontakt oss.</p>
+                            <p>Hvis du tror dette er en feil, ta kontakt med oss.</p>
+                            <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
+                        </>
+                    ) : statusMessage === "REJECTED" ? (
+                        <>
+                            <h2>Noe gikk galt 😟</h2>
+                            <p>Vipps eller banken avviste betalingen.</p>
+                            <p>Hvis du tror dette er en feil, ta kontakt med oss.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
                     ) : success ? (
