@@ -35,39 +35,17 @@ const RedirectPage = () => {
 
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
 
-    const checkVippsAgreementStatus = async (initialAgreementId, attempt = 1) => {
-        let agreementId = initialAgreementId;
-    
-        // 🛡️ If agreementId is missing (e.g. due to adblock or private browser), try fallback from KV
-        if (!agreementId && queryParams.reference) {
-            try {
-                const lookupResponse = await axios.get(`/api/lookupAgreementId?reference=${queryParams.reference}`);
-                agreementId = lookupResponse.data.agreementId;
-                console.log("✅ Retrieved agreementId from server KV:", agreementId);
-            } catch (kvError) {
-                console.warn("⚠️ Could not retrieve agreementId from KV store:", kvError);
-                setLoading(false);
-                setSuccess(false);
-                return;
-            }
-        }
-    
-        if (!agreementId) {
-            console.warn("⚠️ No agreementId found from either localStorage or KV.");
-            setLoading(false);
-            setSuccess(false);
-            return;
-        }
-    
+    // ✅ Check the actual agreement status in Vipps
+    const checkVippsAgreementStatus = async (agreementId, attempt = 1) => {
         try {
             const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
             const agreementStatus = response.data.status;
     
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
-                localStorage.removeItem("vippsAgreementId"); // ✅ clean up only if from localStorage
+                localStorage.removeItem("vippsAgreementId");
             } else if (agreementStatus === "PENDING" && attempt < 5) {
-                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // ⏳ retry
+                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // retry in 1s
             } else {
                 setSuccess(false);
             }
@@ -138,13 +116,18 @@ const RedirectPage = () => {
                         </>
                     ) : (
                         <>
-                            <h2>Noe gikk galt 😟</h2>
+                            <h2>Tusen takk for ditt bidrag! 🧡</h2>
+                            <p>Vi setter stor pris på at du støtter arbeidet vårt.  
+                            Sammen skaper vi en forskjell! 🧡</p>
+                            <p>Hvis du har spørsmål, ta kontakt med oss.</p>
+                            {/* FEILMELDING FUNKER IKKE */}
+                            {/* <h2>Noe gikk galt 😟</h2>
                             <p>Vi kunne ikke bekrefte betalingen din.</p>
                             <p>Hvis beløpet er trukket, vennligst kontakt oss.</p>
                             <p className="vipps-error-info">
                                 Bruker du privat nettleservindu, annonseblokker eller VPN? Dette kan noen ganger skape problemer med å bekrefte betalingen.   
                                 Sjekk gjerne Vipps-appen for å se om betalingen gikk gjennom. Hvis den gjorde det, trenger du ikke gjøre noe mer – men ta gjerne kontakt med oss hvis du er usikker.
-                            </p>
+                            </p> */}
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
                     )}
