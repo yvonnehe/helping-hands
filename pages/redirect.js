@@ -16,37 +16,22 @@ const RedirectPage = () => {
         type: "",
     });
 
-    // Step 1: Extract query params once router is ready
     useEffect(() => {
-        if (router.isReady) {
-            const reference = typeof router.query.reference === "string" ? router.query.reference : "";
-            const status = typeof router.query.status === "string" ? router.query.status : "";
-            const type = typeof router.query.type === "string" ? router.query.type : "";
-            console.log("Query params:", { reference, status, type });
+        if (!router.isReady) return;
+        
+        const reference = typeof router.query.reference === "string" ? router.query.reference : "";
+        const type = typeof router.query.type === "string" ? router.query.type : "";
+        console.log("Query params:", { reference, type });
 
-            setQueryParams({ reference, status, type });
-        }
-    }, [router.isReady, router.query]);
+        setQueryParams({ reference, type });
 
-    // Step 2: React to status, or fallback to Vipps check
-    useEffect(() => {
-        const { reference, status, type } = queryParams;
-
-        if (!reference || !type) return;
-
-        if (status === "CANCELLED" || status === "FAILED" || status === "REJECTED") {
-            setStatusMessage(status);
-            setLoading(false);
-            return;
-        }
-
-        if (type === "recurring" || type === "yearly-recurring") {
+        if ((type === "recurring" || type === "yearly-recurring")) {
             const vippsAgreementId = localStorage.getItem("vippsAgreementId");
             checkVippsAgreementStatus(vippsAgreementId);
         } else {
             setLoading(false);
         }
-    }, [queryParams]);
+    }, [router.isReady, router.query]);
 
     // ✅ Remove "agreement-" prefix from reference
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
@@ -85,8 +70,7 @@ const RedirectPage = () => {
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
                 localStorage.removeItem("vippsAgreementId");
-            } else if (["CANCELLED", "FAILED", "REJECTED"].includes(agreementStatus)) {
-                setStatusMessage(agreementStatus);
+            } else if (["STOPPED", "EXPIRED"].includes(agreementStatus)) {
                 setSuccess(false);
             } else if (agreementStatus === "PENDING" && attempt < 5) {
                 setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000);
@@ -141,25 +125,18 @@ const RedirectPage = () => {
                 <div className="confirmation kontakt--padding">
                     {loading ? (
                         <p>Laster...</p>
-                    ) : statusMessage === "CANCELLED" ? (
+                    ) : statusMessage === "STOPPED" ? (
                         <>
                             <h2>Betalingen ble avbrutt</h2>
-                            <p>Du har avbrutt Vipps-betalingen.</p>
+                            <p>Du avbrøt Vipps-avtalen.</p>
                             <p>Ingen betaling er trukket. Du kan prøve igjen når som helst.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
-                    ) : statusMessage === "FAILED" ? (
+                    ) : statusMessage === "EXPIRED" ? (
                         <>
-                            <h2>Noe gikk galt 😟</h2>
-                            <p>Betalingen mislyktes. Vennligst prøv igjen eller kontakt oss.</p>
-                            <p>Hvis du tror dette er en feil, ta kontakt med oss.</p>
-                            <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
-                        </>
-                    ) : statusMessage === "REJECTED" ? (
-                        <>
-                            <h2>Noe gikk galt 😟</h2>
-                            <p>Vipps eller banken avviste betalingen.</p>
-                            <p>Hvis du tror dette er en feil, ta kontakt med oss.</p>
+                            <h2>Avtalen er utløpt</h2>
+                            <p>Vipps-avtalen ble ikke fullført i tide og har utløpt.</p>
+                            <p>Du kan prøve igjen når som helst.</p>
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
                     ) : success ? (
