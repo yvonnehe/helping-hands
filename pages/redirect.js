@@ -60,8 +60,6 @@ const RedirectPage = () => {
             try {
                 const lookupResponse = await axios.get(`/api/lookupAgreementId?reference=${queryParams.reference}`);
                 agreementId = lookupResponse.data.agreementId;
-                const agreementStatus = res.data.status; // ACTIVE, CANCELLED, etc.
-                console.log("✅ Agreement status from server:", agreementStatus);
                 console.log("✅ Retrieved agreementId from temp store:", agreementId);
             } catch (err) {
                 console.warn("⚠️ Could not retrieve agreementId from server memory:", err);
@@ -81,6 +79,8 @@ const RedirectPage = () => {
         try {
             const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
             const agreementStatus = response.data.status;
+            console.log("✅ Agreement status:", agreementStatus);
+            setStatusMessage(agreementStatus);
     
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
