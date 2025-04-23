@@ -1,9 +1,25 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
+import { tempStore } from "../../lib/tempStore";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ message: "Method Not Allowed" });
+    }
+
+    // 🔒 Sanity check for missing environment variables
+    if (
+        !process.env.VIPPS_CLIENT_ID ||
+        !process.env.VIPPS_CLIENT_SECRET ||
+        !process.env.VIPPS_SUBSCRIPTION_KEY ||
+        !process.env.VIPPS_MERCHANT_SERIAL_NUMBER ||
+        !process.env.VIPPS_SYSTEM_NAME ||
+        !process.env.VIPPS_SYSTEM_VERSION ||
+        !process.env.VIPPS_PLUGIN_NAME ||
+        !process.env.VIPPS_PLUGIN_VERSION
+    ) {
+        console.error("🚨 Missing one or more Vipps environment variables");
+        return res.status(500).json({ error: "Server misconfiguration: Missing Vipps credentials" });
     }
 
     const { amount, phoneNumber, reference, returnUrl, child } = req.body;
@@ -84,6 +100,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             );
 
             console.log("✅ Vipps Yearly Agreement Response:", agreementResponse.data);
+
+            tempStore.set(reference, agreementResponse.data.agreementId);
+            console.log(`🧠 Stored agreementId in memory for ${reference}`);
+
             return res.status(200).json({
                 agreementUrl: agreementResponse.data.vippsConfirmationUrl,
                 agreementId: agreementResponse.data.agreementId,

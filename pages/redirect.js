@@ -24,24 +24,6 @@ const RedirectPage = () => {
 
             setQueryParams({ reference, status, type });
 
-            if (status === "CANCELLED") {
-                setStatusMessage("CANCELLED");
-                setLoading(false);
-                return;
-            }
-    
-            if (status === "FAILED") {
-                setStatusMessage("FAILED");
-                setLoading(false);
-                return;
-            }
-    
-            if (status === "REJECTED") {
-                setStatusMessage("REJECTED");
-                setLoading(false);
-                return;
-            }
-
             if (type === "recurring" || type === "yearly-recurring") {
                 const vippsAgreementId = localStorage.getItem("vippsAgreementId");
                 checkVippsAgreementStatus(vippsAgreementId);
@@ -55,7 +37,30 @@ const RedirectPage = () => {
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
 
     // ✅ Check the actual agreement status in Vipps
-    const checkVippsAgreementStatus = async (agreementId, attempt = 1) => {
+    const checkVippsAgreementStatus = async (initialAgreementId, attempt = 1) => {
+        let agreementId = initialAgreementId;
+    
+        // 🔁 Fallback: look up from temp server store if missing
+        if (!agreementId && queryParams.reference) {
+            try {
+                const lookupResponse = await axios.get(`/api/lookupAgreementId?reference=${queryParams.reference}`);
+                agreementId = lookupResponse.data.agreementId;
+                console.log("✅ Retrieved agreementId from temp store:", agreementId);
+            } catch (err) {
+                console.warn("⚠️ Could not retrieve agreementId from server memory:", err);
+                setSuccess(false);
+                setLoading(false);
+                return;
+            }
+        }
+    
+        if (!agreementId) {
+            console.warn("⚠️ Still missing agreementId");
+            setSuccess(false);
+            setLoading(false);
+            return;
+        }
+    
         try {
             const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
             const agreementStatus = response.data.status;
@@ -63,14 +68,20 @@ const RedirectPage = () => {
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
                 localStorage.removeItem("vippsAgreementId");
+            } else if (agreementStatus === "CANCELLED") {
+                setStatusMessage("CANCELLED");
+            } else if (agreementStatus === "FAILED") {
+                setStatusMessage("FAILED");
+            } else if (agreementStatus === "REJECTED") {
+                setStatusMessage("REJECTED");
             } else if (agreementStatus === "PENDING" && attempt < 5) {
-                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // retry in 1s
+                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000);
             } else {
                 setSuccess(false);
             }
-        } catch (error) {
+        } catch (err) {
             if (attempt < 5) {
-                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000); // retry on failure
+                setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000);
             } else {
                 setSuccess(false);
             }
