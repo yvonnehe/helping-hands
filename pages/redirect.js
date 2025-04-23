@@ -16,42 +16,39 @@ const RedirectPage = () => {
         type: "",
     });
 
+    // Step 1: Extract query params once router is ready
     useEffect(() => {
         if (router.isReady) {
             const reference = typeof router.query.reference === "string" ? router.query.reference : "";
             const status = typeof router.query.status === "string" ? router.query.status : "";
             const type = typeof router.query.type === "string" ? router.query.type : "";
+            console.log("Query params:", { reference, status, type });
 
             setQueryParams({ reference, status, type });
-
-            if (status === "CANCELLED") {
-                setStatusMessage("CANCELLED");
-                setLoading(false);
-                return;
-            }
-    
-            if (status === "FAILED") {
-                setStatusMessage("FAILED");
-                setLoading(false);
-                return;
-            }
-    
-            if (status === "REJECTED") {
-                setStatusMessage("REJECTED");
-                setLoading(false);
-                return;
-            }
-
-            if (type === "recurring" || type === "yearly-recurring") {
-                const vippsAgreementId = localStorage.getItem("vippsAgreementId");
-                checkVippsAgreementStatus(vippsAgreementId);
-                // ⛔ DO NOT remove yet — we’ll remove it inside the check once successful
-            } else {
-                setLoading(false);
-            }
         }
     }, [router.isReady, router.query]);
 
+    // Step 2: React to status, or fallback to Vipps check
+    useEffect(() => {
+        const { reference, status, type } = queryParams;
+
+        if (!reference || !type) return;
+
+        if (status === "CANCELLED" || status === "FAILED" || status === "REJECTED") {
+            setStatusMessage(status);
+            setLoading(false);
+            return;
+        }
+
+        if (type === "recurring" || type === "yearly-recurring") {
+            const vippsAgreementId = localStorage.getItem("vippsAgreementId");
+            checkVippsAgreementStatus(vippsAgreementId);
+        } else {
+            setLoading(false);
+        }
+    }, [queryParams]);
+
+    // ✅ Remove "agreement-" prefix from reference
     const displayReference = queryParams.reference.replace(/^agreement-/, "");
 
     // ✅ Check the actual agreement status in Vipps
@@ -71,14 +68,14 @@ const RedirectPage = () => {
                 return;
             }
         }
-    
+
         if (!agreementId) {
-            console.warn("⚠️ Still missing agreementId");
+            console.warn("⚠️ Still no agreementId");
             setSuccess(false);
             setLoading(false);
             return;
         }
-    
+
         try {
             const response = await axios.get(`/api/checkVippsAgreementStatus?agreementId=${agreementId}`);
             const agreementStatus = response.data.status;
@@ -86,27 +83,26 @@ const RedirectPage = () => {
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
                 localStorage.removeItem("vippsAgreementId");
-            } else if (agreementStatus === "CANCELLED") {
-                setStatusMessage("CANCELLED");
-            } else if (agreementStatus === "FAILED") {
-                setStatusMessage("FAILED");
-            } else if (agreementStatus === "REJECTED") {
-                setStatusMessage("REJECTED");
+            } else if (["CANCELLED", "FAILED", "REJECTED"].includes(agreementStatus)) {
+                setStatusMessage(agreementStatus);
+                setSuccess(false);
             } else if (agreementStatus === "PENDING" && attempt < 5) {
                 setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000);
+                return;
             } else {
                 setSuccess(false);
             }
         } catch (err) {
+            console.error("❌ Error checking agreement status:", err);
             if (attempt < 5) {
                 setTimeout(() => checkVippsAgreementStatus(agreementId, attempt + 1), 1000);
-            } else {
-                setSuccess(false);
+                return;
             }
+            setSuccess(false);
         } finally {
             setLoading(false);
         }
-    };    
+    };
 
     useEffect(() => {
         if (success) {
@@ -127,13 +123,10 @@ const RedirectPage = () => {
             await axios.post("/api/sendSponsorshipEmail", data);
             console.log("✅ Sponsorship email sent successfully");
 
-            localStorage.removeItem("sponsorshipInfo"); // ✅ Clean up after sending
-
-            // 🧹 Clean up reference from KV
+            localStorage.removeItem("sponsorshipInfo");
             await axios.post("/api/cleanupAgreementReference", {
-                reference: queryParams.reference
+                reference: queryParams.reference,
             });
-            console.log("🧼 Cleaned up reference from KV store");
         } catch (error) {
             console.error("🚨 Error sending sponsorship email:", error);
         }
@@ -192,10 +185,9 @@ const RedirectPage = () => {
                             {/* FEILMELDING FUNKER IKKE */}
                             {/* <h2>Noe gikk galt 😟</h2>
                             <p>Vi kunne ikke bekrefte betalingen din.</p>
-                            <p>Hvis beløpet er trukket, vennligst kontakt oss.</p>
                             <p className="vipps-error-info">
-                                Bruker du privat nettleservindu, annonseblokker eller VPN? Dette kan noen ganger skape problemer med å bekrefte betalingen.   
-                                Sjekk gjerne Vipps-appen for å se om betalingen gikk gjennom. Hvis den gjorde det, trenger du ikke gjøre noe mer – men ta gjerne kontakt med oss hvis du er usikker.
+                                Sjekk gjerne Vipps-appen for å se om betalingen gikk gjennom.  
+                                Hvis den gjorde det, trenger du ikke gjøre noe mer – men ta gjerne kontakt med oss hvis du er usikker.
                             </p> */}
                             <a href="/" className="sponsor-link sunshinelink">Tilbake til forsiden</a>
                         </>
