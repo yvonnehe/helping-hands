@@ -24,6 +24,24 @@ const RedirectPage = () => {
 
             setQueryParams({ reference, status, type });
 
+            if (status === "CANCELLED") {
+                setStatusMessage("CANCELLED");
+                setLoading(false);
+                return;
+            }
+    
+            if (status === "FAILED") {
+                setStatusMessage("FAILED");
+                setLoading(false);
+                return;
+            }
+    
+            if (status === "REJECTED") {
+                setStatusMessage("REJECTED");
+                setLoading(false);
+                return;
+            }
+
             if (type === "recurring" || type === "yearly-recurring") {
                 const vippsAgreementId = localStorage.getItem("vippsAgreementId");
                 checkVippsAgreementStatus(vippsAgreementId);
