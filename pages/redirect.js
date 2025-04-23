@@ -120,7 +120,22 @@ const RedirectPage = () => {
 
     return (
         <>
-            <NextHead title="Betaling fullført - Helping Hands" description="Takk for din støtte!" />
+            <NextHead
+                title={
+                    statusMessage === "STOPPED"
+                        ? "Betaling avbrutt - Helping Hands"
+                        : statusMessage === "EXPIRED"
+                        ? "Betaling utløpt - Helping Hands"
+                        : "Betaling fullført - Helping Hands"
+                }
+                description={
+                    statusMessage === "STOPPED"
+                        ? "Vipps-avtalen ble avbrutt."
+                        : statusMessage === "EXPIRED"
+                        ? "Vipps-avtalen utløp før den ble fullført."
+                        : "Takk for din støtte!"
+                }
+            />
             <div className="kontakt">
                 <div className="confirmation kontakt--padding">
                     {loading ? (
