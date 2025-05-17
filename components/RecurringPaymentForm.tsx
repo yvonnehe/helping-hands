@@ -135,7 +135,7 @@ const RecurringPaymentForm = () => {
             const isLocal = process.env.NODE_ENV === "development";
             const baseUrl = isLocal ? "http://localhost:3000" : "https://helpinghands.no";
 
-            const returnUrl = `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=${paymentType}`;
+            const returnUrl = `${baseUrl}/redirect?reference=${reference}&type=${paymentType}`;
 
             console.log("Initiating Vipps agreement with:", {
                 reference,

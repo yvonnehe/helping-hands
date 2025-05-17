@@ -95,7 +95,7 @@ const OneTimePaymentForm = () => {
             const isLocal = process.env.NODE_ENV === "development";
             const baseUrl = isLocal ? "http://localhost:3000" : "https://helpinghands.no";
 
-            const returnUrl = `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=${paymentType}`;
+            const returnUrl = `${baseUrl}/redirect?reference=${reference}&type=${paymentType}`;
 
             const response = await axios.post("/api/initiatePayment", {
                 amount: data.amount * 100, // Konverter til øre
