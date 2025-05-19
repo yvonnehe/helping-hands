@@ -25,14 +25,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { amount, phoneNumber, reference, returnUrl, paymentType, child } = req.body;
 
     try {
-        // 🔹 Ensure base URL is always HTTPS
-        const localUrl = "https://your-ngrok-url.com"; // Replace with your actual ngrok URL
-        const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-            : "https://helpinghands.no"; // Ensure fallback
-
-        const baseUrl = process.env.NODE_ENV === "development" ? localUrl : vercelUrl;
-
         // 🔹 Get access token from Vipps
         console.log("🔹 Fetching access token from Vipps...");
         const tokenResponse = await axios.post(
@@ -66,8 +58,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const agreementPayload = {
                 interval: { unit: "MONTH", count: 1 },
                 pricing: { amount: amount, currency: "NOK" },
-                merchantRedirectUrl: `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=recurring`,
-                merchantAgreementUrl: `${baseUrl}/avtale`,
+                merchantRedirectUrl: returnUrl,
+                merchantAgreementUrl: returnUrl.replace("/redirect", "/avtale"),
                 phoneNumber: phoneNumber.replace(/\D/g, ""), // Remove non-numeric characters
                 productName: productName,
                 orderId: reference,
@@ -125,7 +117,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 paymentMethod: { type: "WALLET" },
                 customer: { phoneNumber: phoneNumber.replace(/\D/g, "") }, // Ensure correct phone format
                 reference,
-                returnUrl: `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=one-time`,
+                returnUrl: returnUrl,
                 userFlow: "WEB_REDIRECT",
                 paymentDescription: "One-time donation",
             },

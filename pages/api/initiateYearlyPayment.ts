@@ -25,14 +25,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { amount, phoneNumber, reference, returnUrl, child } = req.body;
 
     try {
-        // 🔹 Ensure base URL is always HTTPS
-        const localUrl = "https://your-ngrok-url.com"; // Replace with your actual ngrok URL
-        const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-            : "https://helpinghands.no"; // Ensure fallback
-
-        const baseUrl = process.env.NODE_ENV === "development" ? localUrl : vercelUrl;
-
         // 🔹 Get access token from Vipps
         console.log("🔹 Fetching access token from Vipps...");
         const tokenResponse = await axios.post(
@@ -65,8 +57,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const agreementPayload = {
             interval: { unit: "YEAR", count: 1 }, // 🔹 Yearly payment
             pricing: { amount: amount, currency: "NOK" }, // Convert amount to øre
-            merchantRedirectUrl: `${baseUrl}/redirect?reference=${reference}&status=AUTHORIZED&type=yearly-recurring`,
-            merchantAgreementUrl: `${baseUrl}/avtale`,
+            merchantRedirectUrl: returnUrl,
+            merchantAgreementUrl: returnUrl.replace("/redirect", "/avtale"),
             phoneNumber: phoneNumber.replace(/\D/g, ""), // Remove non-numeric characters
             productName: productName,
             orderId: reference,
