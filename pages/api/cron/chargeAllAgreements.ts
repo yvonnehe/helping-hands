@@ -6,47 +6,49 @@ const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 3000;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    // if (req.method !== "POST") {
-    //     return res.status(405).json({ error: "Method not allowed" });
-    // }
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method not allowed" });
+    }
 
+    // Optional: Add back authorization if needed
     // if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
     //     return res.status(401).json({ error: "Unauthorized" });
     // }
 
     try {
         const accessToken = await getVippsAccessToken();
+        const allAgreements = await fetchAllActiveAgreements(accessToken);
 
-        const agreements = await fetchAllActiveAgreements(accessToken);
+        const now = new Date();
+        const dueAgreements = [];
+
+        for (const agreement of allAgreements) {
+            const redisKey = `${redisKeyPrefix}:confirmed:${agreement.id}`;
+            const redisRaw = await redis.get(redisKey);
+
+            if (!redisRaw) continue;
+
+            try {
+                const redisData = JSON.parse(redisRaw as string);
+                const dueDate = new Date(redisData.nextDueDate);
+
+                if (dueDate <= now) {
+                    dueAgreements.push({ vippsData: agreement, redisKey, redisData, dueDate });
+                }
+            } catch (err) {
+                console.error(`⚠️ Failed to parse redis data for ${agreement.id}`, err);
+            }
+        }
+
+        console.log(`🔍 Found ${dueAgreements.length} due agreements`);
 
         let charged = 0;
         let failed = 0;
 
-        for (const agreement of agreements) {
-            const redisKey = `${redisKeyPrefix}:confirmed:${agreement.id}`;
-            const redisDataRaw = await redis.get(redisKey);
+        for (const entry of dueAgreements) {
+            const { vippsData, redisKey, redisData, dueDate } = entry;
 
-            if (!redisDataRaw) {
-                console.warn(`⚠️ No stored Redis data for ${agreement.id}, skipping`);
-                continue;
-            }
-
-            let redisData: any;
-
-            if (typeof redisDataRaw === "string") {
-                redisData = JSON.parse(redisDataRaw);
-            } else {
-                redisData = redisDataRaw;
-            }
-
-            const dueDate = new Date(redisData.nextDueDate);
-            const now = new Date();
-
-            if (dueDate > now) {
-                continue; // Not due yet
-            }
-
-            const result = await attemptChargeWithRetry(agreement, accessToken, MAX_RETRIES);
+            const result = await attemptChargeWithRetry(vippsData, accessToken, MAX_RETRIES);
 
             if (result.success) {
                 charged++;
@@ -61,17 +63,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     })
                 );
 
-                await logChargeAttempt(agreement.id, {
+                await logChargeAttempt(vippsData.id, {
                     status: "success",
                     chargedAt: new Date().toISOString(),
-                    amount: agreement.pricing.amount,
-                    productName: agreement.productName,
+                    amount: vippsData.pricing.amount,
+                    productName: vippsData.productName,
                     nextDueDate: newNextDueDate.toISOString(),
                 });
             } else {
                 failed++;
-                console.error(`❌ Failed to charge ${agreement.id}`, result.error);
-                await logChargeAttempt(agreement.id, {
+                console.error(`❌ Failed to charge ${vippsData.id}`, result.error);
+                await logChargeAttempt(vippsData.id, {
                     status: "failed",
                     chargedAt: new Date().toISOString(),
                     error: result.error,
@@ -170,9 +172,10 @@ function calculateNextDueDate(previous: Date, interval: "MONTH" | "YEAR"): Date 
         next.setFullYear(next.getFullYear() + 1);
     }
 
-    // Handle 29th, 30th, 31st by capping to 28th
-    const safeDay = Math.min(next.getDate(), 28);
-    next.setDate(safeDay);
+    // Ensure date never exceeds 28th
+    if (next.getDate() > 28) {
+        next.setDate(28);
+    }
 
     return next;
 }
