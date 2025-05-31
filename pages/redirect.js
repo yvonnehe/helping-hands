@@ -70,6 +70,12 @@ const RedirectPage = () => {
             if (agreementStatus === "ACTIVE") {
                 setSuccess(true);
                 localStorage.removeItem("vippsAgreementId");
+
+                await axios.post("/api/saveAgreementInfo", {
+                    agreementId,
+                    reference: queryParams.reference,
+                    type: queryParams.type,
+                });
             } else if (["STOPPED", "EXPIRED"].includes(agreementStatus)) {
                 setSuccess(false);
             } else if (agreementStatus === "PENDING" && attempt < 5) {

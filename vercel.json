@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/chargeRecurringPayments",
+      "schedule": "0 7 * * *"
+    }
+  ]
+}

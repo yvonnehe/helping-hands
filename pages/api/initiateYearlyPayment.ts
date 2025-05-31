@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-import { tempStore } from "../../lib/tempStore";
+//import { tempStore } from "../../lib/tempStore";
+import { redis, redisKeyPrefix } from "../../lib/redis";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
@@ -93,8 +94,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             console.log("✅ Vipps Yearly Agreement Response:", agreementResponse.data);
 
-            tempStore.set(reference, agreementResponse.data.agreementId);
-            console.log(`🧠 Stored agreementId in memory for ${reference}`);
+            //tempStore.set(reference, agreementResponse.data.agreementId);
+            //console.log(`🧠 Stored agreementId in memory for ${reference}`);
+            await redis.set(`${redisKeyPrefix}:agreement:${reference}`, agreementResponse.data.agreementId, {
+                ex: 600, // expires in 10 minutes
+            });
+            console.log(`🔐 Stored agreementId in Redis for ${reference}`);
+
 
             return res.status(200).json({
                 agreementUrl: agreementResponse.data.vippsConfirmationUrl,
