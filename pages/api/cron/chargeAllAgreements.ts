@@ -146,36 +146,46 @@ async function attemptChargeWithRetry(
 }
 
 async function chargeVippsAgreement(agreement: any, accessToken: string) {
+    const dueDate = new Date();
+    dueDate.setDate(dueDate.getDate() + 1); // 🔁 Safe: add 1 calendar day
+    const due = dueDate.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+
     const payload = {
         amount: agreement.pricing.amount,
         description: `Vipps autocharge for ${agreement.productName}`,
         transactionType: "DIRECT_CAPTURE",
         retryDays: 2,
-        due: new Date(Date.now() + 86400000).toISOString().split("T")[0], // 👈 Add 1 day buffer
+        due,
     };
 
-    const idempotencyKey = randomUUID(); // ensure retries are treated as the same transaction
+    try {
+        const response = await axios.post(
+            `${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/recurring/v3/agreements/${agreement.id}/charges`,
+            payload,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`,
+                    "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
+                    "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
+                    "Vipps-System-Name": "HelpingHands",
+                    "Vipps-System-Version": "1.0",
+                    "Vipps-System-Plugin-Name": "HelpingHands-Vipps",
+                    "Vipps-System-Plugin-Version": "1.0",
+                    "Idempotency-Key": crypto.randomUUID(), // Ensure unique key for retries
+                },
+            }
+        );
 
-    await axios.post(
-        `${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/recurring/v3/agreements/${agreement.id}/charges`,
-        payload,
-        {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`,
-                "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
-                "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
-                "Vipps-System-Name": "HelpingHands",
-                "Vipps-System-Version": "1.0",
-                "Vipps-System-Plugin-Name": "HelpingHands-Vipps",
-                "Vipps-System-Plugin-Version": "1.0",
-                "Idempotency-Key": idempotencyKey, // 👈 Required
-            },
-        }
-    );
-
-    console.log(`✅ Charged agreement: ${agreement.id}`);
+        console.log(`✅ Charged agreement: ${agreement.id}`, response.data);
+    } catch (err: any) {
+        const status = err?.response?.status || "Unknown";
+        const data = err?.response?.data || err.message;
+        console.error(`❌ Vipps charge failed for ${agreement.id} (status: ${status}):`, data);
+        throw err;
+    }
 }
+
 
 async function getVippsAccessToken(): Promise<string> {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/accesstoken/get`, {}, {
