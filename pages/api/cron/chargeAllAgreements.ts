@@ -151,10 +151,10 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
         description: `Vipps autocharge for ${agreement.productName}`,
         transactionType: "DIRECT_CAPTURE",
         retryDays: 2,
-        due: new Date().toISOString().split("T")[0],
+        due: new Date(Date.now() + 86400000).toISOString().split("T")[0], // 👈 Add 1 day buffer
     };
 
-    const idempotencyKey = randomUUID();
+    const idempotencyKey = randomUUID(); // ensure retries are treated as the same transaction
 
     await axios.post(
         `${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/recurring/v3/agreements/${agreement.id}/charges`,
@@ -165,11 +165,11 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
                 "Authorization": `Bearer ${accessToken}`,
                 "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
                 "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
-                "Idempotency-Key": idempotencyKey,
                 "Vipps-System-Name": "HelpingHands",
                 "Vipps-System-Version": "1.0",
                 "Vipps-System-Plugin-Name": "HelpingHands-Vipps",
-                "Vipps-System-Plugin-Version": "1.0"
+                "Vipps-System-Plugin-Version": "1.0",
+                "Idempotency-Key": idempotencyKey, // 👈 Required
             },
         }
     );
