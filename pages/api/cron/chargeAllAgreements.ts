@@ -31,7 +31,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 continue;
             }
 
-            const redisData = JSON.parse(redisDataRaw as string);
+            let redisData: any;
+
+            if (typeof redisDataRaw === "string") {
+                redisData = JSON.parse(redisDataRaw);
+            } else {
+                redisData = redisDataRaw;
+            }
+
             const dueDate = new Date(redisData.nextDueDate);
             const now = new Date();
 
