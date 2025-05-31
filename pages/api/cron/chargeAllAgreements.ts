@@ -29,7 +29,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (!redisRaw) continue;
 
             try {
-                const redisData = JSON.parse(redisRaw as string);
+                const redisData =
+                    typeof redisRaw === "string" ? JSON.parse(redisRaw) : redisRaw;
 
                 console.log(`[${agreement.id}] Raw Redis:`, redisRaw);
                 console.log(`[${agreement.id}] Parsed Redis nextDueDate:`, redisData.nextDueDate);
