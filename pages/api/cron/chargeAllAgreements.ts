@@ -30,7 +30,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             try {
                 const redisData = JSON.parse(redisRaw as string);
+
+                console.log(`[${agreement.id}] Raw Redis:`, redisRaw);
+                console.log(`[${agreement.id}] Parsed Redis nextDueDate:`, redisData.nextDueDate);
+
                 const dueDate = new Date(redisData.nextDueDate);
+                console.log(`[${agreement.id}] Redis due: ${dueDate.toISOString()} | Now: ${now.toISOString()} | Should charge: ${dueDate <= now}`);
 
                 if (dueDate <= now) {
                     dueAgreements.push({ vippsData: agreement, redisKey, redisData, dueDate });
