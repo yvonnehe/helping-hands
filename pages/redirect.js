@@ -71,10 +71,23 @@ const RedirectPage = () => {
                 setSuccess(true);
                 localStorage.removeItem("vippsAgreementId");
 
+                let amount, interval, productName;
+                try {
+                    const initResponse = await axios.get(`/api/lookupInitData?reference=${queryParams.reference}`);
+                    ({ amount, interval, productName } = initResponse.data);
+                } catch (error) {
+                    console.error("❌ Failed to load initial data from Redis:", error);
+                    setSuccess(false);
+                    return;
+                }
+
                 await axios.post("/api/saveAgreementInfo", {
                     agreementId,
                     reference: queryParams.reference,
                     type: queryParams.type,
+                    amount,
+                    interval,
+                    productName
                 });
             } else if (["STOPPED", "EXPIRED"].includes(agreementStatus)) {
                 setSuccess(false);

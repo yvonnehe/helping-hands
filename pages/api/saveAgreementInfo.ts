@@ -41,7 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         );
 
-        const { amount, interval, nextChargeDate, phoneNumber, productName } = agreementResponse.data;
+        const { amount, interval, nextChargeDate, phoneNumber, productName, created } = agreementResponse.data;
 
         const entry = {
             agreementId,
@@ -49,13 +49,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             type,
             amount: amount.amount,
             interval: interval.unit,
-            nextDueDate: nextChargeDate, // ← stored as ISO string
+            nextDueDate: nextChargeDate,
             phoneNumber,
             productName,
+            createdDate: created,
         };
 
         const redisKey = `${redisKeyPrefix}:confirmed:${agreementId}`;
         await redis.set(redisKey, JSON.stringify(entry));
+        console.log(`✅ Saved confirmed agreement: ${agreementId} (${reference})`);
 
         res.status(200).json({ success: true });
     } catch (error) {

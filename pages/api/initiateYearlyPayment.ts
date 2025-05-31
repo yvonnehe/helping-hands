@@ -96,10 +96,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             //tempStore.set(reference, agreementResponse.data.agreementId);
             //console.log(`🧠 Stored agreementId in memory for ${reference}`);
-            await redis.set(`${redisKeyPrefix}:agreement:${reference}`, agreementResponse.data.agreementId, {
-                ex: 600, // expires in 10 minutes
+
+            // await redis.set(`${redisKeyPrefix}:agreement:${reference}`, agreementResponse.data.agreementId, {
+            //     ex: 600, // expires in 10 minutes
+            // });
+            // console.log(`🔐 Stored agreementId in Redis for ${reference}`);
+            await redis.set(`${redisKeyPrefix}:init:${reference}`, JSON.stringify({
+                interval: "MONTH",
+                amount: amount,
+                productName: productName,
+                reference: reference
+            }), {
+                ex: 1800 // 30-minute expiry
             });
-            console.log(`🔐 Stored agreementId in Redis for ${reference}`);
+            console.log(`🧠 Temp agreement data stored in Redis for ${reference}`);
 
 
             return res.status(200).json({
