@@ -147,8 +147,8 @@ async function attemptChargeWithRetry(
 
 async function chargeVippsAgreement(agreement: any, accessToken: string) {
     const dueDate = new Date();
-    dueDate.setDate(dueDate.getDate() + 1); // 🔁 Safe: add 1 calendar day
-    const due = dueDate.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+    dueDate.setDate(dueDate.getDate() + 2); // ⬅️ 2-day buffer to avoid Vipps rejection
+    const due = dueDate.toISOString().split("T")[0]; // Format YYYY-MM-DD
 
     const payload = {
         amount: agreement.pricing.amount,
