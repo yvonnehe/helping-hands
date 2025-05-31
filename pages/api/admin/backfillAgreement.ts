@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         for (const agreement of agreements) {
-            if (!agreement.agreementId || !agreement.orderId || !agreement.nextChargeDate) {
+            if (!agreement.agreementId || !agreement.nextDueDate) {
                 console.warn("⚠️ Skipping invalid agreement:", agreement);
                 continue;
             }
@@ -27,10 +27,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 agreementId: agreement.agreementId,
                 amount: agreement.pricing?.amount ?? 0,
                 interval: agreement.interval?.unit ?? "MONTH",
-                nextDueDate: agreement.nextChargeDate,
+                nextDueDate: agreement.nextDueDate,
                 phoneNumber: agreement.phoneNumber || "",
                 productName: agreement.productName || "Unknown",
-                reference: agreement.orderId,
+                reference: "",
             });
 
             await redis.set(redisKey, redisValue);

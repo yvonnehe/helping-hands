@@ -41,7 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         );
 
-        const { amount, interval, nextChargeDate, phoneNumber, productName, created } = agreementResponse.data;
+        const { amount, interval, nextDueDate, phoneNumber, productName, created } = agreementResponse.data;
 
         const entry = {
             agreementId,
@@ -49,7 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             type,
             amount: amount.amount,
             interval: interval.unit,
-            nextDueDate: nextChargeDate,
+            nextDueDate: nextDueDate,
             phoneNumber,
             productName,
             createdDate: created,
