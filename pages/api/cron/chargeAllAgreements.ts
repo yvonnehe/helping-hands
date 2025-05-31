@@ -117,17 +117,29 @@ async function fetchAgreementById(agreementId: string, accessToken: string): Pro
     }
 }
 
-async function attemptChargeWithRetry(agreement: any, accessToken: string, retriesLeft: number): Promise<{ success: boolean; error?: any }> {
+async function attemptChargeWithRetry(
+    agreement: any,
+    accessToken: string,
+    retriesLeft: number
+): Promise<{ success: boolean; error?: any }> {
     try {
         await chargeVippsAgreement(agreement, accessToken);
         return { success: true };
-    } catch (err) {
+    } catch (err: any) {
+        const status = err.response?.status;
+        const data = err.response?.data;
+
+        console.error(
+            `❌ Vipps charge failed for ${agreement.id} (status: ${status ?? "unknown"}):`,
+            data || err.message
+        );
+
         if (retriesLeft > 0) {
             console.warn(`⚠️ Retry (${MAX_RETRIES - retriesLeft + 1}) for ${agreement.id}`);
             await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
             return attemptChargeWithRetry(agreement, accessToken, retriesLeft - 1);
         } else {
-            return { success: false, error: err.response?.data || err.message };
+            return { success: false, error: data || err.message };
         }
     }
 }
@@ -146,9 +158,14 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
         payload,
         {
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`,
                 "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
                 "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
+                "Vipps-System-Name": "HelpingHands",
+                "Vipps-System-Version": "1.0",
+                "Vipps-System-Plugin-Name": "HelpingHands-Vipps",
+                "Vipps-System-Plugin-Version": "1.0"
             },
         }
     );
