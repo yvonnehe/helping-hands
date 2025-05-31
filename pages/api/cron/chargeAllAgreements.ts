@@ -162,6 +162,7 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
                 "Authorization": `Bearer ${accessToken}`,
                 "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
                 "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
+                "Idempotency-Key": agreement.reference,
                 "Vipps-System-Name": "HelpingHands",
                 "Vipps-System-Version": "1.0",
                 "Vipps-System-Plugin-Name": "HelpingHands-Vipps",
