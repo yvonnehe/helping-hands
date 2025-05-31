@@ -17,13 +17,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         const accessToken = await getVippsAccessToken();
-        const allAgreements = await fetchAllActiveAgreements(accessToken);
-
         const now = new Date();
         const dueAgreements = [];
 
-        for (const agreement of allAgreements) {
-            const redisKey = `${redisKeyPrefix}:confirmed:${agreement.id}`;
+        const ids = await redis.smembers(`${redisKeyPrefix}:confirmed:ids`);
+        console.log(`🔍 Checking ${ids.length} confirmed agreements`);
+
+        for (const agreementId of ids) {
+            const redisKey = `${redisKeyPrefix}:confirmed:${agreementId}`;
             const redisRaw = await redis.get(redisKey);
 
             if (!redisRaw) continue;
@@ -32,17 +33,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const redisData =
                     typeof redisRaw === "string" ? JSON.parse(redisRaw) : redisRaw;
 
-                console.log(`[${agreement.id}] Raw Redis:`, redisRaw);
-                console.log(`[${agreement.id}] Parsed Redis nextDueDate:`, redisData.nextDueDate);
-
                 const dueDate = new Date(redisData.nextDueDate);
-                console.log(`[${agreement.id}] Redis due: ${dueDate.toISOString()} | Now: ${now.toISOString()} | Should charge: ${dueDate <= now}`);
-
                 if (dueDate <= now) {
-                    dueAgreements.push({ vippsData: agreement, redisKey, redisData, dueDate });
+                    dueAgreements.push({ agreementId, redisKey, redisData, dueDate });
                 }
             } catch (err) {
-                console.error(`⚠️ Failed to parse redis data for ${agreement.id}`, err);
+                console.error(`⚠️ Failed to parse redis data for ${agreementId}`, err);
             }
         }
 
@@ -52,34 +48,39 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         let failed = 0;
 
         for (const entry of dueAgreements) {
-            const { vippsData, redisKey, redisData, dueDate } = entry;
+            const { agreementId, redisKey, redisData, dueDate } = entry;
 
-            const result = await attemptChargeWithRetry(vippsData, accessToken, MAX_RETRIES);
+            const agreement = await fetchAgreementById(agreementId, accessToken);
+            if (!agreement || agreement.status !== "ACTIVE") {
+                console.log(`⏭ Skipping ${agreementId}, not ACTIVE`);
+                continue;
+            }
+
+            const result = await attemptChargeWithRetry(agreement, accessToken, MAX_RETRIES);
 
             if (result.success) {
                 charged++;
-
                 const newNextDueDate = calculateNextDueDate(dueDate, redisData.interval);
 
                 await redis.set(
                     redisKey,
                     JSON.stringify({
                         ...redisData,
-                        nextDueDate: newNextDueDate.toISOString()
+                        nextDueDate: newNextDueDate.toISOString(),
                     })
                 );
 
-                await logChargeAttempt(vippsData.id, {
+                await logChargeAttempt(agreementId, {
                     status: "success",
                     chargedAt: new Date().toISOString(),
-                    amount: vippsData.pricing.amount,
-                    productName: vippsData.productName,
+                    amount: agreement.pricing.amount,
+                    productName: agreement.productName,
                     nextDueDate: newNextDueDate.toISOString(),
                 });
             } else {
                 failed++;
-                console.error(`❌ Failed to charge ${vippsData.id}`, result.error);
-                await logChargeAttempt(vippsData.id, {
+                console.error(`❌ Failed to charge ${agreementId}`, result.error);
+                await logChargeAttempt(agreementId, {
                     status: "failed",
                     chargedAt: new Date().toISOString(),
                     error: result.error,
@@ -94,26 +95,33 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 }
 
-async function fetchAllActiveAgreements(accessToken: string): Promise<any[]> {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/recurring/v3/agreements`, {
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
-            "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
-        },
-    });
-
-    return response.data.filter((agreement: any) => agreement.status === "ACTIVE");
+async function fetchAgreementById(agreementId: string, accessToken: string): Promise<any | null> {
+    try {
+        const response = await axios.get(
+            `${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/recurring/v3/agreements/${agreementId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
+                    "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
+                },
+            }
+        );
+        return response.data;
+    } catch (err) {
+        console.error(`⚠️ Failed to fetch agreement ${agreementId}:`, err.response?.data || err.message);
+        return null;
+    }
 }
 
-async function attemptChargeWithRetry(agreement: any, accessToken: string, retriesLeft: number): Promise<{ success: boolean, error?: any }> {
+async function attemptChargeWithRetry(agreement: any, accessToken: string, retriesLeft: number): Promise<{ success: boolean; error?: any }> {
     try {
         await chargeVippsAgreement(agreement, accessToken);
         return { success: true };
     } catch (err) {
         if (retriesLeft > 0) {
             console.warn(`⚠️ Retry (${MAX_RETRIES - retriesLeft + 1}) for ${agreement.id}`);
-            await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
+            await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
             return attemptChargeWithRetry(agreement, accessToken, retriesLeft - 1);
         } else {
             return { success: false, error: err.response?.data || err.message };
