@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { redis, redisKeyPrefix } from "../../../lib/redis";
 
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method Not Allowed" });
@@ -17,20 +16,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         for (const agreement of agreements) {
-            if (!agreement.agreementId || !agreement.nextDueDate) {
+            const { agreementId, createdDate, nextDueDate, amount, interval, reference, productName, phoneNumber } = agreement;
+
+            if (!agreementId || !createdDate || !nextDueDate || !amount || !interval || !reference) {
                 console.warn("⚠️ Skipping invalid agreement:", agreement);
                 continue;
             }
 
-            const redisKey = `${redisKeyPrefix}:confirmed:${agreement.agreementId}`;
+            const redisKey = `${redisKeyPrefix}:confirmed:${agreementId}`;
             const redisValue = JSON.stringify({
-                agreementId: agreement.agreementId,
-                amount: agreement.pricing?.amount ?? 0,
-                interval: agreement.interval?.unit ?? "MONTH",
-                nextDueDate: agreement.nextDueDate,
-                phoneNumber: agreement.phoneNumber || "",
-                productName: agreement.productName || "Unknown",
+                agreementId,
+                createdDate,
+                nextDueDate,
+                amount,
+                interval,
                 reference: "",
+                productName: productName || "Unknown",
+                phoneNumber: phoneNumber || "",
             });
 
             await redis.set(redisKey, redisValue);
