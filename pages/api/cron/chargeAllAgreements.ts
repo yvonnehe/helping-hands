@@ -20,7 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const now = new Date();
         const dueAgreements = [];
 
-        const ids = await redis.smembers(`${redisKeyPrefix}:confirmed:ids`);
+        // ✅ NEW: Dynamically scan Redis keys by prefix
+        const keys = await redis.keys(`${redisKeyPrefix}:confirmed:agr_*`);
+        const ids = keys.map(key => key.split(":").pop()).filter(Boolean);
+
         console.log(`🔍 Checking ${ids.length} confirmed agreements`);
 
         for (const agreementId of ids) {
@@ -50,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         for (const entry of dueAgreements) {
             const { agreementId, redisKey, redisData, dueDate } = entry;
 
-            const agreement = await fetchAgreementById(agreementId, accessToken);
+            const agreement = await fetchAgreementById(agreementId!, accessToken);
             if (!agreement || agreement.status !== "ACTIVE") {
                 console.log(`⏭ Skipping ${agreementId}, not ACTIVE`);
                 continue;
