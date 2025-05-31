@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-import { redis } from "../../../lib/redis";
+import { redis, redisKeyPrefix } from "../../../lib/redis";
 
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 3000;
@@ -23,15 +23,43 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         let failed = 0;
 
         for (const agreement of agreements) {
+            const redisKey = `${redisKeyPrefix}:confirmed:${agreement.id}`;
+            const redisDataRaw = await redis.get(redisKey);
+
+            if (!redisDataRaw) {
+                console.warn(`⚠️ No stored Redis data for ${agreement.id}, skipping`);
+                continue;
+            }
+
+            const redisData = JSON.parse(redisDataRaw as string);
+            const dueDate = new Date(redisData.nextDueDate);
+            const now = new Date();
+
+            if (dueDate > now) {
+                continue; // Not due yet
+            }
+
             const result = await attemptChargeWithRetry(agreement, accessToken, MAX_RETRIES);
 
             if (result.success) {
                 charged++;
+
+                const newNextDueDate = calculateNextDueDate(dueDate, redisData.interval);
+
+                await redis.set(
+                    redisKey,
+                    JSON.stringify({
+                        ...redisData,
+                        nextDueDate: newNextDueDate.toISOString()
+                    })
+                );
+
                 await logChargeAttempt(agreement.id, {
                     status: "success",
                     chargedAt: new Date().toISOString(),
                     amount: agreement.pricing.amount,
                     productName: agreement.productName,
+                    nextDueDate: newNextDueDate.toISOString(),
                 });
             } else {
                 failed++;
@@ -60,7 +88,6 @@ async function fetchAllActiveAgreements(accessToken: string): Promise<any[]> {
         },
     });
 
-    // Only keep active ones
     return response.data.filter((agreement: any) => agreement.status === "ACTIVE");
 }
 
@@ -85,7 +112,7 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
         description: `Vipps autocharge for ${agreement.productName}`,
         transactionType: "DIRECT_CAPTURE",
         retryDays: 2,
-        due: new Date().toISOString().split("T")[0], // today
+        due: new Date().toISOString().split("T")[0],
     };
 
     await axios.post(
@@ -124,5 +151,21 @@ async function getVippsAccessToken(): Promise<string> {
 async function logChargeAttempt(agreementId: string, log: any) {
     const key = `vipps:history:${agreementId}`;
     await redis.lpush(key, JSON.stringify(log));
-    await redis.ltrim(key, 0, 49);
+    await redis.ltrim(key, 0, 49); // Keep max 50 logs
+}
+
+function calculateNextDueDate(previous: Date, interval: "MONTH" | "YEAR"): Date {
+    const next = new Date(previous);
+
+    if (interval === "MONTH") {
+        next.setMonth(next.getMonth() + 1);
+    } else if (interval === "YEAR") {
+        next.setFullYear(next.getFullYear() + 1);
+    }
+
+    // Handle 29th, 30th, 31st by capping to 28th
+    const safeDay = Math.min(next.getDate(), 28);
+    next.setDate(safeDay);
+
+    return next;
 }
