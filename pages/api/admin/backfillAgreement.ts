@@ -1,41 +1,45 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
 import { redis, redisKeyPrefix } from "../../../lib/redis";
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
-        return res.status(405).json({ error: "Method not allowed" });
+        return res.status(405).json({ error: "Method Not Allowed" });
     }
 
-    const auth = req.headers.authorization;
-    if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
-        return res.status(401).json({ error: "Unauthorized" });
+    const agreements = req.body;
+
+    if (!Array.isArray(agreements)) {
+        return res.status(400).json({ error: "Expected an array of agreement objects" });
     }
 
-    const { agreementId, amount, interval, phoneNumber, productName, reference, nextDueDate } = req.body;
-
-    if (!agreementId || !amount || !interval || !phoneNumber || !productName || !reference || !nextDueDate) {
-        return res.status(400).json({ error: "Missing required fields" });
-    }
-
-    const key = `${redisKeyPrefix}:agreement:${agreementId}`;
+    let stored = 0;
 
     try {
-        await redis.set(
-            key,
-            JSON.stringify({
-                agreementId,
-                amount,
-                interval,
-                phoneNumber,
-                productName,
-                reference,
-                nextDueDate,
-            })
-        );
+        for (const agreement of agreements) {
+            if (!agreement.agreementId || !agreement.orderId || !agreement.nextChargeDate) {
+                console.warn("⚠️ Skipping invalid agreement:", agreement);
+                continue;
+            }
 
-        res.status(200).json({ message: "Agreement added to Redis successfully" });
-    } catch (err) {
-        console.error("❌ Failed to backfill agreement:", err);
-        res.status(500).json({ error: "Internal server error" });
+            const redisKey = `${redisKeyPrefix}:agreement:${agreement.agreementId}`;
+            const redisValue = JSON.stringify({
+                agreementId: agreement.agreementId,
+                amount: agreement.pricing?.amount ?? 0,
+                interval: agreement.interval?.unit ?? "MONTH",
+                nextDueDate: agreement.nextChargeDate,
+                phoneNumber: agreement.phoneNumber || "",
+                productName: agreement.productName || "Unknown",
+                reference: agreement.orderId,
+            });
+
+            await redis.set(redisKey, redisValue);
+            stored++;
+        }
+
+        res.status(200).json({ message: `✅ Stored ${stored} agreements` });
+    } catch (error) {
+        console.error("🚨 Error backfilling agreements:", error);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 }
