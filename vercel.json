@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/cron/chargeAllAgreements",
-      "schedule": "0 15 * * *"
+      "schedule": "0 19 * * *"
     }
   ]
 }
