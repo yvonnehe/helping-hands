@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 import { redis, redisKeyPrefix } from "../../../lib/redis";
+import { randomUUID } from "crypto";
 
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 3000;
@@ -153,6 +154,8 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
         due: new Date().toISOString().split("T")[0],
     };
 
+    const idempotencyKey = randomUUID();
+
     await axios.post(
         `${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/recurring/v3/agreements/${agreement.id}/charges`,
         payload,
@@ -162,7 +165,7 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
                 "Authorization": `Bearer ${accessToken}`,
                 "Ocp-Apim-Subscription-Key": process.env.VIPPS_SUBSCRIPTION_KEY!,
                 "Merchant-Serial-Number": process.env.VIPPS_MERCHANT_SERIAL_NUMBER!,
-                "Idempotency-Key": agreement.reference,
+                "Idempotency-Key": idempotencyKey,
                 "Vipps-System-Name": "HelpingHands",
                 "Vipps-System-Version": "1.0",
                 "Vipps-System-Plugin-Name": "HelpingHands-Vipps",
