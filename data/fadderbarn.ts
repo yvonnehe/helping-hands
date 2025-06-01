@@ -141,13 +141,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Alexi",
-        image: "/fadderbarn/helping-hands-alexi.jpg",
-        description: "Han er 11 år gammel og går i 4. klasse. Han bor med mor og 3 brødre. Han har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du han med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
-        amount: 50,
-        category: "fadderbarn",
-    },
-    {
         name: "Omar",
         image: "/fadderbarn/helping-hands-omar.jpg",
         description: "Han er 14 år og skal snart begynne på ungdomsskolen. Han bor med foreldrene og storebror. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
@@ -187,13 +180,6 @@ export const fadderbarnList: FadderbarnData[] = [
         image: "/fadderbarn/helping-hands-ramadhan2.jpg",
         description: "Han er 20 år gammel. Han har stort behov for hjelpen din. Han vil gjerne begynne på fagskole og bli mekaniker. For skolepenger, kost og losji og alt annet han trenger i forbindelse med skolegangen, vil det koste 700 kr i mnd. Denne summen kan fint deles mellom flere faddere.",
         amount: 700,
-        category: "fadderbarn",
-    },
-    {
-        name: "Hawa",
-        image: "/fadderbarn/helping-hands-hawa.jpg",
-        description: "Hun er 15 år gammel og trenger hjelp til videre skolegang. Hun venter på å få begynne på ungdomsskolen. For 150 kr i mnd støtter du henne med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
-        amount: 150,
         category: "fadderbarn",
     },
     {
