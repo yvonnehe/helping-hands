@@ -3,10 +3,6 @@
     {
       "path": "/api/cron/chargeAllAgreements",
       "schedule": "0 6 * * *"
-    },
-    {
-      "path": "/api/ping-redis",
-      "schedule": "0 7 * * *"
     }
   ]
 }
