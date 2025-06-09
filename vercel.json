@@ -2,7 +2,11 @@
   "crons": [
     {
       "path": "/api/cron/chargeAllAgreements",
-      "schedule": "0 20 * * *"
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/ping-redis",
+      "schedule": "0 7 * * *"
     }
   ]
 }
