@@ -18,8 +18,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         // stuff to keep Redis connection alive
-        await redis.set("ping:keepalive", new Date().toISOString(), { ex: 172800 });
-        console.log("🟢 Redis keep-alive ping sent");
+        //await redis.set("ping:keepalive", new Date().toISOString(), { ex: 172800 });
+        //console.log("🟢 Redis keep-alive ping sent");
         // end stuff
 
         const accessToken = await getVippsAccessToken();
