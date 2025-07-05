@@ -7,7 +7,7 @@ const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 3000;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== "POST") {
+    if (req.method !== "POST" && req.method !== "GET") {
         return res.status(405).json({ error: "Method not allowed" });
     }
 

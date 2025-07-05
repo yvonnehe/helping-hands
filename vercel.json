@@ -2,8 +2,7 @@
   "crons": [
     {
       "path": "/api/cron/chargeAllAgreements",
-      "schedule": "0 13 * * *",
-      "method": "POST"
+      "schedule": "0 13 * * *"
     }
   ]
 }
