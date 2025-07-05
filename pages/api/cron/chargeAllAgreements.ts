@@ -11,6 +11,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).json({ error: "Method not allowed" });
     }
 
+    console.log(`🕒 Cron job started at ${new Date().toISOString()}`);
+
     // Optional: Add back authorization if needed
     // if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
     //     return res.status(401).json({ error: "Unauthorized" });
@@ -91,6 +93,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     })
                 );
 
+                console.log(`✅ Successfully charged and updated: ${agreementId} (${isOverdue ? "overdue" : "on-time"})`);
+
                 await logChargeAttempt(agreementId, {
                     status: isOverdue ? "success (overdue)" : "success",
                     chargedAt: new Date().toISOString(),
@@ -109,6 +113,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         }
 
+        console.log(`🔚 Cron job finished. ✅ Charged: ${charged}, ❌ Failed: ${failed}`);
+        if (charged === 0 && failed === 0) {
+            console.log("No agreements charged or failed.");
+        }
         res.status(200).json({ message: `✅ Charged ${charged}, ❌ Failed ${failed}` });
     } catch (err) {
         console.error("🚨 Cron job failed:", err);
