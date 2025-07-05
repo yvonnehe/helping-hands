@@ -17,16 +17,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // }
 
     try {
-        // stuff to keep Redis connection alive
-        //await redis.set("ping:keepalive", new Date().toISOString(), { ex: 172800 });
-        //console.log("🟢 Redis keep-alive ping sent");
-        // end stuff
-
         const accessToken = await getVippsAccessToken();
         const now = new Date();
         const dueAgreements = [];
+        const overdueAgreements = [];
 
-        // ✅ NEW: Dynamically scan Redis keys by prefix
         const keys = await redis.keys(`${redisKeyPrefix}:confirmed:agr_*`);
         const ids = keys.map(key => key.split(":").pop()).filter(Boolean);
 
@@ -43,21 +38,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     typeof redisRaw === "string" ? JSON.parse(redisRaw) : redisRaw;
 
                 const dueDate = new Date(redisData.nextDueDate);
-                if (dueDate <= now) {
+
+                const twoDaysFromNow = new Date();
+                twoDaysFromNow.setDate(twoDaysFromNow.getDate() + 2);
+
+                const dueDateStr = dueDate.toISOString().split("T")[0];
+                const targetDateStr = twoDaysFromNow.toISOString().split("T")[0];
+
+                if (dueDateStr === targetDateStr) {
                     dueAgreements.push({ agreementId, redisKey, redisData, dueDate });
+                } else if (dueDate < now) {
+                    overdueAgreements.push({ agreementId, redisKey, redisData, dueDate });
                 }
             } catch (err) {
                 console.error(`⚠️ Failed to parse redis data for ${agreementId}`, err);
             }
         }
 
-        console.log(`🔍 Found ${dueAgreements.length} due agreements`);
+        console.log(`🔍 Found ${dueAgreements.length} agreements due in 2 days`);
+        console.log(`⚠️ Found ${overdueAgreements.length} overdue agreements`);
 
         let charged = 0;
         let failed = 0;
 
-        for (const entry of dueAgreements) {
+        for (const entry of [...dueAgreements, ...overdueAgreements]) {
             const { agreementId, redisKey, redisData, dueDate } = entry;
+            const isOverdue = overdueAgreements.some(a => a.agreementId === agreementId);
 
             const agreement = await fetchAgreementById(agreementId!, accessToken);
             if (!agreement || agreement.status !== "ACTIVE") {
@@ -65,7 +71,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 continue;
             }
 
-            const result = await attemptChargeWithRetry(agreement, accessToken, MAX_RETRIES);
+            const result = await attemptChargeWithRetry(
+                agreement,
+                redisData,
+                accessToken,
+                MAX_RETRIES,
+                isOverdue
+            );
 
             if (result.success) {
                 charged++;
@@ -80,7 +92,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 );
 
                 await logChargeAttempt(agreementId, {
-                    status: "success",
+                    status: isOverdue ? "success (overdue)" : "success",
                     chargedAt: new Date().toISOString(),
                     amount: agreement.pricing.amount,
                     productName: agreement.productName,
@@ -90,7 +102,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 failed++;
                 console.error(`❌ Failed to charge ${agreementId}`, result.error);
                 await logChargeAttempt(agreementId, {
-                    status: "failed",
+                    status: isOverdue ? "failed (overdue)" : "failed",
                     chargedAt: new Date().toISOString(),
                     error: result.error,
                 });
@@ -125,11 +137,13 @@ async function fetchAgreementById(agreementId: string, accessToken: string): Pro
 
 async function attemptChargeWithRetry(
     agreement: any,
+    redisData: any,
     accessToken: string,
-    retriesLeft: number
+    retriesLeft: number,
+    forceTodayDue: boolean = false
 ): Promise<{ success: boolean; error?: any }> {
     try {
-        await chargeVippsAgreement(agreement, accessToken);
+        await chargeVippsAgreement(agreement, accessToken, redisData, forceTodayDue);
         return { success: true };
     } catch (err: any) {
         const status = err.response?.status;
@@ -143,17 +157,22 @@ async function attemptChargeWithRetry(
         if (retriesLeft > 0) {
             console.warn(`⚠️ Retry (${MAX_RETRIES - retriesLeft + 1}) for ${agreement.id}`);
             await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
-            return attemptChargeWithRetry(agreement, accessToken, retriesLeft - 1);
+            return attemptChargeWithRetry(agreement, redisData, accessToken, retriesLeft - 1, forceTodayDue);
         } else {
             return { success: false, error: data || err.message };
         }
     }
 }
 
-async function chargeVippsAgreement(agreement: any, accessToken: string) {
-    const dueDate = new Date();
-    dueDate.setDate(dueDate.getDate() + 2); // ⬅️ 2-day buffer to avoid Vipps rejection
-    const due = dueDate.toISOString().split("T")[0]; // Format YYYY-MM-DD
+async function chargeVippsAgreement(
+    agreement: any,
+    accessToken: string,
+    redisData: any,
+    forceTodayDue: boolean = false
+) {
+    const due = forceTodayDue
+        ? new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split("T")[0] // today + 2 days
+        : redisData.nextDueDate.split("T")[0];
 
     const payload = {
         amount: agreement.pricing.amount,
@@ -190,7 +209,6 @@ async function chargeVippsAgreement(agreement: any, accessToken: string) {
         throw err;
     }
 }
-
 
 async function getVippsAccessToken(): Promise<string> {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_VIPPS_BASE_URL}/accesstoken/get`, {}, {
