@@ -13,10 +13,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log(`🕒 Cron job started at ${new Date().toISOString()}`);
 
-    // Optional: Add back authorization if needed
-    // if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
-    //     return res.status(401).json({ error: "Unauthorized" });
-    // }
+    // Authorization check
+    const cronSecret = process.env.CRON_SECRET;
+
+    if (req.headers.authorization !== `Bearer ${cronSecret}`) {
+        console.warn("🚫 Unauthorized cron request");
+        return res.status(401).json({ error: "Unauthorized" });
+    }
 
     try {
         const accessToken = await getVippsAccessToken();
