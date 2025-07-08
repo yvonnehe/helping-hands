@@ -113,13 +113,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Ramla",
-        image: "/fadderbarn/helping-hands-ramla.jpg",
-        description: "Hun er 21 år gammel og drømmer om å studere “hotel management”. Hun bor sammen med bestemoren og 4 andre barn/ungdom. For skolepenger, uniform, kost, losji, hygieneprodukter og skolesaker vil det koste 680 kr i mnd. Denne summen kan fint deles på flere faddere.",
-        amount: 680,
-        category: "fadderbarn",
-    },
-    {
         name: "Hadija",
         image: "/fadderbarn/helping-hands-hadija.jpg",
         description: "Hun er 11 år og går i 6.klasse. Hun bor med mor og 2 søsken. Hun har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du henne med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
