@@ -197,13 +197,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Fatina",
-        image: "/fadderbarn/helping-hands-fatina.jpg",
-        description: "Hun er 18 år gammel og har fullført videregående skole. Hun bor sammen med moren og to brødre, og drømmer om å bli sykepleier. Hun har allerede én fadder, men trenger fortsatt støtte. De resterende 650 kronene i måneden går til utdanningen hennes og alt hun trenger i forbindelse med skolegangen.",
-        amount: 650,
-        category: "fadderbarn",
-    },
-    {
         name: "Ndelekwa",
         image: "/ndelekwa.jpg",
         description: "Han er lam etter en ulykke. Han har ingen familie til å ta vare på seg. Litt tilbake i tid ble han alvorlig syk, og måtte bli innlagt. Nå blir han tatt vare på av en sykepleier. Du kan være fadder for Ndelekwa, med et valgfritt beløp i mnd.",
