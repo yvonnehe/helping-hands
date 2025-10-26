@@ -78,13 +78,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Bahati",
-        image: "/fadderbarn/helping-hands-bahati.jpg",
-        description: "Hun er 20 år gammel. Hun går på studiet “Social development studies”, og drømmen hennes er å jobbe med barn som har spesielle behov. Hun bor i en stor familie med mange søsken og «søsken». Gjenstående skoleutgifter, uniform og alle andre ting hun trenger i forbindelse med skolen, er 500 kr i mnd. Denne utgiften kan helt fint deles med én eller flere faddere.",
-        amount: 500,
-        category: "fadderbarn",
-    },
-    {
         name: "Halima",
         image: "/fadderbarn/helping-hands-halima.jpg",
         description: "Hun er 16 år gammel og går på studiet “hotel management”. Hun bor med foreldre og 4 søsken. Hun har allerede én fadder, men trenger én eller flere til, for å dekke de resterende 480 kr i mnd. Dette dekker skoleutgifter, uniform og alle andre ting hun trenger i forbindelse med skolen.",
@@ -117,20 +110,6 @@ export const fadderbarnList: FadderbarnData[] = [
         image: "/fadderbarn/helping-hands-hadija.jpg",
         description: "Hun er 11 år og går i 6.klasse. Hun bor med mor og 2 søsken. Hun har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du henne med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
         amount: 50,
-        category: "fadderbarn",
-    },
-    {
-        name: "Ali (12)",
-        image: "/fadderbarn/helping-hands-ali2.jpg",
-        description: "Han er 12 år gammel og går i 6. klasse. Han bor med mor og mange søsken. Han har allerede en fadder, men trenger en til. For de resterende 50 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
-        amount: 50,
-        category: "fadderbarn",
-    },
-    {
-        name: "Augusti",
-        image: "/fadderbarn/helping-hands-augusti.jpg",
-        description: "Han er 15 år og skal snart begynne på ungdomsskolen. Han bor med bestemor og søsken/søskenbarn. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd.",
-        amount: 150,
         category: "fadderbarn",
     },
     {
