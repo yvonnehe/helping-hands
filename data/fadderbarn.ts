@@ -113,13 +113,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Omar",
-        image: "/fadderbarn/helping-hands-omar.jpg",
-        description: "Han er 14 år og skal snart begynne på ungdomsskolen. Han bor med foreldrene og storebror. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du ham med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
         name: "Jamal",
         image: "/fadderbarn/helping-hands-jamal.jpg",
         description: "Han er 16 år og går i 10.klasse. Han bor med foreldrene og lillebror. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du han med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
