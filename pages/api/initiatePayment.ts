@@ -95,13 +95,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 console.log("✅ Vipps Agreement Response:", agreementResponse.data);
 
-                //tempStore.set(reference, agreementResponse.data.agreementId);
-                //console.log(`🧠 Stored agreementId in memory for ${reference}`);
-
-                // await redis.set(`${redisKeyPrefix}:agreement:${reference}`, agreementResponse.data.agreementId, {
-                //     ex: 600, // expires in 10 minutes
-                // });
-                // console.log(`🔐 Stored agreementId in Redis for ${reference}`);
+                // Persist a mapping reference -> agreementId so the redirect page
+                // can lookup the agreement if localStorage is missing (e.g., another device)
+                try {
+                    await redis.set(`${redisKeyPrefix}:agreement:${reference}`, agreementResponse.data.agreementId, {
+                        ex: 60 * 60 * 24 * 3, // 3 days
+                    });
+                    console.log(`🔐 Stored agreementId in Redis for ${reference}`);
+                } catch (err) {
+                    console.warn(`⚠️ Failed to persist agreement mapping for ${reference}:`, err);
+                }
                 await redis.set(`${redisKeyPrefix}:init:${reference}`, JSON.stringify({
                     interval: "MONTH",
                     amount: amount,
