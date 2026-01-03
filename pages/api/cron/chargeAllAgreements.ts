@@ -13,10 +13,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log(`🕒 Cron job started at ${new Date().toISOString()}`);
 
-    // Authorization check
+    // Authorization check - accept either an explicit cron secret OR Vercel's scheduled request header
     const cronSecret = process.env.CRON_SECRET;
+    const authHeader = req.headers.authorization as string | undefined;
+    const isCronSecret = authHeader === `Bearer ${cronSecret}`;
+    const vercelCronHeader = req.headers["x-vercel-cron"] as string | undefined;
+    const isVercelCron = vercelCronHeader === "1" || vercelCronHeader === "true";
 
-    if (req.headers.authorization !== `Bearer ${cronSecret}`) {
+    if (!isCronSecret && !isVercelCron) {
         console.warn("🚫 Unauthorized cron request");
         return res.status(401).json({ error: "Unauthorized" });
     }
@@ -207,7 +211,7 @@ async function chargeVippsAgreement(
                     "Vipps-System-Version": "1.0",
                     "Vipps-System-Plugin-Name": "HelpingHands-Vipps",
                     "Vipps-System-Plugin-Version": "1.0",
-                    "Idempotency-Key": crypto.randomUUID(), // Ensure unique key for retries
+                    "Idempotency-Key": randomUUID(), // Ensure unique key for retries
                 },
             }
         );

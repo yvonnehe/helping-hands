@@ -102,7 +102,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             // });
             // console.log(`🔐 Stored agreementId in Redis for ${reference}`);
             await redis.set(`${redisKeyPrefix}:init:${reference}`, JSON.stringify({
-                interval: "MONTH",
+                interval: "YEAR",
                 amount: amount,
                 productName: productName,
                 reference: reference
