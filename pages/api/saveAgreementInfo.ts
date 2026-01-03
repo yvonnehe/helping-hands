@@ -43,6 +43,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const { amount, interval, nextDueDate, phoneNumber, productName, created } = agreementResponse.data;
 
+        const anchorDay = Math.min(28, new Date(nextDueDate).getDate());
+
         const entry = {
             agreementId,
             reference,
@@ -52,6 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             nextDueDate: nextDueDate,
             phoneNumber,
             productName,
+            anchorDay,
             createdDate: created,
         };
 
