@@ -34,7 +34,56 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const now = new Date();
         const dueAgreements: Array<any> = [];
 
-        const keys = await redis.keys(`${redisKeyPrefix}:confirmed:agr_*`);
+        // Collect keys using SCAN to avoid truncation by providers that limit KEYS results.
+        const collectAllKeys = async (pattern: string) => {
+            const out: string[] = [];
+
+            // Prefer a scanIterator if available
+            if ((redis as any).scanIterator) {
+                try {
+                    for await (const k of (redis as any).scanIterator({ match: pattern })) {
+                        out.push(k as string);
+                    }
+                    return out;
+                } catch (e) {
+                    console.warn("⚠️ scanIterator failed, falling back to scan/key loop", e);
+                }
+            }
+
+            // Try using scan with cursor
+            if ((redis as any).scan) {
+                try {
+                    let cursor: number | string = 0;
+                    do {
+                        const res = await (redis as any).scan(cursor, { match: pattern, count: 100 });
+                        // res may be an array like [cursor, keys] or an object { cursor, keys }
+                        if (Array.isArray(res)) {
+                            cursor = Number(res[0]);
+                            const keys = res[1] || [];
+                            out.push(...keys);
+                        } else {
+                            cursor = res.cursor ?? 0;
+                            const keys = res.keys ?? res[1] ?? [];
+                            out.push(...keys);
+                        }
+                    } while (cursor !== 0 && cursor !== "0");
+
+                    return out;
+                } catch (e) {
+                    console.warn("⚠️ scan failed, falling back to keys()", e);
+                }
+            }
+
+            // Fallback: keys (may be limited by provider)
+            try {
+                return await redis.keys(pattern);
+            } catch (e) {
+                console.error("❌ Failed to list keys:", e);
+                return [];
+            }
+        }
+
+        const keys = await collectAllKeys(`${redisKeyPrefix}:confirmed:agr_*`);
         const ids = keys.map(key => key.split(":").pop()).filter(Boolean);
 
         console.log(`🔍 Checking ${ids.length} confirmed agreements`);
