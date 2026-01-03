@@ -152,6 +152,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     result: "created",
                     dueDateSent: (dueOverride ? (dueOverride instanceof Date ? dueOverride.toISOString() : String(dueOverride)) : redisData.nextDueDate).split("T")[0],
                     amount: agreement.pricing.amount,
+                    ownerName: redisData?.ownerName ?? null,
+                    ownerEmail: redisData?.ownerEmail ?? null,
                     vippsResponse: (result as any).response ?? null,
                 });
             } else {
@@ -166,6 +168,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     result: "failed",
                     dueDateSent: (dueOverride ? (dueOverride instanceof Date ? dueOverride.toISOString() : String(dueOverride)) : redisData.nextDueDate).split("T")[0],
                     amount: agreement.pricing.amount,
+                    ownerName: redisData?.ownerName ?? null,
+                    ownerEmail: redisData?.ownerEmail ?? null,
                     error: (result as any).error,
                 });
 

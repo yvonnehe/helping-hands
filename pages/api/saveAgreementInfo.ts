@@ -45,6 +45,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const anchorDay = Math.min(28, new Date(nextDueDate).getDate());
 
+        // Try to enrich with owner info previously stored under the reference
+        let ownerRaw = null;
+        try {
+            ownerRaw = await redis.get(`${redisKeyPrefix}:owner:${reference}`);
+        } catch (err) {
+            console.warn(`⚠️ Could not read owner info for ${reference}:`, err);
+        }
+
+        const owner = ownerRaw ? JSON.parse(ownerRaw as string) : null;
+
         const entry = {
             agreementId,
             reference,
@@ -56,6 +66,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             productName,
             anchorDay,
             createdDate: created,
+            ownerName: owner?.name ?? null,
+            ownerEmail: owner?.email ?? null,
+            ownerPhone: owner?.phoneNumber ?? null,
         };
 
         const redisKey = `${redisKeyPrefix}:confirmed:${agreementId}`;

@@ -125,6 +125,19 @@ const RedirectPage = () => {
 
             const data = JSON.parse(storedInfo);
 
+            // Persist owner mapping on server so we can attach name/email to logs and records
+            try {
+                await axios.post('/api/storeSponsorshipInfo', {
+                    reference: queryParams.reference,
+                    name: data.name,
+                    email: data.email,
+                    phoneNumber: data.phoneNumber,
+                });
+                console.log('🔐 Stored sponsorship owner info on server');
+            } catch (err) {
+                console.warn('⚠️ Failed to persist sponsorship owner info:', err);
+            }
+
             await axios.post("/api/sendSponsorshipEmail", data);
             console.log("✅ Sponsorship email sent successfully");
 
