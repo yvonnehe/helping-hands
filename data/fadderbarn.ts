@@ -15,13 +15,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Abdala",
-        image: "/fadderbarn/helping-hands-abdala.jpg",
-        description: "Han er 11 år gammel og går i 5. Klasse. Han bor med mor og lillebror. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
         name: "Salimu",
         image: "/fadderbarn/helping-hands-salimu.jpg",
         description: "Han er 13 år gammel og går i 7. klasse. Han bor med mor og 2 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
@@ -92,13 +85,6 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Norin",
-        image: "/fadderbarn/helping-hands-norin.jpg",
-        description: "Hun er 12 år og går i 6. klasse. Hun bor med 3 andre barn og unge voksne fra slekten hennes. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
         name: "Rashid",
         image: "/fadderbarn/helping-hands-rashid.jpg",
         description: "Han er 15 år gammel og går i 9. klasse. Han har 5 søsken. Han trenger hjelp til videre skolegang. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd.",
@@ -145,20 +131,6 @@ export const fadderbarnList: FadderbarnData[] = [
         image: "/fadderbarn/helping-hands-ramadhan2.jpg",
         description: "Han er 20 år gammel. Han har stort behov for hjelpen din. Han vil gjerne begynne på fagskole og bli mekaniker. For skolepenger, kost og losji og alt annet han trenger i forbindelse med skolegangen, vil det koste 700 kr i mnd. Denne summen kan fint deles mellom flere faddere.",
         amount: 700,
-        category: "fadderbarn",
-    },
-    {
-        name: "Silvanus",
-        image: "/fadderbarn/helping-hands-silvanus.jpg",
-        description: "Han er 9 år gammel og bor sammen med moren og sine tre eldre brødre. Han går i 3. klasse. For mat på skolen, sko, skolesekk, uniform og andre nødvendige utgifter trengs det 100 kroner i måneden.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
-        name: "Dorcas",
-        image: "/fadderbarn/helping-hands-dorcas.jpg",
-        description: "Hun er 22 år gammel og studerer juss. Hun har allerede én fadder, men trenger flere for å dekke alle skoleutgiftene. De resterende 900 kronene i måneden går til skolepenger, kost og losji, uniform og alt annet hun trenger i forbindelse med utdanningen.",
-        amount: 900,
         category: "fadderbarn",
     },
     {
