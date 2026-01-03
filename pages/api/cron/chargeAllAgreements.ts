@@ -127,12 +127,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         dueAgreements.push({ agreementId, redisKey, redisData, dueDate: anchorDate, dueForVipps: anchorDate, isOverdue: false, retryKey });
                     }
                 } else if (anchorDate < now) {
-                    //// Overdue anchor: attempt within the retry window (anchor-2 .. anchor+RETRY_WINDOW_DAYS)
-                    //if (now >= chargeWindowStart && now <= chargeWindowEnd && attemptsSoFar < MAX_DAILY_ATTEMPTS && lastAttemptDay !== todayStr) {
-
-                    // Overdue anchor: attempt automatically once per day until success.
-                    // We no longer limit by a short retry window—attempt any past anchor if we haven't tried today.
-                    if (lastAttemptDay !== todayStr) {
+                    // Overdue anchor: attempt within the retry window (anchor-2 .. anchor+RETRY_WINDOW_DAYS)
+                    if (now >= chargeWindowStart && now <= chargeWindowEnd && attemptsSoFar < MAX_DAILY_ATTEMPTS && lastAttemptDay !== todayStr) {
                         // For overdue anchors we schedule Vipps due to today+2 days (so Vipps has a future due date),
                         // but we still treat the attempt as for the original anchor month.
                         dueAgreements.push({ agreementId, redisKey, redisData, dueDate: anchorDate, dueForVipps: twoDaysFromNow, isOverdue: true, retryKey });
