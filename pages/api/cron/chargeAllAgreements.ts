@@ -99,13 +99,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const { agreementId, redisKey, redisData, dueDate, isOverdue } = entry;
 
             const agreement = await fetchAgreementById(agreementId!, accessToken);
-            if (!agreement || agreement.status !== "ACTIVE") {
-                console.log(`⏭ Skipping ${agreementId}, not ACTIVE`);
+            if (!agreement) {
+                console.log(`⏭ Skipping ${agreementId}, failed to fetch agreement`);
+                await logChargeAttempt(agreementId, {
+                    attemptAt: new Date().toISOString(),
+                    attemptType: "fetch_agreement",
+                    result: "failed",
+                    reason: "fetch_failed",
+                });
+                continue;
+            }
+
+            if (agreement.status !== "ACTIVE") {
+                console.log(`⏭ Skipping ${agreementId}, not ACTIVE (${agreement.status})`);
+                await logChargeAttempt(agreementId, {
+                    attemptAt: new Date().toISOString(),
+                    attemptType: "skipped",
+                    result: "skipped",
+                    reason: `agreement_status_${agreement.status}`,
+                });
                 continue;
             }
 
             // Use the due override if present (for overdue retries we schedule Vipps due = today+2)
             const dueOverride = (entry as any).dueForVipps;
+            const attemptsSoFarKey = (entry as any).retryKey;
+            const attemptsSoFarRaw = attemptsSoFarKey ? await redis.get(attemptsSoFarKey) : null;
+            const attemptsSoFarObj = attemptsSoFarRaw && typeof attemptsSoFarRaw === "string" ? JSON.parse(attemptsSoFarRaw) : attemptsSoFarRaw;
+            const attemptNumber = (attemptsSoFarObj?.attempts ?? 0) + 1;
+
             const result = await attemptChargeWithRetry(agreement, redisData, accessToken, MAX_RETRIES, false, dueOverride);
 
             if (result.success) {
@@ -122,20 +144,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 console.log(`✅ Successfully charged and updated: ${agreementId} (${isOverdue ? "overdue" : "on-time"})`);
 
+                // structured success log
                 await logChargeAttempt(agreementId, {
-                    status: isOverdue ? "success (overdue)" : "success",
-                    chargedAt: new Date().toISOString(),
+                    attemptAt: new Date().toISOString(),
+                    attemptType: "create_charge",
+                    attemptNumber,
+                    result: "created",
+                    dueDateSent: (dueOverride ? (dueOverride instanceof Date ? dueOverride.toISOString() : String(dueOverride)) : redisData.nextDueDate).split("T")[0],
                     amount: agreement.pricing.amount,
-                    productName: agreement.productName,
-                    nextDueDate: newNextDueDate.toISOString(),
+                    vippsResponse: (result as any).response ?? null,
                 });
             } else {
                 failed++;
-                console.error(`❌ Failed to charge ${agreementId}`, result.error);
+                console.error(`❌ Failed to charge ${agreementId}`, (result as any).error);
+
+                // structured failure log
                 await logChargeAttempt(agreementId, {
-                    status: isOverdue ? "failed (overdue)" : "failed",
-                    chargedAt: new Date().toISOString(),
-                    error: result.error,
+                    attemptAt: new Date().toISOString(),
+                    attemptType: "create_charge",
+                    attemptNumber,
+                    result: "failed",
+                    dueDateSent: (dueOverride ? (dueOverride instanceof Date ? dueOverride.toISOString() : String(dueOverride)) : redisData.nextDueDate).split("T")[0],
+                    amount: agreement.pricing.amount,
+                    error: (result as any).error,
                 });
 
                 // Update retry state so we can attempt again on subsequent days within the retry window
@@ -147,6 +178,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     const retryStateObj = {
                         attempts,
                         lastAttempt: new Date().toISOString(),
+                        lastError: (result as any).error,
                     };
                     // set TTL to keep retry state for the window plus a buffer (seconds)
                     const ttlSeconds = (RETRY_WINDOW_DAYS + 7) * 24 * 3600;
@@ -192,10 +224,10 @@ async function attemptChargeWithRetry(
     retriesLeft: number,
     forceTodayDue: boolean = false,
     dueOverride?: Date | string
-): Promise<{ success: boolean; error?: any }> {
+): Promise<{ success: true; response: any } | { success: false; error: any }> {
     try {
-        await chargeVippsAgreement(agreement, accessToken, redisData, forceTodayDue, dueOverride);
-        return { success: true };
+        const resp = await chargeVippsAgreement(agreement, accessToken, redisData, forceTodayDue, dueOverride);
+        return { success: true, response: resp };
     } catch (err: any) {
         const status = err.response?.status;
         const data = err.response?.data;
@@ -210,7 +242,15 @@ async function attemptChargeWithRetry(
             await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
             return attemptChargeWithRetry(agreement, redisData, accessToken, retriesLeft - 1, forceTodayDue, dueOverride);
         } else {
-            return { success: false, error: data || err.message };
+            return {
+                success: false,
+                error: {
+                    status: status ?? "unknown",
+                    data: data ?? err.message,
+                    message: err.message,
+                    code: err.code,
+                },
+            };
         }
     }
 }
@@ -259,6 +299,7 @@ async function chargeVippsAgreement(
         );
 
         console.log(`✅ Charged agreement: ${agreement.id}`, response.data);
+        return { status: response.status, data: response.data };
     } catch (err: any) {
         const status = err?.response?.status || "Unknown";
         const data = err?.response?.data || err.message;
