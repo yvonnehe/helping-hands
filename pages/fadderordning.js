@@ -63,7 +63,7 @@ const Fadderordning = () => {
           />
         )}
       </div>
-      <div className="andrefadder">
+      {/* <div className="andrefadder">
         <div className="con andrefadder--padding">
         <h3>Andre med behov for ekstra støtte</h3>
         <Andre setImg={setImg} setName={setName} setDesc={setDesc} setAmount={setAmount} />
@@ -80,7 +80,7 @@ const Fadderordning = () => {
           />
         )}
         </div>
-      </div>
+      </div> */}
       <div className="faqfadder con">
         <h3>Fadderordning FAQ - vanlig stilte spørsmål</h3>
         <h4 className="h4-questions">
