@@ -31,19 +31,21 @@ const Prosjekter = () => {
             <img
               src="/helping-hands-kids-in-uniforms.jpg"
               alt="Tanzanianske barn står i sine nye uniformer"
-              width="100%"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
-        </div>
-        </div>
-        <div className="container-fluid">
-        <div className="prosjekter2 row flex-column-reverse flex-md-row">
+      </div>
+    </div>
+    <div className="container-fluid">
+      <div className="prosjekter2 row flex-column-reverse flex-md-row">
           <div className="col-md-6 my-auto">
             <img
               src="/helping-hands-woman.jpg"
               alt="Tanzaniansk kvinne smiler i sin nye rullestol"
-              width="100%"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="col-md-6">

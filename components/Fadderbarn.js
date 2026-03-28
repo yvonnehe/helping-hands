@@ -16,7 +16,7 @@ const Fadderbarn = ({ setImg, setName, setDesc, setAmount }) => {
             setAmount(child.amount);
           }}
         >
-          <img src={child.image} alt={child.name} />
+          <img src={child.image} alt={child.name} loading="lazy" decoding="async" />
         </div>
       ))}
     </div>

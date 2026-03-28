@@ -84,7 +84,7 @@ const Layout = ({ children }) => {
                 href="https://www.facebook.com/helpinghandsno"
                 aria-label="Follow us on Facebook"
               >
-                <img className="icon" src="fb_white.svg" alt="Facebook icon" />
+                <img className="icon" src="/fb_white.svg" alt="Facebook icon" />
                 Facebook
               </a>
             </div>
@@ -94,7 +94,7 @@ const Layout = ({ children }) => {
                 href="https://www.instagram.com/helpinghandsno/"
                 aria-label="Follow us on Instagram"
               >
-                <img className="icon" src="ig_white.svg" alt="Instagram icon" />
+                <img className="icon" src="/ig_white.svg" alt="Instagram icon" />
                 Instagram
               </a>
             </div>
@@ -103,7 +103,7 @@ const Layout = ({ children }) => {
         <div className="line" role="separator"></div>
         <div className="footerdiv">
           <div className="innsamlingskontrollen-div">
-            <img className="innsamlingskontrollen-img" src="ik-stempel-hvit-alpha.png" alt="Innsamlingskontrollen" />
+            <img className="innsamlingskontrollen-img" src="/ik-stempel-hvit-alpha.png" alt="Innsamlingskontrollen" />
             <p>Medlem av Innsamlingskontrollen</p>
           </div>
           <p className="copyright">© Yvonne Helland 2021</p>

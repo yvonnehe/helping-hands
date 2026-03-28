@@ -20,6 +20,71 @@ a {
   box-sizing: border-box;
 }
 
+// Prevent layout shifts by maintaining aspect ratios
+img:not(.navbar__logo):not(.icon):not(.innsamlingskontrollen-img) {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Modern aspect-ratio approach for better responsive behavior
+@supports (aspect-ratio: 1) {
+
+  // Grid images (square thumbnails)
+  .img-wrap img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1; // 1:1 square ratio
+    object-fit: cover;
+  }
+
+  // Page images with specific aspect ratios
+  img[alt*="team"] {
+    aspect-ratio: 900 / 655;
+  }
+
+  // Team photo
+  img[alt*="Gladness"] {
+    aspect-ratio: 775 / 775;
+  }
+
+  // Gladness portrait
+  img[alt*="uniformer på hodet"] {
+    aspect-ratio: 800 / 1040;
+  }
+
+  // Contact page
+  img[alt*="holder barnet sitt"] {
+    aspect-ratio: 800 / 668;
+  }
+
+  // How to help page 1
+  img[alt*="holder hender"] {
+    aspect-ratio: 860 / 718;
+  }
+
+  // How to help page 2
+  img[alt*="nye uniformer"] {
+    aspect-ratio: 800 / 669;
+  }
+
+  // Projects page 1
+  img[alt*="nye rullestol"] {
+    aspect-ratio: 975 / 815;
+  }
+
+  // Projects page 2
+}
+
+// Fallback for older browsers - remove fixed dimensions
+@supports not (aspect-ratio: 1) {
+  .img-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
 h1 {
   font-family: "open-sans-condensed", sans-serif;
   color: white;

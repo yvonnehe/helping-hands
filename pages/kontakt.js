@@ -32,12 +32,13 @@ const Kontakt = () => {
             <img
               src="/gladness-carrying-uniforms.jpg"
               alt="Gladness som bærer uniformer på hodet"
-              width="100%"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
       </div>
-      </div>
+    </div>
     </>
   );
 };

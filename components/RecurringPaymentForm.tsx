@@ -431,7 +431,7 @@ const RecurringPaymentForm = () => {
                         <div className="col-md-6">
                             {selectedImage &&
                                 <>
-                                    <img src={selectedImage} className="selected-child-img" alt="Valgt fadderbarn" />
+                                    <img src={selectedImage} className="selected-child-img" alt="Valgt fadderbarn" loading="lazy" decoding="async" />
                                     {(() => {
                                         const selected = fadderbarnList.find(barn => barn.name === step1Form.getValues("child"));
                                         return selected?.description ? (

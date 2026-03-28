@@ -39,7 +39,7 @@ const MerInfo = ({ Img, setImg, Name, setName, Desc, setDesc, Amount }) => {
         <button onClick={exit} className="close-btn" tabIndex="0" ref={closeBtnRef}>
           &times;
         </button>
-        <img src={Img} alt={Name} />
+        <img src={Img} alt={Name} decoding="async" />
         <h4 className="name">{Name}</h4>
         <p className="desc">{Desc}</p>
 

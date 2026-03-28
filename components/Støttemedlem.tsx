@@ -245,7 +245,7 @@ const StotteMedlem = () => {
                             </form>
                         </div>
                         <div className="col-md-6">
-                            <img src="/Miriam1.jpg" alt="Miriam" className="selected-child-img" />
+                            <img src="/Miriam1.jpg" alt="Miriam" className="selected-child-img" loading="lazy" decoding="async" />
                         </div>
                     </div>
                 </div>

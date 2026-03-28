@@ -16,7 +16,7 @@ const Andre = ({ setImg, setName, setDesc, setAmount }) => {
             setAmount(person.amount);
           }}
         >
-          <img src={person.image} alt={person.name} />
+          <img src={person.image} alt={person.name} loading="lazy" decoding="async" />
         </div>
       ))}
     </div>

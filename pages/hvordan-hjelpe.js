@@ -47,19 +47,21 @@ const HvordanHjelpe = () => {
             <img
               src="/helping-hands-woman-and-child.jpg"
               alt="Tanzaniansk kvinne holder barnet sitt"
-              width="100%"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
-        </div>
-        </div>
-        <div className="container-fluid">
-        <div className="hvordanhjelpe2 row flex-column-reverse flex-md-row">
+      </div>
+    </div>
+    <div className="container-fluid">
+      <div className="hvordanhjelpe2 row flex-column-reverse flex-md-row">
           <div className="col-md-6 my-auto">
             <img
               src="/helping-hands-kids.jpg"
               alt="Tanzanianske barn går til skolen mens de holder hender"
-              width="100%"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="col-md-6">

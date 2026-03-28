@@ -44,22 +44,24 @@ const OmOss = () => {
             <img
               src="/helping-hands-team.JPG"
               alt="Helping Hands teamet"
-              width="100%"
+              loading="lazy"
+              decoding="async"
             />
             <p className="imagedescription">
               Fra venstre: Daniélla, Gladness og Yvonne
             </p>
           </div>
         </div>
-        </div>
-        </div>
-        <div className="container-fluid">
-        <div className="gladness row flex-column-reverse flex-lg-row">
+      </div>
+    </div>
+    <div className="container-fluid">
+      <div className="gladness row flex-column-reverse flex-lg-row">
           <div className="col-lg-6 my-auto">
             <img
               src="/Gladness.jpg"
               alt="Gladness - En Tanzaniansk kvinne smiler i gul kjole med afrikansk mønster"
-              width="100%"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="col-lg-6">

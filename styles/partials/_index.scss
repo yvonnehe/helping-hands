@@ -6,6 +6,12 @@
   background-position: 50% 50%;
   margin-top: -35px;
 
+  // Modern responsive background images
+  @supports (image-set: url("test.webp")) {
+    background-image: image-set(url("../../public/helping-hands-two-boys.jpg") 1x,
+        url("../../public/helping-hands-two-boys.jpg") 2x);
+  }
+
   &__p {
     color: white;
     text-shadow: 0px 0px 30px #000000;

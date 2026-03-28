@@ -9,9 +9,9 @@ const NextHead = ({ title, description, image = "/helping-hands-two-boys.jpg", u
       <meta name="keywords" content="fadderordning, hjelpe barn, veldedighet, Tanzania, skolegang" />
       <meta name="author" content="Helping Hands Norway" />
 
-      {/* Favicon */}
-      {/* <link rel="icon" href="/helping-hands-logo-icon.svg" />
-      <link rel="stylesheet" href="https://use.typekit.net/krv6awl.css"></link>  */}
+      
+      {/* Preload critical hero image */}
+      <link rel="preload" href="/helping-hands-two-boys.jpg" as="image" />
 
       {/* Open Graph Meta Tags (Facebook, LinkedIn, etc.) */}
       <meta property="og:title" content={title} />
