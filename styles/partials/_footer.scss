@@ -37,6 +37,22 @@ a.kontaktlink {
   }
 }
 
+a.footer-link {
+  padding: 0px;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0px;
+
+  &:hover {
+    color: #f96d11;
+  }
+
+  &:focus {
+    color: #f96d11;
+  }
+}
+
 .copyright {
   margin: 0;
   margin-top: -15px;
@@ -71,10 +87,21 @@ a.kontaktlink {
   margin-top: 5px;
 }
 
-
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 750px) {
   .footerdiv2 {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .footerdiv2>div {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .footerdiv2 {
+    grid-template-columns: 1fr;
     /* Stack items vertically */
     align-items: center;
     /* Optionally center the items horizontally */
@@ -82,21 +109,6 @@ a.kontaktlink {
   }
 
   .footerdiv2>div {
-    margin-bottom: 20px;
-    /* Add spacing between the stacked items */
-  }
-}
-
-@media screen and (max-width: 515px) {
-  .footerdiv {
-    flex-direction: column;
-    /* Stack items vertically */
-    align-items: center;
-    /* Optionally center the items horizontally */
-    text-align: center;
-  }
-
-  .footerdiv>div {
     margin-bottom: 20px;
     /* Add spacing between the stacked items */
   }

@@ -77,6 +77,15 @@ const Layout = ({ children }) => {
             <p className="footer-p">Vipps: 13947</p>
           </div>
           <div>
+            <p className="footer-p footer-heading">Juridisk</p>
+            <Link className="footer-link" href="/personvern">
+              Personvern
+            </Link>
+            <Link className="footer-link" href="/vilkar-donasjoner">
+              Vilkår for donasjoner
+            </Link>
+          </div>
+          <div>
             <p className="footer-p footer-heading">Følg oss</p>
             <div>
               <a
