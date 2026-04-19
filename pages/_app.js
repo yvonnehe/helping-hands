@@ -1,6 +1,7 @@
 import Layout from "../components/layout/Layout";
 import { Analytics } from '@vercel/analytics/react';
 import "bootstrap/dist/css/bootstrap.css";
+import "flag-icons/css/flag-icons.min.css";
 import "../styles/main.scss";
 
 function MyApp({ Component, pageProps }) {

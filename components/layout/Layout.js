@@ -14,6 +14,11 @@ const Layout = ({ children }) => {
           >
             Hopp til hovedinnhold
         </a>
+        <div className="language-flag">
+          <a href="https://helpinghandsnorway.com" aria-label="Switch to English" lang="en" className="buttonlink">
+            <span className="fi fi-gb"></span>
+          </a>
+        </div>
         <div className="navbar__logodiv">
           <Nav.Link href="/" className="nav-link next-img-fix">
             <Image

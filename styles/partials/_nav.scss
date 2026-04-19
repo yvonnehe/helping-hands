@@ -1,3 +1,24 @@
+.language-flag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  a {
+    display: inline-block;
+    font-size: 17px;
+    padding: 0px 0px 10px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;

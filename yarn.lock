@@ -1530,6 +1530,11 @@ fill-range@^7.1.1:
   dependencies:
     to-regex-range "^5.0.1"
 
+flag-icons@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/flag-icons/-/flag-icons-7.5.0.tgz#66462df3e8bc5ef3a283322a46bb9dde1b290505"
+  integrity sha512-kd+MNXviFIg5hijH766tt+3x76ele1AXlo4zDdCxIvqWZhKt4T83bOtxUOOMlTx/EcFdUMH5yvQgYlFh1EqqFg==
+
 follow-redirects@^1.15.6:
   version "1.15.9"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.9.tgz"
