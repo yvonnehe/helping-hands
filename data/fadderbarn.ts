@@ -8,27 +8,6 @@ export type FadderbarnData = {
 
 export const fadderbarnList: FadderbarnData[] = [
     {
-        name: "Mary",
-        image: "/fadderbarn/helping-hands-mary.jpg",
-        description: "Hun er 14 år gammel og går i 9. klasse. Hun bor med mor og 2 søsken. Hun trenger din hjelp. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd.",
-        amount: 150,
-        category: "fadderbarn",
-    },
-    {
-        name: "Salimu",
-        image: "/fadderbarn/helping-hands-salimu.jpg",
-        description: "Han er 13 år gammel og går i 7. klasse. Han bor med mor og 2 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
-        name: "Ali",
-        image: "/fadderbarn/helping-hands-ali.jpg",
-        description: "Han er 9 år og går i 3. klasse. Han bor med mor og fire søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
-        amount: 100,
-        category: "fadderbarn",
-    },
-    {
         name: "Yahaya",
         image: "/fadderbarn/helping-hands-yahaya.jpg",
         description: "Han er 11 år gammel og går i 5. klasse. Han bor med foreldrene og har 4 søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 100 kr i mnd.",
@@ -43,38 +22,10 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Sofia",
-        image: "/fadderbarn/helping-hands-sofia.jpg",
-        description: "Hun er 15 år gammel og går i 10. klasse. Hun bor med mor og ett søsken. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd.",
-        amount: 150,
-        category: "fadderbarn",
-    },
-    {
-        name: "Jasin",
-        image: "/fadderbarn/helping-hands-jasin.jpg",
-        description: "Hun er 15 år og går i 10. klasse. Hun bor med storesøster og to yngre barn fra slekten deres. Hun trenger hjelp til videre skolegang. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd.",
-        amount: 150,
-        category: "fadderbarn",
-    },
-    {
-        name: "Rashid",
-        image: "/fadderbarn/helping-hands-rashid.jpg",
-        description: "Han er 15 år gammel og går i 9. klasse. Han har 5 søsken. Han trenger hjelp til videre skolegang. For mat på skolen, sko, sekk, uniform og andre nødvendigheter koster det 150 kr i mnd.",
-        amount: 150,
-        category: "fadderbarn",
-    },
-    {
         name: "Jamal",
         image: "/fadderbarn/helping-hands-jamal.jpg",
-        description: "Han er 16 år og går i 10.klasse. Han bor med foreldrene og lillebror. Han har allerede en fadder, men trenger en til. For de resterende 100 kr støtter du han med mat på skolen, sko, sekk, uniform og andre nødvendigheter.",
+        description: "Han er 10 år gammel. Han bor med moren og storebroren. Han har også 2 storesøstre. Han går i 4. klasse. For 100 kr i mnd støtter du han med mat på skolen, uniform og alt annet han trenger i forbindelse med skolegangen.",
         amount: 100,
-        category: "fadderbarn",
-    },
-    {
-        name: "Amina",
-        image: "/fadderbarn/helping-hands-amina.jpg",
-        description: "Hun er 16 år gammel og vil gjerne bli skredder. Hun bor med bestemor og 4 søskenbarn/søsken. For utdannelsen og alt annet hun trenger i forbindelse med skolegangen, vil det koste 650 kr i mnd. Denne summen kan fint deles mellom flere faddere.",
-        amount: 650,
         category: "fadderbarn",
     },
     {
@@ -85,10 +36,17 @@ export const fadderbarnList: FadderbarnData[] = [
         category: "fadderbarn",
     },
     {
-        name: "Ndelekwa",
-        image: "/ndelekwa.jpg",
-        description: "Han er lam etter en ulykke. Han har ingen familie til å ta vare på seg. Litt tilbake i tid ble han alvorlig syk, og måtte bli innlagt. Nå blir han tatt vare på av en sykepleier. Du kan være fadder for Ndelekwa, med et valgfritt beløp i mnd.",
-        amount: 450,
-        category: "andre",
-    }
+        name: "Petro",
+        image: "/fadderbarn/helping-hands-petro.jpg",
+        description: "Han er 8 år gammel og går i 2.klasse. Han bor med moren. For 100 kr i mnd støtter du han med mat på skolen, uniform, hygieneprodukter og alt annet han trenger i forbindelse med skolegangen.",
+        amount: 100,
+        category: "fadderbarn",
+    },
+    // {
+    //     name: "Ndelekwa",
+    //     image: "/ndelekwa.jpg",
+    //     description: "Han er lam etter en ulykke. Han har ingen familie til å ta vare på seg. Litt tilbake i tid ble han alvorlig syk, og måtte bli innlagt. Nå blir han tatt vare på av en sykepleier. Du kan være fadder for Ndelekwa, med et valgfritt beløp i mnd.",
+    //     amount: 450,
+    //     category: "andre",
+    // }
 ];
