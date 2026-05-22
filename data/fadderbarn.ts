@@ -35,13 +35,6 @@ export const fadderbarnList: FadderbarnData[] = [
         amount: 170,
         category: "fadderbarn",
     },
-    {
-        name: "Petro",
-        image: "/fadderbarn/helping-hands-petro.jpg",
-        description: "Han er 8 år gammel og går i 2.klasse. Han bor med moren. For 100 kr i mnd støtter du han med mat på skolen, uniform, hygieneprodukter og alt annet han trenger i forbindelse med skolegangen.",
-        amount: 100,
-        category: "fadderbarn",
-    },
     // {
     //     name: "Ndelekwa",
     //     image: "/ndelekwa.jpg",
