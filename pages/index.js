@@ -2,6 +2,8 @@ import NextHead from "../components/NextHead";
 import Image from "next/legacy/image";
 
 export default function Home() {
+  const DONASJONER_LENKE = "https://qr.vipps.no/donations/13947";
+
   return (
     <>
       <NextHead 
@@ -19,10 +21,6 @@ export default function Home() {
           <a className="btn btn--orange" href="/fadderordning" aria-label="Les mer om vår fadderordning">
             LES MER
           </a>
-          {/* old button  */}
-          {/* <a className="buttonlink" href="/fadderordning">
-            <button className="btn btn--orange">LES MER</button>
-          </a> */}
         </div>
         </div>
       </div>
@@ -37,7 +35,12 @@ export default function Home() {
             </h3>
           </div>
           <div className="section1__2 col-lg-3 col-md-4 col-sm-6">
-            <a href="/vipps" aria-label="Gi engangsbeløp med Vipps" className="index-links">
+            <a href={DONASJONER_LENKE}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Gi engangsbeløp med Vipps, åpnes i Vipps"
+              className="index-links"
+            >
               <div className="boximage boximage--vipps"></div>
               <div className="boxtext boxtext--bidra">
                 <h4>Støtt med VIPPS</h4>

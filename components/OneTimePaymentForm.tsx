@@ -1,3 +1,4 @@
+// IKKE I BRUK
 'use client';
 
 import React, { useState, useEffect, useRef } from "react";
