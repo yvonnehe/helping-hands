@@ -1,3 +1,4 @@
+// IKKE I BRUK ELLER KUN TIL ÅRLIGE DONASJONER
 'use client';
 
 import React, { useEffect, useState } from "react";

@@ -5,6 +5,7 @@ import MerInfo from "../components/MerInfo";
 import { useState } from "react";
 
 const Fadderordning = () => {
+  const [Id, setId] = useState(null);
   const [Img, setImg] = useState(null);
   const [Name, setName] = useState(null);
   const [Desc, setDesc] = useState(null);
@@ -22,14 +23,16 @@ const Fadderordning = () => {
         <h2>Fadderordning</h2>
         <h3>Om fadderordningen</h3>
         <p className="fadderp">
-          Helping Hands' fadderordning er laget for å støtte barn og ungdom gjennom skolegangen – og i noen tilfeller også familier som trenger hjelp av spesielle grunner.
-          Vi ønsker å gi flest mulig barn og unge mulighet til skolegang og høyere utdanning.
+          Som fadder gir du et barn i Tanzania noe som varer, nemlig skolegang. 
+          Hver måned dekker du skole, utstyr og uniform, og følger barnet gjennom 
+          skoleårene. I noen tilfeller hjelper vi også familier som står i en 
+          spesielt vanskelig situasjon.
         </p>
         <p className="fadderp">
-          Dersom du ikke ønsker å være fadder for et spesifikt barn, kan du også kontakte oss 
-          for å bli månedlig giver. Da fordeler vi midlene der behovet er størst – 
-          for eksempel til barn uten fadder, ved sykdom, 
-          eller i andre krevende situasjoner.
+          Vil du ikke binde deg til ett bestemt barn, kan du bli månedlig giver. 
+          Da fordeler vi støtten din der behovet er størst, for eksempel til barn 
+          uten fadder, ved sykdom eller i andre krevende situasjoner. Det velger 
+          du rett i skjemaet.
         </p>
         {/* <p className="fadderp">
           <a href="/vipps-fadder" className="sponsor-link sunshinelink">
@@ -37,7 +40,7 @@ const Fadderordning = () => {
             så tar vi kontakt med deg!
         </p> */}
         <p className="fadderp">
-          Fyll ut fadderskjemaet for å bli fadder – og gi et barn en bedre fremtid.
+          Bli fadder i dag, og gi et barn muligheten til å fullføre skolen.
         </p>
         <a
           href={`/vipps-fadder`}
@@ -49,34 +52,28 @@ const Fadderordning = () => {
       </div>
       <div className="ledigefadder con">
         <h3>Venter på fadder</h3>
-        <Fadderbarn setImg={setImg} setName={setName} setDesc={setDesc} setAmount={setAmount} />
+        <Fadderbarn setId={setId} setImg={setImg} setName={setName} setDesc={setDesc} setAmount={setAmount} />
         {Img && (
           <MerInfo
+            Id={Id}
             Img={Img}
             setImg={setImg}
             Name={Name}
-            setName={setName}
             Desc={Desc}
-            setDesc={setDesc}
-            Amount={Amount}
-            setAmount={setAmount}
           />
         )}
       </div>
       {/* <div className="andrefadder">
         <div className="con andrefadder--padding">
         <h3>Andre med behov for ekstra støtte</h3>
-        <Andre setImg={setImg} setName={setName} setDesc={setDesc} setAmount={setAmount} />
+        <Andre setId={setId} setImg={setImg} setName={setName} setDesc={setDesc} setAmount={setAmount} />
         {Img && (
           <MerInfo
+            Id={Id}
             Img={Img}
             setImg={setImg}
             Name={Name}
-            setName={setName}
             Desc={Desc}
-            setDesc={setDesc}
-            Amount={Amount}
-            setAmount={setAmount}
           />
         )}
         </div>
@@ -95,17 +92,11 @@ const Fadderordning = () => {
           Hva skjer dersom jeg ikke lenger har mulighet til å være fadder?
         </h4>
         <p className="fadderp">
-          Dersom du må avslutte fadderskapet, betyr ikke det at barnet ditt 
-          plutselig står uten skolegang. Vi forplikter oss til barna vi støtter, 
-          og vil fortsette å følge dem opp.
-
-          Men det får konsekvenser for hvor mange barn vi har kapasitet til 
-          å hjelpe. Uten faste inntekter og faddere til å støtte arbeidet vårt, 
-          kan vi dessverre ikke love støtte til flere barn – selv om behovet er stort.
-
-          Vi har full forståelse for at livet går i faser – noen ganger har 
-          man mulighet til å bidra, andre ganger ikke. Dette skal ikke gå 
-          utover barna, men vår kapasitet til å hjelpe flere avhenger av støtten vi får.
+          Hvis du må avslutte, står ikke barnet plutselig uten skolegang. Vi 
+          forplikter oss til barna vi har tatt inn, og følger dem videre. Samtidig 
+          er det de faste fadderne som avgjør hvor mange nye barn vi kan si ja til. 
+          Vi vet at livet går i faser, så si fra i god tid hvis du må stoppe, så 
+          finner vi en løsning sammen.
         </p>
         <h4 className="h4-questions">Hvor ofte får jeg oppdateringer om fadderbarnet mitt?</h4>
         <p className="fadderp">
@@ -114,7 +105,7 @@ const Fadderordning = () => {
           trenger ekstra oppfølging. Andre studerer langt unna, og det kan 
           gjøre oppfølgingen mer sporadisk.
 
-          Vi gjør vårt beste for å holde fadderne oppdatert – men det er 
+          Vi gjør vårt beste for å holde fadderne oppdatert, men det er 
           viktig å vite at dette arbeidet skjer på frivillig basis og uten lønn. 
           Det betyr samtidig at alle pengene går direkte til barnet ditt og 
           til formålet vi har beskrevet.

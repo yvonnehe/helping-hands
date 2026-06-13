@@ -1,3 +1,4 @@
+// IKKE I BRUK?
 //import { tempStore } from "../../lib/tempStore";
 import { redis, redisKeyPrefix } from "../../lib/redis";
 

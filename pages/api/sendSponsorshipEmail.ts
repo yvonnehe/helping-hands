@@ -1,3 +1,4 @@
+// IKKE I BRUK ELLER KUN TIL ÅRLIGE DONASJONER
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
