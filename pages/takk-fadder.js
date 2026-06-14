@@ -19,7 +19,7 @@ const TakkFadder = () => {
   return (
     <>
       <NextHead
-        title="Takk - Helping Hands"
+        title="Nesten i mål - Helping Hands"
         description="Fullfør den faste donasjonen i Vipps."
       />
       <div className="kontakt">
@@ -28,13 +28,13 @@ const TakkFadder = () => {
             <p>Laster...</p>
           ) : ref ? (
             <>
-              <h2>Takk for at du vil bli fadder! 🧡</h2>
+              <h2>Nesten i mål</h2>
               <p>
-                {name
-                  ? `Du er nesten i mål med å bli fadder for ${name}.`
-                  : "Du er nesten i mål."}{" "}
                 Siste steg er å sette opp den faste donasjonen i Vipps. Der velger
-                du selv beløp og trekkdato.
+                du selv beløp og trekkdato.{" "}
+                {name
+                  ? `Takk for at du blir fadder for ${name}!`
+                  : "Takk for at du blir fadder!"}
               </p>
               <a
                 className="btn btn--orange"
