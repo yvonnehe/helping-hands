@@ -1,10 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
+// Gi funksjonen mer tid på Vercel, så den ikke kuttes ved 10 sekunder.
+export const config = { maxDuration: 30 };
+
 type Body = {
     name: string;
     email: string;
-    phoneNumber: string | null;
+    phoneNumber?: string | null;
     childId: string;
     childName: string;
     reference: string;
@@ -39,10 +42,13 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
             tls: {
                 ciphers: "SSLv3",
             },
+            connectionTimeout: 8000,
+            greetingTimeout: 8000,
+            socketTimeout: 8000,
         });
 
-        // Intern e-post til dere: koblingen mellom giver og barn.
-        await transporter.sendMail({
+        // Intern e-post til teamet.
+        const intern = transporter.sendMail({
             from: FROM,
             to: process.env.INFO_EMAIL,
             subject: `Ny fadderregistrering - ${body.name} (${body.reference})`,
@@ -55,7 +61,7 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
 
         Fadderbarn: ${body.childName} (id ${body.childId})
         Referanse: ${body.reference}
-        Foreslått beløp: ${body.suggestedAmount} NOK/mnd
+        Foreslått beløp: ${body.suggestedAmount} kr/mnd
 
         Samtykke: ${body.consentText}
         Samtykket: ${body.consentAt}
@@ -66,25 +72,25 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
       `,
         });
 
-        // Bekreftelse til giveren. Registrering, ikke en bekreftet avtale.
-        await transporter.sendMail({
+        // Bekreftelse til giveren.
+        const bekreftelse = transporter.sendMail({
             from: FROM,
             to: body.email,
             subject: "Takk for at du vil bli fadder - Helping Hands",
-            text: `
-        Hei ${body.name},
+            text: `Hei ${body.name},
 
-        Tusen takk for at du vil bli fadder for ${body.childName}.
+Tusen takk for at du vil bli fadder for ${body.childName}.
 
-        Fullfør den faste donasjonen i Vipps for å sette avtalen i gang.
-        Du velger selv beløp og trekkdato der.
+Fullfør den faste donasjonen i Vipps for å sette avtalen i gang. Du velger selv beløp og trekkdato der.
 
-        Vi tar kontakt med informasjon om fadderbarnet ditt.
+Vi tar kontakt med informasjon om fadderbarnet ditt.
 
-        Varme hilsener
-        Helping Hands
-      `,
+Varme hilsener
+Helping Hands`,
         });
+
+        // Send begge parallelt, så ventetiden halveres.
+        await Promise.all([intern, bekreftelse]);
 
         return res.status(200).json({ message: "Registrering mottatt" });
     } catch (error: any) {
