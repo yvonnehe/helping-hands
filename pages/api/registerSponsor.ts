@@ -7,10 +7,8 @@ export const config = { maxDuration: 30 };
 type Body = {
     name: string;
     email: string;
-    childId: string;
     childName: string;
     reference: string;
-    suggestedAmount: number;
     consent: boolean;
     consentText: string;
     consentAt: string;
@@ -57,9 +55,8 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
         Navn: ${body.name}
         E-post: ${body.email}
 
-        Fadderbarn: ${body.childName} (id ${body.childId})
+        Fadderbarn: ${body.childName}
         Referanse: ${body.reference}
-        Foreslått beløp: ${body.suggestedAmount} kr/mnd
 
         Samtykke: ${body.consentText}
         Samtykket: ${body.consentAt}
