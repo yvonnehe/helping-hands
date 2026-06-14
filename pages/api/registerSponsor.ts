@@ -7,7 +7,6 @@ export const config = { maxDuration: 30 };
 type Body = {
     name: string;
     email: string;
-    phoneNumber?: string | null;
     childId: string;
     childName: string;
     reference: string;
@@ -57,7 +56,6 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
 
         Navn: ${body.name}
         E-post: ${body.email}
-        Telefonnummer: ${body.phoneNumber ?? "ikke oppgitt"}
 
         Fadderbarn: ${body.childName} (id ${body.childId})
         Referanse: ${body.reference}
