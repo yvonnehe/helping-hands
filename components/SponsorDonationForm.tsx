@@ -18,7 +18,7 @@ const VERDI_GENERELL = "manedlig-giver";
 
 const visningsnavn = (id: string) => {
     if (id === VERDI_FORSLAG) return "Vårt forslag til barn";
-    if (id === VERDI_GENERELL) return "Månedlig giver";
+    if (id === VERDI_GENERELL) return "Der behovet er størst";
     return fadderbarnList.find((b) => String(b.id) === String(id))?.name ?? id;
 };
 
@@ -119,7 +119,7 @@ const SponsorDonationForm = () => {
                 consentAt: new Date().toISOString(),
             });
 
-            const params = new URLSearchParams({ ref: reference, name: barn?.name ?? "" });
+            const params = new URLSearchParams({ ref: reference, name: barn?.name ?? "", img: barn?.image ?? "" });
             window.location.href = `/takk-fadder?${params.toString()}`;
         } catch (error) {
             console.error("Feil ved registrering:", error);
@@ -150,7 +150,7 @@ const SponsorDonationForm = () => {
                                         >
                                             <option value="">Velg fadderbarn</option>
                                             <option value={VERDI_FORSLAG}>La oss komme med et forslag</option>
-                                            <option value={VERDI_GENERELL}>Månedlig giver</option>
+                                            <option value={VERDI_GENERELL}>Der behovet er størst</option>
                                             {fadderbarnList.map((barn) => (
                                                 <option key={barn.id} value={barn.id}>{barn.name}</option>
                                             ))}

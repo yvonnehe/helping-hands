@@ -16,6 +16,13 @@ type Body = {
 
 const FROM = `Helping Hands <${process.env.INFO_EMAIL}>`;
 
+// Hvilken type registrering ut fra referansens prefiks.
+function typeAvValg(reference: string): "generell" | "forslag" | "barn" {
+    if (reference.startsWith("fadder-generell")) return "generell";
+    if (reference.startsWith("fadder-forslag")) return "forslag";
+    return "barn";
+}
+
 async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ message: "Method Not Allowed" });
@@ -26,6 +33,23 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
     if (!body?.email || !body?.name || body?.consent !== true) {
         return res.status(400).json({ error: "Mangler navn, e-post eller samtykke" });
     }
+
+    const valg = typeAvValg(body.reference);
+
+    const internBarn =
+        valg === "generell" ? "Der behovet er størst"
+            : valg === "forslag" ? "Vårt forslag (ikke valgt barn)"
+                : body.childName;
+
+    const giverTakk =
+        valg === "generell" ? "Tusen takk for at du vil støtte der behovet er størst."
+            : valg === "forslag" ? "Tusen takk for at du vil bli fadder."
+                : `Tusen takk for at du vil bli fadder for ${body.childName}.`;
+
+    const giverOppfolging =
+        valg === "generell" ? "Vi holder deg oppdatert om arbeidet vårt."
+            : valg === "forslag" ? "Vi finner et barn som passer, og tar kontakt med informasjon om fadderbarnet ditt."
+                : "Vi tar kontakt med informasjon om fadderbarnet ditt.";
 
     try {
         const transporter = nodemailer.createTransport({
@@ -55,7 +79,7 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
         Navn: ${body.name}
         E-post: ${body.email}
 
-        Fadderbarn: ${body.childName}
+        Valg: ${internBarn}
         Referanse: ${body.reference}
 
         Samtykke: ${body.consentText}
@@ -74,11 +98,11 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
             subject: "Takk for at du vil bli fadder - Helping Hands",
             text: `Hei ${body.name},
 
-Tusen takk for at du vil bli fadder for ${body.childName}.
+${giverTakk}
 
 Fullfør den faste donasjonen i Vipps for å sette avtalen i gang. Du velger selv beløp og trekkdato der.
 
-Vi tar kontakt med informasjon om fadderbarnet ditt.
+${giverOppfolging}
 
 Varme hilsener
 Helping Hands`,
