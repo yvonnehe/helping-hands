@@ -14,6 +14,8 @@ type Body = {
     consentAt: string;
 };
 
+const FROM = `Helping Hands <${process.env.INFO_EMAIL}>`;
+
 async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ message: "Method Not Allowed" });
@@ -41,7 +43,7 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
 
         // Intern e-post til dere: koblingen mellom giver og barn.
         await transporter.sendMail({
-            from: process.env.INFO_EMAIL,
+            from: FROM,
             to: process.env.INFO_EMAIL,
             subject: `Ny fadderregistrering - ${body.name} (${body.reference})`,
             text: `
@@ -66,7 +68,7 @@ async function registerSponsorHandler(req: NextApiRequest, res: NextApiResponse)
 
         // Bekreftelse til giveren. Registrering, ikke en bekreftet avtale.
         await transporter.sendMail({
-            from: process.env.INFO_EMAIL,
+            from: FROM,
             to: body.email,
             subject: "Takk for at du vil bli fadder - Helping Hands",
             text: `
