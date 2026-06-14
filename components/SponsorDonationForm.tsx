@@ -16,6 +16,15 @@ const CONSENT_TEXT =
 const VERDI_FORSLAG = "vart-forslag";
 const VERDI_GENERELL = "manedlig-giver";
 
+const visningsnavn = (id: string) => {
+    if (id === VERDI_FORSLAG) return "Vårt forslag til barn";
+    if (id === VERDI_GENERELL) return "Månedlig giver";
+    return fadderbarnList.find((b) => String(b.id) === String(id))?.name ?? id;
+};
+
+// Kort, unik token per registrering. a-z og 0-9, trygt i referansen.
+const lagToken = () => Math.random().toString(36).slice(2, 8);
+
 const step1Schema = yup.object({
     child: yup.string().required("Velg et fadderbarn"),
     amount: yup.number()
@@ -27,35 +36,13 @@ const step1Schema = yup.object({
 const step2Schema = yup.object({
     name: yup.string().required("Navn er påkrevd"),
     email: yup.string().email("Ugyldig e-post").required("E-post er påkrevd"),
-    phoneNumber: yup.string()
-        .test("isValidPhone", "Telefonnummeret må være gyldig", (value) => {
-            if (!value) return true; // valgfritt
-            const cleaned = value.replace(/\D/g, "");
-            return cleaned.length === 8 || (cleaned.startsWith("47") && cleaned.length === 10);
-        })
-        .notRequired(),
     consent: yup.boolean().oneOf([true], "Du må samtykke for å fortsette").required(),
 }).required();
-
-const formatPhoneNumber = (phone: string) => {
-    let cleaned = phone.replace(/\D/g, "");
-    if (cleaned.length === 8) {
-        cleaned = `47${cleaned}`;
-    } else if (cleaned.startsWith("47") && cleaned.length > 10) {
-        cleaned = cleaned.substring(0, 10);
-    }
-    if (cleaned.length !== 10) return { cleaned, formatted: phone };
-    return {
-        cleaned,
-        formatted: `+47 ${cleaned.substring(2, 5)} ${cleaned.substring(5, 7)} ${cleaned.substring(7)}`,
-    };
-};
 
 const SponsorDonationForm = () => {
     const [step, setStep] = useState(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    const [formattedPhone, setFormattedPhone] = useState("");
     const detailsHeadingRef = useRef<HTMLHeadingElement>(null);
 
     const searchParams = useSearchParams();
@@ -71,7 +58,7 @@ const SponsorDonationForm = () => {
 
     const step2Form = useForm({
         resolver: yupResolver(step2Schema),
-        defaultValues: { name: "", email: "", phoneNumber: "", consent: false },
+        defaultValues: { name: "", email: "", consent: false },
     });
 
     useEffect(() => {
@@ -94,18 +81,6 @@ const SponsorDonationForm = () => {
         }
     }, [selectedChild, step1Form]);
 
-    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormattedPhone(e.target.value);
-        step2Form.setValue("phoneNumber", e.target.value);
-    };
-
-    const handlePhoneBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-        const { cleaned, formatted } = formatPhoneNumber(e.target.value);
-        setFormattedPhone(formatted);
-        step2Form.setValue("phoneNumber", cleaned);
-        step2Form.trigger("phoneNumber");
-    };
-
     const handleStep1Submit = () => setStep(2);
 
     useEffect(() => {
@@ -122,16 +97,19 @@ const SponsorDonationForm = () => {
             const childId = step1Form.getValues("child");
             const barn = fadderbarnList.find((b) => String(b.id) === String(childId));
 
-            const reference = barn
+            const baseRef = barn
                 ? buildSporingskode(barn)
                 : childId === VERDI_FORSLAG
                     ? SPORING_FORSLAG
                     : SPORING_GENERELL;
 
+            // Unik token per registrering, så hver giver treffes eksakt. Maks 50 tegn.
+            const token = lagToken();
+            const reference = `${baseRef.slice(0, 50 - token.length - 1)}-${token}`;
+
             await axios.post("/api/registerSponsor", {
                 name: data.name,
                 email: data.email,
-                phoneNumber: data.phoneNumber ? data.phoneNumber.replace(/\D/g, "") : null,
                 childId,
                 childName: barn?.name ?? childId,
                 reference,
@@ -215,8 +193,8 @@ const SponsorDonationForm = () => {
                                     <div className="selected-info-card">
                                         <p>
                                             <strong>Ditt valg:</strong>{" "}
-                                            {fadderbarnList.find((b) => String(b.id) === String(step1Form.getValues("child")))?.name ?? step1Form.getValues("child")}
-                                            , {step1Form.getValues("amount")} NOK/mnd (foreslått)
+                                            {visningsnavn(step1Form.getValues("child"))}
+                                            , {step1Form.getValues("amount")} kr/mnd (du velger i Vipps)
                                         </p>
                                     </div>
 
@@ -249,25 +227,6 @@ const SponsorDonationForm = () => {
                                         />
                                         {step2Form.formState.errors.email && (
                                             <p id="email-error" className="errorMessage">{step2Form.formState.errors.email.message}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="form-group">
-                                        <label htmlFor="phoneNumber">Telefonnummer (valgfritt)</label>
-                                        <input
-                                            type="tel"
-                                            className="form-control"
-                                            id="phoneNumber"
-                                            placeholder="+47 XXX XX XXX"
-                                            {...step2Form.register("phoneNumber")}
-                                            value={formattedPhone}
-                                            onChange={handlePhoneChange}
-                                            onBlur={handlePhoneBlur}
-                                            autoComplete="tel"
-                                            aria-describedby={step2Form.formState.errors.phoneNumber ? "phoneNumber-error" : undefined}
-                                        />
-                                        {step2Form.formState.errors.phoneNumber && (
-                                            <p id="phoneNumber-error" className="errorMessage">{step2Form.formState.errors.phoneNumber.message}</p>
                                         )}
                                     </div>
 
